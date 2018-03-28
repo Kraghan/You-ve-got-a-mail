@@ -32,10 +32,13 @@ public class PlayerController : MonoBehaviour {
 
     private GameObject m_newspaperPool;
 
+    private Rigidbody m_rigidbody;
+
     void Start()
     {
         m_player = transform.gameObject;
         m_newspaperPool = new GameObject("Newspaper pool");
+        m_rigidbody = GetComponent<Rigidbody>();
     }
 
 	// Update is called once per frame
@@ -45,7 +48,8 @@ public class PlayerController : MonoBehaviour {
 
         NewspaperManager();
 
-        m_player.transform.position += new Vector3(1, 0, 0) * m_speed * Time.deltaTime;
+        m_rigidbody.velocity = new Vector3(1, 0, 0) * m_speed;
+        //m_player.transform.position +=  * Time.deltaTime;
 	}
 
     void SpeedManager()
@@ -104,8 +108,8 @@ public class PlayerController : MonoBehaviour {
                 joint.connectedBody = null;
                 Destroy(joint);
 
-                m_newspaperInHand.GetComponent<Rigidbody>().velocity = SteamVR_Controller.Input((int)m_controllerLeft.index).velocity;
-                m_newspaperInHand.GetComponent<Rigidbody>().angularVelocity = SteamVR_Controller.Input((int)m_controllerLeft.index).angularVelocity;
+                m_newspaperInHand.GetComponent<Rigidbody>().velocity = SteamVR_Controller.Input((int)m_controllerLeft.index).velocity + m_rigidbody.velocity;
+                m_newspaperInHand.GetComponent<Rigidbody>().angularVelocity = SteamVR_Controller.Input((int)m_controllerLeft.index).angularVelocity + m_rigidbody.angularVelocity;
             }
             m_newspaperInHand.transform.parent = m_newspaperPool.transform;
             m_newspaperInHand = null;
