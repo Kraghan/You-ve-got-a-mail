@@ -63,3 +63,13 @@ public class MailController : MonoBehaviour
         }
     }
 }
+
+/*
+ * + Sympathique
+ * + Réfléchi
+ * + Pédagogue
+ * 
+ * - Ecoute peu
+ * - Trop confiant
+ * - Difficulté à me faire comprendre
+ */
