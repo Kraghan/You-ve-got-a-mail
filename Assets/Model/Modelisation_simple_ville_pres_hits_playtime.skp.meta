@@ -1,23 +1,58 @@
 fileFormatVersion: 2
-guid: a02c595b1876d374aaf4ba16a8045723
-timeCreated: 1522166038
+guid: a8c9f8975d16a2c40b0335b7326dff9a
+timeCreated: 1522948679
 licenseType: Free
-ModelImporter:
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000003000000040000000500000006000000
+  assetHash:
+    serializedVersion: 2
+    Hash: c93631e40f21d8fa4aee5544d57cd3d9
+  longitude: 2.333
+  latitude: 48.867
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 128.30316, y: 67.55735, z: 5.7320266}
+      lookAt: {x: 167.29002, y: 0.035830837, z: 295.61755}
+      up: {x: 0.029981146, y: 0.9743747, z: 0.22292383}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: default
-    100002: //RootNode
-    400000: default
-    400002: //RootNode
-    2100000: defaultMat
-    2300000: default
-    3300000: default
-    4300000: default
+    100000: Chris
+    100002: Group 3
+    100004: //RootNode
+    400000: Chris
+    400002: Group 3
+    400004: //RootNode
+    2100000: _defaultMat
+    2100002: '[0010_Snow]'
+    2100004: '[Chris_Shirt]'
+    2100006: '[Chris_Shoe]'
+    2100008: '[Chris_Skin]'
+    2100010: '[Chris_Shoe_Sole]'
+    2100012: '[Chris_Hair]'
+    2100014: '[Chris_Pants]'
+    2300000: Chris
+    2300002: Group 3
+    2300004: //RootNode
+    3300000: Chris
+    3300002: Group 3
+    3300004: //RootNode
+    4300000: Mesh Modelisation_simple_ville_pres_hits_playtime
+    4300002: Mesh Group 3
+    4300004: Mesh Chris
   externalObjects: {}
   materials:
     importMaterials: 1
-    materialName: 0
-    materialSearch: 1
+    materialName: 2
+    materialSearch: 0
     materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
@@ -43,7 +78,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.0254
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
@@ -68,7 +103,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

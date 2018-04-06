@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MailBox : MonoBehaviour {
+public class BasicMailBox : MonoBehaviour {
 
     private Material m_debugMaterial;
     private GameObject m_letterIn;
     private Vector3 m_oldPosition;
+    [SerializeField]
     private Timer m_timer;
 
 	// Use this for initialization
@@ -22,7 +23,9 @@ public class MailBox : MonoBehaviour {
             return;
 
         if (Vector3.Distance(m_oldPosition, m_letterIn.transform.position) < 0.5f)
+        {
             m_timer.UpdateTimer();
+        }
         else
         {
             m_timer.Restart();
@@ -40,7 +43,7 @@ public class MailBox : MonoBehaviour {
     {
         if(other.gameObject.CompareTag("Mail"))
         {
-            if(!m_letterIn)
+            if (!m_letterIn)
                 m_letterIn = other.gameObject;
         }
     }
@@ -49,7 +52,7 @@ public class MailBox : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Mail"))
         {
-            if(other.gameObject.GetInstanceID() == m_letterIn.GetInstanceID())
+            if (other.gameObject.GetInstanceID() == m_letterIn.GetInstanceID())
                 m_letterIn = null;
 
         }

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Timer : MonoBehaviour {
+[System.Serializable]
+public class Timer {
     
     float m_timeElapsed = 0;
     [SerializeField]
@@ -31,5 +32,10 @@ public class Timer : MonoBehaviour {
     public bool IsTimedOut()
     {
         return m_timeElapsed >= m_timeToReach;
+    }
+
+    public float GetRatio()
+    {
+        return m_timeElapsed / m_timeToReach;
     }
 }
