@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(ArduinoConnect))]
-[RequireComponent(typeof(BikeController))]
+[RequireComponent(typeof(BicycleController))]
 public class PlayerController : MonoBehaviour {
     
     [Header("Handlebar")]
@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour {
     private GameObject m_handleBar;
     [SerializeField]
     private bool m_inverted;
-    private float m_previousAngle = 0;
 
     [Header("Motor wheel")]
     [SerializeField]
@@ -24,12 +23,12 @@ public class PlayerController : MonoBehaviour {
 
     private float m_speed;
     private float m_nextTargetSpeed;
-    private BikeController m_bikeController;
+    private BicycleController m_bikeController;
 
     void Start()
     {   
         m_arduino = GetComponent<ArduinoConnect>();
-        m_bikeController = GetComponent<BikeController>();
+        m_bikeController = GetComponent<BicycleController>();
         m_updateRateSpeed.Start();
     }
 
@@ -38,7 +37,8 @@ public class PlayerController : MonoBehaviour {
     {
         SpeedManagerArduino();
         OrientationManagerArduino();
-	}
+
+    }
 
     void SpeedManagerArduino()
     {
@@ -55,14 +55,13 @@ public class PlayerController : MonoBehaviour {
                 Debug.LogWarning("Unable to convert data" + read);
                 return;
             }
-            Debug.Log(rotationSinceLastCheck);
-            m_speed = m_bikeController.GetMotorTorqueRatio();
+            //m_speed = m_bikeController.GetMotorTorqueRatio();
             m_nextTargetSpeed = Mathf.Clamp(rotationSinceLastCheck, 0, m_maxRPM) / m_maxRPM;
         }
 
         float actualSpeed = Mathf.Lerp(m_speed, m_nextTargetSpeed, m_updateRateSpeed.GetRatio());
         //Debug.Log(actualSpeed);
-        m_bikeController.SetMotorTorqueRatio(actualSpeed);
+        m_bikeController.SetMotorInput(actualSpeed);
 
     }
 
@@ -81,16 +80,6 @@ public class PlayerController : MonoBehaviour {
         if (m_inverted)
             positionPotentiometer *= -1;
 
-        MeshRenderer[] renderers = m_handleBar.GetComponentsInChildren<MeshRenderer>();
-        foreach (MeshRenderer renderer in renderers)
-        {
-            renderer.transform.Rotate(Vector3.up, -m_previousAngle * m_bikeController.m_maxSteeringAngle);
-            renderer.transform.Rotate(Vector3.up, positionPotentiometer * m_bikeController.m_maxSteeringAngle);
-        }
-
-        m_previousAngle = positionPotentiometer;
-
-        m_bikeController.SetSteeringRatio(positionPotentiometer);
-        m_bikeController.SetSteeringRatio(0);
+        m_bikeController.SetSteerInput(positionPotentiometer);
     }
 }

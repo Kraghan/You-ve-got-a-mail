@@ -19,11 +19,11 @@ public class PlayerControllerVR : MonoBehaviour {
     private float m_speed = 0;
     private float m_rotation = 0;
     private float m_nextTargetSpeed;
-    private BikeController m_bikeController;
+    private BicycleController m_bikeController;
     
     void Start()
     {
-        m_bikeController = GetComponent<BikeController>();
+        m_bikeController = GetComponent<BicycleController>();
     }
 
 	// Update is called once per frame
@@ -32,9 +32,9 @@ public class PlayerControllerVR : MonoBehaviour {
         SpeedManagerVRController();
         OrientationManagerVRController();
 
-        m_bikeController.SetMotorTorqueRatio(m_speed);
-        m_bikeController.SetSteeringRatio(m_rotation);
-	}
+        m_bikeController.SetMotorInput(m_speed);
+        m_bikeController.SetSteerInput(m_rotation);
+    }
 
     void SpeedManagerVRController()
     {
