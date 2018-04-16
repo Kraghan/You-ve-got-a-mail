@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour {
 
     [Header("Motor wheel")]
     [SerializeField]
-    private uint m_maxRPM;
+    private float m_maxRPM;
     [SerializeField]
     private Timer m_updateRateSpeed;
 
@@ -48,20 +48,18 @@ public class PlayerController : MonoBehaviour {
             m_updateRateSpeed.Restart();
             m_arduino.WriteToArduino("GET_WHEELSPEED");
 
-            string read = m_arduino.ReadFromArduino(2);
+            string read = m_arduino.ReadFromArduino(50);
             int rotationSinceLastCheck;
             if (!int.TryParse(read, out rotationSinceLastCheck))
             {
                 Debug.LogWarning("Unable to convert data" + read);
                 return;
             }
-            //m_speed = m_bikeController.GetMotorTorqueRatio();
-            m_nextTargetSpeed = Mathf.Clamp(rotationSinceLastCheck, 0, m_maxRPM) / m_maxRPM;
+            float rotation = Mathf.Clamp(rotationSinceLastCheck, 0, m_maxRPM);
+            m_bikeController.SetMotorInput(rotation / m_maxRPM);
         }
-
-        float actualSpeed = Mathf.Lerp(m_speed, m_nextTargetSpeed, m_updateRateSpeed.GetRatio());
-        //Debug.Log(actualSpeed);
-        m_bikeController.SetMotorInput(actualSpeed);
+        
+        
 
     }
 
@@ -69,7 +67,7 @@ public class PlayerController : MonoBehaviour {
     {
         m_arduino.WriteToArduino("GET_HANDLEBAR");
 
-        string read = m_arduino.ReadFromArduino(2);
+        string read = m_arduino.ReadFromArduino(50);
         float ratio;
         if (!float.TryParse(read, out ratio))
         {

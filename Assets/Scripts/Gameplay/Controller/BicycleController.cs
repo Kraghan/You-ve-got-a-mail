@@ -173,9 +173,11 @@ public class BicycleController : MonoBehaviour
         // Deceleration.
         if (Mathf.Abs(motorInput) <= .05f)
         {
-            brakingNow = false;
-            FrontWheelCollider.brakeTorque = (Brake) / 25f;
-            RearWheelCollider.brakeTorque = (Brake) / 25f;
+            brakingNow = true;
+            /*FrontWheelCollider.brakeTorque = (Brake) / 25f;
+            RearWheelCollider.brakeTorque = (Brake) / 25f;*/
+            FrontWheelCollider.brakeTorque = Brake / 5f;
+            RearWheelCollider.brakeTorque = Brake;
         }
         else if (motorInput < 0 && !reversing)
         {

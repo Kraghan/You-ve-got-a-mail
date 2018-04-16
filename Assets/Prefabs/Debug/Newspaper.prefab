@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 54179476176050380}
   m_Layer: 10
   m_Name: Newspaper
-  m_TagString: Untagged
+  m_TagString: Mail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
