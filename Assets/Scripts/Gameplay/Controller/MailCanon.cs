@@ -20,8 +20,7 @@ public class MailCanon : MonoBehaviour
     [SerializeField]
     private float m_maxForce = 20;
     [SerializeField]
-    private float m_timeToReachMaxForce = 2;
-    private float m_timeElapsedForce = 0;
+    private Timer m_timeToReachMaxForce;
 
     private bool m_throwNewspaper = false;
 
@@ -42,36 +41,31 @@ public class MailCanon : MonoBehaviour
         {
             DrawBallisticCurve();
             m_throwNewspaper = true;
-            m_timeElapsedForce += Time.deltaTime;
+            m_timeToReachMaxForce.UpdateTimer();
         }
         else if (m_throwNewspaper && !Controller.GetPress(SteamVR_Controller.ButtonMask.Trigger))
         {
             GetComponent<LineRenderer>().enabled = false;
             ThrowNewspaper();
             m_throwNewspaper = false;
-            m_timeElapsedForce = 0;
+            m_timeToReachMaxForce.Restart();
         }
     }
 
     void DrawBallisticCurve()
     {
+        LineRenderer renderer = GetComponent<LineRenderer>();
+        if (!renderer)
+            return;
+
         List<Vector3> curvePoints = new List<Vector3>();
         float time = 0;
-        Vector3 origin = transform.position;
-
-        Transform[] childrenTransform = GetComponentsInChildren<Transform>();
-        Vector3 direction = new Vector3();
-        for (int i = 0; i < childrenTransform.Length; ++i)
-        {
-            if (childrenTransform[i].gameObject.name == "Pointer")
-            {
-                direction = childrenTransform[i].position - origin;
-            }
-        }
+        Vector3 direction = trackedObj.transform.forward;
         direction.Normalize();
 
-        float force = Mathf.Lerp(m_minForce, m_maxForce, Mathf.Clamp(m_timeElapsedForce / m_timeToReachMaxForce, 0, 1));
+        float force = Mathf.Lerp(m_minForce, m_maxForce, Mathf.Clamp(m_timeToReachMaxForce.GetRatio(), 0, 1));
 
+        Vector3 origin = trackedObj.transform.position;
         Vector3 position = CalculatePositionAtTime(time, origin, direction, force);
         while (position.y > 0 && curvePoints.Count < 50)
         {
@@ -80,8 +74,7 @@ public class MailCanon : MonoBehaviour
             position = CalculatePositionAtTime(time, origin, direction, force);
         }
         curvePoints.Add(position);
-
-        LineRenderer renderer = GetComponent<LineRenderer>();
+        
         renderer.positionCount = curvePoints.Count;
         renderer.SetPositions(curvePoints.ToArray());
         renderer.enabled = true;
@@ -89,18 +82,9 @@ public class MailCanon : MonoBehaviour
 
     void ThrowNewspaper()
     {
-        Vector3 origin = transform.position;
-        Transform[] childrenTransform = GetComponentsInChildren<Transform>();
-        Vector3 direction = new Vector3();
-        float force = Mathf.Lerp(m_minForce, m_maxForce, Mathf.Clamp(m_timeElapsedForce / m_timeToReachMaxForce, 0, 1));
+        float force = Mathf.Lerp(m_minForce, m_maxForce, Mathf.Clamp(m_timeToReachMaxForce.GetRatio(), 0, 1));
 
-        for (int i = 0; i < childrenTransform.Length; ++i)
-        {
-            if (childrenTransform[i].gameObject.name == "Pointer")
-            {
-                direction = childrenTransform[i].position - origin;
-            }
-        }
+        Vector3 direction = transform.forward;
         direction.Normalize();
 
         GameObject newspaper = Instantiate(m_newspaperPrefab);
