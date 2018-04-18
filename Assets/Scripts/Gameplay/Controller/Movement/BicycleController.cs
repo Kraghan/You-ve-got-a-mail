@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(Rigidbody))]
-
 public class BicycleController : MonoBehaviour
 {
 
@@ -59,11 +58,7 @@ public class BicycleController : MonoBehaviour
     private float RotationValue2 = 0f;
     [HideInInspector]
     public bool brakingNow = false;
-    [HideInInspector]
-    public float steerInput = 0f;
-    [HideInInspector]
-    public bool crashed = false;
-    private bool reversing = false;
+    private float steerInput = 0f;
 
     public GameObject pedal; // Bike pedal
 
@@ -116,12 +111,6 @@ public class BicycleController : MonoBehaviour
         //Freezing rotation by Z axis.
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0);
 
-        //Reverse bool
-        if (motorInput < 0 && transform.InverseTransformDirection(rigid.velocity).z < 0)
-            reversing = true;
-        else
-            reversing = false;
-
     }
 
     public void Bike_Controller()
@@ -148,23 +137,11 @@ public class BicycleController : MonoBehaviour
         {
             RearWheelCollider.motorTorque = 0;
         }
-        else if (!reversing)
+        else
         {
             RearWheelCollider.motorTorque = EngineTorque * Mathf.Clamp(motorInput, 0f, 1f);
         }
-
-        if (reversing)
-        {
-            if (Speed < 10)
-            {
-                RearWheelCollider.motorTorque = (EngineTorque * motorInput) / 5f;
-            }
-            else
-            {
-                RearWheelCollider.motorTorque = 0;
-            }
-        }
-
+        
     }
 
     public void Braking()
@@ -179,7 +156,7 @@ public class BicycleController : MonoBehaviour
             FrontWheelCollider.brakeTorque = Brake / 5f;
             RearWheelCollider.brakeTorque = Brake;
         }
-        else if (motorInput < 0 && !reversing)
+        else if (motorInput < 0)
         {
             brakingNow = true;
             FrontWheelCollider.brakeTorque = (Brake) * (Mathf.Abs(motorInput) / 5f);
@@ -316,11 +293,9 @@ public class BicycleController : MonoBehaviour
 
     }
 
-    void OnCollisionEnter(Collision collision)
+    public float GetMotorInput()
     {
-
-        crashed = true;
-
+        return motorInput;
     }
 
 }

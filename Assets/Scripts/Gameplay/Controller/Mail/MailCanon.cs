@@ -21,6 +21,8 @@ public class MailCanon : MonoBehaviour
     private float m_maxForce = 20;
     [SerializeField]
     private Timer m_timeToReachMaxForce;
+    [SerializeField]
+    private Rigidbody m_bikeBody;
 
     private bool m_throwNewspaper = false;
 
@@ -90,7 +92,10 @@ public class MailCanon : MonoBehaviour
         GameObject newspaper = Instantiate(m_newspaperPrefab);
         newspaper.transform.position = transform.position;
         newspaper.transform.rotation = transform.rotation;
-        newspaper.GetComponent<Rigidbody>().AddForce(direction * force, ForceMode.Impulse);
+        Rigidbody body = newspaper.GetComponent<Rigidbody>();
+        body.angularVelocity = m_bikeBody.angularVelocity;
+        body.velocity = m_bikeBody.velocity;
+        body.AddForce(direction * force, ForceMode.Impulse);
     }
 
     Vector3 CalculatePositionAtTime(float time, Vector3 origin, Vector3 directionNormalized, float speed)

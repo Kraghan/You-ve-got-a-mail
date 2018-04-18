@@ -17,6 +17,9 @@ public class CameraShooter : MonoBehaviour {
 
     private bool m_throwNewspaper = false;
 
+    [SerializeField]
+    private Rigidbody m_bikeBody;
+
     void Awake()
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
@@ -50,6 +53,9 @@ public class CameraShooter : MonoBehaviour {
         GameObject newspaper = Instantiate(m_newspaperPrefab);
         newspaper.transform.position = transform.position;
         newspaper.transform.rotation = transform.rotation;
-        newspaper.GetComponent<Rigidbody>().AddForce(direction * m_force, ForceMode.Impulse);
+        Rigidbody body = newspaper.GetComponent<Rigidbody>();
+        body.angularVelocity = m_bikeBody.angularVelocity;
+        body.velocity = m_bikeBody.velocity;
+        body.AddForce(direction * m_force, ForceMode.Impulse);
     }
 }
