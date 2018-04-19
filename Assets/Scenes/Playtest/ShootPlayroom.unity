@@ -2514,23 +2514,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 822224456}
---- !u!1 &860298891 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1716314092884712, guid: 5376b5e5a05d0cb429560355f382e94d,
-    type: 2}
-  m_PrefabInternal: {fileID: 1699244178}
---- !u!65 &860298892
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 860298891}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 12, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &872968421
 GameObject:
   m_ObjectHideFlags: 0
@@ -5091,11 +5074,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 958897801}
     m_Modifications:
-    - target: {fileID: 114042223022450886, guid: 5376b5e5a05d0cb429560355f382e94d,
-        type: 2}
-      propertyPath: m_scoreZone.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4487026350942508, guid: 5376b5e5a05d0cb429560355f382e94d, type: 2}
       propertyPath: m_LocalPosition.x
       value: -0.8484192
@@ -5128,51 +5106,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4487026350942508, guid: 5376b5e5a05d0cb429560355f382e94d, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.25000012
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487026350942508, guid: 5376b5e5a05d0cb429560355f382e94d, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.25000012
-      objectReference: {fileID: 0}
-    - target: {fileID: 114042223022450886, guid: 5376b5e5a05d0cb429560355f382e94d,
-        type: 2}
-      propertyPath: m_scoreZone.Array.data[0].m_score
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114042223022450886, guid: 5376b5e5a05d0cb429560355f382e94d,
-        type: 2}
-      propertyPath: m_scoreZone.Array.data[0].m_radius
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114042223022450886, guid: 5376b5e5a05d0cb429560355f382e94d,
-        type: 2}
-      propertyPath: m_scoreZone.Array.data[1].m_score
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114042223022450886, guid: 5376b5e5a05d0cb429560355f382e94d,
-        type: 2}
-      propertyPath: m_scoreZone.Array.data[1].m_radius
-      value: 0.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 114042223022450886, guid: 5376b5e5a05d0cb429560355f382e94d,
-        type: 2}
-      propertyPath: m_scoreZone.Array.data[2].m_score
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114042223022450886, guid: 5376b5e5a05d0cb429560355f382e94d,
-        type: 2}
-      propertyPath: m_scoreZone.Array.data[2].m_radius
-      value: 1.45
-      objectReference: {fileID: 0}
     - target: {fileID: 114042223022450886, guid: 5376b5e5a05d0cb429560355f382e94d,
         type: 2}
       propertyPath: m_ballPool
       value: 
       objectReference: {fileID: 110455441}
-    m_RemovedComponents:
-    - {fileID: 135667922388691230, guid: 5376b5e5a05d0cb429560355f382e94d, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5376b5e5a05d0cb429560355f382e94d, type: 2}
   m_IsPrefabParent: 0
 --- !u!21 &1755838648
