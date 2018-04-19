@@ -23,6 +23,8 @@ public class MailCanon : MonoBehaviour
     private Timer m_timeToReachMaxForce;
     [SerializeField]
     private Rigidbody m_bikeBody;
+    [SerializeField]
+    private GameObject m_pool;
 
     private bool m_throwNewspaper = false;
 
@@ -96,6 +98,7 @@ public class MailCanon : MonoBehaviour
         body.angularVelocity = m_bikeBody.angularVelocity;
         body.velocity = m_bikeBody.velocity;
         body.AddForce(direction * force, ForceMode.Impulse);
+        newspaper.transform.parent = m_pool.transform;
     }
 
     Vector3 CalculatePositionAtTime(float time, Vector3 origin, Vector3 directionNormalized, float speed)

@@ -47,6 +47,16 @@ public class CrashDetection : MonoBehaviour
         {
             m_crashed = true;
         }
+
+        Vector3 normalWall = Vector3.zero;
+
+        for(uint i = 0; i < collision.contacts.Length; ++i)
+        {
+            normalWall += collision.contacts[i].normal;
+        }
+        normalWall.Normalize();
+        
+        float angle = Mathf.Abs(Vector3.SignedAngle(normalWall, Quaternion.AngleAxis(180,Vector3.up) * transform.forward, Vector3.up));
     }
 
     public void OnCollisionExit(Collision collision)

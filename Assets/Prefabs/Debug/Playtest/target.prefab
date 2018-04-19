@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4487026350942508}
   - component: {fileID: 212258404425836570}
   - component: {fileID: 114042223022450886}
-  - component: {fileID: 135667922388691230}
+  - component: {fileID: 65993543931247714}
   m_Layer: 0
   m_Name: target
   m_TagString: Untagged
@@ -35,13 +35,25 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1716314092884712}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -25.17, y: 3.3, z: -0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.8484192, y: 0.60205483, z: -1.7305382}
+  m_LocalScale: {x: 0.25000012, y: 0.25, z: 0.25000012}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!65 &65993543931247714
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1716314092884712}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12, y: 12, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114042223022450886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,18 +66,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_triggered: 0
---- !u!135 &135667922388691230
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1716314092884712}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_scoreZone:
+  - m_score: 5
+    m_radius: 0.5
+  - m_score: 3
+    m_radius: 0.95
+  - m_score: 1
+    m_radius: 1.45
+  m_ballPool: {fileID: 0}
 --- !u!212 &212258404425836570
 SpriteRenderer:
   m_ObjectHideFlags: 1

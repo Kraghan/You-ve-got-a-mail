@@ -11,6 +11,8 @@ public class MailController : MonoBehaviour
     }
 
     private GameObject m_newspaperInHand;
+
+    [SerializeField]
     private GameObject m_newspaperPool;
 
     [SerializeField]
@@ -28,7 +30,7 @@ public class MailController : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        m_newspaperPool = new GameObject("Newspaper pool");
+        
     }
 	
 	// Update is called once per frame

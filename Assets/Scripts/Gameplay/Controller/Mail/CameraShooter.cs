@@ -20,6 +20,9 @@ public class CameraShooter : MonoBehaviour {
     [SerializeField]
     private Rigidbody m_bikeBody;
 
+    [SerializeField]
+    private GameObject m_pool;
+
     void Awake()
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
@@ -34,11 +37,11 @@ public class CameraShooter : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (SteamVR_Controller.Input((int)m_trackController.index).GetPress(SteamVR_Controller.ButtonMask.Trigger))
+        if (SteamVR_Controller.Input((int)m_trackController.index).GetPress(SteamVR_Controller.ButtonMask.Touchpad))
         {
             m_throwNewspaper = true;
         }
-        else if (m_throwNewspaper && !SteamVR_Controller.Input((int)m_trackController.index).GetPress(SteamVR_Controller.ButtonMask.Trigger))
+        else if (m_throwNewspaper && !SteamVR_Controller.Input((int)m_trackController.index).GetPress(SteamVR_Controller.ButtonMask.Touchpad))
         {
             ThrowNewspaper();
             m_throwNewspaper = false;
@@ -57,5 +60,6 @@ public class CameraShooter : MonoBehaviour {
         body.angularVelocity = m_bikeBody.angularVelocity;
         body.velocity = m_bikeBody.velocity;
         body.AddForce(direction * m_force, ForceMode.Impulse);
+        newspaper.transform.parent = m_pool.transform;
     }
 }
