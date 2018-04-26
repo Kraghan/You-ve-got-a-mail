@@ -1,10 +1,9 @@
 #include <SoftwareSerial.h>
 #include <TinkerKit.h>
-#include <SerialCommand.h>
+#include <Wire.h>
+#include "I2Cdev.h"
+#include "MPU6050.h"
 TKHallSensor magnetometer(I1);
-SerialCommand serialCommand;
-
-int potentiometterPin = 0;
 
 float handleBarPosition = 0;
 
@@ -14,51 +13,57 @@ int numberOfActivation = 0;
 
 bool inFrontOf = false;
 
+MPU6050 accelgyro;
+ 
+int16_t ax, ay, az;
+int16_t gx, gy, gz;
+
+unsigned long lastTime = 0;
+float calibrationValue = 0;
 void setup() 
 {  
+  Wire.begin(); 
   Serial.begin(9600);
   while (!Serial);
+  accelgyro.initialize();
 
-  serialCommand.addCommand("PING", pingHandler);
-  serialCommand.addCommand("GET_HANDLEBAR", handlebarHandler);
-  serialCommand.addCommand("GET_WHEELSPEED", wheelSpeedHandler);
+  lastTime = millis();
+  Serial.setTimeout(5);
 }
 
 void loop () 
 {
-  handleBarPosition = analogRead(potentiometterPin);
   
-  float magnetoVal = magnetometer.read();
+  String data = Serial.readString();
+  if(data == "Calibrate")
+  {
+    handleBarPosition = 0;
+  }
 
-  if(abs(magnetoVal - 512) >= 5)
+  
+  unsigned long currentTime = millis();
+  float elapsed = ((float)currentTime - lastTime) / 1000.f;
+  lastTime = currentTime;
+  accelgyro.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
+  handleBarPosition = 0.98*(handleBarPosition+float(gz)*elapsed/131) + 0.02*atan2((double)ax,(double)az)*180/PI;
+
+  //Serial.println(handleBarPosition);
+
+  float magnetoVal = magnetometer.read();
+  bool active = false;
+  if(abs(magnetoVal - 510) >= 5)
   {
     if(!inFrontOf)
-      numberOfActivation++; 
+      active = true; 
     inFrontOf = true;
   }
   else
     inFrontOf = false;
-  
-  if (Serial.available() > 0)
-    serialCommand.readSerial();
+  String str = "";
+  str += handleBarPosition - calibrationValue;
+  str += ";";
+  str += active;
+  Serial.println(str);
 }
 
-void pingHandler (const char *command) {
- Serial.println("PONG");
-}
-
-void handlebarHandler()
-{
-  //Serial.println(handleBarPosition / 1023.0);
-  Serial.println(511);
-}
-
-void wheelSpeedHandler()
-{
-  
-  unsigned long current = millis();
-  Serial.println(numberOfActivation);
-  lastCall = current;
-  numberOfActivation = 0;
-}
 

@@ -73,10 +73,10 @@ public class ArduinoConnect : MonoBehaviour {
         yield return null;
     }
 
-    public void Start()
+    public void Awake()
     {
         m_stream = new SerialPort(m_port, m_baudrate);
-        m_stream.ReadTimeout = 2;
+        m_stream.ReadTimeout = 5;
         m_stream.Open();
     }
 
