@@ -91,9 +91,7 @@ public class MailCanon : MonoBehaviour
         Vector3 direction = transform.forward;
         direction.Normalize();
 
-        GameObject newspaper = Instantiate(m_newspaperPrefab);
-        newspaper.transform.position = transform.position;
-        newspaper.transform.rotation = transform.rotation;
+        GameObject newspaper = Instantiate(m_newspaperPrefab, transform.position, transform.rotation) as GameObject;
         Rigidbody body = newspaper.GetComponent<Rigidbody>();
         body.angularVelocity = m_bikeBody.angularVelocity;
         body.velocity = m_bikeBody.velocity;
