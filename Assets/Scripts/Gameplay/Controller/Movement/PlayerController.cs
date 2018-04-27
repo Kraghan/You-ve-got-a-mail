@@ -68,16 +68,17 @@ public class PlayerController : MonoBehaviour {
         m_arduino.WriteToArduino("GET_HANDLEBAR");
 
         string read = m_arduino.ReadFromArduino(50);
-        float ratio;
-        if (!float.TryParse(read, out ratio))
+        float angle;
+        if (!float.TryParse(read, out angle))
         {
             Debug.LogWarning("Unable to convert data"+read);
             return;
         }
-        float positionPotentiometer = (ratio - 0.5f) * 2;
-        if (m_inverted)
-            positionPotentiometer *= -1;
+        float angle2 = m_bikeController.SteerAngle / 2;
 
-        m_bikeController.SetSteerInput(positionPotentiometer);
+        float ratio = Mathf.Lerp(-1, 1, (angle / 2 + angle2) / m_bikeController.SteerAngle);
+        if (m_inverted)
+            ratio *= -1;
+        m_bikeController.SetSteerInput(ratio);
     }
 }
