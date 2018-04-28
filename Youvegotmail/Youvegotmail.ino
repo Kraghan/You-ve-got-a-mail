@@ -8,7 +8,7 @@ TKHallSensor magnetometer(I1);
 float handleBarPosition = 0;
 
 unsigned long lastCall = 0;
-
+unsigned long lastTime = 0;
 int numberOfActivation = 0;
 
 bool inFrontOf = false;
