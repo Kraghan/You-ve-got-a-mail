@@ -139,7 +139,7 @@ public class BicycleController : MonoBehaviour
         }
         else
         {
-            RearWheelCollider.motorTorque = EngineTorque * Mathf.Clamp(motorInput, 0f, 1f);
+            RearWheelCollider.motorTorque = EngineTorque * motorInput;
         }
         
     }
@@ -153,8 +153,8 @@ public class BicycleController : MonoBehaviour
             brakingNow = true;
             /*FrontWheelCollider.brakeTorque = (Brake) / 25f;
             RearWheelCollider.brakeTorque = (Brake) / 25f;*/
-            FrontWheelCollider.brakeTorque = Brake / 5f;
-            RearWheelCollider.brakeTorque = Brake;
+            FrontWheelCollider.brakeTorque = Brake / 2.5f;
+            RearWheelCollider.brakeTorque = Brake / 2.5f;
         }
         else if (motorInput < 0)
         {

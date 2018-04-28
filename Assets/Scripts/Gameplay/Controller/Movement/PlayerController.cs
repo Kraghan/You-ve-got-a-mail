@@ -2,31 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class ImpulseWithTime
+{
+    public float m_time;
+    public int m_nbImpulse;
+
+    public ImpulseWithTime(float time, int nbImpulse)
+    {
+        m_time = time;
+        m_nbImpulse = nbImpulse;
+    }
+}
+
 [RequireComponent(typeof(BicycleController))]
 public class PlayerController : MonoBehaviour {
     
     [Header("Handlebar")]
     [SerializeField]
-    private Transform m_steerWheel;
-    [SerializeField]
-    private GameObject m_handleBar;
-    [SerializeField]
     private bool m_inverted;
+    [SerializeField]
+    private float m_sensibility = 2;
+    [SerializeField]
+    private float m_middleCap = 0.05f;
 
     [Header("Motor wheel")]
     [SerializeField]
+    private float m_impulsePerMagnet;
+    [SerializeField]
+    private float m_speedDecreaseRate;
+    [SerializeField]
     private float m_maxRPM;
-    [SerializeField]
-    private Timer m_updateRateSpeed;
 
-    [SerializeField]
-    private int m_timeOutArduino = 5;
-
-    private float m_speed = float.NaN;
-    private float m_nextTargetSpeed;
     private BicycleController m_bikeController;
-
-    private float m_startAngle = float.NaN;
 
     private List<int> m_speedStorage = new List<int>();
     private List<float> m_previousSpeed = new List<float>();
@@ -46,14 +53,15 @@ public class PlayerController : MonoBehaviour {
 
     wrmhl m_arduino = new wrmhl();
 
+    float timeSinceLastImpulse = 0;
+    List<ImpulseWithTime> m_lastImpulses = new List<ImpulseWithTime>();
+    List<float> m_lastRPM = new List<float>();
     void Start()
     {   
         m_bikeController = GetComponent<BicycleController>();
-        m_updateRateSpeed.Start();
 
         m_arduino.set(m_portName, m_baudRate, m_readTimeout, m_queueLenght);
         m_arduino.connect();
-        m_arduino.send("Calibrate");
     }
 
     void OnApplicationQuit()
@@ -62,13 +70,17 @@ public class PlayerController : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update ()
+    void FixedUpdate ()
     {
         string data = m_arduino.readQueue();
         string previousData = null;
-
+        int activation = 0;
         while (data != null)
         {
+            string[] splitted = data.Split(';');
+            int value;
+            if (int.TryParse(splitted[1], out value))
+                activation+=value;
             previousData = data;
             data = m_arduino.readQueue();
         }
@@ -81,62 +93,102 @@ public class PlayerController : MonoBehaviour {
         float rotation;
         if(float.TryParse(dataSplitted[0],out rotation))
             OrientationManagerArduino(rotation);
-        int speed;
-        if(int.TryParse(dataSplitted[1], out speed))
-            SpeedManagerArduino(speed);
+        int inFrontOfMagnet;
+        if (int.TryParse(dataSplitted[1], out inFrontOfMagnet))
+        {
+            activation += inFrontOfMagnet;
+            SpeedManagerArduino(activation);
+        }
     }
 
-    void SpeedManagerArduino(int rotationSinceLastCheck)
+    void SpeedManagerArduino(int nbImpulse)
     {
-        m_speedStorage.Add(rotationSinceLastCheck);
-        while (m_speedStorage.Count * m_updateRateSpeed.GetTimeToReach() > 0.25)
-            m_speedStorage.RemoveAt(0);
+        float motorInput = m_bikeController.GetMotorInput();
 
-        int rotationInHalfSecond = 0;
-        foreach (int value in m_speedStorage)
-            rotationInHalfSecond += value;
-            
-        float rotation = Mathf.Clamp(rotationInHalfSecond * 60, 0, m_maxRPM);
-
-        m_previousSpeed.Add(rotation);
-        if (m_previousSpeed.Count >= 10)
-            m_previousSpeed.RemoveAt(0);
-        if (rotationInHalfSecond == 0)
+        if (nbImpulse == 0)
+            timeSinceLastImpulse += Time.fixedDeltaTime;
+        else
         {
-            float value = 0;
-            for (int i = m_previousSpeed.Count - 1; i >= 0; --i)
+            timeSinceLastImpulse = 0;
+        }
+
+        m_lastImpulses.Add(new ImpulseWithTime(Time.fixedDeltaTime, nbImpulse));
+        float RPM = CalculateRPM();
+        m_lastRPM.Add(RPM);
+        if (m_lastRPM.Count > 5)
+            m_lastRPM.RemoveAt(0);
+
+        // start impulse
+        if (motorInput == 0)
+        {
+            for (int i = 0; i < nbImpulse; ++i)
             {
-                if (m_previousSpeed[i] != 0)
+                motorInput += m_impulsePerMagnet;
+            }
+        }
+        else
+        {
+            float rotations = Mathf.Clamp(RPM, 0, m_maxRPM);
+            motorInput = rotations / m_maxRPM;
+        }
+
+        // Prevent unvolontary stop
+        if(RPM == 0)
+        {
+            for(int i = m_lastRPM.Count - 1; i >= 0; i--)
+            {
+
+                if(m_lastRPM[i] != 0)
                 {
-                    value = m_previousSpeed[i];
+                    motorInput = m_lastRPM[i];
                     break;
                 }
             }
-            rotation = value;
         }
 
-        //Debug.Log("RPM : " + rotation);
+        if(motorInput == 0)
+        {
+            m_lastImpulses.Clear();
+        }
 
-        m_bikeController.SetMotorInput(rotation / m_maxRPM);
+        motorInput = Mathf.Clamp01(motorInput);
+
+        m_bikeController.SetMotorInput(motorInput);
 
     }
 
     void OrientationManagerArduino(float angle)
     {
-        if(float.IsNaN(m_startAngle))
-        {
-            m_startAngle = angle;
-            m_bikeController.SetSteerInput(0);
-            return;
-        }
-
         float angle2 = m_bikeController.SteerAngle / 2;
-        Debug.Log(angle + " - " + m_startAngle + " = " + (m_startAngle - angle));
-        Debug.Log(m_startAngle - angle);
 
-        float ratio = Mathf.Lerp(-1, 1, ((angle - m_startAngle) + angle2) / m_bikeController.SteerAngle);
+        float ratio = Mathf.Lerp(-1, 1, (angle / m_sensibility + angle2) / m_bikeController.SteerAngle);
         if (m_inverted)
             ratio *= -1;
+
+        if (Mathf.Abs(ratio) < m_middleCap)
+            ratio = 0;
+
         m_bikeController.SetSteerInput(ratio);
+    }
+
+    float CalculateRPM()
+    {
+        float rotations = 0;
+        float timeUnit = 0.25f;
+
+        // Clear oldest datas
+        float timeStored = 0;
+        for(int i = m_lastImpulses.Count - 1; i >= 0; --i)
+        {
+            if (timeStored >= timeUnit)
+            {
+                m_lastImpulses.RemoveRange(0, i + 1);
+                break;
+            }
+            rotations += m_lastImpulses[i].m_nbImpulse;
+            timeStored += m_lastImpulses[i].m_time;
+        }
+
+        return rotations ;
     }
 }

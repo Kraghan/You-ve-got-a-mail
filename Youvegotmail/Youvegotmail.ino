@@ -32,26 +32,19 @@ void setup()
 }
 
 void loop () 
-{
-  
-  String data = Serial.readString();
-  if(data == "Calibrate")
-  {
-    handleBarPosition = 0;
-  }
-
-  
+{  
   unsigned long currentTime = millis();
   float elapsed = ((float)currentTime - lastTime) / 1000.f;
   lastTime = currentTime;
   accelgyro.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
-  handleBarPosition = 0.98*(handleBarPosition+float(gz)*elapsed/131) + 0.02*atan2((double)ax,(double)az)*180/PI;
-
-  //Serial.println(handleBarPosition);
+  float movementAngle = float(gz)*elapsed/131.f;
+  
+  if(fabs(movementAngle) > 0.02f)
+    handleBarPosition = handleBarPosition + movementAngle;
 
   float magnetoVal = magnetometer.read();
   bool active = false;
-  if(abs(magnetoVal - 510) >= 5)
+  if(abs(magnetoVal - 512) >= 2)
   {
     if(!inFrontOf)
       active = true; 
@@ -59,6 +52,7 @@ void loop ()
   }
   else
     inFrontOf = false;
+
   String str = "";
   str += handleBarPosition - calibrationValue;
   str += ";";
