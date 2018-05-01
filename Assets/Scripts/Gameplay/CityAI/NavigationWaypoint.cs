@@ -14,20 +14,6 @@ public class NavigationWaypoint : MonoBehaviour
     private NavigationType m_type;
     [SerializeField]
     private NavigationWaypoint[] m_neighbours;
-    /*[SerializeField]
-    private float m_distanceAutoDetectNeighbours = 5;*/
-
-
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     private void OnDrawGizmosSelected()
     {
@@ -40,9 +26,36 @@ public class NavigationWaypoint : MonoBehaviour
         {
             if(m_neighbours[i] != null)
             {
-                Gizmos.color = Color.green;
-                Gizmos.DrawLine(transform.position, m_neighbours[i].transform.position);
+                Vector3 pos = transform.position;
+                Vector3 direction = m_neighbours[i].transform.position - transform.position;
+                Color color = Color.green;
+                float arrowHeadLength = 0.25f;
+                float arrowHeadAngle = 20;
+
+                Gizmos.color = color;
+                Gizmos.DrawRay(pos, direction);
+                Vector3 right = Quaternion.LookRotation(direction) * Quaternion.Euler(0, 180 + arrowHeadAngle, 0) * new Vector3(0, 0, 1);
+                Vector3 left = Quaternion.LookRotation(direction) * Quaternion.Euler(0, 180 - arrowHeadAngle, 0) * new Vector3(0, 0, 1);
+                Gizmos.DrawRay(pos + direction, right * arrowHeadLength);
+                Gizmos.DrawRay(pos + direction, left * arrowHeadLength);
             }
         }
+    }
+
+    public NavigationWaypoint GetRandomNeighbour()
+    {
+        int rnd = Random.Range(0, m_neighbours.Length);
+        if(m_neighbours[rnd] == null)
+        {
+            do
+            {
+                rnd--;
+            } while (rnd >= 0 && m_neighbours[rnd] == null);
+        }
+
+        if (rnd >= 0)
+            return m_neighbours[rnd];
+        else
+            return null;
     }
 }
