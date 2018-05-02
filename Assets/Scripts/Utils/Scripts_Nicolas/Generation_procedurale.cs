@@ -31,8 +31,9 @@ public class Generation_procedurale : MonoBehaviour {
 	private GameObject buildingclone;
 	private Object randbat;
 	private int sommebat;
-	private Vector3 randrot;
+	private int randrot;
 	private bool tryagain = true;
+	private Vector3 centrebat;
 
 	private int sens;
 
@@ -95,8 +96,6 @@ public class Generation_procedurale : MonoBehaviour {
                 vecbefore = noeuds[i - 1].position - noeuds[i].position;
                 vecafter = noeuds[i + 1].position - noeuds[i].position;
             }
-
-            Debug.Log((Vector3.SignedAngle(vecbefore, vecafter, Vector3.up)));
 
             //Pour se débarrasser des angles aigus
             if ((Vector3.SignedAngle (vecbefore, vecafter, Vector3.up) < 90) && (Vector3.SignedAngle (vecbefore, vecafter, Vector3.up) > 0)) {
@@ -344,27 +343,28 @@ public class Generation_procedurale : MonoBehaviour {
 
 			tryagain = true;
 
-			//Je met à jour la somme de la longueur des bâtiments
-			sommebat += TailleBat(randbat);
-
 			//Le point où je vais faire poper mon bâtiment
 			spawnPoint = noeuds [i].position + (sommebat *  2 * arctemp);
 			//L'angle que je veux pour le bâtiment
-			angle = Vector3.Cross (Vector3.down, arctemp);
-			angle = new Vector3 (0, Vector3.SignedAngle (Vector3.right, angle, Vector3.up), 0);
+			angle = new Vector3 (0, Vector3.SignedAngle (arctemp, Vector3.right, Vector3.down), 0);
 
 			//J'instancie le bâtiment en tant que prefab
 			buildingclone = PrefabUtility.InstantiatePrefab (randbat) as GameObject;
+
+			//Je fais tourner le bâtiment sur lui même pour changer de face visible
+			Transform batipivot = buildingclone.transform.Find("Batiment");
+			randrot = Random.Range (0, 4) * 90;
+			centrebat = TailleBat(randbat) * Vector3.one;
+			batipivot.transform.RotateAround(centrebat, Vector3.up,randrot);
+
 			//Je le met dans le bon parent, je le place dans l'espace et lui met la bonne rotation
 			buildingclone.name = "Bâtiment_" + (lesbuildings.Length + 1) + "_" + (leparent.transform.childCount + 1);
 			buildingclone.transform.parent = leparent.transform;
 			buildingclone.transform.position = spawnPoint;
 			buildingclone.transform.rotation = Quaternion.Euler (angle);
 
-			//Je fais tourner le bâtiment sur lui même pour changer de face visible
-			Transform batipivot = buildingclone.transform.Find("Batiment");
-			randrot = new Vector3 (0, Random.Range (0, 4) * 90, 0);
-			batipivot.transform.localRotation = Quaternion.Euler (randrot);
+			//Je met à jour la somme de la longueur des bâtiments
+			sommebat += TailleBat(randbat);
 
 		}
 
