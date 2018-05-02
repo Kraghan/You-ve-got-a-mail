@@ -17,9 +17,6 @@ MPU6050 accelgyro;
  
 int16_t ax, ay, az;
 int16_t gx, gy, gz;
-
-unsigned long lastTime = 0;
-float calibrationValue = 0;
 void setup() 
 {  
   Wire.begin(); 
@@ -54,7 +51,7 @@ void loop ()
     inFrontOf = false;
 
   String str = "";
-  str += handleBarPosition - calibrationValue;
+  str += handleBarPosition;
   str += ";";
   str += active;
   Serial.println(str);
