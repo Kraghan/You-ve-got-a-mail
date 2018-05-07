@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4852808851632760}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EndPoint
   m_TagString: Untagged
   m_Icon: {fileID: 8220585740371884164, guid: 0000000000000000d000000000000000, type: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 33411012761270936}
   - component: {fileID: 65776416458419818}
   - component: {fileID: 23306771657922896}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: VacuumMailbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 33827871990129372}
   - component: {fileID: 65497159883551614}
   - component: {fileID: 114584153127037454}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4321041042187818}
   - component: {fileID: 33347260394998384}
   - component: {fileID: 23849065853002480}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Entry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4322276920423328}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: StartPoint
   m_TagString: Untagged
   m_Icon: {fileID: 1654036009018553494, guid: 0000000000000000d000000000000000, type: 0}

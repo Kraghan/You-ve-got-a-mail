@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 55b14ac61de2c4944b7881baced69f74
-timeCreated: 1525362583
+guid: 300cc30989cc5af4cbb3b7adbe1124c1
+timeCreated: 1525706349
 licenseType: Free
 SketchUpImporter:
   generateBackFace: 0
@@ -8,16 +8,16 @@ SketchUpImporter:
   selectedNodes: 0000000001000000
   assetHash:
     serializedVersion: 2
-    Hash: 203d26e3714fe732fb6696c206566a03
+    Hash: 39471d69c654112217a5af8b8adab047
   longitude: -105.242139
   latitude: 40.018309
   northCorrection: -0
   fileUnit: 0
   sketchUpImportData:
     defaultCamera:
-      position: {x: 169.56825, y: 142.71242, z: -21.644114}
-      lookAt: {x: 179.21312, y: 59.753414, z: 30.48258}
-      up: {x: 0.15331131, y: 0.53846055, z: 0.8285867}
+      position: {x: 113.446396, y: 60.5482, z: 97.74878}
+      lookAt: {x: 101.258514, y: 49.601463, z: 99.3762}
+      up: {x: -0.65908754, y: 0.7468993, z: 0.08800631}
       fov: 35
       aspectRatio: 0
       orthoSize: 1
@@ -32,6 +32,7 @@ SketchUpImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Mesh Simple Template - Meters
+    6400000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -64,7 +65,7 @@ SketchUpImporter:
     lODScreenPercentages: []
     globalScale: 0.0254
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1

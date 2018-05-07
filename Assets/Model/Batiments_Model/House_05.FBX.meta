@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ce0f6ccac67a9a6499c2781b96ec689b
+guid: 8536f4b774a09b1449e6289138074ae7
 timeCreated: 1525194590
 licenseType: Free
 ModelImporter:
@@ -7,16 +7,10 @@ ModelImporter:
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: M_Mur-Corniche-Balcon_01
-    2100002: M_Fenetre_02
-    2100004: M_Porte_01
-    2100006: M_Fenetre_01
-    2100008: M_Porte_02
-    2100010: M_GardeCorp
-    2100012: M_Corniche_01
+    2100000: No Name
     2300000: //RootNode
     3300000: //RootNode
-    4300000: O_Batiment_01
+    4300000: Plane123
     9500000: //RootNode
   externalObjects: {}
   materials:
