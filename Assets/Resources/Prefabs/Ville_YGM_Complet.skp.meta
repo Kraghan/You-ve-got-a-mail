@@ -1,22 +1,43 @@
 fileFormatVersion: 2
-guid: 0f7ceca0efbb4f04fbe0743240ac257f
-timeCreated: 1525296921
+guid: eee848e6cd13d594d903a0bf543508db
+timeCreated: 1526213405
 licenseType: Free
-ModelImporter:
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 0000000001000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 7278111e5b4a59a2e56e603c70d22500
+  longitude: -105.242139
+  latitude: 40.018309
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 417.96524, y: 196.75883, z: 53.73819}
+      lookAt: {x: 317.68582, y: 116.67533, z: 170.34602}
+      up: {x: -0.30113798, y: 0.88695854, z: 0.3501722}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: 'Material #26'
+    2100000: _defaultMat
+    2100002: '[Color M00]'
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Sphere001
-    9500000: //RootNode
+    4300000: Mesh Simple Template - Meters
+    6400000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
-    materialName: 0
-    materialSearch: 1
+    materialName: 2
+    materialSearch: 0
     materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
@@ -42,9 +63,9 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.0254
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -67,7 +88,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
@@ -86,7 +107,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
