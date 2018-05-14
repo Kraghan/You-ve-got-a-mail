@@ -15,6 +15,8 @@ public class Generation_procedurale : MonoBehaviour {
 	public float Agrandissement_chemin = 3;
 	public bool Rétrécissement;
 
+	public bool invfin;
+
 	public GameObject Parent_Buildings;
 
 	private Transform chemin;
@@ -99,7 +101,7 @@ public class Generation_procedurale : MonoBehaviour {
             }
 
             //Pour se débarrasser des angles aigus
-            if ((Vector3.SignedAngle (vecbefore, vecafter, Vector3.up) < 90) && (Vector3.SignedAngle (vecbefore, vecafter, Vector3.up) > 0)) {
+            if ((Vector3.SignedAngle (vecbefore, vecafter, Vector3.up) < 88) && (Vector3.SignedAngle (vecbefore, vecafter, Vector3.up) > 0)) {
 				
 				//Je défini le vecteur vers le point que je vais rajouter
 				arctemp = Vector3.Normalize (vecafter) * 4;
@@ -174,7 +176,12 @@ public class Generation_procedurale : MonoBehaviour {
 		//Le vecteur normalisé reliant le noeud après le noeud cherché avec le noeud avant le noeud cherché
 		Vector3 xvec = Vector3.Normalize(noeuds[chemin.childCount-2].position - noeuds[0].position);
 		//Le vecteur normalisé perpendiculaire au précédent qui va vers la position désirée du noeud cherché
-		Vector3 zvec = Vector3.Normalize(Vector3.Cross(Vector3.down, xvec));
+		Vector3 zvec = Vector3.zero;
+			
+		if (invfin)
+			zvec = Vector3.Normalize(Vector3.Cross(Vector3.up, xvec));
+		else
+			zvec = Vector3.Normalize(Vector3.Cross(Vector3.down, xvec));
 
 		//Je met le noeud à sa bonne position
 		noeuds [chemin.childCount - 1].position = noeuds[0].position + (xvec * x) + (zvec * z);

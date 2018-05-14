@@ -213,7 +213,7 @@ MonoBehaviour:
   m_triggerOffset: 0.25
   m_triggerRotationOffset: 0.75
   m_speed: 4
-  m_distanceBetweenObjects: 0
+  m_distanceBetweenObjects: 0.0001
   m_rotationSpeed: 135
   m_front: {fileID: 4935347373064300}
 --- !u!135 &135926299921720014
