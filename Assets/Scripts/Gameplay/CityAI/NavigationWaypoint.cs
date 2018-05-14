@@ -15,12 +15,12 @@ public class NavigationWaypoint : MonoBehaviour
     [SerializeField]
     private NavigationWaypoint[] m_neighbours;
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         /*Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, m_distanceAutoDetectNeighbours);*/
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, 1);
+        Gizmos.DrawWireSphere(transform.position, 0.75f);
 
         for(int i = 0; i < m_neighbours.Length; ++i)
         {

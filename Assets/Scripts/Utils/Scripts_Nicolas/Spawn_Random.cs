@@ -24,8 +24,8 @@ public class Spawn_Random : MonoBehaviour {
 		foreach (NavigationWaypoint waypoint in All_nodes_pietons) {
 			if (Random.value >= 0.3f) {
 				GameObject lepieton = Instantiate (Pieton);
-				lepieton.GetComponent<NavigationFollower> ().m_startPoint = waypoint;
-				lepieton.GetComponent<NavigationFollower> ().m_speed = Random.Range (1, 2) + Random.value;
+				lepieton.GetComponent<NavigationFollower> ().SetStartPoint(waypoint);
+				lepieton.GetComponent<NavigationFollower> ().SetSpeed(Random.Range (1, 2) + Random.value);
 				nbrob++;
 			}
 		}
@@ -34,8 +34,8 @@ public class Spawn_Random : MonoBehaviour {
 		foreach (NavigationWaypoint waypoint in All_nodes_voitures) {
 			if (Random.value >= 0.1f) {
 				GameObject lavoiture = Instantiate (Voiture);
-				lavoiture.GetComponent<NavigationFollower> ().m_startPoint = waypoint;
-				lavoiture.GetComponent<NavigationFollower> ().m_speed = Random.Range (4, 5) + Random.value;
+				lavoiture.GetComponent<NavigationFollower> ().SetStartPoint(waypoint);
+				lavoiture.GetComponent<NavigationFollower> ().SetSpeed(Random.Range (1, 2) + Random.value);
 				nbcar++;
 			}
 		}

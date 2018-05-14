@@ -80,6 +80,7 @@ public class VacuumMailBox : MonoBehaviour {
             m_mail = other.gameObject;
             m_mail.GetComponent<Collider>().enabled = false;
             m_mail.GetComponent<Rigidbody>().useGravity = false;
+			m_mail.GetComponent<Rigidbody>().velocity = Vector3.zero;
             m_timeToAnimate.Start();
         }
     }

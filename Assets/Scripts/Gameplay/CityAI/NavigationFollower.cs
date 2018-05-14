@@ -128,4 +128,17 @@ public class NavigationFollower : MonoBehaviour {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(m_target.transform.position, 1);
     }
+
+	public void SetSpeed (float speed) {
+
+		m_speed = speed;
+
+	}
+
+	public void SetStartPoint (NavigationWaypoint startpoint) {
+
+		m_startPoint = startpoint;
+
+	}
+
 }
