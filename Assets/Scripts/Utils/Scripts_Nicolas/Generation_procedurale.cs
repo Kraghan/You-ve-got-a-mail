@@ -41,7 +41,7 @@ public class Generation_procedurale : MonoBehaviour {
 	private int sens;
 
 	private bool jelaveuxencore = true;
-	private int securite;
+	private int securite, securite2, securite3;
 
 	public void Recur_Triche () {
 
@@ -338,16 +338,35 @@ public class Generation_procedurale : MonoBehaviour {
 		Vector3 arctemp = Vector3.Normalize (noeuds [ibis].position - noeuds [i].position);
 
 		//Tant que j'ai pas atteint le bout de cet arc
-		while (sommebat != length) {
+		while (sommebat != length)
+        {
 			
+            securite2++;
+
+            if (securite2 > 200)
+            {
+                Debug.Log("Merde");
+                break;
+            }
+
 			//Je choisi un bâtiment au pif parmi ceux existant et recommence si il est trop grand
 			while (tryagain) {
-				
-				randbat = mesbat[Random.Range(0,mesbat.Length)];
+
+                securite3++;
+
+                if (securite3 > 200)
+                {
+                    Debug.Log("Merde");
+                    break;
+                }
+
+                randbat = mesbat[Random.Range(0,mesbat.Length)];
 				if (sommebat + TailleBat (randbat) <= length)
 					tryagain = false;
 				
 			}
+
+            securite3 = 0;
 
 			tryagain = true;
 
@@ -375,6 +394,8 @@ public class Generation_procedurale : MonoBehaviour {
 			sommebat += TailleBat(randbat);
 
 		}
+
+        securite2 = 0;
 
 		//Je reset la somme de la longueur des bâtiments
 		sommebat = 0;

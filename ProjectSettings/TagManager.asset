@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Mail
+  - Buildings
+  - Chemin
+  - Poteaux
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
   layers:
   - Default
   - TransparentFX
