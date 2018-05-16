@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Champ_force : MonoBehaviour {
 
+	public GameObject Force_field;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -12,5 +14,17 @@ public class Champ_force : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	//Quand un objet rentre en contact avec le levier
+	void OnCollisionEnter(Collision other)
+	{
+
+		//Si cet objet est un courrier
+		if (other.collider.tag == "Mail") {
+
+			Force_field.SetActive (false);
+
+		}
 	}
 }
