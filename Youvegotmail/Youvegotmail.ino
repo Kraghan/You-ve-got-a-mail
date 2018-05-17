@@ -4,6 +4,7 @@
 #include "I2Cdev.h"
 #include "MPU6050.h"
 TKHallSensor magnetometer(I1);
+TKHallSensor magnetometer2(I2);
 
 float handleBarPosition = 0;
 
@@ -12,6 +13,7 @@ unsigned long lastTime = 0;
 int numberOfActivation = 0;
 
 bool inFrontOf = false;
+bool inFrontOf2 = false;
 
 MPU6050 accelgyro;
  
@@ -40,11 +42,20 @@ void loop ()
     handleBarPosition = handleBarPosition + movementAngle;
 
   float magnetoVal = magnetometer.read();
-  bool active = false;
   if(abs(magnetoVal - 512) >= 2)
   {
     if(!inFrontOf)
-      active = true; 
+      numberOfActivation++; 
+    inFrontOf = true;
+  }
+  else
+    inFrontOf = false;
+
+  magnetoVal = magnetometer2.read();
+  if(abs(magnetoVal - 512) >= 2)
+  {
+    if(!inFrontOf)
+      numberOfActivation++;
     inFrontOf = true;
   }
   else
@@ -53,7 +64,7 @@ void loop ()
   String str = "";
   str += handleBarPosition;
   str += ";";
-  str += active;
+  str += numberOfActivation;
   Serial.println(str);
 }
 

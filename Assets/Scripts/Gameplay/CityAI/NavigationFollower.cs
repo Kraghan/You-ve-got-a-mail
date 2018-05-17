@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NavigationFollower : MonoBehaviour {
 
+    static uint s_numberOfObjectCreated = 0; 
+
     [SerializeField]
     NavigationWaypoint m_startPoint;
     [SerializeField]
@@ -27,9 +29,19 @@ public class NavigationFollower : MonoBehaviour {
     [SerializeField]
     Transform m_front;
 
+    bool m_stopped = false;
+    NavigationFollower m_isBlockedBy = null;
+
+    uint m_id;
+
 	// Use this for initialization
 	void Start ()
     {
+        // Manage id
+        s_numberOfObjectCreated++;
+        m_id = s_numberOfObjectCreated;
+
+        // Set the initial position
         transform.position = m_startPoint.transform.position;
         m_target = m_startPoint.GetRandomNeighbour();
         if (m_target == null)
@@ -115,9 +127,45 @@ public class NavigationFollower : MonoBehaviour {
             return;
 
         Vector3 direction = (m_target.transform.position - transform.position).normalized;
-        if (!Physics.Raycast(m_front.transform.position, transform.forward, m_distanceBetweenObjects))
+        RaycastHit hit;
+        bool somethingInFrontOf = Physics.Raycast(m_front.transform.position, transform.forward, out hit, m_distanceBetweenObjects);
+
+        if (!somethingInFrontOf)
+        {
             transform.position += direction * m_speed * Time.deltaTime;
-        
+            m_stopped = false;
+        }
+        else
+        {
+            NavigationFollower follower = hit.collider.gameObject.GetComponent<NavigationFollower>();
+            if (follower == null)
+                follower = GetComponentInParent<NavigationFollower>();
+
+            if (follower != null)
+            {
+                // if blocked by myself, don't stop
+                if (follower.m_stopped && m_isBlockedBy != null && follower.m_isBlockedBy.m_id == m_id)
+                {
+                    m_stopped = false;
+                    m_isBlockedBy = null;
+                }
+                else
+                {
+                    m_stopped = true;
+                    m_isBlockedBy = follower;
+                }
+            }
+            else
+            {
+                m_stopped = false;
+                m_isBlockedBy = null;
+            }
+
+        }
+
+        if(!m_stopped)
+            transform.position += direction * m_speed * Time.deltaTime;
+
     }
 
     private void OnDrawGizmosSelected()
@@ -127,6 +175,9 @@ public class NavigationFollower : MonoBehaviour {
 
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(m_target.transform.position, 1);
+        Vector3 direction = (m_target.transform.position - transform.position).normalized;
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(m_front.transform.position, m_front.transform.position + transform.forward * m_distanceBetweenObjects);
     }
 
 	public void SetSpeed (float speed) {
@@ -140,5 +191,5 @@ public class NavigationFollower : MonoBehaviour {
 		m_startPoint = startpoint;
 
 	}
-
+    
 }
