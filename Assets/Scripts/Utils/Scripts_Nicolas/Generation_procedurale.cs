@@ -14,6 +14,7 @@ public class Generation_procedurale : MonoBehaviour {
 
 	public float Agrandissement_chemin = 3;
 	public bool Rétrécissement;
+	public bool Construction_Extérieur;
 
 	public bool invfin;
 
@@ -371,9 +372,13 @@ public class Generation_procedurale : MonoBehaviour {
 			tryagain = true;
 
 			//Le point où je vais faire poper mon bâtiment
-			spawnPoint = noeuds [i].position + (sommebat *  2 * arctemp);
+			spawnPoint = noeuds [i].position + (sommebat * 2 * arctemp);
+			
 			//L'angle que je veux pour le bâtiment
+			if (!Construction_Extérieur)
 			angle = new Vector3 (0, Vector3.SignedAngle (arctemp, Vector3.right, Vector3.down), 0);
+			if (Construction_Extérieur)
+				angle = new Vector3 (0, Vector3.SignedAngle (arctemp, Vector3.right, Vector3.down) + 90, 0);
 
 			//J'instancie le bâtiment en tant que prefab
 			buildingclone = PrefabUtility.InstantiatePrefab (randbat) as GameObject;
