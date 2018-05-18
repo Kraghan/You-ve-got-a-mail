@@ -14,15 +14,10 @@ public class VacuumMailBox : MonoBehaviour {
     Vector3 m_rotationSpeedAxis;
 
     [SerializeField]
-    Timer m_timeToAnimate;
-
-    [SerializeField]
     Transform m_snapPointStart;
-    [SerializeField]
-    Transform m_snapPointEnd;
 
     [SerializeField]
-    MeshRenderer m_rendererDebug;
+    Animator m_animator;
 
 	// Use this for initialization
 	void Start ()
@@ -37,40 +32,27 @@ public class VacuumMailBox : MonoBehaviour {
     {
         if (m_mail == null)
             return;
-
-        if(!m_isDelivered)
+        
+        if(Vector3.Distance(m_snapPointStart.position,m_mail.transform.position) < 0.1)
         {
-            if(Vector3.Distance(m_snapPointStart.position,m_mail.transform.position) < 0.1)
-            {
-                Rigidbody body = m_mail.GetComponent<Rigidbody>();
-                body.velocity = Vector3.zero;
-                body.angularVelocity = Vector3.zero;
-                m_mail.transform.rotation = m_snapPointStart.rotation;
-                m_isDelivered = true;
-            }
-            else
-            {
-                Vector3 mailDirection = m_snapPointStart.position - m_mail.transform.position;
-                mailDirection.Normalize();
-                Rigidbody body = m_mail.GetComponent<Rigidbody>();
-                body.velocity = new Vector3(body.velocity.x, body.velocity.y, body.velocity.z);
-
-                m_mail.transform.position += mailDirection * m_vacuumSpeed * Time.deltaTime;
-                m_mail.transform.Rotate(m_rotationSpeedAxis * Time.deltaTime);
-            }
-            
+            Rigidbody body = m_mail.GetComponent<Rigidbody>();
+            body.velocity = Vector3.zero;
+            body.angularVelocity = Vector3.zero;
+            m_mail.transform.rotation = m_snapPointStart.rotation;
+            m_isDelivered = true;
+            m_animator.SetBool("Open", false);
         }
-
-		if(m_isDelivered)
+        else
         {
-            m_rendererDebug.material.color = Color.green;
-            m_timeToAnimate.UpdateTimer();
-            m_mail.transform.position = Vector3.Lerp(m_snapPointStart.position, m_snapPointEnd.position, m_timeToAnimate.GetRatio());
-            if (m_timeToAnimate.IsTimedOut())
-            {
-                Destroy(m_mail);
-            }
+            Vector3 mailDirection = m_snapPointStart.position - m_mail.transform.position;
+            mailDirection.Normalize();
+            Rigidbody body = m_mail.GetComponent<Rigidbody>();
+            body.velocity = new Vector3(body.velocity.x, body.velocity.y, body.velocity.z);
+
+            m_mail.transform.position += mailDirection * m_vacuumSpeed * Time.deltaTime;
+            m_mail.transform.Rotate(m_rotationSpeedAxis * Time.deltaTime);
         }
+        
 	}
 
     private void OnTriggerEnter(Collider other)
@@ -81,7 +63,8 @@ public class VacuumMailBox : MonoBehaviour {
             m_mail.GetComponent<Collider>().enabled = false;
             m_mail.GetComponent<Rigidbody>().useGravity = false;
 			m_mail.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            m_timeToAnimate.Start();
+
+            m_animator.SetBool("Open", true);
         }
     }
 }

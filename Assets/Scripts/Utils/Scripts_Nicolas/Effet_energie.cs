@@ -42,7 +42,7 @@ public class Effet_energie : MonoBehaviour {
 		foreach (NavigationFollower salve in parentsalves.GetComponentsInChildren<NavigationFollower>()) {
 
 			//Si cette salve est arrivée au bout du chemin, je la détruit
-			if (salve.m_nextTarget == endpoint)
+			if (salve.GetNextTarget() == endpoint)
 				salve.enabled = false;
 
 		}		

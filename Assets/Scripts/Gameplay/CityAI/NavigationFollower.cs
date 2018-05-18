@@ -192,4 +192,9 @@ public class NavigationFollower : MonoBehaviour {
 
 	}
     
+    public NavigationWaypoint GetNextTarget()
+    {
+        return m_nextTarget;
+    }
+
 }
