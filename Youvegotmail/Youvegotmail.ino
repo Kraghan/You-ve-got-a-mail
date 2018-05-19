@@ -52,20 +52,21 @@ void loop ()
     inFrontOf = false;
 
   magnetoVal = magnetometer2.read();
-  if(abs(magnetoVal - 512) >= 2)
+  if(abs(magnetoVal - 510) >= 2)
   {
-    if(!inFrontOf)
+    if(!inFrontOf2)
       numberOfActivation++;
-    inFrontOf = true;
+    inFrontOf2 = true;
   }
   else
-    inFrontOf = false;
+    inFrontOf2 = false;
 
   String str = "";
   str += handleBarPosition;
   str += ";";
   str += numberOfActivation;
   Serial.println(str);
+  numberOfActivation = 0;
 }
 
 

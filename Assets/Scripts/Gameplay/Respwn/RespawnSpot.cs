@@ -5,35 +5,54 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class RespawnSpot : MonoBehaviour
 {
-    [SerializeField]
     GameObject m_player;
     [SerializeField]
     Vector3 m_rotationRespawn;
 
     BoxCollider m_boxCollider;
-    List<GameObject> m_objectsInSpawnArea;
+    List<GameObject> m_objectsInSpawnArea = new List<GameObject>();
 
 	// Use this for initialization
 	void Start ()
     {
+
+        m_player = GameObject.FindGameObjectWithTag("Player");
         m_boxCollider = GetComponent<BoxCollider>();
         m_boxCollider.isTrigger = true;
 	}
 
     private void OnTriggerEnter(Collider other)
     {
-        m_objectsInSpawnArea.Add(other.gameObject);
+        if(other.CompareTag("Mover"))
+            m_objectsInSpawnArea.Add(other.gameObject);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        m_objectsInSpawnArea.Remove(other.gameObject);
+        if (other.CompareTag("Mover"))
+            m_objectsInSpawnArea.Remove(other.gameObject);
     }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, transform.position + Quaternion.Euler(m_rotationRespawn) * Vector3.one);
+        Vector3 pos = transform.position;
+        Vector3 direction = m_rotationRespawn.normalized / 2;
+        Color color = Color.magenta;
+        float arrowHeadLength = 0.25f;
+        float arrowHeadAngle = 20;
+
+        Gizmos.color = color;
+        Gizmos.DrawRay(pos, direction);
+        Vector3 right = Quaternion.LookRotation(direction) * Quaternion.Euler(0, 180 + arrowHeadAngle, 0) * new Vector3(0, 0, 1);
+        Vector3 left = Quaternion.LookRotation(direction) * Quaternion.Euler(0, 180 - arrowHeadAngle, 0) * new Vector3(0, 0, 1);
+        Gizmos.DrawRay(pos + direction, right * arrowHeadLength);
+        Gizmos.DrawRay(pos + direction, left * arrowHeadLength);
+
+        Gizmos.DrawRay(pos, -direction);
+        right = Quaternion.LookRotation(-direction) * Quaternion.Euler(0, 180 + arrowHeadAngle, 0) * new Vector3(0, 0, 1);
+        left = Quaternion.LookRotation(-direction) * Quaternion.Euler(0, 180 - arrowHeadAngle, 0) * new Vector3(0, 0, 1);
+        Gizmos.DrawRay(pos - direction, right * arrowHeadLength);
+        Gizmos.DrawRay(pos - direction, left * arrowHeadLength);
     }
 
     public void Respawn()
@@ -45,7 +64,11 @@ public class RespawnSpot : MonoBehaviour
 
         m_player.transform.position = transform.position;
 
-        m_player.transform.rotation = Quaternion.Euler(m_rotationRespawn); 
+        float angle = Vector3.SignedAngle(m_player.transform.forward, m_rotationRespawn, Vector3.up);
 
+        m_player.transform.rotation = Quaternion.LookRotation(m_rotationRespawn);
+
+        if (angle < 0)
+            m_player.transform.Rotate(Vector3.up, 180);
     }
 }

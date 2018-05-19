@@ -13,6 +13,7 @@ TagManager:
   - 3
   - 4
   - 5
+  - Mover
   layers:
   - Default
   - TransparentFX

@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider))]
 public class SafePylone : MonoBehaviour
 {
     [SerializeField]
     RespawnSpot m_spot;
 
-
-	// Use this for initialization
-	void Start ()
+    public void Respawn()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        m_spot.Respawn();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            other.GetComponent<CrashDetection>().SetRespawnPylone(this);
+        }
+    }
 }
