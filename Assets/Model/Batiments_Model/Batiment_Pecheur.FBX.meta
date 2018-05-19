@@ -1,0 +1,154 @@
+fileFormatVersion: 2
+guid: 20b00e9eeccb4024a8dd98f3ff0ca979
+timeCreated: 1526718247
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: B_01
+    100002: B_02
+    100004: B_03
+    100006: B_04
+    100008: B_Unique
+    100010: Barre_01
+    100012: Barre_Soutiens_01
+    100014: //RootNode
+    100016: Fenetre_01
+    100018: Fenetre_02
+    100020: Porte_01
+    100022: Toit1
+    100024: Toit_02
+    400000: B_01
+    400002: B_02
+    400004: B_03
+    400006: B_04
+    400008: B_Unique
+    400010: Barre_01
+    400012: Barre_Soutiens_01
+    400014: //RootNode
+    400016: Fenetre_01
+    400018: Fenetre_02
+    400020: Porte_01
+    400022: Toit1
+    400024: Toit_02
+    2100000: Standardmaterial
+    2100002: 'Material #26'
+    2300000: B_01
+    2300002: B_02
+    2300004: B_03
+    2300006: B_04
+    2300008: B_Unique
+    2300010: Barre_01
+    2300012: Barre_Soutiens_01
+    2300014: //RootNode
+    2300016: Fenetre_01
+    2300018: Fenetre_02
+    2300020: Porte_01
+    2300022: Toit1
+    2300024: Toit_02
+    3300000: B_01
+    3300002: B_02
+    3300004: B_03
+    3300006: B_04
+    3300008: B_Unique
+    3300010: Barre_01
+    3300012: Barre_Soutiens_01
+    3300014: //RootNode
+    3300016: Fenetre_01
+    3300018: Fenetre_02
+    3300020: Porte_01
+    3300022: Toit1
+    3300024: Toit_02
+    4300000: Batiment_Pecheur
+    4300002: B_Unique
+    4300004: Porte_01
+    4300006: B_03
+    4300008: Fenetre_01
+    4300010: B_04
+    4300012: Fenetre_02
+    4300014: B_01
+    4300016: B_02
+    4300018: Barre_01
+    4300020: Toit1
+    4300022: Toit_02
+    4300024: Barre_Soutiens_01
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

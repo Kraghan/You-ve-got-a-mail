@@ -1,19 +1,20 @@
 fileFormatVersion: 2
-guid: e9180e64d2ef51b4cb6250629fe64640
-timeCreated: 1526569567
+guid: d62807c543b6e2a4b8ca723d3f90d794
+timeCreated: 1526683797
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: B_05
+    100000: B_05
+    100002: //RootNode
     100004: Bar_Deco_B_05
     100006: Bar_Deco_B_05_02
-    400000: //RootNode
-    400002: B_05
+    400000: B_05
+    400002: //RootNode
     400004: Bar_Deco_B_05
     400006: Bar_Deco_B_05_02
     2100000: Standardmaterial
+    2100002: lambert1
     2300000: B_05
     2300002: Bar_Deco_B_05
     2300004: Bar_Deco_B_05_02
