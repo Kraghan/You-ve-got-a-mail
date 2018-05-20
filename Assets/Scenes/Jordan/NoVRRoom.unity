@@ -1933,8 +1933,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 971d975566a91d040a625856606aa758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_blackScreen: {fileID: 675017435}
   m_lastRespawnPylone: {fileID: 503079111}
+  m_timeToFade:
+    m_timeToReach: 0.2
+  m_texture: {fileID: 2800000, guid: 1a9c451241946264cbfd74e2d0ede479, type: 3}
+  m_particles: {fileID: 1270863990}
 --- !u!114 &855561646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2921,7 +2924,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!199 &1270863989
 ParticleSystemRenderer:
   serializedVersion: 4
