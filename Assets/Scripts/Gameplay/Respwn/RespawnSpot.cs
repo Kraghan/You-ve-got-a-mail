@@ -8,6 +8,8 @@ public class RespawnSpot : MonoBehaviour
     GameObject m_player;
     [SerializeField]
     Vector3 m_rotationRespawn;
+    [SerializeField]
+    bool m_ignoreOrientation = false;
 
     BoxCollider m_boxCollider;
     List<GameObject> m_objectsInSpawnArea = new List<GameObject>();
@@ -70,8 +72,8 @@ public class RespawnSpot : MonoBehaviour
         float angle = Vector3.SignedAngle(m_player.transform.forward, rotation, Vector3.up);
 
         m_player.transform.rotation = Quaternion.LookRotation(rotation);
-
-        if (angle < 0)
+        
+        if (m_ignoreOrientation && angle < 0)
             m_player.transform.Rotate(Vector3.up, 180);
     }
 }
