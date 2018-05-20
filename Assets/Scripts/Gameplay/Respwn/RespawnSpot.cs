@@ -51,11 +51,14 @@ public class RespawnSpot : MonoBehaviour
         Gizmos.DrawRay(pos + direction, right * arrowHeadLength);
         Gizmos.DrawRay(pos + direction, left * arrowHeadLength);
 
-        Gizmos.DrawRay(pos, -direction);
-        right = Quaternion.LookRotation(-direction) * Quaternion.Euler(0, 180 + arrowHeadAngle, 0) * new Vector3(0, 0, 1);
-        left = Quaternion.LookRotation(-direction) * Quaternion.Euler(0, 180 - arrowHeadAngle, 0) * new Vector3(0, 0, 1);
-        Gizmos.DrawRay(pos - direction, right * arrowHeadLength);
-        Gizmos.DrawRay(pos - direction, left * arrowHeadLength);
+        if (!m_ignoreOrientation)
+        {
+            Gizmos.DrawRay(pos, -direction);
+            right = Quaternion.LookRotation(-direction) * Quaternion.Euler(0, 180 + arrowHeadAngle, 0) * new Vector3(0, 0, 1);
+            left = Quaternion.LookRotation(-direction) * Quaternion.Euler(0, 180 - arrowHeadAngle, 0) * new Vector3(0, 0, 1);
+            Gizmos.DrawRay(pos - direction, right * arrowHeadLength);
+            Gizmos.DrawRay(pos - direction, left * arrowHeadLength);
+        }
     }
 
     public void Respawn()
@@ -73,7 +76,7 @@ public class RespawnSpot : MonoBehaviour
 
         m_player.transform.rotation = Quaternion.LookRotation(rotation);
         
-        if (m_ignoreOrientation && angle < 0)
+        if (!m_ignoreOrientation && angle < 0)
             m_player.transform.Rotate(Vector3.up, 180);
     }
 }
