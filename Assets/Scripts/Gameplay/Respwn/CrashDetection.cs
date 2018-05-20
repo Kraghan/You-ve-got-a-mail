@@ -10,28 +10,39 @@ public class CrashDetection : MonoBehaviour
     private Rigidbody m_body;
     private BicycleController m_controller;
 
-    [SerializeField]
-    private GameObject m_blackScreen;
-
     private bool m_crashed = false;
     [SerializeField]
     private SafePylone m_lastRespawnPylone;
 
+    [SerializeField]
+    Timer m_timeToFade;
+    [SerializeField]
+    Texture2D m_texture;
+    [SerializeField]
+    ParticleSystem m_particles;
+
     void Start ()
     {
         m_controller = GetComponent<BicycleController>();
+        m_timeToFade.Start();
 	}
 	
 	void Update ()
     {
-        if (m_crashed && m_controller.GetMotorInput() < 0.1)
+        if (m_crashed)
         {
-            m_crashed = false;
-            m_lastRespawnPylone.Respawn();
+            if(m_controller.GetMotorInput() < 0.1)
+            {
+                m_crashed = false;
+                m_lastRespawnPylone.Respawn();
+                m_timeToFade.Restart();
+                m_particles.Play();
+            }
+            else
+            {
+                m_timeToFade.UpdateTimer();
+            }
         }
-
-        m_blackScreen.SetActive(m_crashed);
-        
     }
 
     public bool IsCrashed()
@@ -58,5 +69,15 @@ public class CrashDetection : MonoBehaviour
     public void SetRespawnPylone(SafePylone pylone)
     {
         m_lastRespawnPylone = pylone;
+    }
+
+    private void OnGUI()
+    {
+
+        float alpha = m_timeToFade.GetRatio();
+
+        GUI.color = new Color(0,0,0,alpha);
+    
+        GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height),m_texture);
     }
 }
