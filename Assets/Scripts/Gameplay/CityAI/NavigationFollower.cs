@@ -17,8 +17,8 @@ public class NavigationFollower : MonoBehaviour {
     [SerializeField]
     float m_distanceBetweenObjects = 1.5f; 
 
-    NavigationWaypoint m_target;
-    NavigationWaypoint m_nextTarget;
+    protected NavigationWaypoint m_target;
+    protected NavigationWaypoint m_nextTarget;
 
     bool m_rotationStarted = false;
 
@@ -35,7 +35,7 @@ public class NavigationFollower : MonoBehaviour {
     uint m_id;
 
 	// Use this for initialization
-	void Start ()
+	protected virtual void Start ()
     {
         // Manage id
         s_numberOfObjectCreated++;
@@ -66,7 +66,7 @@ public class NavigationFollower : MonoBehaviour {
 
         float distance = Vector3.Distance(transform.position, m_target.transform.position);
 
-        if (distance <= m_triggerRotationOffset && !m_rotationStarted)
+        if (ConditionToChooseNextTarget(distance))
         {
             m_nextTarget = m_target.GetRandomNeighbour();
             if(m_target == null)
@@ -97,6 +97,8 @@ public class NavigationFollower : MonoBehaviour {
             }
 
             m_rotationStarted = true;
+
+            DoWhenReachTarget();
 
         }
 
@@ -160,12 +162,17 @@ public class NavigationFollower : MonoBehaviour {
                 m_stopped = false;
                 m_isBlockedBy = null;
             }
-
+ 
         }
 
         if(!m_stopped)
             transform.position += direction * m_speed * Time.deltaTime;
 
+    }
+
+    protected virtual bool ConditionToChooseNextTarget(float distance)
+    {
+        return distance <= m_triggerRotationOffset && !m_rotationStarted;
     }
 
     private void OnDrawGizmosSelected()
@@ -195,6 +202,11 @@ public class NavigationFollower : MonoBehaviour {
     public NavigationWaypoint GetNextTarget()
     {
         return m_nextTarget;
+    }
+
+    protected virtual void DoWhenReachTarget()
+    {
+
     }
 
 }
