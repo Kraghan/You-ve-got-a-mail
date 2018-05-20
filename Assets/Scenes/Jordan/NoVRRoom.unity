@@ -572,6 +572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rotationRespawn: {x: 0, y: 0, z: 0}
+  m_ignoreOrientation: 0
 --- !u!65 &252166520
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7815,6 +7816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rotationRespawn: {x: 1, y: 0, z: 0}
+  m_ignoreOrientation: 1
 --- !u!65 &1797491152
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8381,6 +8383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rotationRespawn: {x: 0, y: 0, z: 0}
+  m_ignoreOrientation: 0
 --- !u!65 &2138465753
 BoxCollider:
   m_ObjectHideFlags: 0

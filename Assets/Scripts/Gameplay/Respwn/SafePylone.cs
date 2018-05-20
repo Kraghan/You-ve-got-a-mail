@@ -18,6 +18,7 @@ public class SafePylone : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             other.GetComponent<CrashDetection>().SetRespawnPylone(this);
+            m_spot.SetLockedRotation();
         }
     }
 }
