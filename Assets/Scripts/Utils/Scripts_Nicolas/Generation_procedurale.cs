@@ -11,6 +11,9 @@ public class Generation_procedurale : MonoBehaviour {
 	public GameObject Chemin;
 	//La distance entre chaque poteau
 	public float Distance_séparation = 3;
+	public float Décalage_initial = 0;
+	public Vector3 Décalage_rotation;
+	public bool Pasderniertrait = false;
 
 	public float Agrandissement_chemin = 3;
 	public bool Rétrécissement;
@@ -271,17 +274,24 @@ public class Generation_procedurale : MonoBehaviour {
 
 		if ((length + restedist) >= Distance_séparation) {
 
-			for (int j = 1; j <= (int)((length + restedist) / Distance_séparation); j++) {
+			for (int j = 1; j <= (int)((length + restedist - Décalage_initial) / Distance_séparation); j++) {
 
 				//Le vecteur allant du premier point au second
 				Vector3 arctemp = Vector3.Normalize (noeuds [ibis].position - noeuds [i].position);
+
 				//Le point où je vais faire poper mon poteau
-				spawnPoint = noeuds[i].position + (j * arctemp * Distance_séparation) - (restedist * arctemp);
+				spawnPoint = noeuds[i].position + (j * arctemp * Distance_séparation) - ((restedist + Décalage_initial) * arctemp);
+				//Je met à zéro le décalage initial
+				//Décalage_initial = 0;
+
 				//L'angle que je veux pour le poteau
 				angle = Vector3.Cross (Vector3.down, arctemp);
 				angle = new Vector3 (0, Vector3.SignedAngle (Vector3.right, angle, Vector3.up), 0);
+				angle = angle + Décalage_rotation;
+
 				//J'instancie le poteau en tant que prefab
 				poteauclone = PrefabUtility.InstantiatePrefab (Poteau) as GameObject;
+
 				//Je le met dans le bon parent, je le place dans l'espace et lui met la bonne rotation
 				poteauclone.name = "Poteau_" + (lespoteaux.Length + 1) + "_" + (leparent.transform.childCount + 1);
 				poteauclone.transform.parent = leparent.transform;
@@ -325,6 +335,7 @@ public class Generation_procedurale : MonoBehaviour {
 
 		}
 
+		if (!Pasderniertrait)
 		//J'instancie le dernier poteau
 		Instantiate_pylones (chemin.childCount - 1, 0);
 

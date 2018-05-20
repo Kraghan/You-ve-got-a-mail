@@ -72,6 +72,19 @@ ModelImporter:
     4300020: Toit1
     4300022: Toit_02
     4300024: Barre_Soutiens_01
+    6400000: B_01
+    6400002: B_02
+    6400004: B_03
+    6400006: B_04
+    6400008: B_Unique
+    6400010: Barre_01
+    6400012: Barre_Soutiens_01
+    6400014: //RootNode
+    6400016: Fenetre_01
+    6400018: Fenetre_02
+    6400020: Porte_01
+    6400022: Toit1
+    6400024: Toit_02
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -104,7 +117,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
