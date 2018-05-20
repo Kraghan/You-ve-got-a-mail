@@ -8,6 +8,6 @@
   <ShowMissingRigidBodyWarning>true</ShowMissingRigidBodyWarning>
   <SoundbankPath>Audio/GeneratedSoundBanks</SoundbankPath>
   <WwiseInstallationPathMac />
-  <WwiseInstallationPathWindows>C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\wwise</WwiseInstallationPathWindows>
-  <WwiseProjectPath>../../You-ve-got-a-mail/You-ve-got-a-mail_WwiseProject/You-ve-got-a-mail_WwiseProject.wproj</WwiseProjectPath>
+  <WwiseInstallationPathWindows>../../You-ve-got-a-mail-wwise/wwise</WwiseInstallationPathWindows>
+  <WwiseProjectPath>../../You-ve-got-a-mail-wwise/You-ve-got-a-mail_WwiseProject/You-ve-got-a-mail_WwiseProject.wproj</WwiseProjectPath>
 </WwiseSettings>

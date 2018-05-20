@@ -37,6 +37,7 @@ public class RespawnSpot : MonoBehaviour
     {
         Vector3 pos = transform.position;
         Vector3 direction = m_rotationRespawn.normalized / 2;
+        direction = transform.rotation * direction;
         Color color = Color.magenta;
         float arrowHeadLength = 0.25f;
         float arrowHeadAngle = 20;
@@ -64,9 +65,11 @@ public class RespawnSpot : MonoBehaviour
 
         m_player.transform.position = transform.position;
 
-        float angle = Vector3.SignedAngle(m_player.transform.forward, m_rotationRespawn, Vector3.up);
+        Vector3 rotation = transform.rotation * m_rotationRespawn;
 
-        m_player.transform.rotation = Quaternion.LookRotation(m_rotationRespawn);
+        float angle = Vector3.SignedAngle(m_player.transform.forward, rotation, Vector3.up);
+
+        m_player.transform.rotation = Quaternion.LookRotation(rotation);
 
         if (angle < 0)
             m_player.transform.Rotate(Vector3.up, 180);

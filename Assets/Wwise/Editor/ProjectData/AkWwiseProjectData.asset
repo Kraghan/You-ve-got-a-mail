@@ -11,15 +11,120 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b491e7bbffcd86448e3bbd129c4f8a7, type: 3}
   m_Name: AkWwiseProjectData
   m_EditorClassIdentifier: 
-  AcousticTextureWwu: []
+  AcousticTextureWwu:
+  - Guid: '{5DB85AC6-E625-4AB4-93F3-F53EE92C0E3D}'
+    m_lastTimePart2: -1999258055
+    m_lastTimePsrt1: -1656180865
+    ParentPhysicalPath: 
+    PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
+    List: []
   autoPopulateEnabled: 1
-  AuxBusWwu: []
-  BankWwu: []
+  AuxBusWwu:
+  - Guid: '{54014377-C27A-49E1-8654-0FA1640E450A}'
+    m_lastTimePart2: -1999258055
+    m_lastTimePsrt1: -1656729395
+    ParentPhysicalPath: 
+    PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    List: []
+  BankWwu:
+  - Guid: '{F20B52D7-B5DC-4A4D-BCCE-252D078AF3FF}'
+    m_lastTimePart2: -1999258055
+    m_lastTimePsrt1: -1656310522
+    ParentPhysicalPath: 
+    PhysicalPath: SoundBanks\Default Work Unit.wwu
+    List:
+    - Guid: 8ab5d20a3e919941a60084745aabdc8d
+      ID: 984664932
+      Name: YGM_SoundBank
+      Path: Default Work Unit\YGM_SoundBank
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_SoundBank
+        ObjectType: 7
   basePath: Audio\GeneratedSoundBanks
   callbackManagerBufferSize: 4
   CurrentPluginConfig: 
   defaultPoolSize: 4096
-  EventWwu: []
+  EventWwu:
+  - Guid: '{84AC6855-E88A-41C5-A423-FAB395E7C407}'
+    m_lastTimePart2: -1999258055
+    m_lastTimePsrt1: -1657138306
+    ParentPhysicalPath: 
+    PhysicalPath: Events\Default Work Unit.wwu
+    List:
+    - Guid: 5279650363c8b548b20b7be77fef6ef4
+      ID: 350483411
+      Name: Impacte_Colis
+      Path: Default Work Unit\Impacte_Colis
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Impacte_Colis
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: e6b1b2a60555214fa7bd13196c2305d1
+      ID: -1968126800
+      Name: Impacte_Journal
+      Path: Default Work Unit\Impacte_Journal
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Impacte_Journal
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 8ee7f9ef0271a6449d9c83f61757eb99
+      ID: -1724609451
+      Name: Impacte_Lettre
+      Path: Default Work Unit\Impacte_Lettre
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Impacte_Lettre
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: ffc03092b6ee294495db26db790c800e
+      ID: 2099687066
+      Name: Mailboxe_Validation
+      Path: Default Work Unit\Mailboxe_Validation
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Mailboxe_Validation
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: da7d0c7eb2c5dc4cab51f0bc2da3fd5b
+      ID: 57770325
+      Name: Pnj1_Marche
+      Path: Default Work Unit\Pnj1_Marche
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Pnj1_Marche
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: df3cd97dac0e2443bc43d7d811da4aa6
+      ID: -1737275508
+      Name: Pnj2_Marche
+      Path: Default Work Unit\Pnj2_Marche
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Pnj2_Marche
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
   ExpandedItems: []
   language: English(US)
   lowerPoolSize: 2048
@@ -27,8 +132,32 @@ MonoBehaviour:
   m_lastPopulateTimePsrt1: 0
   memoryCutoffThreshold: 0.95
   preparePoolSize: 0
-  RtpcWwu: []
-  StateWwu: []
+  RtpcWwu:
+  - Guid: '{8E549F0F-2F94-41CC-AD9E-9735BB30166A}'
+    m_lastTimePart2: -1999258055
+    m_lastTimePsrt1: -1657108382
+    ParentPhysicalPath: 
+    PhysicalPath: Game Parameters\Default Work Unit.wwu
+    List: []
+  StateWwu:
+  - Guid: '{EEEC9A5E-4F11-450F-9D2D-D7CB36DE18E5}'
+    m_lastTimePart2: -1999258055
+    m_lastTimePsrt1: -1656260656
+    ParentPhysicalPath: 
+    PhysicalPath: States\Default Work Unit.wwu
+    List: []
   streamingPoolSize: 1024
-  SwitchWwu: []
-  TriggerWwu: []
+  SwitchWwu:
+  - Guid: '{2416498D-0CCC-48D7-AE80-7C86E45F170F}'
+    m_lastTimePart2: -1999258055
+    m_lastTimePsrt1: -1656230723
+    ParentPhysicalPath: 
+    PhysicalPath: Switches\Default Work Unit.wwu
+    List: []
+  TriggerWwu:
+  - Guid: '{84A0B706-3053-4D95-9F6D-93EB5F134AE4}'
+    m_lastTimePart2: -1999258055
+    m_lastTimePsrt1: -1656200812
+    ParentPhysicalPath: 
+    PhysicalPath: Triggers\Default Work Unit.wwu
+    List: []
