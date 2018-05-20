@@ -67,4 +67,16 @@ public class VacuumMailBox : MonoBehaviour {
             m_animator.SetBool("Open", true);
         }
     }
+
+    public void SetAsCurrentTarget()
+    {
+        m_isDelivered = false;
+        if (m_mail != null)
+            m_mail.SetActive(false);
+    }
+
+    public bool IsDelivered()
+    {
+        return m_isDelivered;
+    }
 }

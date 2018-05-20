@@ -11,6 +11,8 @@ public class RespawnSpot : MonoBehaviour
     [SerializeField]
     bool m_ignoreOrientation = false;
 
+    bool m_hasToRotate = false;
+
     BoxCollider m_boxCollider;
     List<GameObject> m_objectsInSpawnArea = new List<GameObject>();
 
@@ -68,15 +70,24 @@ public class RespawnSpot : MonoBehaviour
             m_objectsInSpawnArea[i].SetActive(false);
         }
 
-        m_player.transform.position = transform.position;
-
         Vector3 rotation = transform.rotation * m_rotationRespawn;
 
-        float angle = Vector3.SignedAngle(m_player.transform.forward, rotation, Vector3.up);
-
         m_player.transform.rotation = Quaternion.LookRotation(rotation);
-        
-        if (!m_ignoreOrientation && angle < 0)
+
+        if (m_hasToRotate)
+        {
             m_player.transform.Rotate(Vector3.up, 180);
+        }
+
+        m_player.transform.position = transform.position;
+    }
+
+    public void SetLockedRotation()
+    {
+        Vector3 rotation = transform.rotation * m_rotationRespawn;
+
+        float angle = Vector3.SignedAngle(m_player.transform.forward.normalized, rotation.normalized, Vector3.up);
+        
+        m_hasToRotate = !m_ignoreOrientation && Mathf.Abs(angle) > 90;
     }
 }
