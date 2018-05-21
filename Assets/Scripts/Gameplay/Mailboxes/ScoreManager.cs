@@ -2,6 +2,49 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class ScoreboardLine
+{
+    public ScoreboardLine(string name, float score)
+    {
+        m_playerName = name;
+        m_score = score;
+    }
+
+    public string m_playerName;
+    public float m_score;
+}
+
+public class Scoreboard
+{
+    public List<ScoreboardLine> m_aLines;
+
+    public Scoreboard(string dataFromWeb)
+    {
+        m_aLines = new List<ScoreboardLine>();
+        string[] splited = dataFromWeb.Split(';');
+        foreach(string split in splited)
+        {
+            string[] datas = split.Split(':');
+            if (datas.Length != 2)
+                continue;
+
+            float score;
+            if (float.TryParse(datas[1], out score))
+                m_aLines.Add(new ScoreboardLine(datas[0], score));
+        }
+    }
+
+    public override string ToString()
+    {
+        string str = "";
+        foreach(ScoreboardLine line in m_aLines)
+        {
+            str += line.m_playerName + " : " + line.m_score + "\n";
+        }
+        return str;
+    }
+}
+
 public class ScoreManager : MonoBehaviour
 {
     float m_timeElapsed = 0;
@@ -9,10 +52,22 @@ public class ScoreManager : MonoBehaviour
 
     string m_playerName = "";
 
-    string m_key = "";
+    string m_key = "YGM_6zef45z";
 
-	// Update is called once per frame
-	void Update ()
+    Scoreboard m_scoreboard;
+
+    // Load dynamicly the online scoreboard
+    IEnumerator Start()
+    {
+        using (WWW www = new WWW("http://jordan-bas.com/admin/scores/" + m_key))
+        {
+            yield return www;
+            m_scoreboard = new Scoreboard(www.text);
+        }
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
         if(m_started)
         {
@@ -43,22 +98,38 @@ public class ScoreManager : MonoBehaviour
             return;
         }
 
-        
-        
+        WWWForm form = new WWWForm();
+        form.AddField("key", m_key);
+        form.AddField("player", m_playerName);
+        form.AddField("score", "!"+GetTimeScore().ToString()+"!");
+        WWW www = new WWW("http://jordan-bas.com/admin/add_scores/", form);
+
+        StartCoroutine(SendScore(www));
+
     }
 
-    public List<string> GetScores()
+    public Scoreboard GetScores()
     {
-        List<string> aScores = new List<string>();
-
-        WWW www = new WWW("http://jordan-bas.com/scores/" + m_key + "/all/");
-
-        return aScores;
-
+        return m_scoreboard;
     }
 
     public void SetPlayerName(string name)
     {
         m_playerName = name.TrimEnd().TrimStart();
+    }
+
+    IEnumerator SendScore(WWW www)
+    {
+        yield return www;
+
+         // check for errors
+        if (www.error == null)
+        {
+            Debug.Log("WWW Ok!: " + www.text);
+        }
+        else
+        {
+            Debug.Log("WWW Error: " + www.error);
+        }
     }
 }
