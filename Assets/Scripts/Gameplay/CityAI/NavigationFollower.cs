@@ -34,8 +34,13 @@ public class NavigationFollower : MonoBehaviour {
 
     uint m_id;
 
-	// Use this for initialization
-	protected virtual void Start ()
+    Animator m_animator;
+
+    [SerializeField]
+    float m_animatorSpeedModifier = 1.25f;
+
+    // Use this for initialization
+    protected virtual void Start ()
     {
         // Manage id
         s_numberOfObjectCreated++;
@@ -56,6 +61,8 @@ public class NavigationFollower : MonoBehaviour {
 
             Debug.LogError("Error in navigation waypoint " + str + " : null reference !");
         }
+
+        m_animator = GetComponentInChildren<Animator>();
     }
 	
 	// Update is called once per frame
@@ -165,8 +172,22 @@ public class NavigationFollower : MonoBehaviour {
  
         }
 
-        if(!m_stopped)
+        if (!m_stopped)
+        {
             transform.position += direction * m_speed * Time.deltaTime;
+            if (m_animator != null)
+            {
+                m_animator.SetBool("Moving", true);
+                m_animator.speed = m_speed * m_animatorSpeedModifier;
+            }
+        }
+        else
+        {
+            if (m_animator != null)
+            {
+                m_animator.SetBool("Moving", false);
+            }
+        }
 
     }
 
