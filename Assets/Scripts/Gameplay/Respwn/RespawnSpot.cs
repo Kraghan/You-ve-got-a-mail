@@ -90,4 +90,5 @@ public class RespawnSpot : MonoBehaviour
         
         m_hasToRotate = !m_ignoreOrientation && Mathf.Abs(angle) > 90;
     }
+
 }

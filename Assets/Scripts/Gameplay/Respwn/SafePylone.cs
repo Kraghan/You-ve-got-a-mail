@@ -8,6 +8,14 @@ public class SafePylone : MonoBehaviour
     [SerializeField]
     RespawnSpot m_spot;
 
+    [SerializeField]
+    GameObject m_activeObjects;
+
+    public void Start()
+    {
+        SetInactive();
+    }
+
     public void Respawn()
     {
         m_spot.Respawn();
@@ -20,5 +28,15 @@ public class SafePylone : MonoBehaviour
             other.GetComponent<CrashDetection>().SetRespawnPylone(this);
             m_spot.SetLockedRotation();
         }
+    }
+
+    public void SetActive()
+    {
+        m_activeObjects.SetActive(true);
+    }
+
+    public void SetInactive()
+    {
+        m_activeObjects.SetActive(false);
     }
 }

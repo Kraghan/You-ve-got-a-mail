@@ -68,7 +68,11 @@ public class CrashDetection : MonoBehaviour
 
     public void SetRespawnPylone(SafePylone pylone)
     {
+        if (m_lastRespawnPylone != null)
+            m_lastRespawnPylone.SetInactive();
         m_lastRespawnPylone = pylone;
+        m_lastRespawnPylone.SetActive();
+
     }
 
     private void OnGUI()
