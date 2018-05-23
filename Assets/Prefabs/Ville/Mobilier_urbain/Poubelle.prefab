@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4406263334887650}
   - component: {fileID: 33133463898076244}
   - component: {fileID: 23268594013989630}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: "Poubelle_mod\xE9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4437260588442444}
   - component: {fileID: 54401308051163940}
   - component: {fileID: 65188708674371042}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Poubelle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

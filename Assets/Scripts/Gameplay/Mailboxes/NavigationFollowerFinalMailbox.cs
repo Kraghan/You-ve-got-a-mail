@@ -10,7 +10,7 @@ public class NavigationFollowerFinalMailbox : NavigationFollower {
     {
         base.Start();
 
-        m_mailbox = m_target.GetComponent<VacuumMailBox>();
+        m_mailbox = m_target.GetComponentInChildren<VacuumMailBox>();
     }
 
     protected override bool ConditionToChooseNextTarget(float distance)
@@ -20,7 +20,9 @@ public class NavigationFollowerFinalMailbox : NavigationFollower {
 
     protected override void DoWhenReachTarget()
     {
+		
         if(m_target != null)
             m_mailbox.SetAsCurrentTarget();
+		
     }
 }

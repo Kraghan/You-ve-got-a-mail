@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33995978282534188}
   - component: {fileID: 65114439490048488}
   - component: {fileID: 23951542856358098}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Destroyed_Car
   m_TagString: Untagged
   m_Icon: {fileID: 0}

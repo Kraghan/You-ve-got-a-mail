@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 95955167644697064}
   - component: {fileID: 136646751946217090}
   m_Layer: 0
-  m_Name: robot
+  m_Name: "Robot_mod\xE9"
   m_TagString: Mover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1967,7 +1967,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1324658201612668}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.776, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4725430350402140}
@@ -2916,7 +2916,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1601806465654102}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.857, z: 0.16}
+  m_LocalPosition: {x: 0, y: 1.1, z: 0.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4277529889529830}

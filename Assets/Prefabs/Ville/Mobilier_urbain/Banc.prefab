@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4567719456493102}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Banc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4201320871827190}
   - component: {fileID: 33471251348435652}
   - component: {fileID: 23586393641126988}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Banc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4391344518288254}
   - component: {fileID: 33550360473139414}
   - component: {fileID: 23543885789613346}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Contour_Banc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4240717848856710}
   - component: {fileID: 95826144472228984}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: "Banc_mod\xE9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}

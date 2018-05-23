@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4746232186199796}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Caisse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4526888865246804}
   - component: {fileID: 33932694511326528}
   - component: {fileID: 23305269677589466}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: "Caisse_mod\xE9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
