@@ -12,19 +12,11 @@ public class MailCanon : MonoBehaviour
     }
 
     [SerializeField]
-    private GameObject m_newspaperPrefab;
+    private ProbabilityOfAppearenceOfItem[] m_aMailsPrefabs;
     [SerializeField]
-    private float m_ballisticCurvePrecision = 0.5f;
-    [SerializeField]
-    private float m_minForce = 5;
-    [SerializeField]
-    private float m_maxForce = 20;
-    [SerializeField]
-    private Timer m_timeToReachMaxForce;
+    private float m_force = 20;
     [SerializeField]
     private Rigidbody m_bikeBody;
-    [SerializeField]
-    private GameObject m_pool;
 
     private bool m_throwNewspaper = false;
 
@@ -32,81 +24,67 @@ public class MailCanon : MonoBehaviour
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
     }
-
-    // Use this for initialization
-    void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update ()
     {
         if (Controller.GetPress(SteamVR_Controller.ButtonMask.Trigger))
         {
-            DrawBallisticCurve();
             m_throwNewspaper = true;
-            m_timeToReachMaxForce.UpdateTimer();
         }
         else if (m_throwNewspaper && !Controller.GetPress(SteamVR_Controller.ButtonMask.Trigger))
         {
             GetComponent<LineRenderer>().enabled = false;
             ThrowNewspaper();
             m_throwNewspaper = false;
-            m_timeToReachMaxForce.Restart();
         }
     }
-
-    void DrawBallisticCurve()
-    {
-        LineRenderer renderer = GetComponent<LineRenderer>();
-        if (!renderer)
-            return;
-
-        List<Vector3> curvePoints = new List<Vector3>();
-        float time = 0;
-        Vector3 direction = trackedObj.transform.forward;
-        direction.Normalize();
-
-        float force = Mathf.Lerp(m_minForce, m_maxForce, Mathf.Clamp(m_timeToReachMaxForce.GetRatio(), 0, 1));
-
-        Vector3 origin = trackedObj.transform.position;
-        Vector3 position = CalculatePositionAtTime(time, origin, direction, force);
-        while (position.y > 0 && curvePoints.Count < 50)
-        {
-            curvePoints.Add(position);
-            time += m_ballisticCurvePrecision;
-            position = CalculatePositionAtTime(time, origin, direction, force);
-        }
-        curvePoints.Add(position);
-        
-        renderer.positionCount = curvePoints.Count;
-        renderer.SetPositions(curvePoints.ToArray());
-        renderer.enabled = true;
-    }
-
+    
     void ThrowNewspaper()
     {
-        float force = Mathf.Lerp(m_minForce, m_maxForce, Mathf.Clamp(m_timeToReachMaxForce.GetRatio(), 0, 1));
-
         Vector3 direction = transform.forward;
         direction.Normalize();
 
-        GameObject newspaper = Instantiate(m_newspaperPrefab, transform.position, transform.rotation) as GameObject;
+        GameObject newspaper = Instantiate(PickMail().gameObject, transform.position, transform.rotation) as GameObject;
         Rigidbody body = newspaper.GetComponent<Rigidbody>();
         body.angularVelocity = m_bikeBody.angularVelocity;
         body.velocity = m_bikeBody.velocity;
-        body.AddForce(direction * force, ForceMode.Impulse);
-        newspaper.transform.parent = m_pool.transform;
+        body.AddForce(direction * m_force, ForceMode.Impulse);
     }
 
-    Vector3 CalculatePositionAtTime(float time, Vector3 origin, Vector3 directionNormalized, float speed)
+    public void SetForce(float force)
     {
-        Vector3 vec = origin;
+        m_force = force;
+    }
 
-        vec += (directionNormalized * speed) * time;
+    public void SetObjectToSend()
+    {
 
-        vec.y += 0.5f * Physics.gravity.y * time * time;
+    }
 
-        return vec;
+    public void SetBikeRigidbody(Rigidbody body)
+    {
+        m_bikeBody = body;
+    }
+
+    private Mail PickMail()
+    {
+
+        float maxPercentage = 0;
+        foreach (ProbabilityOfAppearenceOfItem proba in m_aMailsPrefabs)
+        {
+            maxPercentage += proba.m_probability;
+        }
+
+        float value = Random.Range(0, maxPercentage);
+        float storage = 0;
+        foreach (ProbabilityOfAppearenceOfItem proba in m_aMailsPrefabs)
+        {
+            storage += proba.m_probability;
+            if (value < storage)
+                return proba.m_item;
+        }
+
+        return null;
     }
 }
