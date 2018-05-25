@@ -15,8 +15,10 @@ namespace AK
     {
         static const AkUniqueID YGM_GUNSHOT = 113418973U;
         static const AkUniqueID YGM_LETTERIMPACT = 3626333799U;
+        static const AkUniqueID YGM_MAILBOXOPENINGCLOSING = 4140502890U;
         static const AkUniqueID YGM_MAILBOXVALIDATION = 3713421942U;
         static const AkUniqueID YGM_NEWSPAPERIMPACT = 3376158800U;
+        static const AkUniqueID YGM_OBJECTSPAWN = 2344412261U;
         static const AkUniqueID YGM_PACKAGEIMPACT = 3000227129U;
         static const AkUniqueID YGM_PNJ1WALK = 2818181119U;
         static const AkUniqueID YGM_PNJ2WALK = 1366380992U;
