@@ -16,7 +16,6 @@ namespace AK
         static const AkUniqueID IMPACTE_COLIS = 350483411U;
         static const AkUniqueID IMPACTE_JOURNAL = 2326840496U;
         static const AkUniqueID IMPACTE_LETTRE = 2570357845U;
-        static const AkUniqueID MAILBOXE_VALIDATION = 2099687066U;
         static const AkUniqueID PNJ1_MARCHE = 57770325U;
         static const AkUniqueID PNJ2_MARCHE = 2557691788U;
     } // namespace EVENTS
@@ -29,6 +28,8 @@ namespace AK
 
     namespace BUSSES
     {
+        static const AkUniqueID AMBISONIC = 1034652824U;
+        static const AkUniqueID AURO_3D = 2857125394U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
     } // namespace BUSSES
 
