@@ -22,6 +22,7 @@ namespace AK
         static const AkUniqueID YGM_PACKAGEIMPACT = 3000227129U;
         static const AkUniqueID YGM_PNJ1WALK = 2818181119U;
         static const AkUniqueID YGM_PNJ2WALK = 1366380992U;
+        static const AkUniqueID YGM_UICLICK = 4265059025U;
     } // namespace EVENTS
 
     namespace BANKS
