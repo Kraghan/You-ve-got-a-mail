@@ -19,13 +19,14 @@ public class ShootSelector : MonoBehaviour {
     ShootMode m_defaultMode = ShootMode.NATURAL;
 
     [SerializeField]
-    GameObject[] m_sendableObjects;
+    ProbabilityOfAppearenceOfItem[] m_sendableObjects;
 
     [Header("Canon mode")]
     [SerializeField]
     float m_force = 20;
 
     [Header("Natural mode")]
+    [SerializeField]
     float m_forceMultiplier = 2;
 
     Rigidbody m_bikeRigidbody;
@@ -39,6 +40,7 @@ public class ShootSelector : MonoBehaviour {
 
         GameObject bike = GameObject.FindGameObjectWithTag("Player");
         m_bikeRigidbody = bike.GetComponent<Rigidbody>();
+        SetModeTo(m_defaultMode);
     }
 	
     public void SetModeTo(ShootMode mode)
@@ -65,12 +67,24 @@ public class ShootSelector : MonoBehaviour {
             MailCanon canon = m_controllerRight.AddComponent<MailCanon>();
             canon.SetForce(m_force);
             canon.SetBikeRigidbody(m_bikeRigidbody);
+            canon.SetObjectToSend(m_sendableObjects);
+
+            canon = m_controllerLeft.AddComponent<MailCanon>();
+            canon.SetForce(m_force);
+            canon.SetBikeRigidbody(m_bikeRigidbody);
+            canon.SetObjectToSend(m_sendableObjects);
         }
         else if(mode == ShootMode.NATURAL)
         {
             MailController natural = m_controllerRight.AddComponent<MailController>();
             natural.SetMultiplier(m_forceMultiplier);
             natural.SetBikeRigidbody(m_bikeRigidbody);
+            natural.SetObjectToSend(m_sendableObjects);
+
+            natural = m_controllerLeft.AddComponent<MailController>();
+            natural.SetMultiplier(m_forceMultiplier);
+            natural.SetBikeRigidbody(m_bikeRigidbody);
+            natural.SetObjectToSend(m_sendableObjects);
         }
 
     }

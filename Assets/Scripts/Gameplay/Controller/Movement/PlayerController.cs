@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour {
         m_lastImpulses.Add(new ImpulseWithTime(Time.fixedDeltaTime, nbImpulse));
         float RPM = CalculateRPM();
         m_lastRPM.Add(RPM);
-        if (m_lastRPM.Count > 5)
+        if (m_lastRPM.Count > 10)
             m_lastRPM.RemoveAt(0);
 
         // start impulse
@@ -145,7 +145,6 @@ public class PlayerController : MonoBehaviour {
                 }
             }
         }
-
         if(motorInput == 0)
         {
             m_lastImpulses.Clear();

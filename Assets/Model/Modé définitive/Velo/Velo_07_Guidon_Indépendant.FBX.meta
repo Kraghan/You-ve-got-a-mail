@@ -1,0 +1,126 @@
+fileFormatVersion: 2
+guid: 45cd82ccfd97a5b448d7e711a4564ab6
+timeCreated: 1527246364
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Cadre_Roue_Avant
+    100002: Guidon
+    100004: O_Levier-D001+PedaleG
+    100006: O_Pedale-D
+    100008: O_Pneu_Arriere
+    100010: O_Pneu_Avant
+    100012: //RootNode
+    400000: Cadre_Roue_Avant
+    400002: Guidon
+    400004: O_Levier-D001+PedaleG
+    400006: O_Pedale-D
+    400008: O_Pneu_Arriere
+    400010: O_Pneu_Avant
+    400012: //RootNode
+    2100000: Cadre
+    2100002: celle
+    2100004: Pneu
+    2100006: Pedal
+    2300000: Cadre_Roue_Avant
+    2300002: Guidon
+    2300004: O_Levier-D001+PedaleG
+    2300006: O_Pedale-D
+    2300008: O_Pneu_Arriere
+    2300010: O_Pneu_Avant
+    2300012: //RootNode
+    3300000: Cadre_Roue_Avant
+    3300002: Guidon
+    3300004: O_Levier-D001+PedaleG
+    3300006: O_Pedale-D
+    3300008: O_Pneu_Arriere
+    3300010: O_Pneu_Avant
+    3300012: //RootNode
+    4300000: Velo
+    4300002: Cadre_Roue_Avant
+    4300004: O_Pneu_Avant
+    4300006: O_Pneu_Arriere
+    4300008: O_Pedale-D
+    4300010: O_Levier-D001+PedaleG
+    4300012: Guidon
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
