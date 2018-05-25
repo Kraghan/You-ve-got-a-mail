@@ -13,11 +13,13 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID IMPACTE_COLIS = 350483411U;
-        static const AkUniqueID IMPACTE_JOURNAL = 2326840496U;
-        static const AkUniqueID IMPACTE_LETTRE = 2570357845U;
-        static const AkUniqueID PNJ1_MARCHE = 57770325U;
-        static const AkUniqueID PNJ2_MARCHE = 2557691788U;
+        static const AkUniqueID YGM_GUNSHOT = 113418973U;
+        static const AkUniqueID YGM_LETTERIMPACT = 3626333799U;
+        static const AkUniqueID YGM_MAILBOXVALIDATION = 3713421942U;
+        static const AkUniqueID YGM_NEWSPAPERIMPACT = 3376158800U;
+        static const AkUniqueID YGM_PACKAGEIMPACT = 3000227129U;
+        static const AkUniqueID YGM_PNJ1WALK = 2818181119U;
+        static const AkUniqueID YGM_PNJ2WALK = 1366380992U;
     } // namespace EVENTS
 
     namespace BANKS
