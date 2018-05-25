@@ -1,0 +1,152 @@
+fileFormatVersion: 2
+guid: 136b8a71ec5550d4fb7f7755f62d2a5a
+timeCreated: 1527080489
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Cadre_Roue_Avant
+    100002: Guidon_04
+    100004: Hlp_Levier-G
+    100006: Hlp_Levier-G001
+    100008: Hlp_Pedale_D
+    100010: Hlp_Pedale_D001
+    100012: Hlp_Pedalier
+    100014: Hlp_Pneu_Arriere
+    100016: Hlp_Pneu_Avant
+    100018: Joint_Cadre_Guidon
+    100020: Joint_Guidon
+    100022: O_Levier-D001+PedaleG
+    100024: O_Pedale-D
+    100026: O_Pneu_Arriere
+    100028: O_Pneu_Avant
+    100030: //RootNode
+    400000: Cadre_Roue_Avant
+    400002: Guidon_04
+    400004: Hlp_Levier-G
+    400006: Hlp_Levier-G001
+    400008: Hlp_Pedale_D
+    400010: Hlp_Pedale_D001
+    400012: Hlp_Pedalier
+    400014: Hlp_Pneu_Arriere
+    400016: Hlp_Pneu_Avant
+    400018: Joint_Cadre_Guidon
+    400020: Joint_Guidon
+    400022: O_Levier-D001+PedaleG
+    400024: O_Pedale-D
+    400026: O_Pneu_Arriere
+    400028: O_Pneu_Avant
+    400030: //RootNode
+    2100000: Cadre
+    2100002: celle
+    2100004: Pneu
+    2100006: Pedal
+    2100008: Levier
+    2100010: lambert1
+    2300000: Cadre_Roue_Avant
+    2300002: Guidon_04
+    2300004: Joint_Cadre_Guidon
+    2300006: Joint_Guidon
+    2300008: O_Levier-D001+PedaleG
+    2300010: O_Pedale-D
+    2300012: O_Pneu_Arriere
+    2300014: O_Pneu_Avant
+    2300016: //RootNode
+    3300000: Cadre_Roue_Avant
+    3300002: Guidon_04
+    3300004: Joint_Cadre_Guidon
+    3300006: Joint_Guidon
+    3300008: O_Levier-D001+PedaleG
+    3300010: O_Pedale-D
+    3300012: O_Pneu_Arriere
+    3300014: O_Pneu_Avant
+    3300016: //RootNode
+    4300000: Velo
+    4300002: O_Pneu_Arriere
+    4300004: O_Pedale-D
+    4300006: O_Levier-D001+PedaleG
+    4300008: Cadre_Roue_Avant
+    4300010: Joint_Cadre_Guidon
+    4300012: Joint_Guidon
+    4300014: Guidon_04
+    4300016: O_Pneu_Avant
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

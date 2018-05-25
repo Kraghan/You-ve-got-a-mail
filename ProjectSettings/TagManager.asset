@@ -15,6 +15,7 @@ TagManager:
   - 5
   - Mover
   - Mailbox
+  - Hand
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - CanTeleport
   - Player
   - Mail
-  - 
+  - Hand
   - 
   - 
   - 

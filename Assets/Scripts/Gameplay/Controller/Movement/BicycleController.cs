@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class BicycleController : MonoBehaviour
 {
 
-    private Rigidbody rigid;
+    public Rigidbody rigid;
 
     public WheelCollider FrontWheelCollider;
     public WheelCollider RearWheelCollider;
