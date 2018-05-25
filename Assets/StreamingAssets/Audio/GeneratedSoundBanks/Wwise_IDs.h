@@ -13,6 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID YGM_BIRDENVIRO = 3381172295U;
         static const AkUniqueID YGM_GUNSHOT = 113418973U;
         static const AkUniqueID YGM_LETTERIMPACT = 3626333799U;
         static const AkUniqueID YGM_MAILBOXINHALE_START = 2980684211U;
@@ -29,6 +30,7 @@ namespace AK
         static const AkUniqueID YGM_POLEEND = 566017294U;
         static const AkUniqueID YGM_POLELOADING_START = 75378572U;
         static const AkUniqueID YGM_PROPELLER = 1055769398U;
+        static const AkUniqueID YGM_SEAENVIRO = 2059578557U;
         static const AkUniqueID YGM_UICLICK = 4265059025U;
     } // namespace EVENTS
 
