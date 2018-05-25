@@ -23,12 +23,6 @@ public class MailController : MonoBehaviour
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
     }
-
-    // Use this for initialization
-    void Start ()
-    {
-        
-    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -43,6 +37,8 @@ public class MailController : MonoBehaviour
             joint.breakForce = 20000;
             joint.breakTorque = 20000;
             joint.connectedBody = m_newspaperInHand.GetComponent<Rigidbody>();
+
+            transform.GetChild(0).gameObject.SetActive(false);
         }
         // Release
         else if (!Controller.GetPress(SteamVR_Controller.ButtonMask.Trigger)
@@ -59,6 +55,7 @@ public class MailController : MonoBehaviour
                 m_newspaperInHand.GetComponent<Rigidbody>().angularVelocity = (Controller.angularVelocity * m_forceMultiplier) + m_bikeRigibody.angularVelocity;
             }
             m_newspaperInHand = null;
+            transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 
@@ -91,5 +88,10 @@ public class MailController : MonoBehaviour
         }
 
         return null;
+    }
+
+    public void SetObjectToSend(ProbabilityOfAppearenceOfItem[] items)
+    {
+        m_aMailsPrefabs = items;
     }
 }

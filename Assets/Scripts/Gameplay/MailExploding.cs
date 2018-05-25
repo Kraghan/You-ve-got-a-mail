@@ -14,12 +14,11 @@ public class MailExploding : Mail
 
     protected override void OnCollisionEnter(Collision collision)
     {
-        print("Collide");
+
         if (collision.collider.CompareTag("Mail"))
             return;
         if (!m_hasCollide)
         {
-            print("Explode");
             Rigidbody bodyParent = GetComponent<Rigidbody>();
             
             foreach(GameObject go in m_aLinkedObjects)

@@ -13,18 +13,21 @@ public class CrashDetection : MonoBehaviour
     private bool m_crashed = false;
     [SerializeField]
     private SafePylone m_lastRespawnPylone;
-
-    [SerializeField]
-    Timer m_timeToFade;
-    [SerializeField]
-    Texture2D m_texture;
+    
     [SerializeField]
     ParticleSystem m_particles;
+
+    [SerializeField]
+    Camera m_camera;
+
+    int m_oldLayerMask;
+    Color m_oldColor;
 
     void Start ()
     {
         m_controller = GetComponent<BicycleController>();
-        m_timeToFade.Start();
+        m_oldLayerMask = m_camera.cullingMask;
+        m_oldColor = m_camera.backgroundColor;
 	}
 	
 	void Update ()
@@ -35,12 +38,8 @@ public class CrashDetection : MonoBehaviour
             {
                 m_crashed = false;
                 m_lastRespawnPylone.Respawn();
-                m_timeToFade.Restart();
                 m_particles.Play();
-            }
-            else
-            {
-                m_timeToFade.UpdateTimer();
+                BackToNormal();
             }
         }
     }
@@ -48,6 +47,20 @@ public class CrashDetection : MonoBehaviour
     public bool IsCrashed()
     {
         return m_crashed;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Mover"))
+        {
+            RagdollTriggerer triggerer = other.gameObject.GetComponentInParent<RagdollTriggerer>();
+            if (triggerer != null)
+            {
+                triggerer.Trigger(m_controller.Speed * transform.forward);
+
+                return;
+            }
+        }
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -63,7 +76,10 @@ public class CrashDetection : MonoBehaviour
         float angle = Mathf.Abs(Vector3.SignedAngle(normalWall, Quaternion.AngleAxis(180,Vector3.up) * transform.forward, Vector3.up));
 
         if (angle < 45)
+        {
             m_crashed = true;
+            BlackScreen();
+        }
     }
 
     public void SetRespawnPylone(SafePylone pylone)
@@ -75,13 +91,17 @@ public class CrashDetection : MonoBehaviour
 
     }
 
-    private void OnGUI()
+    void BlackScreen()
     {
+        m_camera.cullingMask = (1 << LayerMask.NameToLayer("Nothing"));
+        m_camera.clearFlags = CameraClearFlags.SolidColor;
+        m_camera.backgroundColor = Color.black;
+    }
 
-        float alpha = m_timeToFade.GetRatio();
-
-        GUI.color = new Color(0,0,0,alpha);
-    
-        GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height),m_texture);
+    void BackToNormal()
+    {
+        m_camera.cullingMask = m_oldLayerMask;
+        m_camera.clearFlags = CameraClearFlags.Skybox;
+        m_camera.backgroundColor = m_oldColor;
     }
 }

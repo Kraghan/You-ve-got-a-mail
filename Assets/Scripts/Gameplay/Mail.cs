@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class ProbabilityOfAppearenceOfItem
 {
     public float m_probability;

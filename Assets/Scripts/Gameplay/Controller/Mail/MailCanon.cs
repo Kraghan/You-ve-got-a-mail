@@ -57,9 +57,9 @@ public class MailCanon : MonoBehaviour
         m_force = force;
     }
 
-    public void SetObjectToSend()
+    public void SetObjectToSend(ProbabilityOfAppearenceOfItem[] items)
     {
-
+        m_aMailsPrefabs = items;
     }
 
     public void SetBikeRigidbody(Rigidbody body)
