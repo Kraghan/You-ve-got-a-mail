@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33408510968643606}
   - component: {fileID: 65913586172693058}
   - component: {fileID: 23664694638069256}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Champ_Force
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33634526810733302}
   - component: {fileID: 64719419642295766}
   - component: {fileID: 23009967204733916}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Dessous_Batiment_01
   m_TagString: 4
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4138482396431414}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Batiment_Pivot_04
   m_TagString: 4
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 33315420581184444}
   - component: {fileID: 64755955723247670}
   - component: {fileID: 23710122073187360}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sol_Batiment_01
   m_TagString: 4
   m_Icon: {fileID: 0}
@@ -73,12 +73,43 @@ GameObject:
   - component: {fileID: 33207202305817162}
   - component: {fileID: 23094288786222202}
   - component: {fileID: 64341815511917500}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Porche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!1 &1321582090162904
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4581421832792310}
+  - component: {fileID: 65277576949325254}
+  m_Layer: 2
+  m_Name: Colliders_droits
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1432951047326712
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4435518644421678}
+  m_Layer: 2
+  m_Name: "Colliders_pench\xE9s"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1561596634722778
 GameObject:
@@ -91,7 +122,7 @@ GameObject:
   - component: {fileID: 33871503702267648}
   - component: {fileID: 23439899694860806}
   - component: {fileID: 95607465116233138}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Batiment
   m_TagString: 4
   m_Icon: {fileID: 0}
@@ -109,7 +140,7 @@ GameObject:
   - component: {fileID: 33303643466464408}
   - component: {fileID: 23778866904460552}
   - component: {fileID: 64620661999309674}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Balcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,13 +158,28 @@ GameObject:
   - component: {fileID: 33839293968952632}
   - component: {fileID: 65932742449086776}
   - component: {fileID: 23352069135423894}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Rehaussage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &1760377338263666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4680787873347122}
+  m_Layer: 2
+  m_Name: Colliders
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4077723332674356
 Transform:
   m_ObjectHideFlags: 1
@@ -158,6 +204,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4915864275132126}
+  - {fileID: 4680787873347122}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -186,6 +233,47 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4915864275132126}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4435518644421678
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1432951047326712}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4680787873347122}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4581421832792310
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1321582090162904}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4680787873347122}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4680787873347122
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1760377338263666}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4581421832792310}
+  - {fileID: 4435518644421678}
+  m_Father: {fileID: 4138482396431414}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4891193435881404
 Transform:
@@ -533,6 +621,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &65277576949325254
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1321582090162904}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8, y: 12, z: 8}
+  m_Center: {x: 4, y: 6, z: 4}
 --- !u!65 &65932742449086776
 BoxCollider:
   m_ObjectHideFlags: 1

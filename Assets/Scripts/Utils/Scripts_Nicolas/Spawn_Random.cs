@@ -22,7 +22,7 @@ public class Spawn_Random : MonoBehaviour {
 
 		//Je fais popper les piétons sur tous les noeuds du graphe piéton
 		foreach (NavigationWaypoint waypoint in All_nodes_pietons) {
-			if (Random.value >= 0.3f) {
+			if (Random.value <= 0.5f) {
 				GameObject lepieton = Instantiate (Pieton);
 				lepieton.GetComponent<NavigationFollower> ().SetStartPoint(waypoint);
 				//lepieton.GetComponent<NavigationFollower> ().SetSpeed(Random.Range (1, 2) + Random.value);
@@ -33,7 +33,7 @@ public class Spawn_Random : MonoBehaviour {
 
 		//Je fais popper les voitures sur tous les noeuds du graphe des voitures
 		foreach (NavigationWaypoint waypoint in All_nodes_voitures) {
-			if (Random.value >= 0.1f) {
+			if (Random.value <= 0.75f) {
 				GameObject lavoiture = Instantiate (Voiture);
 				lavoiture.GetComponent<NavigationFollower> ().SetStartPoint(waypoint);
 				//lavoiture.GetComponent<NavigationFollower> ().SetSpeed(Random.Range (3, 4) + Random.value);

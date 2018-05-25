@@ -6,7 +6,7 @@ using UnityEditor;
 
 public class Generation_procedurale : MonoBehaviour {
 
-	public Object Poteau;
+	public Object[] Mobilier;
 	public GameObject Parent_Poteaux;
 	public GameObject Chemin;
 	//La distance entre chaque poteau
@@ -32,6 +32,7 @@ public class Generation_procedurale : MonoBehaviour {
 	private GameObject leparent;
 	private GameObject[] lespoteaux;
 	private GameObject poteauclone;
+	private int nb_variations;
 
 	private GameObject[] lesbuildings;
 	private Object[] mesbat;
@@ -290,7 +291,11 @@ public class Generation_procedurale : MonoBehaviour {
 				angle = angle + Décalage_rotation;
 
 				//J'instancie le poteau en tant que prefab
-				poteauclone = PrefabUtility.InstantiatePrefab (Poteau) as GameObject;
+				int variete = nb_variations % Mobilier.Length;
+				poteauclone = PrefabUtility.InstantiatePrefab (Mobilier[variete]) as GameObject;
+
+				//Je lui dit de passer au gameobject suivant dans la liste des gameobjects
+				nb_variations ++;
 
 				//Je le met dans le bon parent, je le place dans l'espace et lui met la bonne rotation
 				poteauclone.name = "Poteau_" + (lespoteaux.Length + 1) + "_" + (leparent.transform.childCount + 1);

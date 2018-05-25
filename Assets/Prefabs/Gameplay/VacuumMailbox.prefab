@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4913596230171250}
   m_Layer: 2
   m_Name: VacuumMailbox
-  m_TagString: Untagged
+  m_TagString: Mailbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 33827871990129372}
   - component: {fileID: 65497159883551614}
   - component: {fileID: 114584153127037454}
+  - component: {fileID: 114510107056834766}
   m_Layer: 2
   m_Name: Trigger
   m_TagString: Untagged
@@ -556,6 +557,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114510107056834766
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1777648717335718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c8f3efc04105004699ca1d853bc05f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_secondsScore: 5
+  m_mailbox: {fileID: 0}
 --- !u!114 &114584153127037454
 MonoBehaviour:
   m_ObjectHideFlags: 1
