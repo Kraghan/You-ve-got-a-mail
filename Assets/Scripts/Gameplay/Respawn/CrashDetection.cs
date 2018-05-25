@@ -23,6 +23,8 @@ public class CrashDetection : MonoBehaviour
     int m_oldLayerMask;
     Color m_oldColor;
 
+    uint m_collisionCount = 0;
+
     void Start ()
     {
         m_controller = GetComponent<BicycleController>();
@@ -34,12 +36,17 @@ public class CrashDetection : MonoBehaviour
     {
         if (m_crashed)
         {
-            if(m_controller.GetMotorInput() < 0.1)
+            if(m_collisionCount == 0)
             {
+                BackToNormal();
                 m_crashed = false;
+            }
+            else if(m_controller.GetMotorInput() < 0.1)
+            {
                 m_lastRespawnPylone.Respawn();
                 m_particles.Play();
                 BackToNormal();
+                m_crashed = false;
             }
         }
     }
@@ -65,6 +72,7 @@ public class CrashDetection : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
+        m_collisionCount++;
         Vector3 normalWall = Vector3.zero;
 
         for(uint i = 0; i < collision.contacts.Length; ++i)
@@ -80,6 +88,11 @@ public class CrashDetection : MonoBehaviour
             m_crashed = true;
             BlackScreen();
         }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        m_collisionCount--;
     }
 
     public void SetRespawnPylone(SafePylone pylone)

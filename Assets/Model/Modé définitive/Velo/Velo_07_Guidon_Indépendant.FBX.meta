@@ -1,67 +1,49 @@
 fileFormatVersion: 2
-guid: b0a193911e3416b4599f67b812e4b331
-timeCreated: 1525163689
+guid: 45cd82ccfd97a5b448d7e711a4564ab6
+timeCreated: 1527246364
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Hlp_Levier-G
-    100004: Hlp_Levier-G001
-    100006: Hlp_Pedale_D
-    100008: Hlp_Pedale_D001
-    100010: Hlp_Pedalier
-    100012: Hlp_Pneu_Arriere
-    100014: Hlp_Pneu_Avant
-    100016: O_Levier-D
-    100018: O_Levier-D001
-    100020: O_Pedale-D
-    100022: O_Pedale-D001
-    100024: O_Pneu_Arriere
-    100026: O_Pneu_Avant
-    100028: Velo
-    400000: //RootNode
-    400002: Hlp_Levier-G
-    400004: Hlp_Levier-G001
-    400006: Hlp_Pedale_D
-    400008: Hlp_Pedale_D001
-    400010: Hlp_Pedalier
-    400012: Hlp_Pneu_Arriere
-    400014: Hlp_Pneu_Avant
-    400016: O_Levier-D
-    400018: O_Levier-D001
-    400020: O_Pedale-D
-    400022: O_Pedale-D001
-    400024: O_Pneu_Arriere
-    400026: O_Pneu_Avant
-    400028: Velo
+    100000: Cadre_Roue_Avant
+    100002: Guidon
+    100004: O_Levier-D001+PedaleG
+    100006: O_Pedale-D
+    100008: O_Pneu_Arriere
+    100010: O_Pneu_Avant
+    100012: //RootNode
+    400000: Cadre_Roue_Avant
+    400002: Guidon
+    400004: O_Levier-D001+PedaleG
+    400006: O_Pedale-D
+    400008: O_Pneu_Arriere
+    400010: O_Pneu_Avant
+    400012: //RootNode
     2100000: Cadre
     2100002: celle
-    2100004: Pedal
-    2100006: Levier
-    2100008: Pneu
-    2300000: O_Levier-D
-    2300002: O_Levier-D001
-    2300004: O_Pedale-D
-    2300006: O_Pedale-D001
+    2100004: Pneu
+    2100006: Pedal
+    2300000: Cadre_Roue_Avant
+    2300002: Guidon
+    2300004: O_Levier-D001+PedaleG
+    2300006: O_Pedale-D
     2300008: O_Pneu_Arriere
     2300010: O_Pneu_Avant
-    2300012: Velo
-    3300000: O_Levier-D
-    3300002: O_Levier-D001
-    3300004: O_Pedale-D
-    3300006: O_Pedale-D001
+    2300012: //RootNode
+    3300000: Cadre_Roue_Avant
+    3300002: Guidon
+    3300004: O_Levier-D001+PedaleG
+    3300006: O_Pedale-D
     3300008: O_Pneu_Arriere
     3300010: O_Pneu_Avant
-    3300012: Velo
+    3300012: //RootNode
     4300000: Velo
-    4300002: O_Pedale-D
-    4300004: O_Levier-D
-    4300006: O_Levier-D001
-    4300008: O_Pedale-D001
-    4300010: O_Pneu_Arriere
-    4300012: O_Pneu_Avant
-    9500000: //RootNode
+    4300002: Cadre_Roue_Avant
+    4300004: O_Pneu_Avant
+    4300006: O_Pneu_Arriere
+    4300008: O_Pedale-D
+    4300010: O_Levier-D001+PedaleG
+    4300012: Guidon
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -136,7 +118,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
