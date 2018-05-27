@@ -6,7 +6,7 @@ public class MailboxCoordinator : MonoBehaviour
 {
     [SerializeField]
     VacuumMailBox[] m_aVacuumMailboxes;
-
+    
     TargetFollower m_playerUITarget;
     GameObject m_player;
 
@@ -41,4 +41,9 @@ public class MailboxCoordinator : MonoBehaviour
             }
         }
 	}
+
+    public uint GetMailboxActive()
+    {
+        return m_activeMailbox;
+    }
 }
