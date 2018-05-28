@@ -16,6 +16,8 @@ public class BicycleController : MonoBehaviour
     public Transform SteeringHandlebar;
     public Transform COM;
 
+    public Transform frontWheelPosition;
+
     //Gearbox
     public bool changingGear = false;
     public float gearShiftRate = 10.0f;
@@ -186,9 +188,10 @@ public class BicycleController : MonoBehaviour
         {
             if (hit.transform.gameObject.layer != LayerMask.NameToLayer("Bike"))
             {
-                FrontWheelTransform.transform.position = hit.point + (FrontWheelCollider.transform.up * FrontWheelCollider.radius) * transform.localScale.y;
+                //if(FrontWheelCollider)
+                    //FrontWheelTransform.transform.position = hit.point + (FrontWheelCollider.transform.up * FrontWheelCollider.radius) * transform.localScale.y;
                 if (Fender)
-                    Fender.transform.position = hit.point + (FrontWheelCollider.transform.up * (FrontWheelCollider.radius + FrontWheelCollider.suspensionDistance)) * transform.localScale.y;
+                    Fender.transform.position = hit.point + (FrontWheelCollider.transform.up * (FrontWheelCollider.radius)) * transform.localScale.y;
                 extension_F = (-FrontWheelCollider.transform.InverseTransformPoint(CorrespondingGroundHit.point).y - FrontWheelCollider.radius) / FrontWheelCollider.suspensionDistance;
                 Debug.DrawLine(CorrespondingGroundHit.point, CorrespondingGroundHit.point + FrontWheelCollider.transform.up * (CorrespondingGroundHit.force / 8000), extension_F <= 0.0f ? Color.magenta : Color.white);
                 Debug.DrawLine(CorrespondingGroundHit.point, CorrespondingGroundHit.point - FrontWheelCollider.transform.forward * CorrespondingGroundHit.forwardSlip, Color.green);
@@ -197,10 +200,15 @@ public class BicycleController : MonoBehaviour
         }
         else
         {
-            FrontWheelTransform.transform.position = ColliderCenterPointFL - (FrontWheelCollider.transform.up * FrontWheelCollider.suspensionDistance) * transform.localScale.y;
+            //if(FrontWheelCollider)
+                //FrontWheelTransform.transform.position = ColliderCenterPointFL - (FrontWheelCollider.transform.up * FrontWheelCollider.suspensionDistance) * transform.localScale.y;
         }
         RotationValue1 += FrontWheelCollider.rpm * (6) * Time.deltaTime;
-        FrontWheelTransform.transform.rotation = FrontWheelCollider.transform.rotation * Quaternion.Euler(RotationValue1, FrontWheelCollider.steerAngle, FrontWheelCollider.transform.rotation.z);
+        if (FrontWheelCollider)
+        {
+            FrontWheelTransform.transform.rotation = FrontWheelCollider.transform.rotation * Quaternion.Euler(RotationValue1, FrontWheelCollider.steerAngle, FrontWheelCollider.transform.rotation.z);
+            FrontWheelTransform.transform.position = frontWheelPosition.position;
+        }
 
         Vector3 ColliderCenterPointRL = RearWheelCollider.transform.TransformPoint(RearWheelCollider.center);
         RearWheelCollider.GetGroundHit(out CorrespondingGroundHit);
@@ -224,10 +232,25 @@ public class BicycleController : MonoBehaviour
         RearWheelTransform.transform.rotation = RearWheelCollider.transform.rotation * Quaternion.Euler(RotationValue2, RearWheelCollider.steerAngle, RearWheelCollider.transform.rotation.z);
 
         //Steering Wheel and Fender transforms
-        if (SteeringHandlebar)
-            SteeringHandlebar.transform.rotation = FrontWheelCollider.transform.rotation * Quaternion.Euler(0, FrontWheelCollider.steerAngle, FrontWheelCollider.transform.rotation.z);
         if (Fender)
-            Fender.rotation = FrontWheelCollider.transform.rotation * Quaternion.Euler(0, FrontWheelCollider.steerAngle, FrontWheelCollider.transform.rotation.z);
+        {
+            Fender.localRotation = Quaternion.Euler(0, 0, 0);
+
+            Vector3 direction = frontWheelPosition.position - SteeringHandlebar.position;
+            //Debug.DrawLine(frontWheelPosition.position, SteeringHandlebar.position, Color.red,0.5f);
+
+            Fender.Rotate(direction, -FrontWheelCollider.steerAngle,Space.World);
+            FrontWheelTransform.rotation = Fender.rotation;
+
+            if (SteeringHandlebar)
+            {
+                SteeringHandlebar.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                SteeringHandlebar.Rotate(direction, -FrontWheelCollider.steerAngle, Space.World);
+            }
+                //SteeringHandlebar.transform.rotation = FrontWheelCollider.transform.rotation * Quaternion.Euler(0, FrontWheelCollider.steerAngle, FrontWheelCollider.transform.rotation.z);
+
+            //Fender.rotation = FrontWheelCollider.transform.rotation * Quaternion.Euler(0, FrontWheelCollider.steerAngle, FrontWheelCollider.transform.rotation.z);
+        }
 
     }
 

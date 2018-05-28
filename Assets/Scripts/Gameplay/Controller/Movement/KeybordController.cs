@@ -3,11 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class KeybordController : MonoBehaviour {
-    [Header("Handlebar")]
-    [SerializeField]
-    private Transform m_steerWheel;
-    [SerializeField]
-    private GameObject m_handleBar;
     [SerializeField]
     private bool m_inverted;
 

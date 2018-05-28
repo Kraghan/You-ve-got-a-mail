@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ImpulseWithTime
 {
@@ -189,5 +190,10 @@ public class PlayerController : MonoBehaviour {
         }
 
         return rotations ;
+    }
+
+    public void SetSensibility(Slider slider)
+    {
+        m_sensibility = slider.value;
     }
 }
