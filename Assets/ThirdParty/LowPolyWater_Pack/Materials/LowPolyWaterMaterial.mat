@@ -8,7 +8,7 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: LowPolyWaterMaterial
   m_Shader: {fileID: 4800000, guid: 16516895e8a79bf49a6562c3c3b84cbf, type: 3}
-  m_ShaderKeywords: _EMISSION
+  m_ShaderKeywords: _EMISSION _ISINNERALPHABLENDORCOLOR_ON
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -171,13 +171,13 @@ Material:
     - _WaveScale: 0.046289656
     - _WaveSpeed: 1
     - _ZWrite: 1
-    - _isInnerAlphaBlendOrColor: 0
+    - _isInnerAlphaBlendOrColor: 1
     m_Colors:
     - WaveSpeed: {r: 1.086165, g: 4.440575, b: 12.105146, a: -3.0206447}
     - _AnimationDirection: {r: 0, g: 0, b: 0, a: 0}
     - _AnimationTiling: {r: 0.04582553, g: 0.0182, b: 0.045714468, a: 0.027129691}
     - _BaseColor: {r: 0.37208048, g: 0.7794238, b: 0.8161765, a: 1}
-    - _BumpDirection: {r: 5, g: 5, b: 5, a: 5}
+    - _BumpDirection: {r: 2, g: 5, b: 5, a: 2}
     - _BumpMap_ST: {r: 1, g: 1, b: 0, a: 0}
     - _BumpTiling: {r: 0.005, g: 0.005, b: 0.005, a: 0.005}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
@@ -198,7 +198,7 @@ Material:
     - _GSpeed: {r: -3, g: 2, b: 1, a: 3}
     - _GSteepness: {r: 7, g: 2, b: 6, a: 2}
     - _HorizonColor: {r: 0.052907113, g: 0.24486735, b: 0.2835821, a: 1}
-    - _InvFadeParemeter: {r: 1, g: 1, b: 1, a: 1}
+    - _InvFadeParemeter: {r: -0.05, g: -0.005, b: 1, a: 1}
     - _MainTex_ST: {r: 1, g: 1, b: 0, a: 0}
     - _ReflectionColor: {r: 0.5794164, g: 0.6849238, b: 0.76119405, a: 0.43137255}
     - _ReflectionTex_ST: {r: 1, g: 1, b: 0, a: 0}
