@@ -2,16 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetFollower : MonoBehaviour {
+public class TargetFollower : MonoBehaviour
+{
 
     [SerializeField]
-    MailboxCoordinator m_coordinator;
-	
+    Transform m_target;
+
+    Transform m_objectToRotate;
+
 	// Update is called once per frame
 	void Update ()
     {
-        Transform target = m_coordinator.GetTarget();
-        Vector3 direction = target.position - transform.position;
-        transform.rotation = Quaternion.LookRotation(direction);
+        Vector3 direction = m_target.position - m_objectToRotate.position;
+        m_objectToRotate.rotation = Quaternion.LookRotation(direction);
 	}
+
+    public void SetTarget(Transform transf)
+    {
+        m_target = transf;
+    }
+
+    public void SetObjectToRotate(Transform transf)
+    {
+        m_objectToRotate = transf;
+    }
 }

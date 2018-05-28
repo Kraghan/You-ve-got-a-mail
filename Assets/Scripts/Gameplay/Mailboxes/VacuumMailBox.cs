@@ -57,7 +57,7 @@ public class VacuumMailBox : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Mail"))
+        if(other.CompareTag("Mail") && !m_mail && !m_isDelivered)
         {
             m_mail = other.gameObject;
             m_mail.GetComponent<Collider>().enabled = false;
@@ -78,5 +78,10 @@ public class VacuumMailBox : MonoBehaviour {
     public bool IsDelivered()
     {
         return m_isDelivered;
+    }
+
+    public void Reset()
+    {
+        m_isDelivered = false;
     }
 }
