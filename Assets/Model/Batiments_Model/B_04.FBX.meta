@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 65e73c0927de8404ba5cb6053827b16b
-timeCreated: 1526569567
+guid: 7f6875d1e10ae974983f4f05484d2a8c
+timeCreated: 1527258108
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -9,20 +9,31 @@ ModelImporter:
     100002: Balcon_B_04
     100004: Bar_Deco_B_04
     100006: Batiment_04
+    100008: Corniche_01
+    100010: Corniche_02
     400000: //RootNode
     400002: Balcon_B_04
     400004: Bar_Deco_B_04
     400006: Batiment_04
+    400008: Corniche_01
+    400010: Corniche_02
     2100000: Standardmaterial
     2300000: Balcon_B_04
     2300002: Bar_Deco_B_04
     2300004: Batiment_04
+    2300006: Corniche_01
+    2300008: Corniche_02
     3300000: Balcon_B_04
     3300002: Bar_Deco_B_04
     3300004: Batiment_04
+    3300006: Corniche_01
+    3300008: Corniche_02
     4300000: Batiment_04
     4300002: Balcon_B_04
     4300004: Bar_Deco_B_04
+    4300006: Corniche_02
+    4300008: Corniche_01
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -97,7 +108,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
