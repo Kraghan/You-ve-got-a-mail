@@ -55,5 +55,6 @@ public class VRButton : VRInteractible
             m_button.image.sprite = m_button.spriteState.pressedSprite;
 
         m_button.onClick.Invoke();
+        AkSoundEngine.PostEvent("YGM_UiClick", gameObject);
     }
 }

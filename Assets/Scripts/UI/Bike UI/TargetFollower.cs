@@ -5,17 +5,13 @@ using UnityEngine;
 public class TargetFollower : MonoBehaviour {
 
     [SerializeField]
-    Transform m_target;
+    MailboxCoordinator m_coordinator;
 	
 	// Update is called once per frame
 	void Update ()
     {
-        Vector3 direction = m_target.position - transform.position;
+        Transform target = m_coordinator.GetTarget();
+        Vector3 direction = target.position - transform.position;
         transform.rotation = Quaternion.LookRotation(direction);
 	}
-
-    public void SetTarget(Transform transf)
-    {
-        m_target = transf;
-    }
 }

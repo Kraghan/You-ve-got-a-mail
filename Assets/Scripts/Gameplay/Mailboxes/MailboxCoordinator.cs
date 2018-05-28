@@ -6,8 +6,6 @@ public class MailboxCoordinator : MonoBehaviour
 {
     [SerializeField]
     VacuumMailBox[] m_aVacuumMailboxes;
-    
-    TargetFollower m_playerUITarget;
     GameObject m_player;
 
     uint m_activeMailbox = 0;
@@ -16,11 +14,6 @@ public class MailboxCoordinator : MonoBehaviour
 	void Start ()
     {
         m_player = GameObject.FindGameObjectWithTag("Player");
-        m_playerUITarget = m_player.GetComponentInChildren<TargetFollower>();
-        if (m_aVacuumMailboxes.Length != 0)
-            m_playerUITarget.SetTarget(m_aVacuumMailboxes[0].transform);
-        else
-            Debug.LogError("No mailboxes set in Mailbox coordinator");
 	}
 	
 	// Update is called once per frame
@@ -33,7 +26,6 @@ public class MailboxCoordinator : MonoBehaviour
 
                 m_activeMailbox++;
                 m_aVacuumMailboxes[m_activeMailbox].SetAsCurrentTarget();
-                m_playerUITarget.SetTarget(m_aVacuumMailboxes[m_activeMailbox].transform);
             }
             else
             {
@@ -45,5 +37,10 @@ public class MailboxCoordinator : MonoBehaviour
     public uint GetMailboxActive()
     {
         return m_activeMailbox;
+    }
+
+    public Transform GetTarget()
+    {
+        return m_aVacuumMailboxes[m_activeMailbox].transform;
     }
 }
