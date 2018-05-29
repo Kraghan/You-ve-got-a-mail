@@ -50,6 +50,7 @@ public class MailCanon : MonoBehaviour
         body.angularVelocity = m_bikeBody.angularVelocity;
         body.velocity = m_bikeBody.velocity;
         body.AddForce(direction * m_force, ForceMode.Impulse);
+        AkSoundEngine.PostEvent("YGM_Gunshot", gameObject);
     }
 
     public void SetForce(float force)

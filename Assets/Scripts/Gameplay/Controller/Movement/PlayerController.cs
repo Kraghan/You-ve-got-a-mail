@@ -57,6 +57,8 @@ public class PlayerController : MonoBehaviour {
     float timeSinceLastImpulse = 0;
     List<ImpulseWithTime> m_lastImpulses = new List<ImpulseWithTime>();
     List<float> m_lastRPM = new List<float>();
+
+
     void Start()
     {   
         m_bikeController = GetComponent<BicycleController>();
