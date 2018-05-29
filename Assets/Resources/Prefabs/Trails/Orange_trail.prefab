@@ -85,7 +85,7 @@ TrailRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: f855134cdd14ab54fa2838027b3eec2f, type: 2}
+  - {fileID: 2100000, guid: 0ae7a5f856848e34e885c1f78347ae79, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -187,9 +187,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_startPoint: {fileID: 0}
-  m_triggerOffset: 0.2
-  m_triggerRotationOffset: 0.2
+  m_triggerOffset: 0.05
+  m_triggerRotationOffset: 0.05
   m_speed: 3
   m_distanceBetweenObjects: 0.1
   m_rotationSpeed: 0
   m_front: {fileID: 4923009667077656}
+  m_animatorSpeedModifier: 1.25

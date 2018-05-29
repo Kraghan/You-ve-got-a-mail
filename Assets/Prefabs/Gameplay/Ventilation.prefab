@@ -36,7 +36,11 @@ GameObject:
   - component: {fileID: 4951473713731930}
   - component: {fileID: 33914912214326092}
   - component: {fileID: 23550189844321152}
-  - component: {fileID: 95092080751891026}
+  - component: {fileID: 65954414626348754}
+  - component: {fileID: 65551439850209682}
+  - component: {fileID: 65757889362678528}
+  - component: {fileID: 65501661469539886}
+  - component: {fileID: 136182948639373606}
   m_Layer: 0
   m_Name: Caisson
   m_TagString: Untagged
@@ -55,6 +59,7 @@ GameObject:
   - component: {fileID: 33125477869899408}
   - component: {fileID: 23815878314541008}
   - component: {fileID: 114625008623554476}
+  - component: {fileID: 64176274774620328}
   m_Layer: 0
   m_Name: Pales
   m_TagString: Untagged
@@ -216,23 +221,68 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1432477887425286}
   m_Mesh: {fileID: 4300000, guid: aca3ab03679444848b725866c1cb23c8, type: 3}
---- !u!95 &95092080751891026
-Animator:
+--- !u!64 &64176274774620328
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1799529200550828}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
   serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: e0526397b1754064f90d536d4936106b, type: 3}
+--- !u!65 &65501661469539886
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1432477887425286}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: aca3ab03679444848b725866c1cb23c8, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  serializedVersion: 2
+  m_Size: {x: 2.7045183, y: 0.13128485, z: 3.480089}
+  m_Center: {x: -0.16069146, y: -1.5019959, z: 0.5347503}
+--- !u!65 &65551439850209682
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1432477887425286}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.7045183, y: 3.4190028, z: 0.14278138}
+  m_Center: {x: -0.16069146, y: 0.18256682, z: 2.2338276}
+--- !u!65 &65757889362678528
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1432477887425286}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.7045183, y: 0.10712454, z: 3.480089}
+  m_Center: {x: -0.16069146, y: 1.8796599, z: 0.5347503}
+--- !u!65 &65954414626348754
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1432477887425286}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.7045183, y: 3.4190028, z: 0.108644776}
+  m_Center: {x: -0.16069146, y: 0.18256682, z: -1.1509719}
 --- !u!114 &114625008623554476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -248,3 +298,16 @@ MonoBehaviour:
   speed: -200
   Random_rot: 0
   Random_Range: 0
+--- !u!136 &136182948639373606
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1432477887425286}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.12
+  m_Height: 3.4
+  m_Direction: 2
+  m_Center: {x: -0.01, y: 0.25, z: 0.54}
