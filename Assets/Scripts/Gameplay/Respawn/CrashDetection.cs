@@ -43,10 +43,7 @@ public class CrashDetection : MonoBehaviour
             }
             else if(m_controller.GetMotorInput() < 0.1)
             {
-                m_lastRespawnPylone.Respawn();
-                m_particles.Play();
-                BackToNormal();
-                m_crashed = false;
+                Respawn();
             }
         }
     }
@@ -116,5 +113,13 @@ public class CrashDetection : MonoBehaviour
         m_camera.cullingMask = m_oldLayerMask;
         m_camera.clearFlags = CameraClearFlags.Skybox;
         m_camera.backgroundColor = m_oldColor;
+    }
+
+    public void Respawn()
+    {
+        m_lastRespawnPylone.Respawn();
+        m_particles.Play();
+        BackToNormal();
+        m_crashed = false;
     }
 }

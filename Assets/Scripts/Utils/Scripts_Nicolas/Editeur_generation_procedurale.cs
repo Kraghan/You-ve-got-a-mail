@@ -29,6 +29,10 @@ public class Editeur_generation_procedurale : Editor {
 			myScript.BuildBuildings ();
 		}
 
+		if (GUILayout.Button ("Rotation bâtiments")) {
+			myScript.RotateBuildings ();
+		}
+
 	}
 }
 #endif

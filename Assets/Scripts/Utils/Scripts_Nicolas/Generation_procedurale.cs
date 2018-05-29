@@ -23,6 +23,8 @@ public class Generation_procedurale : MonoBehaviour {
 
 	public GameObject Parent_Buildings;
 
+	public GameObject Tous_Buildings;
+
 	private Transform chemin;
 	private Transform[] noeuds;
 	private float length;
@@ -476,5 +478,35 @@ public class Generation_procedurale : MonoBehaviour {
 		Instantiate_Buildings (chemin.childCount - 1, 0);
 
 	}
+
+	public void RotateBuildings()
+	{
+		Vector3 centre = new Vector3 (10, 10, 10);
+
+		Transform[] Bat_all = Tous_Buildings.GetComponentsInChildren<Transform> ();
+
+		foreach (Transform lebat in Bat_all) {
+
+			if (lebat.name == "Batiment") {
+
+				//Je trouve les coordonnées locales du centre de rotation
+				Transform[] Bat_int = lebat.GetComponentsInChildren<Transform>();
+
+				foreach (Transform interieur in Bat_int) {
+
+					if (interieur.name == "Centre") {
+
+						centre = interieur.position;
+
+					}
+				}
+
+				//Je fais tourner mon bâtiment autour de son centre de rotation d'une valeur aléatoire de l'ordre de 90°
+				lebat.transform.RotateAround(centre,Vector3.up,Random.Range(0,3) * 90);
+
+			}
+		}
+	}
+
 }
 #endif

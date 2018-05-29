@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: f7699db1c1874fa4ea476d318866be96
-timeCreated: 1527166026
+guid: a59452c36751c314786814e73beb7bc2
+timeCreated: 1527497406
 licenseType: Free
 SketchUpImporter:
   generateBackFace: 0
@@ -8,16 +8,16 @@ SketchUpImporter:
   selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f00000030000000310000003200000033000000340000003500000036000000370000003800000039000000
   assetHash:
     serializedVersion: 2
-    Hash: 5eee614837794841dcff888922513ded
+    Hash: 1e46da2ccb49cf52ec97df8fc79c1a9f
   longitude: -105.242139
   latitude: 40.018309
   northCorrection: -0
   fileUnit: 0
   sketchUpImportData:
     defaultCamera:
-      position: {x: 626.6636, y: 263.18884, z: 320.71844}
-      lookAt: {x: 493.02182, y: 185.90123, z: 325.4529}
-      up: {x: -0.50008005, y: 0.86579794, z: 0.017716127}
+      position: {x: 272.11145, y: 35.312683, z: 436.0854}
+      lookAt: {x: 192.37477, y: -20.06457, z: 514.42865}
+      up: {x: -0.31664664, y: 0.8960712, z: 0.3111131}
       fov: 35
       aspectRatio: 0
       orthoSize: 1
@@ -172,6 +172,35 @@ SketchUpImporter:
     4300052: Mesh Group 52
     4300054: Mesh Group 54
     4300056: Mesh Group 56
+    6400000: Group 10
+    6400002: Group 12
+    6400004: Group 14
+    6400006: Group 16
+    6400008: Group 18
+    6400010: Group 2
+    6400012: Group 20
+    6400014: Group 22
+    6400016: Group 24
+    6400018: Group 26
+    6400020: Group 28
+    6400022: Group 30
+    6400024: Group 32
+    6400026: Group 34
+    6400028: Group 36
+    6400030: Group 38
+    6400032: Group 4
+    6400034: Group 40
+    6400036: Group 42
+    6400038: Group 44
+    6400040: Group 46
+    6400042: Group 48
+    6400044: Group 50
+    6400046: Group 52
+    6400048: Group 54
+    6400050: Group 56
+    6400052: Group 6
+    6400054: Group 8
+    6400056: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -204,7 +233,7 @@ SketchUpImporter:
     lODScreenPercentages: []
     globalScale: 0.0254
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
