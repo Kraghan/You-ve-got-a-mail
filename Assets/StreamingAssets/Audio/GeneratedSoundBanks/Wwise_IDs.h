@@ -17,6 +17,7 @@ namespace AK
         static const AkUniqueID YGM_CAR_START = 818962592U;
         static const AkUniqueID YGM_CAR_STOP = 3339904716U;
         static const AkUniqueID YGM_CITY_START = 2407544017U;
+        static const AkUniqueID YGM_CRASH = 3398638626U;
         static const AkUniqueID YGM_GUNSHOT = 113418973U;
         static const AkUniqueID YGM_LETTERIMPACT = 3626333799U;
         static const AkUniqueID YGM_MAILBOXINHALE_START = 2980684211U;
@@ -33,8 +34,8 @@ namespace AK
         static const AkUniqueID YGM_PNJ1WALK = 2818181119U;
         static const AkUniqueID YGM_PNJ2HIT = 2630144286U;
         static const AkUniqueID YGM_PNJ2WALK = 1366380992U;
-        static const AkUniqueID YGM_POLEEND = 566017294U;
         static const AkUniqueID YGM_POLELOADING_START = 75378572U;
+        static const AkUniqueID YGM_POLELOADING_STOP = 3259290912U;
         static const AkUniqueID YGM_PROPELLER = 1055769398U;
         static const AkUniqueID YGM_SEAENVIRO = 2059578557U;
         static const AkUniqueID YGM_TUTORIAL_START = 1318494082U;
