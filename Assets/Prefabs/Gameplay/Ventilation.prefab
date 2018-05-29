@@ -42,7 +42,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1799529200550828
 GameObject:
@@ -246,3 +246,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Center: {fileID: 4483296603170968}
   speed: -200
+  Random_rot: 0
+  Random_Range: 0
