@@ -1,0 +1,181 @@
+fileFormatVersion: 2
+guid: 44eabe53afa7425489f8578f58e6db69
+timeCreated: 1527521291
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Chest
+    100002: Chest_CTRL
+    100004: head
+    100006: Head_CTRL
+    100008: Head_End
+    100010: Hip_CTRL
+    100012: ik_Head
+    100014: ik_L_Leg
+    100016: ik_R_Arm
+    100018: ik_R_Leg
+    100020: ikSpine
+    100022: L_Foot_CTRL
+    100024: left
+    100026: Left__Toe
+    100028: Left_Foot_P1
+    100030: Left_Foot_P2
+    100032: Left_Thight
+    100034: Left_Tibias
+    100036: Left_Toe_Tip
+    100038: Master
+    100040: Pince
+    100042: Pince_Droite_P1
+    100044: Pince_Droite_P2
+    100046: Pince_Droite_P3
+    100048: Pince_gauche_P1
+    100050: Pince_Gauche_P2
+    100052: Pince_Gauche_P3
+    100054: Poignet
+    100056: R_Arm_CTRL
+    100058: R_Foot_CTRL
+    100060: Right__Toe
+    100062: Right_Arm
+    100064: Right_Foot_P1
+    100066: Right_Foot_P2
+    100068: Right_Forearm
+    100070: Right_Shoulder_P1
+    100072: Right_Shoulder_P2
+    100074: Right_Thight
+    100076: Right_Tibias
+    100078: Right_Toe_Tip
+    100080: //RootNode
+    100082: Root
+    100084: Spine_CTRL
+    100086: Troncunwra
+    400000: Chest
+    400002: Chest_CTRL
+    400004: head
+    400006: Head_CTRL
+    400008: Head_End
+    400010: Hip_CTRL
+    400012: ik_Head
+    400014: ik_L_Leg
+    400016: ik_R_Arm
+    400018: ik_R_Leg
+    400020: ikSpine
+    400022: L_Foot_CTRL
+    400024: left
+    400026: Left__Toe
+    400028: Left_Foot_P1
+    400030: Left_Foot_P2
+    400032: Left_Thight
+    400034: Left_Tibias
+    400036: Left_Toe_Tip
+    400038: Master
+    400040: Pince
+    400042: Pince_Droite_P1
+    400044: Pince_Droite_P2
+    400046: Pince_Droite_P3
+    400048: Pince_gauche_P1
+    400050: Pince_Gauche_P2
+    400052: Pince_Gauche_P3
+    400054: Poignet
+    400056: R_Arm_CTRL
+    400058: R_Foot_CTRL
+    400060: Right__Toe
+    400062: Right_Arm
+    400064: Right_Foot_P1
+    400066: Right_Foot_P2
+    400068: Right_Forearm
+    400070: Right_Shoulder_P1
+    400072: Right_Shoulder_P2
+    400074: Right_Thight
+    400076: Right_Tibias
+    400078: Right_Toe_Tip
+    400080: //RootNode
+    400082: Root
+    400084: Spine_CTRL
+    400086: Troncunwra
+    2000000: left
+    2100000: Standardmaterial
+    4300000: Troncunwra
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Troncunwra
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

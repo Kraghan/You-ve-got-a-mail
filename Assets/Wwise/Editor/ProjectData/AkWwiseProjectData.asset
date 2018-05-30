@@ -21,15 +21,15 @@ MonoBehaviour:
   autoPopulateEnabled: 1
   AuxBusWwu:
   - Guid: '{54014377-C27A-49E1-8654-0FA1640E450A}'
-    m_lastTimePart2: -1999258055
-    m_lastTimePsrt1: -1656729395
+    m_lastTimePart2: -1999256418
+    m_lastTimePsrt1: -1909547483
     ParentPhysicalPath: 
     PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     List: []
   BankWwu:
   - Guid: '{F20B52D7-B5DC-4A4D-BCCE-252D078AF3FF}'
-    m_lastTimePart2: -1999258055
-    m_lastTimePsrt1: -1656310522
+    m_lastTimePart2: -1999256418
+    m_lastTimePsrt1: -1897199502
     ParentPhysicalPath: 
     PhysicalPath: SoundBanks\Default Work Unit.wwu
     List:
@@ -48,79 +48,325 @@ MonoBehaviour:
   defaultPoolSize: 4096
   EventWwu:
   - Guid: '{84AC6855-E88A-41C5-A423-FAB395E7C407}'
-    m_lastTimePart2: -1999258055
-    m_lastTimePsrt1: -1657138306
+    m_lastTimePart2: -1999256418
+    m_lastTimePsrt1: -1911113298
     ParentPhysicalPath: 
     PhysicalPath: Events\Default Work Unit.wwu
     List:
-    - Guid: 5279650363c8b548b20b7be77fef6ef4
-      ID: 350483411
-      Name: Impacte_Colis
-      Path: Default Work Unit\Impacte_Colis
+    - Guid: 4a8d4aab7318894bb042b83a6231e1dc
+      ID: -913795001
+      Name: YGM_BirdEnviro
+      Path: Default Work Unit\YGM_BirdEnviro
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: Impacte_Colis
+      - ElementName: YGM_BirdEnviro
         ObjectType: 3
-      maxAttenuation: 0
+      maxAttenuation: 100
       maxDuration: 0
       minDuration: 0
-    - Guid: e6b1b2a60555214fa7bd13196c2305d1
-      ID: -1968126800
-      Name: Impacte_Journal
-      Path: Default Work Unit\Impacte_Journal
+    - Guid: b36a9536d7cc6145b0b7f0a6a8ae64ee
+      ID: 818962592
+      Name: YGM_Car_Start
+      Path: Default Work Unit\YGM_Car_Start
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: Impacte_Journal
+      - ElementName: YGM_Car_Start
         ObjectType: 3
-      maxAttenuation: 0
+      maxAttenuation: 100
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 34853368b07d3f4398bd5a214e7c9f93
+      ID: -955062580
+      Name: YGM_Car_Stop
+      Path: Default Work Unit\YGM_Car_Stop
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_Car_Stop
+        ObjectType: 3
+      maxAttenuation: 100
+      maxDuration: 0
+      minDuration: 0
+    - Guid: f321ae76b5f1154ab86e520aecb9d827
+      ID: 113418973
+      Name: YGM_Gunshot
+      Path: Default Work Unit\YGM_Gunshot
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_Gunshot
+        ObjectType: 3
+      maxAttenuation: 100
       maxDuration: 0
       minDuration: 0
     - Guid: 8ee7f9ef0271a6449d9c83f61757eb99
-      ID: -1724609451
-      Name: Impacte_Lettre
-      Path: Default Work Unit\Impacte_Lettre
+      ID: -668633497
+      Name: YGM_LetterImpact
+      Path: Default Work Unit\YGM_LetterImpact
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: Impacte_Lettre
+      - ElementName: YGM_LetterImpact
+        ObjectType: 3
+      maxAttenuation: 100
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 937c1b2fd268ac43b07a97fdc0f3eb71
+      ID: -1314283085
+      Name: YGM_MailboxInhale_Start
+      Path: Default Work Unit\YGM_MailboxInhale_Start
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_MailboxInhale_Start
+        ObjectType: 3
+      maxAttenuation: 100
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 951923a44bdd1a41a4747e619d0c69fb
+      ID: 1861343473
+      Name: YGM_MailboxInhale_Stop
+      Path: Default Work Unit\YGM_MailboxInhale_Stop
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_MailboxInhale_Stop
         ObjectType: 3
       maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 990ae29a8185c14dbcc98b68019b6744
+      ID: 211756509
+      Name: YGM_MailboxMovement_Start
+      Path: Default Work Unit\YGM_MailboxMovement_Start
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_MailboxMovement_Start
+        ObjectType: 3
+      maxAttenuation: 100
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 786f792040fe9049918e13c5851cd501
+      ID: -732387361
+      Name: YGM_MailboxMovement_Stop
+      Path: Default Work Unit\YGM_MailboxMovement_Stop
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_MailboxMovement_Stop
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 0de23a836315d044a80d25cb5694d6c4
+      ID: -154464406
+      Name: YGM_MailboxOpeningClosing
+      Path: Default Work Unit\YGM_MailboxOpeningClosing
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_MailboxOpeningClosing
+        ObjectType: 3
+      maxAttenuation: 100
       maxDuration: 0
       minDuration: 0
     - Guid: ffc03092b6ee294495db26db790c800e
-      ID: 2099687066
-      Name: Mailboxe_Validation
-      Path: Default Work Unit\Mailboxe_Validation
+      ID: -581545354
+      Name: YGM_MailboxValidation
+      Path: Default Work Unit\YGM_MailboxValidation
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: Mailboxe_Validation
+      - ElementName: YGM_MailboxValidation
         ObjectType: 3
-      maxAttenuation: 0
+      maxAttenuation: 100
+      maxDuration: 0
+      minDuration: 0
+    - Guid: e6b1b2a60555214fa7bd13196c2305d1
+      ID: -918808496
+      Name: YGM_NewspaperImpact
+      Path: Default Work Unit\YGM_NewspaperImpact
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_NewspaperImpact
+        ObjectType: 3
+      maxAttenuation: 100
+      maxDuration: 0
+      minDuration: 0
+    - Guid: ce5f1a14d49b6340b2925613a35fb4fe
+      ID: -1950555035
+      Name: YGM_ObjectSPawn
+      Path: Default Work Unit\YGM_ObjectSPawn
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_ObjectSPawn
+        ObjectType: 3
+      maxAttenuation: 100
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 5279650363c8b548b20b7be77fef6ef4
+      ID: -1294740167
+      Name: YGM_PackageImpact
+      Path: Default Work Unit\YGM_PackageImpact
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_PackageImpact
+        ObjectType: 3
+      maxAttenuation: 100
+      maxDuration: 0
+      minDuration: 0
+    - Guid: a1bd3080699aeb4fb51b43dc3cf18309
+      ID: 1890305563
+      Name: YGM_Pnj1Hit
+      Path: Default Work Unit\YGM_Pnj1Hit
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_Pnj1Hit
+        ObjectType: 3
+      maxAttenuation: 100
+      maxDuration: 0
+      minDuration: 0
+    - Guid: f3ea7a6ff2290b4aa98fe15f07bfe45f
+      ID: -575145086
+      Name: YGM_Pnj1Talking
+      Path: Default Work Unit\YGM_Pnj1Talking
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_Pnj1Talking
+        ObjectType: 3
+      maxAttenuation: 100
       maxDuration: 0
       minDuration: 0
     - Guid: da7d0c7eb2c5dc4cab51f0bc2da3fd5b
-      ID: 57770325
-      Name: Pnj1_Marche
-      Path: Default Work Unit\Pnj1_Marche
+      ID: -1476786177
+      Name: YGM_Pnj1Walk
+      Path: Default Work Unit\YGM_Pnj1Walk
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: Pnj1_Marche
+      - ElementName: YGM_Pnj1Walk
+        ObjectType: 3
+      maxAttenuation: 100
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 4c608616e905c143aa3460576a858e25
+      ID: -1664823010
+      Name: YGM_Pnj2Hit
+      Path: Default Work Unit\YGM_Pnj2Hit
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_Pnj2Hit
+        ObjectType: 3
+      maxAttenuation: 100
+      maxDuration: 0
+      minDuration: 0
+    - Guid: df3cd97dac0e2443bc43d7d811da4aa6
+      ID: 1366380992
+      Name: YGM_Pnj2Walk
+      Path: Default Work Unit\YGM_Pnj2Walk
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_Pnj2Walk
+        ObjectType: 3
+      maxAttenuation: 100
+      maxDuration: 0
+      minDuration: 0
+    - Guid: e29415494302d447850aff3aece1b299
+      ID: 566017294
+      Name: YGM_PoleEnd
+      Path: Default Work Unit\YGM_PoleEnd
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_PoleEnd
         ObjectType: 3
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
-    - Guid: df3cd97dac0e2443bc43d7d811da4aa6
-      ID: -1737275508
-      Name: Pnj2_Marche
-      Path: Default Work Unit\Pnj2_Marche
+    - Guid: 9cfa01e987ed404d839948a064ed12a1
+      ID: 75378572
+      Name: YGM_PoleLoading_Start
+      Path: Default Work Unit\YGM_PoleLoading_Start
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: Pnj2_Marche
+      - ElementName: YGM_PoleLoading_Start
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 8a5bbd32ad9d6a4a87cd0b6dd3dff9b8
+      ID: 1055769398
+      Name: YGM_Propeller
+      Path: Default Work Unit\YGM_Propeller
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_Propeller
+        ObjectType: 3
+      maxAttenuation: 100
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 504af7131f8b8f43aca0e9ea33381577
+      ID: 2059578557
+      Name: YGM_SeaEnviro
+      Path: Default Work Unit\YGM_SeaEnviro
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_SeaEnviro
+        ObjectType: 3
+      maxAttenuation: 100
+      maxDuration: 0
+      minDuration: 0
+    - Guid: af5017f6e9ee394a8897099aa5f98acb
+      ID: -29908271
+      Name: YGM_UiClick
+      Path: Default Work Unit\YGM_UiClick
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_UiClick
+        ObjectType: 3
+      maxAttenuation: 100
+      maxDuration: 0
+      minDuration: 0
+  - Guid: '{7ECA01F5-2986-495A-A206-C7ABE677C363}'
+    m_lastTimePart2: -1999256418
+    m_lastTimePsrt1: -1911093351
+    ParentPhysicalPath: 
+    PhysicalPath: Events\Music.wwu
+    List:
+    - Guid: b8938444db103245af418d94fa14a9f0
+      ID: -1887423279
+      Name: YGM_City_Start
+      Path: Music\YGM_City_Start
+      PathAndIcons:
+      - ElementName: Music
+        ObjectType: 12
+      - ElementName: YGM_City_Start
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 2c97eed3098781419c37d4c56ca5454c
+      ID: 1318494082
+      Name: YGM_Tutorial_Start
+      Path: Music\YGM_Tutorial_Start
+      PathAndIcons:
+      - ElementName: Music
+        ObjectType: 12
+      - ElementName: YGM_Tutorial_Start
         ObjectType: 3
       maxAttenuation: 0
       maxDuration: 0
@@ -129,6 +375,9 @@ MonoBehaviour:
   - /You-ve-got-a-mail_WwiseProject
   - /You-ve-got-a-mail_WwiseProject/Events
   - /You-ve-got-a-mail_WwiseProject/Events/Default Work Unit
+  - /You-ve-got-a-mail_WwiseProject/Events/Music
+  - /You-ve-got-a-mail_WwiseProject/SoundBanks
+  - /You-ve-got-a-mail_WwiseProject/SoundBanks/Default Work Unit
   language: English(US)
   lowerPoolSize: 2048
   m_lastPopulateTimePart2: 0
@@ -137,11 +386,38 @@ MonoBehaviour:
   preparePoolSize: 0
   RtpcWwu:
   - Guid: '{8E549F0F-2F94-41CC-AD9E-9735BB30166A}'
-    m_lastTimePart2: -1999258055
-    m_lastTimePsrt1: -1657108382
+    m_lastTimePart2: -1999256418
+    m_lastTimePsrt1: -1911063439
     ParentPhysicalPath: 
     PhysicalPath: Game Parameters\Default Work Unit.wwu
-    List: []
+    List:
+    - Guid: d9f06b7ddff7244eb2cd788097b16574
+      ID: 1977293347
+      Name: YGM_BikeSpeed
+      Path: Default Work Unit\YGM_BikeSpeed
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_BikeSpeed
+        ObjectType: 13
+    - Guid: 575fba531ed7be47bc431b77f5eca3f0
+      ID: 876729800
+      Name: YGM_MusicVolume
+      Path: Default Work Unit\YGM_MusicVolume
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_MusicVolume
+        ObjectType: 13
+    - Guid: c4aae1ffa4768048a3c93ab5ae5b15b7
+      ID: 1177833833
+      Name: YGM_VfxVolume
+      Path: Default Work Unit\YGM_VfxVolume
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_VfxVolume
+        ObjectType: 13
   StateWwu:
   - Guid: '{EEEC9A5E-4F11-450F-9D2D-D7CB36DE18E5}'
     m_lastTimePart2: -1999258055
@@ -149,6 +425,37 @@ MonoBehaviour:
     ParentPhysicalPath: 
     PhysicalPath: States\Default Work Unit.wwu
     List: []
+  - Guid: '{794F26D5-E4E2-4308-BBE8-5949BCB8F1BF}'
+    m_lastTimePart2: -1999256418
+    m_lastTimePsrt1: -1897149635
+    ParentPhysicalPath: 
+    PhysicalPath: States\Music.wwu
+    List:
+    - Guid: bb2be83838b91e4ba5d9c57486b9e6c8
+      ID: -468397736
+      Name: Music_State
+      Path: Music\Music_State
+      PathAndIcons:
+      - ElementName: Music
+        ObjectType: 12
+      - ElementName: Music_State
+        ObjectType: 9
+      ValueGuids:
+      - bytes: 7cde7c4d664ab0459c1aeae1c7c80838
+      - bytes: 5a4d5bf63bcc444dac1bd908292d7359
+      - bytes: 8b9402c005deea43a852eec5355ced78
+      ValueIcons:
+      - ElementName: City
+        ObjectType: 8
+      - ElementName: None
+        ObjectType: 8
+      - ElementName: Tutorial
+        ObjectType: 8
+      valueIDs: 902dcae7db3ba32ca3244ae0
+      values:
+      - City
+      - None
+      - Tutorial
   streamingPoolSize: 1024
   SwitchWwu:
   - Guid: '{2416498D-0CCC-48D7-AE80-7C86E45F170F}'

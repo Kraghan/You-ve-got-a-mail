@@ -123,6 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52aac29a71b919b4a9b3cf86111bb452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_soundOnCollision: 
+  m_soundOnCollision: YGM_PackageImpact
   m_timeBeforeDestroy:
     m_timeToReach: 20
