@@ -13,6 +13,7 @@ public class VRInteractibleController : MonoBehaviour
     LineRenderer m_lineRenderer;
     [SerializeField]
     Transform m_startLaserPoint;
+    Animator m_model;
 
     VRInteractible m_uiElement;
     
@@ -21,6 +22,7 @@ public class VRInteractibleController : MonoBehaviour
     {
         m_trackedObject = GetComponent<SteamVR_TrackedObject>();
         m_lineRenderer.positionCount = 2;
+        m_model = GetComponentInChildren<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -28,8 +30,19 @@ public class VRInteractibleController : MonoBehaviour
     {
         RaycastHit hit;
         m_lineRenderer.SetPosition(0, m_startLaserPoint.position);
-        if (Physics.Raycast(m_startLaserPoint.position, m_startLaserPoint.forward, out hit, m_enabledDistance, ~LayerMask.NameToLayer("UI")))
+        if (!m_model.GetBool("Grab") && !m_model.GetBool("Gun") 
+            && Physics.Raycast(m_startLaserPoint.position, m_startLaserPoint.forward, out hit, m_enabledDistance, ~LayerMask.NameToLayer("UI")))
         {
+            VRActivateOnSight UIToEnable = hit.collider.GetComponentInParent<VRActivateOnSight>();
+            if(!UIToEnable)
+            {
+                m_model.SetBool("Pointing", false);
+                if (m_uiElement)
+                    m_uiElement.SetNormal();
+                m_lineRenderer.enabled = false;
+                return;
+            }
+            m_model.SetBool("Pointing", true);
             m_lineRenderer.SetPosition(1, hit.point);
             m_lineRenderer.enabled = true;
             VRInteractible UiElement = hit.collider.GetComponent<VRInteractible>();
@@ -59,6 +72,7 @@ public class VRInteractibleController : MonoBehaviour
         }
         else
         {
+            m_model.SetBool("Pointing", false);
             if (m_uiElement)
                 m_uiElement.SetNormal();
             m_lineRenderer.enabled = false;

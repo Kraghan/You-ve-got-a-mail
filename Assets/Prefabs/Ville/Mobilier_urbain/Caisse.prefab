@@ -36,6 +36,7 @@ GameObject:
   - component: {fileID: 4526888865246804}
   - component: {fileID: 33932694511326528}
   - component: {fileID: 23305269677589466}
+  - component: {fileID: 65642722442813742}
   m_Layer: 2
   m_Name: "Caisse_mod\xE9"
   m_TagString: Untagged
@@ -62,8 +63,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1066742205753928}
-  m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.21, y: 0.73505, z: 10.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4526888865246804}
@@ -111,3 +112,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1274688542184638}
   m_Mesh: {fileID: 4300000, guid: 7c1cb90a91ffc0a42973a367671fda7b, type: 3}
+--- !u!65 &65642722442813742
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1274688542184638}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
+  m_Center: {x: 0, y: 0, z: 0.75}

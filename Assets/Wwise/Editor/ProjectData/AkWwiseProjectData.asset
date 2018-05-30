@@ -74,7 +74,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_Car_Start
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: 34853368b07d3f4398bd5a214e7c9f93
@@ -86,7 +86,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_Car_Stop
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: f321ae76b5f1154ab86e520aecb9d827
@@ -110,7 +110,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_LetterImpact
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: 937c1b2fd268ac43b07a97fdc0f3eb71
@@ -122,7 +122,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_MailboxInhale_Start
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: 951923a44bdd1a41a4747e619d0c69fb
@@ -146,7 +146,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_MailboxMovement_Start
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: 786f792040fe9049918e13c5851cd501
@@ -170,7 +170,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_MailboxOpeningClosing
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: ffc03092b6ee294495db26db790c800e
@@ -182,7 +182,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_MailboxValidation
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: e6b1b2a60555214fa7bd13196c2305d1
@@ -194,7 +194,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_NewspaperImpact
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: ce5f1a14d49b6340b2925613a35fb4fe
@@ -218,7 +218,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_PackageImpact
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: a1bd3080699aeb4fb51b43dc3cf18309
@@ -230,7 +230,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_Pnj1Hit
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: f3ea7a6ff2290b4aa98fe15f07bfe45f
@@ -242,7 +242,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_Pnj1Talking
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: da7d0c7eb2c5dc4cab51f0bc2da3fd5b
@@ -254,7 +254,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_Pnj1Walk
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: 4c608616e905c143aa3460576a858e25
@@ -266,7 +266,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_Pnj2Hit
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: df3cd97dac0e2443bc43d7d811da4aa6
@@ -278,7 +278,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_Pnj2Walk
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: e29415494302d447850aff3aece1b299
@@ -314,7 +314,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_Propeller
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: 504af7131f8b8f43aca0e9ea33381577
@@ -338,7 +338,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_UiClick
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
   - Guid: '{7ECA01F5-2986-495A-A206-C7ABE677C363}'
@@ -373,11 +373,6 @@ MonoBehaviour:
       minDuration: 0
   ExpandedItems:
   - /You-ve-got-a-mail_WwiseProject
-  - /You-ve-got-a-mail_WwiseProject/Events
-  - /You-ve-got-a-mail_WwiseProject/Events/Default Work Unit
-  - /You-ve-got-a-mail_WwiseProject/Events/Music
-  - /You-ve-got-a-mail_WwiseProject/SoundBanks
-  - /You-ve-got-a-mail_WwiseProject/SoundBanks/Default Work Unit
   language: English(US)
   lowerPoolSize: 2048
   m_lastPopulateTimePart2: 0

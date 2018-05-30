@@ -19,15 +19,23 @@ public class MailController : MonoBehaviour
     [SerializeField]
     private float m_forceMultiplier = 1.5f;
 
+    Animator m_model;
+
     void Awake()
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void Start()
+    {
+        m_model = GetComponentInChildren<Animator>();
+    }
+
+    // Update is called once per frame
+    void Update () {
         // Grab
-        if (Controller.GetPress(SteamVR_Controller.ButtonMask.Trigger)
+        if (!m_model.GetBool("Grab") && !m_model.GetBool("Pointing") 
+            && Controller.GetPress(SteamVR_Controller.ButtonMask.Trigger)
             && !m_newspaperInHand)
         {
             m_newspaperInHand = Instantiate(PickMail().gameObject);
@@ -38,7 +46,7 @@ public class MailController : MonoBehaviour
             joint.breakTorque = 20000;
             joint.connectedBody = m_newspaperInHand.GetComponent<Rigidbody>();
 
-            transform.GetChild(0).gameObject.SetActive(false);
+            m_model.transform.parent.gameObject.SetActive(false);
         }
         // Release
         else if (!Controller.GetPress(SteamVR_Controller.ButtonMask.Trigger)
@@ -55,7 +63,7 @@ public class MailController : MonoBehaviour
                 m_newspaperInHand.GetComponent<Rigidbody>().angularVelocity = (Controller.angularVelocity * m_forceMultiplier) + m_bikeRigibody.angularVelocity;
             }
             m_newspaperInHand = null;
-            transform.GetChild(0).gameObject.SetActive(true);
+            m_model.transform.parent.gameObject.SetActive(true);
         }
     }
 

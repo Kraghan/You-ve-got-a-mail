@@ -39,6 +39,10 @@ public class NavigationFollower : MonoBehaviour {
     [SerializeField]
     float m_animatorSpeedModifier = 1.25f;
 
+    List<Transform> m_objectInFrontOf = new List<Transform>();
+
+    BoxCollider m_frontTrigger;
+
     // Use this for initialization
     protected virtual void Start ()
     {
@@ -63,6 +67,8 @@ public class NavigationFollower : MonoBehaviour {
         }
 
         m_animator = GetComponentInChildren<Animator>();
+
+        m_frontTrigger = GetComponent<BoxCollider>();
     }
 	
 	// Update is called once per frame
@@ -134,19 +140,16 @@ public class NavigationFollower : MonoBehaviour {
 
         if (m_target == null)
             return;
-
+        
         Vector3 direction = (m_target.transform.position - transform.position).normalized;
-        RaycastHit hit;
-        bool somethingInFrontOf = Physics.Raycast(m_front.transform.position, transform.forward, out hit, m_distanceBetweenObjects);
-
-        if (!somethingInFrontOf)
+        if (m_objectInFrontOf.Count == 0)
         {
             transform.position += direction * m_speed * Time.deltaTime;
             m_stopped = false;
         }
         else
         {
-            NavigationFollower follower = hit.collider.gameObject.GetComponent<NavigationFollower>();
+            NavigationFollower follower = m_objectInFrontOf[0].gameObject.GetComponent<NavigationFollower>();
             if (follower == null)
                 follower = GetComponentInParent<NavigationFollower>();
 
@@ -177,7 +180,8 @@ public class NavigationFollower : MonoBehaviour {
             transform.position += direction * m_speed * Time.deltaTime;
             if (m_animator != null)
             {
-                m_animator.SetBool("Moving", true);
+                if (HasParameter("Moving",m_animator))
+                    m_animator.SetBool("Moving", true);
                 m_animator.speed = m_speed * m_animatorSpeedModifier;
             }
         }
@@ -185,7 +189,8 @@ public class NavigationFollower : MonoBehaviour {
         {
             if (m_animator != null)
             {
-                m_animator.SetBool("Moving", false);
+                if (HasParameter("Moving", m_animator))
+                    m_animator.SetBool("Moving", false);
             }
         }
 
@@ -228,6 +233,33 @@ public class NavigationFollower : MonoBehaviour {
     protected virtual void DoWhenReachTarget()
     {
 
+    }
+
+    public bool HasParameter(string parameter, Animator animator)
+    {
+        foreach(AnimatorControllerParameter param in animator.parameters)
+        {
+            if (param.name == parameter)
+                return true;
+        }
+
+        return false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Mover") || other.CompareTag("Player"))
+        {
+            m_objectInFrontOf.Add(other.transform);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Mover") || other.CompareTag("Player"))
+        {
+            m_objectInFrontOf.Remove(other.transform);
+        }
     }
 
 }
