@@ -1,23 +1,16 @@
 fileFormatVersion: 2
-guid: 2ba68986179a8574d86393098bb6d4a9
-timeCreated: 1526905917
+guid: 2edf99ea2ceff5f4198b461192140122
+timeCreated: 1527692963
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Banc
-    100004: Contour_Banc
     400000: //RootNode
-    400002: Banc
-    400004: Contour_Banc
     2100000: Standardmaterial
-    2300000: Banc
-    2300002: Contour_Banc
-    3300000: Banc
-    3300002: Contour_Banc
-    4300000: Contour_Banc
-    4300002: Banc
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Banc
     9500000: //RootNode
   externalObjects: {}
   materials:
