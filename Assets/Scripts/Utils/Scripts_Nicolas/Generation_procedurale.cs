@@ -508,5 +508,63 @@ public class Generation_procedurale : MonoBehaviour {
 		}
 	}
 
+	public void GardeFous()
+	{
+		//Je récupère tous les groupes de poteaux existants
+		lespoteaux = GameObject.FindGameObjectsWithTag("Poteaux");
+
+		//Je dis que le chemin est ce gameobject
+		chemin = this.transform;
+
+		//Je définis la taille du chemin
+		noeuds = new Transform[chemin.childCount];
+
+		//Je check tous les noeuds du chemin
+		for (int i = 0; i < chemin.childCount; i++) {
+			noeuds [i] = chemin.GetChild (i);
+		}
+
+		//J'instancie le parent vide au niveau du premier point
+		leparent = Instantiate (Parent_Poteaux, noeuds[0].position, Quaternion.identity);
+		leparent.name = "Parent_Garde-Fous " + (lespoteaux.Length + 1);
+
+		for (int i = 0; i < chemin.childCount-1; i++) {
+
+			Instantiate_gardefou (i, i+1);
+
+		}
+	}
+
+	private void Instantiate_gardefou (int i, int ibis) {
+
+		//Le vecteur allant du premier point au second
+		Vector3 arctempfull = noeuds [ibis].position - noeuds [i].position;
+		Vector3 arctemp = Vector3.Normalize (arctempfull);
+
+		//Le point où je vais faire poper mon garde-fou
+		spawnPoint = noeuds [i].position;
+				
+		//L'angle que je veux pour le poteau
+		Quaternion anglequat = Quaternion.LookRotation (arctemp);
+
+		//J'instancie le poteau en tant que prefab
+		int variete = nb_variations % Mobilier.Length;
+		poteauclone = PrefabUtility.InstantiatePrefab (Mobilier [variete]) as GameObject;
+
+		//Je lui dit de passer au gameobject suivant dans la liste des gameobjects
+		nb_variations++;
+
+		//Je le met dans le bon parent, je le place dans l'espace et lui met la bonne rotation
+		poteauclone.name = "Garde_Fou_" + (lespoteaux.Length + 1) + "_" + (leparent.transform.childCount + 1);
+		poteauclone.transform.parent = leparent.transform;
+		poteauclone.transform.position = spawnPoint;
+		poteauclone.transform.rotation = Quaternion.Euler (Décalage_rotation) * anglequat;
+
+		//Je rescale le prefab à la bonne longeur
+		float scalez = arctempfull.magnitude;
+		poteauclone.transform.localScale = new Vector3 (poteauclone.transform.localScale.x, poteauclone.transform.localScale.y, scalez);
+
+	}
+
 }
 #endif

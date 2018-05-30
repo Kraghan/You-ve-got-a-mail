@@ -199,6 +199,40 @@ SketchUpImporter:
     4300062: Mesh Group 63
     4300064: Mesh Group 65
     4300066: Mesh Group 67
+    6400000: Group 1
+    6400002: Group 11
+    6400004: Group 13
+    6400006: Group 15
+    6400008: Group 17
+    6400010: Group 19
+    6400012: Group 21
+    6400014: Group 23
+    6400016: Group 25
+    6400018: Group 27
+    6400020: Group 29
+    6400022: Group 3
+    6400024: Group 31
+    6400026: Group 33
+    6400028: Group 35
+    6400030: Group 37
+    6400032: Group 39
+    6400034: Group 41
+    6400036: Group 43
+    6400038: Group 45
+    6400040: Group 47
+    6400042: Group 49
+    6400044: Group 5
+    6400046: Group 51
+    6400048: Group 53
+    6400050: Group 55
+    6400052: Group 57
+    6400054: Group 59
+    6400056: Group 61
+    6400058: Group 63
+    6400060: Group 65
+    6400062: Group 67
+    6400064: Group 7
+    6400066: Group 9
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -231,7 +265,7 @@ SketchUpImporter:
     lODScreenPercentages: []
     globalScale: 0.0254
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
