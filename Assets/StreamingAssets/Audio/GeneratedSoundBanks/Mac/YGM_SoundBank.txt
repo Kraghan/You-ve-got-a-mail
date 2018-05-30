@@ -1,0 +1,57 @@
+Event	ID	Name			Wwise Object Path	Notes
+	75378572	YGM_PoleLoading_Start			\Default Work Unit\YGM_PoleLoading_Start	
+	113418973	YGM_Gunshot			\Default Work Unit\YGM_Gunshot	
+	211756509	YGM_MailboxMovement_Start			\Default Work Unit\YGM_MailboxMovement_Start	
+	566017294	YGM_PoleEnd			\Default Work Unit\YGM_PoleEnd	
+	818962592	YGM_Car_Start			\Default Work Unit\YGM_Car_Start	
+	1055769398	YGM_Propeller			\Default Work Unit\YGM_Propeller	
+	1318494082	YGM_Tutorial_Start			\Music\YGM_Tutorial_Start	
+	1366380992	YGM_Pnj2Walk			\Default Work Unit\YGM_Pnj2Walk	
+	1861343473	YGM_MailboxInhale_Stop			\Default Work Unit\YGM_MailboxInhale_Stop	
+	1890305563	YGM_Pnj1Hit			\Default Work Unit\YGM_Pnj1Hit	
+	2059578557	YGM_SeaEnviro			\Default Work Unit\YGM_SeaEnviro	
+	2344412261	YGM_ObjectSPawn			\Default Work Unit\YGM_ObjectSPawn	
+	2407544017	YGM_City_Start			\Music\YGM_City_Start	
+	2630144286	YGM_Pnj2Hit			\Default Work Unit\YGM_Pnj2Hit	
+	2818181119	YGM_Pnj1Walk			\Default Work Unit\YGM_Pnj1Walk	
+	2980684211	YGM_MailboxInhale_Start			\Default Work Unit\YGM_MailboxInhale_Start	
+	3000227129	YGM_PackageImpact			\Default Work Unit\YGM_PackageImpact	
+	3339904716	YGM_Car_Stop			\Default Work Unit\YGM_Car_Stop	
+	3376158800	YGM_NewspaperImpact			\Default Work Unit\YGM_NewspaperImpact	
+	3381172295	YGM_BirdEnviro			\Default Work Unit\YGM_BirdEnviro	
+	3562579935	YGM_MailboxMovement_Stop			\Default Work Unit\YGM_MailboxMovement_Stop	
+	3626333799	YGM_LetterImpact			\Default Work Unit\YGM_LetterImpact	
+	3713421942	YGM_MailboxValidation			\Default Work Unit\YGM_MailboxValidation	
+	3719822210	YGM_Pnj1Talking			\Default Work Unit\YGM_Pnj1Talking	
+	4140502890	YGM_MailboxOpeningClosing			\Default Work Unit\YGM_MailboxOpeningClosing	
+	4265059025	YGM_UiClick			\Default Work Unit\YGM_UiClick	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	49289890	Bicycle Funk - Disco Piano Part	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\Bicycle Funk - Disco Piano Part_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\YGM_MusicSystem\YGM_CityMusic\Bicycle Funk - Disco Piano Part\Bicycle Funk - Disco Piano Part		10499392
+	83525507	YGM_MailboxInhale	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\YGM-MailboxInhale_F17FB28C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Feedbacks\YGM_MailboxInhale		5424364
+	100640021	YGM_PoleLoading	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\chargementpoteau_A904F936.wem		\Actor-Mixer Hierarchy\Default Work Unit\Feedbacks\YGM_PoleLoading		610622
+	218541813	YGM_BirdEnviro	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\YGM-BirdEnviro_F17FB28C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environnement\YGM_BirdEnviro		10585890
+	279212645	YGM_Propeller	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\YGM-Propeller_F17FB28C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environnement\YGM_Propeller		1263452
+	279637094	YGM_ObjectSpawn	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\YGM-ObjectSpawn_ADBA239D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Signs\YGM_ObjectSpawn		73528
+	285842420	YGM_CarStart	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\YGM-CarStart_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environnement\YGM_CarStart		79230
+	338056719	YGM_UiClick	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\YGM-UiClick_52C6D686.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\YGM_UiClick		38228
+	346682142	YGM_CarStop	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\YGM-CarStop_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environnement\YGM_CarStop		136066
+	365022121	YGM_LetterImpact	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\feedbacks\YGM-impactLettre_B82EE967.wem		\Actor-Mixer Hierarchy\Default Work Unit\Feedbacks\YGM_LetterImpact		16824
+	474466795	YGM_MailboxOpeningClosing	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\YGM-MailboxOpen_7BBCBA36.wem		\Actor-Mixer Hierarchy\Default Work Unit\Feedbacks\YGM_MailboxOpeningClosing		31342
+	483413206	YGM_SeaEnviro	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\YGM-Sea_F17FB28C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environnement\YGM_SeaEnviro		10455008
+	513139282	YGM_NewspaperImpact	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\feedbacks\YGM-impactJournal_0C8146AD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Feedbacks\YGM_NewspaperImpact		16536
+	583025512	YGM_Pnj1Hit	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\pnj1hit_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environnement\YGM_Pnj1Hit		30398
+	710709848	YGM_MailboxMovement	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\YGM-MailboxMovement_F17FB28C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environnement\YGM_MailboxMovement		832202
+	717951268	YGM_GunShot	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\YGM-GunShot_9DBD6281.wem		\Actor-Mixer Hierarchy\Default Work Unit\Feedbacks\YGM_GunShot		94564
+	746658345	YGM_MailboxValidation	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\YGM-mailboxvalidation_F415032D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Feedbacks\YGM_MailboxValidation		48954
+	763903553	YGM_Pnj2Hit	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\pnj2hit_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environnement\YGM_Pnj2Hit		15344
+	780678876	YGM_CarMoving	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\YGM-CarMoving_F17FB28C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environnement\YGM_CarMoving		91060
+	781785002	Bicycle Funk - Intro	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\Bicycle Funk - Intro_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\YGM_MusicSystem\YGM_TutorialMusic\Bicycle Funk - Intro\Bicycle Funk - Intro		4064320
+	893225651	YGM_Pnj2Walk	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\Environment\YGM-pnj2Walk_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environnement\YGM_Pnj2Walk		49050
+	916069169	YGM_PackageImpact	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\feedbacks\YGM-impactColis_61623726.wem		\Actor-Mixer Hierarchy\Default Work Unit\Feedbacks\YGM_PackageImpact		30810
+	939783941	Bicycle Funk - Techno Part	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\Bicycle Funk - Techno Part_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\YGM_MusicSystem\YGM_CityMusic\Bicycle Funk - Techno Part\Bicycle Funk - Techno Part		4064320
+	992466882	YGM_Pnj1Walk	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\Environment\YGM-pnj1Walk_8B84756D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environnement\YGM_Pnj1Walk		27708
+	992760054	Bicycle Funk - Softer techno + Chiptune	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\Bicycle Funk - Softer techno + Chiptune_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\YGM_MusicSystem\YGM_CityMusic\Bicycle Funk - Softer techno + Chiptune\Bicycle Funk - Softer techno + Chiptune		5419072
+	1037591064	YGM_Pnj1Talking	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\pnj1Talking_F17FB28C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environnement\YGM_Pnj1Talking		572794
+	1058828079	YGM_PoleEnd	C:\Users\victo\Documents\ENJMIN\YouveGotMail\You-ve-got-a-mail-wwise\You-ve-got-a-mail_WwiseProject\.cache\Mac\SFX\finpoteau_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Feedbacks\YGM_PoleEnd		178228
+

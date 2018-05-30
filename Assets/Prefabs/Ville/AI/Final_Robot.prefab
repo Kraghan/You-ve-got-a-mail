@@ -943,6 +943,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4023661692965320}
   - component: {fileID: 114604024479567680}
+  - component: {fileID: 65319804522442564}
   m_Layer: 0
   m_Name: Final_Robot
   m_TagString: Mover
@@ -5332,6 +5333,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65319804522442564
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1535829687698132}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 1.25}
+  m_Center: {x: 0, y: 1, z: 1}
 --- !u!65 &65738502809579586
 BoxCollider:
   m_ObjectHideFlags: 1

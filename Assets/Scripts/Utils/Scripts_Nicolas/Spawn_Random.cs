@@ -9,8 +9,11 @@ public class Spawn_Random : MonoBehaviour {
 	public GameObject Pieton;
 	public GameObject Voiture;
 
-	// Use this for initialization
-	void Start () {
+    public uint Max_voiture = 30;
+    public uint Max_pieton = 50;
+
+    // Use this for initialization
+    void Start () {
 
 		//Je récupères tous les scripts des noeuds des graphes
 		NavigationWaypoint[] All_nodes_pietons = Graphe_pieton.GetComponentsInChildren<NavigationWaypoint> ();
@@ -29,6 +32,9 @@ public class Spawn_Random : MonoBehaviour {
 				lepieton.GetComponent<NavigationFollower> ().SetSpeed(1);
 				nbrob++;
 			}
+
+            if (nbrob >= Max_pieton)
+                break;
 		}
 
 		//Je fais popper les voitures sur tous les noeuds du graphe des voitures
@@ -40,7 +46,10 @@ public class Spawn_Random : MonoBehaviour {
 				lavoiture.GetComponent<NavigationFollower> ().SetSpeed(4);
 				nbcar++;
 			}
-		}
+
+            if (nbcar >= Max_voiture)
+                break;
+        }
 
 		//J'affiche le nombre de piétons et de voitures potentiellement spawnables
 		Debug.Log ("Robots " + nbrob);

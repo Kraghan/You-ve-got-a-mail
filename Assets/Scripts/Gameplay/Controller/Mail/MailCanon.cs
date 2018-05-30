@@ -17,6 +17,7 @@ public class MailCanon : MonoBehaviour
     private float m_force = 20;
     [SerializeField]
     private Rigidbody m_bikeBody;
+    Animator m_model;
 
     private bool m_throwNewspaper = false;
 
@@ -24,19 +25,27 @@ public class MailCanon : MonoBehaviour
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    private void Start()
     {
-        if (Controller.GetPress(SteamVR_Controller.ButtonMask.Trigger))
+        m_model = GetComponentInChildren<Animator>();
+    }
+
+    // Update is called once per frame
+    void Update ()
+    {
+        if (!m_model.GetBool("Grab") && !m_model.GetBool("Pointing") 
+            && Controller.GetPress(SteamVR_Controller.ButtonMask.Trigger))
         {
             m_throwNewspaper = true;
+            m_model.SetBool("Gun", true);
         }
         else if (m_throwNewspaper && !Controller.GetPress(SteamVR_Controller.ButtonMask.Trigger))
         {
             GetComponent<LineRenderer>().enabled = false;
             ThrowNewspaper();
             m_throwNewspaper = false;
+            m_model.SetBool("Gun", false);
         }
     }
     

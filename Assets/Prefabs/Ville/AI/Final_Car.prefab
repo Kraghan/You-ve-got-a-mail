@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 4070431856606364}
   - component: {fileID: 114062153733998320}
   - component: {fileID: 114162069559370294}
+  - component: {fileID: 65517117127876510}
   m_Layer: 0
   m_Name: Final_Car
   m_TagString: Untagged
@@ -891,6 +892,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9516394, y: 1.1854782, z: 0.8534739}
   m_Center: {x: 0.31434387, y: 0.6390835, z: 1.467876}
+--- !u!65 &65517117127876510
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1566993194729382}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 1.25}
+  m_Center: {x: 0.25, y: 1.3, z: 2.5}
 --- !u!65 &65712096203460290
 BoxCollider:
   m_ObjectHideFlags: 1

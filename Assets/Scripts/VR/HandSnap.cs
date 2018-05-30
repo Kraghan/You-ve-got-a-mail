@@ -29,18 +29,28 @@ public class HandSnap : MonoBehaviour {
     bool m_orderSnapLeftHand = false;
     bool m_orderSnapRightHand = false;
 
+    Animator m_leftAnimator;
+    Animator m_rightAnimator;
+
+    private void Start()
+    {
+        m_leftAnimator = m_VRControllerManager.left.GetComponentInChildren<Animator>();
+        m_rightAnimator = m_VRControllerManager.right.GetComponentInChildren<Animator>();
+    }
+
     // Update is called once per frame
     void Update ()
     {
-        Quaternion rotation = Quaternion.Euler(m_rotationSnap);
+        Quaternion rotation = Quaternion.Euler(m_rotationSnap.x + 180, m_rotationSnap.y, m_rotationSnap.z);
 
-        if (!m_VRControllerManager.left.activeSelf 
+        if (!m_leftAnimator.GetBool("Gun") && !m_leftAnimator.GetBool("Pointing")
+            && !m_VRControllerManager.left.activeSelf 
             || Vector3.Distance(m_VRControllerManager.left.transform.position, m_VRCamera.transform.position) > m_farDistance
             || m_orderSnapLeftHand)
         {
             if(!m_leftSnapped)
             {
-                Transform handModel = m_VRControllerManager.left.transform.GetChild(0);
+                Transform handModel = m_leftAnimator.transform.parent;
                 m_storedLeftPosition = handModel.localPosition;
                 m_storedLeftRotation = handModel.localRotation;
                 handModel.gameObject.SetActive(true);
@@ -48,6 +58,16 @@ public class HandSnap : MonoBehaviour {
                 handModel.localPosition = Vector3.zero;
                 handModel.localRotation = rotation;
                 m_leftSnapped = true;
+
+                m_leftAnimator.SetBool("Grab",true);
+
+                m_VRControllerManager.left.GetComponent<VRInteractibleController>().enabled = false;
+                MailCanon canon = m_VRControllerManager.left.GetComponent<MailCanon>();
+                if (canon)
+                    canon.enabled = false;
+                MailController natural = m_VRControllerManager.left.GetComponent<MailController>();
+                if (natural)
+                    natural.enabled = false;
 
             }
         }
@@ -58,15 +78,28 @@ public class HandSnap : MonoBehaviour {
             handModel.localPosition = m_storedLeftPosition;
             handModel.localRotation = m_storedLeftRotation;
             m_leftSnapped = false;
+
+            m_leftAnimator.SetBool("Grab", false);
+
+            m_VRControllerManager.left.GetComponent<VRInteractibleController>().enabled = true;
+            MailCanon canon = m_VRControllerManager.left.GetComponent<MailCanon>();
+            if (canon)
+                canon.enabled = true;
+            MailController natural = m_VRControllerManager.left.GetComponent<MailController>();
+            if (natural)
+                natural.enabled = true;
         }
 
-        if (!m_VRControllerManager.right.activeSelf 
+        rotation = Quaternion.Euler(m_rotationSnap);
+
+        if (!m_rightAnimator.GetBool("Gun") && !m_rightAnimator.GetBool("Pointing")
+            && !m_VRControllerManager.right.activeSelf 
             || Vector3.Distance(m_VRControllerManager.right.transform.position, m_VRCamera.transform.position) > m_farDistance
             || m_orderSnapRightHand)
         {
             if(!m_rightSnapped)
             {
-                Transform handModel = m_VRControllerManager.right.transform.GetChild(0);
+                Transform handModel = m_rightAnimator.transform.parent;
                 m_storedRightPosition = handModel.localPosition;
                 m_storedRightRotation = handModel.localRotation;
                 handModel.gameObject.SetActive(true);
@@ -74,6 +107,16 @@ public class HandSnap : MonoBehaviour {
                 handModel.localPosition = Vector3.zero;
                 handModel.localRotation = rotation;
                 m_rightSnapped = true;
+
+                m_rightAnimator.SetBool("Grab", true);
+
+                m_VRControllerManager.right.GetComponent<VRInteractibleController>().enabled = false;
+                MailCanon canon = m_VRControllerManager.right.GetComponent<MailCanon>();
+                if (canon)
+                    canon.enabled = false;
+                MailController natural = m_VRControllerManager.right.GetComponent<MailController>();
+                if (natural)
+                    natural.enabled = false;
             }
             
         }
@@ -84,6 +127,16 @@ public class HandSnap : MonoBehaviour {
             handModel.localPosition = m_storedRightPosition;
             handModel.localRotation = m_storedRightRotation;
             m_rightSnapped = false;
+
+            m_rightAnimator.SetBool("Grab", false);
+
+            m_VRControllerManager.right.GetComponent<VRInteractibleController>().enabled = true;
+            MailCanon canon = m_VRControllerManager.right.GetComponent<MailCanon>();
+            if (canon)
+                canon.enabled = true;
+            MailController natural = m_VRControllerManager.right.GetComponent<MailController>();
+            if (natural)
+                natural.enabled = true;
         }
     }
 
@@ -95,7 +148,8 @@ public class HandSnap : MonoBehaviour {
             {
                 m_orderSnapLeftHand = true;
             }
-            else if (other.gameObject.GetInstanceID() == m_VRControllerManager.right.GetInstanceID())
+
+            if (other.gameObject.GetInstanceID() == m_VRControllerManager.right.GetInstanceID())
             {
                 m_orderSnapRightHand = true;
             }
