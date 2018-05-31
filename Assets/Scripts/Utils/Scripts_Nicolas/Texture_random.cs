@@ -19,7 +19,7 @@ public class Texture_random : MonoBehaviour {
 
         foreach (Transform lebat in Bat_all) {
 
-            if (lebat.name == "Batiment")
+            if ((lebat.name == "Batiment") || (lebat.name == "Etage_01") || (lebat.name == "Etage_02"))
             {
 
                 //Debug.Log("Ancien" + lebat.GetComponent<Renderer>().sharedMaterials[0]);
@@ -31,7 +31,20 @@ public class Texture_random : MonoBehaviour {
                 Material[] mesmats = lebat.GetComponent<Renderer>().sharedMaterials;
 
                 //J'y affecte la couleur aléatoire pour la couleur du mur
-                mesmats[0] = lacouleur;
+                for (int i = 0; i < mesmats.Length;i++)
+                {
+
+                    if ((mesmats[i].name != "Blanc") && (mesmats[i].name != "Fenetre"))
+                    {
+
+                        Debug.Log("ici");
+
+                        mesmats[i] = lacouleur;
+
+                    }
+
+                }
+               
 
                 //Je donne cette couleur au mur pour de bon
                 lebat.GetComponent<Renderer>().sharedMaterials = mesmats;
@@ -48,7 +61,18 @@ public class Texture_random : MonoBehaviour {
                         Material[] decomats = ladeco.GetComponent<Renderer>().sharedMaterials;
 
                         //J'y affecte la couleur aléatoire pour la couleur du mur
-                        decomats[0] = lacouleur;
+                        //J'y affecte la couleur aléatoire pour la couleur du mur
+                        for (int i = 0; i < decomats.Length; i++)
+                        {
+
+                            if ((decomats[i].name != "Blanc") && (decomats[i].name != "Fenetre"))
+                            {
+
+                                decomats[i] = lacouleur;
+
+                            }
+
+                        }
 
                         //Je donne cette couleur au mur pour de bon
                         ladeco.GetComponent<Renderer>().sharedMaterials = decomats;

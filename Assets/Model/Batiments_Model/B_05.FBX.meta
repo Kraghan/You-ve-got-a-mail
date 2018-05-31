@@ -1,20 +1,21 @@
 fileFormatVersion: 2
 guid: d62807c543b6e2a4b8ca723d3f90d794
-timeCreated: 1526683797
+timeCreated: 1527777443
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: B_05
-    100002: //RootNode
+    100000: //RootNode
+    100002: B_05
     100004: Bar_Deco_B_05
     100006: Bar_Deco_B_05_02
-    400000: B_05
-    400002: //RootNode
+    400000: //RootNode
+    400002: B_05
     400004: Bar_Deco_B_05
     400006: Bar_Deco_B_05_02
-    2100000: Standardmaterial
-    2100002: lambert1
+    2100000: Extrusion
+    2100002: Wall
+    2100004: Windows
     2300000: B_05
     2300002: Bar_Deco_B_05
     2300004: Bar_Deco_B_05_02
@@ -24,7 +25,22 @@ ModelImporter:
     4300000: Bar_Deco_B_05
     4300002: Bar_Deco_B_05_02
     4300004: B_05
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Extrusion
+    second: {fileID: 2100000, guid: fea529ee54a6a624fbe8d4b39faa0db3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall
+    second: {fileID: 2100000, guid: 450a9f87b560bc44d8028c20bbe9a683, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Windows
+    second: {fileID: 2100000, guid: 4cf90c2330154e14e976851a9fd4d88b, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -79,7 +95,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

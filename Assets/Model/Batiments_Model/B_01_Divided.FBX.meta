@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8614cac8cd93de64caf05675d934ab7e
-timeCreated: 1527062708
+timeCreated: 1527783021
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -11,7 +11,9 @@ ModelImporter:
     400000: //RootNode
     400002: Etage_01
     400004: Etage_02
-    2100000: Standardmaterial
+    2100000: Wall
+    2100002: Extrusion
+    2100004: Windows
     2300000: Etage_01
     2300002: Etage_02
     3300000: Etage_01

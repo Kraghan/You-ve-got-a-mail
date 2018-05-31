@@ -1,17 +1,34 @@
 fileFormatVersion: 2
 guid: c800a0976e4ceaf4487280c72ab3e013
-timeCreated: 1526639856
+timeCreated: 1527777443
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Standardmaterial
+    2100000: Wall
+    2100002: Extrusion
+    2100004: Windows
     2300000: //RootNode
     3300000: //RootNode
     4300000: B_01
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Extrusion
+    second: {fileID: 2100000, guid: fea529ee54a6a624fbe8d4b39faa0db3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall
+    second: {fileID: 2100000, guid: 450a9f87b560bc44d8028c20bbe9a683, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Windows
+    second: {fileID: 2100000, guid: 4cf90c2330154e14e976851a9fd4d88b, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -66,7 +83,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
