@@ -51,11 +51,12 @@ public class Spawn_Random : MonoBehaviour {
             if (nbrob >= Max_pieton)
                 break;
 		}
-
+			
 		//Je fais popper les voitures sur tous les noeuds du graphe des voitures
 		foreach (NavigationWaypoint waypoint in All_nodes_voitures) {
 			if (Random.value <= 0.75f) {
-                GameObject Car = CreateEntity(Voitures[Random.Range(0, Pietons.Length)], waypoint, 4);
+
+                GameObject Car = CreateEntity(Voitures[Random.Range(0, Voitures.Length)], waypoint, 4);
 
                 Car.transform.parent = CarPool;
 
