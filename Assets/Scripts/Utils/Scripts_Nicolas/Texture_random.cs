@@ -17,21 +17,45 @@ public class Texture_random : MonoBehaviour {
 		
 		Transform[] Bat_all = All_buildings.GetComponentsInChildren<Transform> ();
 
-		foreach (Transform lebat in Bat_all) {
+        foreach (Transform lebat in Bat_all) {
 
-			if (lebat.name == "Batiment") {
+            if (lebat.name == "Batiment")
+            {
 
-				//Debug.Log("Ancien" + lebat.GetComponent<Renderer>().sharedMaterials[0]);
+                //Debug.Log("Ancien" + lebat.GetComponent<Renderer>().sharedMaterials[0]);
 
-				Material[] mesmats = lebat.GetComponent<Renderer> ().sharedMaterials;
+                //Je choisis une couleur aléatoire
+                Material lacouleur = Couleurs[Random.Range(0, Couleurs.Length)];
 
-				mesmats[0] = Couleurs[Random.Range(0, Couleurs.Length)];
+                //Je récupère ses matériaux
+                Material[] mesmats = lebat.GetComponent<Renderer>().sharedMaterials;
 
-				lebat.GetComponent<Renderer> ().sharedMaterials = mesmats;
+                //J'y affecte la couleur aléatoire pour la couleur du mur
+                mesmats[0] = lacouleur;
 
-				//Debug.Log("Nouveau" + lebat.GetComponent<Renderer>().sharedMaterials[0]);
+                //Je donne cette couleur au mur pour de bon
+                lebat.GetComponent<Renderer>().sharedMaterials = mesmats;
 
-			}		
+                //Debug.Log("Nouveau" + lebat.GetComponent<Renderer>().sharedMaterials[0]);
+
+                foreach (Transform ladeco in lebat)
+                {
+
+                    //Si c'est une décoration je la colore comme le batiment
+                    if (ladeco.tag == "Bat_Deco")
+                    {
+                        //Je récupère ses matériaux
+                        Material[] decomats = ladeco.GetComponent<Renderer>().sharedMaterials;
+
+                        //J'y affecte la couleur aléatoire pour la couleur du mur
+                        decomats[0] = lacouleur;
+
+                        //Je donne cette couleur au mur pour de bon
+                        ladeco.GetComponent<Renderer>().sharedMaterials = decomats;
+
+                    }
+                }
+            }
 		}
 	}
 

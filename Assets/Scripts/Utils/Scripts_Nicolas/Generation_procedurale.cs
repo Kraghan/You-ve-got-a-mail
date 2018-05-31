@@ -25,6 +25,8 @@ public class Generation_procedurale : MonoBehaviour {
 
 	public GameObject Tous_Buildings;
 
+    public string Building_to_Rotate;
+
 	private Transform chemin;
 	private Transform[] noeuds;
 	private float length;
@@ -487,7 +489,7 @@ public class Generation_procedurale : MonoBehaviour {
 
 		foreach (Transform lebat in Bat_all) {
 
-			if (lebat.name == "Batiment") {
+			if ((lebat.name == "Batiment") && (lebat.tag == Building_to_Rotate)){
 
 				//Je trouve les coordonnées locales du centre de rotation
 				Transform[] Bat_int = lebat.GetComponentsInChildren<Transform>();

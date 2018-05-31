@@ -67,7 +67,7 @@ GameObject:
   - component: {fileID: 65866220806168712}
   m_Layer: 2
   m_Name: Porche (2)
-  m_TagString: Untagged
+  m_TagString: Bat_Deco
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 65366491444289508}
   m_Layer: 2
   m_Name: Porche (1)
-  m_TagString: Untagged
+  m_TagString: Bat_Deco
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -324,7 +324,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1694322364596542}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.7914468, y: -6.6361933, z: -0.8294625}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4221391496126560}

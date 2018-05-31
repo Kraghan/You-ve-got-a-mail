@@ -16,6 +16,7 @@ TagManager:
   - Mover
   - Mailbox
   - Hand
+  - Bat_Deco
   layers:
   - Default
   - TransparentFX

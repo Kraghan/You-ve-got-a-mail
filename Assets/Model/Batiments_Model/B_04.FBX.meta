@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7f6875d1e10ae974983f4f05484d2a8c
-timeCreated: 1527258108
+timeCreated: 1527762637
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -17,7 +17,9 @@ ModelImporter:
     400006: Batiment_04
     400008: Corniche_01
     400010: Corniche_02
-    2100000: Standardmaterial
+    2100000: Wall
+    2100002: Windows
+    2100004: Extrution
     2300000: Balcon_B_04
     2300002: Bar_Deco_B_04
     2300004: Batiment_04
@@ -33,7 +35,6 @@ ModelImporter:
     4300004: Bar_Deco_B_04
     4300006: Corniche_02
     4300008: Corniche_01
-    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -108,7 +109,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
