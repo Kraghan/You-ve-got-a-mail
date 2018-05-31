@@ -583,4 +583,5 @@ MonoBehaviour:
   m_vacuumSpeed: 3
   m_maxRotationSpeedAxis: {x: 720, y: 720, z: 720}
   m_snapPointStart: {fileID: 4322276920423328}
-  m_animator: {fileID: 0}
+  m_animator: {fileID: 95184867732691772}
+  m_follower: {fileID: 0}

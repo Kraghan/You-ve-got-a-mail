@@ -13,16 +13,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AcousticTextureWwu:
   - Guid: '{5DB85AC6-E625-4AB4-93F3-F53EE92C0E3D}'
-    m_lastTimePart2: -1999258055
-    m_lastTimePsrt1: -1656180865
+    m_lastTimePart2: -1999256236
+    m_lastTimePsrt1: 735033238
     ParentPhysicalPath: 
     PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
     List: []
   autoPopulateEnabled: 1
   AuxBusWwu:
   - Guid: '{54014377-C27A-49E1-8654-0FA1640E450A}'
-    m_lastTimePart2: -1999256418
-    m_lastTimePsrt1: -1909547483
+    m_lastTimePart2: -1999256236
+    m_lastTimePsrt1: 731995180
     ParentPhysicalPath: 
     PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     List: []
@@ -366,8 +366,8 @@ MonoBehaviour:
       maxDuration: 0
       minDuration: 0
   - Guid: '{7ECA01F5-2986-495A-A206-C7ABE677C363}'
-    m_lastTimePart2: -1999256418
-    m_lastTimePsrt1: -1911093351
+    m_lastTimePart2: -1999256236
+    m_lastTimePsrt1: 731789631
     ParentPhysicalPath: 
     PhysicalPath: Events\Music.wwu
     List:
@@ -397,8 +397,8 @@ MonoBehaviour:
       minDuration: 0
   ExpandedItems:
   - /You-ve-got-a-mail_WwiseProject
-  - /You-ve-got-a-mail_WwiseProject/Events
-  - /You-ve-got-a-mail_WwiseProject/Events/Default Work Unit
+  - /You-ve-got-a-mail_WwiseProject/SoundBanks
+  - /You-ve-got-a-mail_WwiseProject/SoundBanks/Default Work Unit
   language: English(US)
   lowerPoolSize: 2048
   m_lastPopulateTimePart2: 0
@@ -407,8 +407,8 @@ MonoBehaviour:
   preparePoolSize: 0
   RtpcWwu:
   - Guid: '{8E549F0F-2F94-41CC-AD9E-9735BB30166A}'
-    m_lastTimePart2: -1999256418
-    m_lastTimePsrt1: -1911063439
+    m_lastTimePart2: -1999256236
+    m_lastTimePsrt1: 731784620
     ParentPhysicalPath: 
     PhysicalPath: Game Parameters\Default Work Unit.wwu
     List:
@@ -441,14 +441,14 @@ MonoBehaviour:
         ObjectType: 13
   StateWwu:
   - Guid: '{EEEC9A5E-4F11-450F-9D2D-D7CB36DE18E5}'
-    m_lastTimePart2: -1999258055
-    m_lastTimePsrt1: -1656260656
+    m_lastTimePart2: -1999256236
+    m_lastTimePsrt1: 734963053
     ParentPhysicalPath: 
     PhysicalPath: States\Default Work Unit.wwu
     List: []
   - Guid: '{794F26D5-E4E2-4308-BBE8-5949BCB8F1BF}'
-    m_lastTimePart2: -1999256418
-    m_lastTimePsrt1: -1897149635
+    m_lastTimePart2: -1999256236
+    m_lastTimePsrt1: 734948010
     ParentPhysicalPath: 
     PhysicalPath: States\Music.wwu
     List:
@@ -480,15 +480,15 @@ MonoBehaviour:
   streamingPoolSize: 1024
   SwitchWwu:
   - Guid: '{2416498D-0CCC-48D7-AE80-7C86E45F170F}'
-    m_lastTimePart2: -1999258055
-    m_lastTimePsrt1: -1656230723
+    m_lastTimePart2: -1999256236
+    m_lastTimePsrt1: 734993129
     ParentPhysicalPath: 
     PhysicalPath: Switches\Default Work Unit.wwu
     List: []
   TriggerWwu:
   - Guid: '{84A0B706-3053-4D95-9F6D-93EB5F134AE4}'
-    m_lastTimePart2: -1999258055
-    m_lastTimePsrt1: -1656200812
+    m_lastTimePart2: -1999256236
+    m_lastTimePsrt1: 735018197
     ParentPhysicalPath: 
     PhysicalPath: Triggers\Default Work Unit.wwu
     List: []
