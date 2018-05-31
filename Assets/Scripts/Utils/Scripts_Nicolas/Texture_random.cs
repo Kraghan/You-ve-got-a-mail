@@ -12,7 +12,7 @@ public class Texture_random : MonoBehaviour {
 		
 	}
 	
-	// Update is called once per frame
+	//Fonction de couleurs aléatoires dans notre palette
 	public void Color_them_all () {
 		
 		Transform[] Bat_all = All_buildings.GetComponentsInChildren<Transform> ();
@@ -21,9 +21,38 @@ public class Texture_random : MonoBehaviour {
 
 			if (lebat.name == "Batiment") {
 
-				Debug.Log(lebat.GetComponent<MeshRenderer>().materials);
+				//Debug.Log("Ancien" + lebat.GetComponent<Renderer>().sharedMaterials[0]);
 
-				//lebat.GetComponent<MeshRenderer> ().material = lebat.GetComponent<Texture_random>().Couleurs[Random.Range (0, Couleurs.Length)];
+				Material[] mesmats = lebat.GetComponent<Renderer> ().sharedMaterials;
+
+				mesmats[0] = Couleurs[Random.Range(0, Couleurs.Length)];
+
+				lebat.GetComponent<Renderer> ().sharedMaterials = mesmats;
+
+				//Debug.Log("Nouveau" + lebat.GetComponent<Renderer>().sharedMaterials[0]);
+
+			}		
+		}
+	}
+
+	//Fonction saruman du fun
+	public void Saruman_the_multicolored () {
+
+		Transform[] Bat_all = All_buildings.GetComponentsInChildren<Transform> ();
+
+		foreach (Transform lebat in Bat_all) {
+
+			if (lebat.name == "Batiment") {
+
+				//Debug.Log("Ancien" + lebat.GetComponent<Renderer>().sharedMaterials[0]);
+
+				Material[] mesmats = lebat.GetComponent<Renderer> ().materials;
+
+				mesmats[0].color = Random.ColorHSV();
+
+				lebat.GetComponent<Renderer> ().materials = mesmats;
+
+				//Debug.Log("Nouveau" + lebat.GetComponent<Renderer>().sharedMaterials[0]);
 
 			}		
 		}

@@ -16,6 +16,11 @@ public class Editeur_Textures : Editor {
 		if (GUILayout.Button ("Changer_Textures")) {
 			myScript.Color_them_all ();
 		}
+
+		if (GUILayout.Button ("Trollolo_Saruman")) {
+			myScript.Saruman_the_multicolored ();
+		}
+
 	}
 }
 #endif
