@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 114603377778216054}
   - component: {fileID: 54369032413292050}
   - component: {fileID: 114875236620750730}
+  - component: {fileID: 114002149832413612}
   m_Layer: 0
   m_Name: "Robot_mod\xE9"
   m_TagString: Mover
@@ -5386,6 +5387,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114002149832413612
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1015711473507948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d295f53a6a8c6254fa7f2267c561371e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_collideOnlyWithTag: Mail
+  m_wwiseEventName: YGM_Pnj1Hit
 --- !u!114 &114603377778216054
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5399,6 +5413,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_weightFactor: 0.33
   m_impactMultiplier: 2
+  m_timeBeforeDestroy:
+    m_timeToReach: 10
+  m_particlesModel: {fileID: 1620737873140702, guid: 96a7f9aa660bf2d4d946326e3c3605ca,
+    type: 2}
 --- !u!114 &114604024479567680
 MonoBehaviour:
   m_ObjectHideFlags: 1

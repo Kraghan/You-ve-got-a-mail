@@ -33,15 +33,7 @@ public class VRInteractibleController : MonoBehaviour
         if (!m_model.GetBool("Grab") && !m_model.GetBool("Gun") 
             && Physics.Raycast(m_startLaserPoint.position, m_startLaserPoint.forward, out hit, m_enabledDistance, ~LayerMask.NameToLayer("UI")))
         {
-            VRActivateOnSight UIToEnable = hit.collider.GetComponentInParent<VRActivateOnSight>();
-            if(!UIToEnable)
-            {
-                m_model.SetBool("Pointing", false);
-                if (m_uiElement)
-                    m_uiElement.SetNormal();
-                m_lineRenderer.enabled = false;
-                return;
-            }
+
             m_model.SetBool("Pointing", true);
             m_lineRenderer.SetPosition(1, hit.point);
             m_lineRenderer.enabled = true;

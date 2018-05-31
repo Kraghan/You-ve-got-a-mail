@@ -19,6 +19,9 @@ public class VacuumMailBox : MonoBehaviour {
     [SerializeField]
     Animator m_animator;
 
+    [SerializeField]
+    NavigationFollower m_follower;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -33,6 +36,11 @@ public class VacuumMailBox : MonoBehaviour {
         if (m_mail == null)
             return;
         
+        if(m_follower)
+        {
+            m_follower.enabled = false;
+        }
+
         if(Vector3.Distance(m_snapPointStart.position,m_mail.transform.position) < 0.1)
         {
             Rigidbody body = m_mail.GetComponent<Rigidbody>();
