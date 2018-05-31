@@ -41,11 +41,12 @@ public class MailController : MonoBehaviour
             m_newspaperInHand = Instantiate(PickMail().gameObject);
             m_newspaperInHand.transform.position = transform.position;
             m_newspaperInHand.transform.rotation = transform.rotation;
+            m_newspaperInHand.tag = "Player";
             FixedJoint joint = gameObject.AddComponent<FixedJoint>();
             joint.breakForce = 20000;
             joint.breakTorque = 20000;
             joint.connectedBody = m_newspaperInHand.GetComponent<Rigidbody>();
-
+            m_model.SetBool("Gun", true);
             m_model.transform.parent.gameObject.SetActive(false);
         }
         // Release
@@ -61,9 +62,12 @@ public class MailController : MonoBehaviour
                 m_newspaperInHand.GetComponent<Rigidbody>().velocity = transform.parent.rotation * Quaternion.LookRotation(Controller.velocity) * Vector3.forward * Controller.velocity.magnitude * m_forceMultiplier + m_bikeRigibody.velocity;
                 
                 m_newspaperInHand.GetComponent<Rigidbody>().angularVelocity = (Controller.angularVelocity * m_forceMultiplier) + m_bikeRigibody.angularVelocity;
+
+                m_newspaperInHand.tag = "Mail";
             }
             m_newspaperInHand = null;
             m_model.transform.parent.gameObject.SetActive(true);
+            m_model.SetBool("Gun", false);
         }
     }
 
