@@ -101,6 +101,8 @@ public class RagdollTriggerer : MonoBehaviour {
         m_destroyParticles.Stop();
 
         m_particleLifeTime.Start(m_destroyParticles.main.duration);
+
+        AkSoundEngine.PostEvent("YGM_Crash", gameObject);
     }
 
     public void SetSpawner(Spawn_Random sp)

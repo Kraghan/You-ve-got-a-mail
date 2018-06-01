@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreboardLine
 {
@@ -56,6 +57,11 @@ public class ScoreManager : MonoBehaviour
 
     Scoreboard m_scoreboard;
 
+    [SerializeField]
+    Text m_timeText;
+    [SerializeField]
+    Text m_timeBonusText;
+
     // Load dynamicly the online scoreboard
     IEnumerator Start()
     {
@@ -73,7 +79,16 @@ public class ScoreManager : MonoBehaviour
         {
             m_timeElapsed += Time.deltaTime;
         }
-	}
+
+        int minutes = (int)(m_timeElapsed / 60);
+        int seconds = (int) m_timeElapsed - minutes * 60;
+
+        int minutesBonus = (int)(ScoreMailbox.s_score / 60);
+        int secondsBonus = (int)(ScoreMailbox.s_score - minutes * 60);
+
+        m_timeText.text = "" + minutes + " : " + seconds;
+        m_timeBonusText.text = "" + minutesBonus + " : " + secondsBonus;
+    }
 
     public void StartTimer()
     {

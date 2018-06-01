@@ -196,6 +196,7 @@ public class PlayerController : MonoBehaviour {
 
     public void SetSensibility(Slider slider)
     {
-        m_sensibility = slider.value;
+        m_sensibility = slider.maxValue - slider.value + slider.minValue;
+        print(m_sensibility);
     }
 }

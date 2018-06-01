@@ -55,7 +55,7 @@ public class CrashDetection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Mover"))
+        if (other.gameObject.CompareTag("Mover") && m_controller.GetMotorInput() >= 0.1f)
         {
             RagdollTriggerer triggerer = other.gameObject.GetComponentInParent<RagdollTriggerer>();
             if (triggerer != null)
