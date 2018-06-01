@@ -48,6 +48,15 @@ public class ShootSelector : MonoBehaviour {
         SetModeTo(m_defaultMode);
     }
 	
+    public void SetMode(bool canon)
+    {
+        if (canon)
+            SetModeTo(ShootMode.CANON);
+        else
+            SetModeTo(ShootMode.NATURAL);
+
+    }
+
     public void SetModeTo(ShootMode mode)
     {
         // Remove all controllers

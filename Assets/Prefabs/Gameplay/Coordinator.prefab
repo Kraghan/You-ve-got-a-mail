@@ -58,6 +58,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_follower: {fileID: 0}
+  m_distanceText: {fileID: 0}
 --- !u!114 &114095066906004482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -69,6 +70,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53601f10bc2f67f43817bbf9c7b3730e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_timeText: {fileID: 0}
+  m_timeBonusText: {fileID: 0}
 --- !u!114 &114396231073330650
 MonoBehaviour:
   m_ObjectHideFlags: 1
