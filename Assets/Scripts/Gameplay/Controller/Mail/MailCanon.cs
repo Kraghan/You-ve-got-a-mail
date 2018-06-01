@@ -14,8 +14,6 @@ public class MailCanon : MonoBehaviour
     [SerializeField]
     private ProbabilityOfAppearenceOfItem[] m_aMailsPrefabs;
     [SerializeField]
-    private float m_force = 20;
-    [SerializeField]
     private Rigidbody m_bikeBody;
     Animator m_model;
 
@@ -73,9 +71,20 @@ public class MailCanon : MonoBehaviour
         AkSoundEngine.PostEvent("YGM_Gunshot", gameObject);
     }
 
-    public void SetForce(float force)
+    public void SetForce(float minForce, float maxForce)
     {
-        m_force = force;
+        m_minForce = minForce;
+        m_maxForce = maxForce;
+    }
+
+    public void SetTimer(Timer timer)
+    {
+        m_timeToReachMaxForce = timer;
+    }
+
+    public void SetLaserOrigin(Transform origin)
+    {
+        m_startPointLaser = origin;
     }
 
     public void SetObjectToSend(ProbabilityOfAppearenceOfItem[] items)

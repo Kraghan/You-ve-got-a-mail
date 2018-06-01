@@ -27,6 +27,7 @@ public class MailboxCoordinator : MonoBehaviour
         m_targetFollower.SetTarget(m_aVacuumMailboxes[0].transform);
         m_targetFollower.SetObjectToRotate(m_follower);
         m_targetFollower.SetText(m_distanceText);
+        m_aVacuumMailboxes[0].SetAsCurrentTarget();
 	}
 	
 	// Update is called once per frame

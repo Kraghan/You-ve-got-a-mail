@@ -4207,9 +4207,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: ce5ee11b0de667c4b89d8afce448742a,
+    m_HighlightedSprite: {fileID: 21300000, guid: 8550d4dd5dc82db448d5c6bede4689ad,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: ce5ee11b0de667c4b89d8afce448742a, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8550d4dd5dc82db448d5c6bede4689ad, type: 3}
     m_DisabledSprite: {fileID: 21300000, guid: d211b5fd282efae43b86dc5b138f9175, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -4602,7 +4602,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114407734965339922}
-        m_MethodName: Decrease
+        m_MethodName: Increase
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4754,7 +4754,10 @@ MonoBehaviour:
     m_item: {fileID: 114163806117131890, guid: 7625ca04980e11840b9b17364faf2be1, type: 2}
   - m_probability: 50
     m_item: {fileID: 114940750276747646, guid: d248e833408d7d144bd49f0df33d9949, type: 2}
-  m_force: 11.99
+  m_minForce: 2
+  m_maxForce: 12
+  m_timeToReachMaxForce:
+    m_timeToReach: 2
   m_forceMultiplier: 2
 --- !u!114 &114263158484133084
 MonoBehaviour:
@@ -5666,7 +5669,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114407734965339922}
-        m_MethodName: Increase
+        m_MethodName: Decrease
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

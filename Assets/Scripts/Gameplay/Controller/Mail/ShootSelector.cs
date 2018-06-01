@@ -23,7 +23,12 @@ public class ShootSelector : MonoBehaviour {
 
     [Header("Canon mode")]
     [SerializeField]
-    float m_force = 20;
+    float m_minForce = 2;
+    [SerializeField]
+    float m_maxForce = 12;
+    [SerializeField]
+    Timer m_timeToReachMaxForce;
+
 
     [Header("Natural mode")]
     [SerializeField]
@@ -65,14 +70,16 @@ public class ShootSelector : MonoBehaviour {
         if (mode == ShootMode.CANON)
         {
             MailCanon canon = m_controllerRight.AddComponent<MailCanon>();
-            canon.SetForce(m_force);
+            canon.SetForce(m_minForce,m_maxForce);
             canon.SetBikeRigidbody(m_bikeRigidbody);
             canon.SetObjectToSend(m_sendableObjects);
+            canon.SetLaserOrigin(m_controllerRight.transform.Find("LaserStart"));
 
             canon = m_controllerLeft.AddComponent<MailCanon>();
-            canon.SetForce(m_force);
+            canon.SetForce(m_minForce, m_maxForce);
             canon.SetBikeRigidbody(m_bikeRigidbody);
             canon.SetObjectToSend(m_sendableObjects);
+            canon.SetLaserOrigin(m_controllerLeft.transform.Find("LaserStart"));
         }
         else if(mode == ShootMode.NATURAL)
         {

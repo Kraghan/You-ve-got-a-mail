@@ -11,8 +11,14 @@ public class SafePylone : MonoBehaviour
     [SerializeField]
     GameObject m_activeObjects;
 
+    MeshRenderer[] m_aRenderer;
+
+    [SerializeField]
+    Color m_emissionColor = new Color(0, 1, 1);
+
     public void Start()
     {
+        m_aRenderer = GetComponentsInChildren<MeshRenderer>();
         SetInactive();
     }
 
@@ -32,6 +38,8 @@ public class SafePylone : MonoBehaviour
 
     public void SetActive()
     {
+        foreach(MeshRenderer renderer in m_aRenderer)
+            renderer.material.SetColor("_EmissionColor", m_emissionColor);
         m_activeObjects.SetActive(true);
     }
 
