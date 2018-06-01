@@ -279,15 +279,13 @@ public class Generation_procedurale : MonoBehaviour {
 
 		if ((length + restedist) >= Distance_séparation) {
 
-			for (int j = 1; j <= (int)((length + restedist - Décalage_initial) / Distance_séparation); j++) {
+			for (int j = 1; j <= (int)((length + restedist) / Distance_séparation); j++) {
 
 				//Le vecteur allant du premier point au second
 				Vector3 arctemp = Vector3.Normalize (noeuds [ibis].position - noeuds [i].position);
 
 				//Le point où je vais faire poper mon poteau
-				spawnPoint = noeuds[i].position + (j * arctemp * Distance_séparation) - ((restedist + Décalage_initial) * arctemp);
-				//Je met à zéro le décalage initial
-				//Décalage_initial = 0;
+				spawnPoint = noeuds[i].position + (j * arctemp * Distance_séparation) - (restedist * arctemp);
 
 				//L'angle que je veux pour le poteau
 				angle = Vector3.Cross (Vector3.down, arctemp);
@@ -321,7 +319,7 @@ public class Generation_procedurale : MonoBehaviour {
 		lespoteaux = GameObject.FindGameObjectsWithTag("Poteaux");
 
 		//Je reset le reste de distance
-		restedist = 0;
+		restedist = Décalage_initial;
 
 		//Je dis que le chemin est ce gameobject
 		chemin = this.transform;

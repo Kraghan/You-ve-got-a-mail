@@ -5,6 +5,7 @@ using UnityEngine;
 public class Champ_force : MonoBehaviour {
 
 	public GameObject Force_field;
+    public GameObject Effet_circulation;
 
 	// Use this for initialization
 	void Start () {
@@ -24,7 +25,8 @@ public class Champ_force : MonoBehaviour {
 		if (other.collider.tag == "Mail") {
 
 			Force_field.SetActive (false);
+            Effet_circulation.SetActive(false);
 
-		}
+        }
 	}
 }
