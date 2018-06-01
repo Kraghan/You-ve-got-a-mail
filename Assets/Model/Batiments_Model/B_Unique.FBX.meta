@@ -1,18 +1,23 @@
 fileFormatVersion: 2
 guid: fc32c77c2ef2a5240af742a9c8994612
-timeCreated: 1526569567
+timeCreated: 1527877032
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Standardmaterial
-    2100002: 'Material #26'
+    2100000: lambert1
     2300000: //RootNode
     3300000: //RootNode
-    4300000: B_Unique
-  externalObjects: {}
+    4300000: Cadre_Porte
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 827aadd33be023746b2bb7cadb2c7146, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -86,7 +91,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
