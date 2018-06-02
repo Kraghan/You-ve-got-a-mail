@@ -40,6 +40,9 @@ public class VacuumMailBox : MonoBehaviour {
 
     bool m_isTarget = false;
 
+    [SerializeField]
+    bool m_infiniteMailbox = false;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -52,6 +55,9 @@ public class VacuumMailBox : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (m_infiniteMailbox && m_isDelivered)
+            m_isDelivered = false;
+
         if (m_isTarget)
         {
             SetMaterialEmissive();

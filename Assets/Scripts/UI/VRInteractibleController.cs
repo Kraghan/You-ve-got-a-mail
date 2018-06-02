@@ -35,6 +35,8 @@ public class VRInteractibleController : MonoBehaviour
         {
 
             m_model.SetBool("Pointing", true);
+
+            m_lineRenderer.positionCount = 2;
             m_lineRenderer.SetPosition(1, hit.point);
             m_lineRenderer.enabled = true;
             VRInteractible UiElement = hit.collider.GetComponent<VRInteractible>();

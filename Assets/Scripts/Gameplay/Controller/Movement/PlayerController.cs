@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class ImpulseWithTime
 {
@@ -62,6 +63,19 @@ public class PlayerController : MonoBehaviour {
     void Start()
     {   
         m_bikeController = GetComponent<BicycleController>();
+        string path = Application.dataPath + "/../Arduino.conf";
+        if (!File.Exists(path))
+        {
+            StreamWriter sw = new StreamWriter(path,false);
+            sw.WriteLine(m_portName);
+            sw.Close();
+        }
+        else
+        {
+            StreamReader sr = new StreamReader(path);
+            m_portName = sr.ReadLine();
+            sr.Close();
+        }
 
         m_arduino.set(m_portName, m_baudRate, m_readTimeout, m_queueLenght);
         m_arduino.connect();
@@ -197,6 +211,5 @@ public class PlayerController : MonoBehaviour {
     public void SetSensibility(Slider slider)
     {
         m_sensibility = slider.maxValue - slider.value + slider.minValue;
-        print(m_sensibility);
     }
 }
