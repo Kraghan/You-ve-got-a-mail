@@ -395,8 +395,7 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
-  ExpandedItems:
-  - /You-ve-got-a-mail_WwiseProject
+  ExpandedItems: []
   language: English(US)
   lowerPoolSize: 2048
   m_lastPopulateTimePart2: 0
