@@ -1349,7 +1349,7 @@ MonoBehaviour:
   m_distanceBetweenObjects: 1.5
   m_rotationSpeed: 135
   m_front: {fileID: 0}
-  m_animatorSpeedModifier: 1.25
+  m_animatorSpeedModifier: 1.5
 --- !u!137 &137134065671032164
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

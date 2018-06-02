@@ -1338,7 +1338,7 @@ MonoBehaviour:
   m_distanceBetweenObjects: 1.5
   m_rotationSpeed: 135
   m_front: {fileID: 0}
-  m_animatorSpeedModifier: 1
+  m_animatorSpeedModifier: 1.5
 --- !u!114 &114570085968734376
 MonoBehaviour:
   m_ObjectHideFlags: 1
