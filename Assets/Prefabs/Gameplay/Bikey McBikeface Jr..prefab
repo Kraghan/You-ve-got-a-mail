@@ -4754,11 +4754,11 @@ MonoBehaviour:
     m_item: {fileID: 114163806117131890, guid: 7625ca04980e11840b9b17364faf2be1, type: 2}
   - m_probability: 50
     m_item: {fileID: 114940750276747646, guid: d248e833408d7d144bd49f0df33d9949, type: 2}
-  m_minForce: 2
-  m_maxForce: 12
+  m_minForce: 8
+  m_maxForce: 16
   m_timeToReachMaxForce:
-    m_timeToReach: 2
-  m_forceMultiplier: 2
+    m_timeToReach: 4
+  m_forceMultiplier: 2.5
 --- !u!114 &114263158484133084
 MonoBehaviour:
   m_ObjectHideFlags: 1
