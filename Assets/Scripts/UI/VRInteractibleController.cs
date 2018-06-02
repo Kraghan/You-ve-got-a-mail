@@ -48,7 +48,7 @@ public class VRInteractibleController : MonoBehaviour
                 m_uiElement = UiElement;
                 if(SteamVR_Controller.Input((int)m_trackedObject.index).GetHairTrigger())
                 {
-                    m_uiElement.SetPressed();
+                    m_uiElement.SetPressed(SteamVR_Controller.Input((int)m_trackedObject.index).GetHairTriggerDown());
                 }
                 else
                 {

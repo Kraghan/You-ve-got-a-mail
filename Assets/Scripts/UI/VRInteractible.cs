@@ -30,9 +30,9 @@ public class VRInteractible : MonoBehaviour {
         m_hover = true;
     }
 
-    public void SetPressed()
+    public void SetPressed(bool justPressedButton)
     {
-        if (!m_pressed)
+        if (!m_pressed && justPressedButton)
         {
             DoOnJustPressed();
         }

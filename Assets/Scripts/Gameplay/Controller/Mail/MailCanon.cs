@@ -18,7 +18,7 @@ public class MailCanon : MonoBehaviour
     Animator m_model;
 
     [SerializeField]
-    Timer m_timeToReachMaxForce;
+    Timer m_timeToReachMaxForce = new Timer();
     [SerializeField]
     float m_minForce = 2;
     [SerializeField]
@@ -36,7 +36,7 @@ public class MailCanon : MonoBehaviour
 
     private void Start()
     {
-        m_model = GetComponentInChildren<Animator>();
+        SetAnimator();
     }
 
     // Update is called once per frame
@@ -48,6 +48,7 @@ public class MailCanon : MonoBehaviour
             DrawBallisticCurve();
             m_throwNewspaper = true;
             m_model.SetBool("Gun", true);
+            m_timeToReachMaxForce.UpdateTimer();
         }
         else if (m_throwNewspaper && !Controller.GetPress(SteamVR_Controller.ButtonMask.Trigger))
         {
@@ -55,6 +56,7 @@ public class MailCanon : MonoBehaviour
             ThrowNewspaper();
             m_throwNewspaper = false;
             m_model.SetBool("Gun", false);
+            m_timeToReachMaxForce.Restart();
         }
     }
     
@@ -79,7 +81,7 @@ public class MailCanon : MonoBehaviour
 
     public void SetTimer(Timer timer)
     {
-        m_timeToReachMaxForce = timer;
+        m_timeToReachMaxForce.Start(timer.GetTimeToReach());
     }
 
     public void SetLaserOrigin(Transform origin)
@@ -155,5 +157,10 @@ public class MailCanon : MonoBehaviour
         vec.y += 0.5f * Physics.gravity.y * time * time;
 
         return vec;
+    }
+    
+    public void SetAnimator()
+    {
+        m_model = GetComponentInChildren<Animator>();
     }
 }

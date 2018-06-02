@@ -89,6 +89,8 @@ public class ShootSelector : MonoBehaviour {
             canon.SetBikeRigidbody(m_bikeRigidbody);
             canon.SetObjectToSend(m_sendableObjects);
             canon.SetLaserOrigin(m_controllerLeft.transform.Find("LaserStart"));
+            canon.SetAnimator();
+            canon.SetTimer(m_timeToReachMaxForce);
         }
         else if(mode == ShootMode.NATURAL)
         {
@@ -101,6 +103,7 @@ public class ShootSelector : MonoBehaviour {
             natural.SetMultiplier(m_forceMultiplier);
             natural.SetBikeRigidbody(m_bikeRigidbody);
             natural.SetObjectToSend(m_sendableObjects);
+            natural.SetAnimator();
         }
 
     }

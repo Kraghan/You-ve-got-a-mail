@@ -28,7 +28,7 @@ public class MailController : MonoBehaviour
 
     private void Start()
     {
-        m_model = GetComponentInChildren<Animator>();
+        SetAnimator();
     }
 
     // Update is called once per frame
@@ -105,5 +105,10 @@ public class MailController : MonoBehaviour
     public void SetObjectToSend(ProbabilityOfAppearenceOfItem[] items)
     {
         m_aMailsPrefabs = items;
+    }
+
+    public void SetAnimator()
+    {
+        m_model = GetComponentInChildren<Animator>();
     }
 }
