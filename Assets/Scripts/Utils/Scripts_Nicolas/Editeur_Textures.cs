@@ -21,6 +21,14 @@ public class Editeur_Textures : Editor {
 			myScript.Saruman_the_multicolored ();
 		}
 
+		if (GUILayout.Button ("Random_Height")) {
+			myScript.Change_height ();
+		}
+
+		if (GUILayout.Button ("Random_Height")) {
+			myScript.Rotate_them_all ();
+		}
+
 	}
 }
 #endif

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23508354444616120}
   - component: {fileID: 54152513151092700}
   - component: {fileID: 65565559955105800}
+  - component: {fileID: 114843625699916930}
   m_Layer: 2
   m_Name: Box_Carton
   m_TagString: Untagged
@@ -111,3 +112,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3141422, y: 0.31154713, z: 0.33931404}
   m_Center: {x: 0, y: 0, z: 0.16987044}
+--- !u!114 &114843625699916930
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1153428081891182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73140adfb32ab1d4aaed3413ced1992d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_weightFactor: 1
+  m_impactMultiplier: 1
+  m_timeBeforeDestroy:
+    m_timeToReach: 2000
+  m_particlesModel: {fileID: 0}
