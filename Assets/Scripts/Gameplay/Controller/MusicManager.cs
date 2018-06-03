@@ -7,11 +7,11 @@ public class MusicManager : MonoBehaviour {
 
 	public void SetSoundVolume(Slider slider)
     {
-        AkSoundEngine.SetRTPCValue("", slider.value);
+        AkSoundEngine.SetRTPCValue("YGM_VFXVOLUME", slider.value);
     }
 
     public void SetMusicVolume(Slider slider)
     {
-        AkSoundEngine.SetRTPCValue("", slider.value);
+        AkSoundEngine.SetRTPCValue("YGM_MUSICVOLUME", slider.value);
     }
 }

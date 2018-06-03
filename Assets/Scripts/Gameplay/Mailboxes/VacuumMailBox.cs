@@ -56,6 +56,9 @@ public class VacuumMailBox : MonoBehaviour {
 
         if (m_effect)
             m_effect.Disable();
+
+        if (m_follower)
+            AkSoundEngine.PostEvent("YGM_MailboxMovement_Start", gameObject);
     }
 	
 	// Update is called once per frame
@@ -77,6 +80,9 @@ public class VacuumMailBox : MonoBehaviour {
         if(m_follower)
         {
             m_follower.enabled = false;
+            AkSoundEngine.PostEvent("YGM_MailboxMovement_Stop", gameObject);
+
+
             if (m_effect)
                 m_effect.Disable();
         }
@@ -92,6 +98,9 @@ public class VacuumMailBox : MonoBehaviour {
 
         if(Vector3.Distance(m_snapPointStart.position,m_mail.transform.position) < 0.1)
         {
+            AkSoundEngine.PostEvent("YGM_MailboxInhale_Stop", gameObject);
+            AkSoundEngine.PostEvent("YGM_MailboxValidation", gameObject);
+            
             Rigidbody body = m_mail.GetComponent<Rigidbody>();
             body.velocity = Vector3.zero;
             body.angularVelocity = Vector3.zero;
@@ -132,6 +141,7 @@ public class VacuumMailBox : MonoBehaviour {
             m_animator.SetBool("Open", true);
 
             m_enterDistance = Vector3.Distance(m_mail.transform.position, m_snapPointStart.position);
+            AkSoundEngine.PostEvent("YGM_MailboxInhale_Start", gameObject);
         }
     }
 

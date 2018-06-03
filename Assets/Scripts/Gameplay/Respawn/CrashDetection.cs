@@ -63,6 +63,11 @@ public class CrashDetection : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.CompareTag("Props"))
+            return;
+
+        AkSoundEngine.PostEvent("YGM_Crash", gameObject);
+
         Vector3 normalWall = Vector3.zero;
 
         for(uint i = 0; i < collision.contacts.Length; ++i)
@@ -77,6 +82,7 @@ public class CrashDetection : MonoBehaviour
         {
             m_crashed = true;
             BlackScreen();
+            AkSoundEngine.PostEvent("YGM_PoleLoading_Start", gameObject);
         }
     }
 
@@ -109,5 +115,7 @@ public class CrashDetection : MonoBehaviour
         m_particles.Play();
         BackToNormal();
         m_crashed = false;
+        AkSoundEngine.PostEvent("YGM_PoleLoading_Stop", gameObject);
+        
     }
 }

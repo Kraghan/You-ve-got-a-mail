@@ -48,6 +48,7 @@ public class MailController : MonoBehaviour
             joint.connectedBody = m_newspaperInHand.GetComponent<Rigidbody>();
             m_model.SetBool("Gun", true);
             m_model.transform.parent.gameObject.SetActive(false);
+            AkSoundEngine.PostEvent("YGM_ObjectSpawn", gameObject);
         }
         // Release
         else if (!Controller.GetPress(SteamVR_Controller.ButtonMask.Trigger)

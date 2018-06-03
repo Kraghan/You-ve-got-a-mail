@@ -21,7 +21,7 @@ public class TargetFollower : MonoBehaviour
         m_objectToRotate.rotation = Quaternion.LookRotation(direction);
 
         if(m_text)
-            m_text.text = "" + Mathf.Round(Vector3.Distance(m_target.position, m_objectToRotate.position) * 100) / 100.0f + " m";
+            m_text.text = Mathf.Round(Vector3.Distance(m_target.position, m_objectToRotate.position)) + " m";
 	}
 
     public void SetTarget(Transform transf)

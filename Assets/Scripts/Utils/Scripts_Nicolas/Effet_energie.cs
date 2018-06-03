@@ -23,6 +23,7 @@ public class Effet_energie : MonoBehaviour {
 	void Start () {
         m_lines = new List<NavigationFollower>();
         m_parent = new GameObject("Line Parent " + name).transform;
+        m_parent.parent = transform;
 	}
 	
 	// Update is called once per frame

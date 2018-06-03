@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 114133511454068414}
   - component: {fileID: 65818490035242530}
   - component: {fileID: 65110484046765212}
+  - component: {fileID: 114736263282308590}
   m_Layer: 0
   m_Name: Final_Robot_Block_Blue
   m_TagString: Untagged
@@ -1350,6 +1351,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6807ac599b710f41b32bd0e2e5e93da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114736263282308590
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1517160842218852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d295f53a6a8c6254fa7f2267c561371e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_collideOnlyWithTag: Mail
+  m_wwiseEventName: YGM_Pnj2Hit
 --- !u!137 &137651595135283302
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

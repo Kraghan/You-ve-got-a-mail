@@ -64,6 +64,8 @@ public class BicycleController : MonoBehaviour
 
     public GameObject pedal; // Bike pedal
 
+    Vector3 m_previousPosition;
+
 
     void Start()
     {
@@ -74,7 +76,7 @@ public class BicycleController : MonoBehaviour
         rigid.maxAngularVelocity = 2f;
 
         defsteerAngle = SteerAngle;
-
+        m_previousPosition = transform.position;
     }
 
     void FixedUpdate()
@@ -148,7 +150,6 @@ public class BicycleController : MonoBehaviour
 
     public void Braking()
     {
-
         // Deceleration.
         if (Mathf.Abs(motorInput) <= .05f)
         {
@@ -158,7 +159,7 @@ public class BicycleController : MonoBehaviour
             FrontWheelCollider.brakeTorque = Brake / 2.5f;
             RearWheelCollider.brakeTorque = Brake / 2.5f;
         }
-        else if (motorInput < 0)
+        else if (motorInput < 0 || ((transform.position - m_previousPosition).sqrMagnitude >= 0.001 && Vector3.SignedAngle(transform.right, transform.position - m_previousPosition, transform.up) > 0))
         {
             brakingNow = true;
             FrontWheelCollider.brakeTorque = (Brake) * (Mathf.Abs(motorInput) / 5f);
@@ -170,6 +171,8 @@ public class BicycleController : MonoBehaviour
             FrontWheelCollider.brakeTorque = 0;
             RearWheelCollider.brakeTorque = 0;
         }
+
+        m_previousPosition = transform.position;
 
     }
 
@@ -327,5 +330,4 @@ public class BicycleController : MonoBehaviour
     {
         return motorInput;
     }
-
 }

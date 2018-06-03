@@ -84,7 +84,7 @@ public class ScoreManager : MonoBehaviour
         int seconds = (int) m_timeElapsed - minutes * 60;
 
         int minutesBonus = (int)(ScoreMailbox.s_score / 60);
-        int secondsBonus = (int)(ScoreMailbox.s_score - minutes * 60);
+        int secondsBonus = (int)(ScoreMailbox.s_score - minutesBonus * 60);
 
         m_timeText.text = "" + minutes + " : " + seconds;
         m_timeBonusText.text = "" + minutesBonus + " : " + secondsBonus;
