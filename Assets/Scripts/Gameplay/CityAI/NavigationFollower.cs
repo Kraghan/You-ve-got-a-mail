@@ -41,8 +41,6 @@ public class NavigationFollower : MonoBehaviour {
 
     List<Transform> m_objectInFrontOf = new List<Transform>();
 
-    BoxCollider m_frontTrigger;
-
     // Use this for initialization
     protected virtual void Start ()
     {
@@ -67,8 +65,6 @@ public class NavigationFollower : MonoBehaviour {
         }
 
         m_animator = GetComponentInChildren<Animator>();
-
-        m_frontTrigger = GetComponent<BoxCollider>();
     }
 	
 	// Update is called once per frame

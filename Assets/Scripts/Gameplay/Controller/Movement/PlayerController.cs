@@ -31,14 +31,9 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private float m_impulsePerMagnet;
     [SerializeField]
-    private float m_speedDecreaseRate;
-    [SerializeField]
     private float m_maxRPM;
 
     private BicycleController m_bikeController;
-
-    private List<int> m_speedStorage = new List<int>();
-    private List<float> m_previousSpeed = new List<float>();
 
     [Header("Arduino")]
     [SerializeField]
@@ -58,6 +53,9 @@ public class PlayerController : MonoBehaviour {
     float timeSinceLastImpulse = 0;
     List<ImpulseWithTime> m_lastImpulses = new List<ImpulseWithTime>();
     List<float> m_lastRPM = new List<float>();
+
+    [SerializeField]
+    GameObject m_cameraRig;
 
 
     void Start()
@@ -211,5 +209,18 @@ public class PlayerController : MonoBehaviour {
     public void SetSensibility(Slider slider)
     {
         m_sensibility = slider.maxValue - slider.value + slider.minValue;
+    }
+
+    public void Recalibrate()
+    {
+        Transform headTransform = m_cameraRig.transform.Find("Camera (eye)");
+
+        if(headTransform)
+        {
+            Vector3 headPosition = headTransform.position;
+            m_cameraRig.transform.parent = null;
+            gameObject.transform.position = new Vector3(headPosition.x, gameObject.transform.position.y, headPosition.z);
+            m_cameraRig.transform.parent = gameObject.transform;
+        }
     }
 }

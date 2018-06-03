@@ -7,7 +7,6 @@ public class MailboxCoordinator : MonoBehaviour
 {
     [SerializeField]
     VacuumMailBox[] m_aVacuumMailboxes;
-    GameObject m_player;
 
     uint m_activeMailbox = 0;
 
@@ -22,7 +21,6 @@ public class MailboxCoordinator : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        m_player = GameObject.FindGameObjectWithTag("Player");
         m_targetFollower = gameObject.AddComponent<TargetFollower>();
         m_targetFollower.SetTarget(m_aVacuumMailboxes[0].transform);
         m_targetFollower.SetObjectToRotate(m_follower);

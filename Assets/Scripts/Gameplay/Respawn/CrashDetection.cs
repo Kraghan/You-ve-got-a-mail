@@ -22,8 +22,7 @@ public class CrashDetection : MonoBehaviour
 
     int m_oldLayerMask;
     Color m_oldColor;
-
-    uint m_collisionCount = 0;
+    
 
     void Start ()
     {
@@ -36,12 +35,7 @@ public class CrashDetection : MonoBehaviour
     {
         if (m_crashed)
         {
-            if(m_collisionCount == 0)
-            {
-                BackToNormal();
-                m_crashed = false;
-            }
-            else if(m_controller.GetMotorInput() < 0.1)
+            if(m_controller.GetMotorInput() < 0.1)
             {
                 Respawn();
             }
@@ -69,7 +63,6 @@ public class CrashDetection : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        m_collisionCount++;
         Vector3 normalWall = Vector3.zero;
 
         for(uint i = 0; i < collision.contacts.Length; ++i)
@@ -80,16 +73,11 @@ public class CrashDetection : MonoBehaviour
         
         float angle = Mathf.Abs(Vector3.SignedAngle(normalWall, Quaternion.AngleAxis(180,Vector3.up) * transform.forward, Vector3.up));
 
-        if (angle < 45)
+        if (angle < 45 && m_controller.GetMotorInput() >= 0.1f)
         {
             m_crashed = true;
             BlackScreen();
         }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        m_collisionCount--;
     }
 
     public void SetRespawnPylone(SafePylone pylone)

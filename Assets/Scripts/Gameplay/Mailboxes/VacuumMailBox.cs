@@ -35,13 +35,16 @@ public class VacuumMailBox : MonoBehaviour {
     Color m_baseColorEmissive = new Color(0, 1, 1);
     [SerializeField]
     ParticleSystem m_particles;
-    [SerializeField]
-    Timer m_timeMailScale;
 
     bool m_isTarget = false;
 
     [SerializeField]
     bool m_infiniteMailbox = false;
+
+    [SerializeField]
+    Effet_energie m_effect = null;
+
+    float m_enterDistance;
 
 	// Use this for initialization
 	void Start ()
@@ -50,6 +53,9 @@ public class VacuumMailBox : MonoBehaviour {
         m_rotationSpeedAxis.y = Random.Range(0, m_maxRotationSpeedAxis.y);
         m_rotationSpeedAxis.z = Random.Range(0, m_maxRotationSpeedAxis.z);
         m_particles.Stop();
+
+        if (m_effect)
+            m_effect.Disable();
     }
 	
 	// Update is called once per frame
@@ -71,19 +77,14 @@ public class VacuumMailBox : MonoBehaviour {
         if(m_follower)
         {
             m_follower.enabled = false;
+            if (m_effect)
+                m_effect.Disable();
         }
 
         if(m_isDelivered && m_mail)
         {
-            m_timeMailScale.UpdateTimer();
-            float scale = Mathf.Lerp(1,0,m_timeMailScale.GetRatio());
-            m_mail.transform.localScale = new Vector3(scale,scale,scale);
-
-            if(m_timeMailScale.IsTimedOut())
-            {
-                Destroy(m_mail);
-                m_mail = null;
-            }
+            Destroy(m_mail);
+            m_mail = null;
         }
 
         if (m_isDelivered)
@@ -102,8 +103,6 @@ public class VacuumMailBox : MonoBehaviour {
                 SetMaterial(m_deliveredMaterial);
             m_isTarget = false;
             m_particles.Play();
-            print("toto");
-            m_timeMailScale.Restart();
         }
         else
         {
@@ -114,6 +113,9 @@ public class VacuumMailBox : MonoBehaviour {
 
             m_mail.transform.position += mailDirection * m_vacuumSpeed * Time.deltaTime;
             m_mail.transform.Rotate(m_rotationSpeedAxis * Time.deltaTime);
+            
+            float scale = Mathf.Lerp(1, 0, m_enterDistance - Vector3.Distance(m_mail.transform.position, m_snapPointStart.position));
+            m_mail.transform.localScale = new Vector3(scale, scale, scale);
         }
 
 	}
@@ -128,6 +130,8 @@ public class VacuumMailBox : MonoBehaviour {
 			m_mail.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
             m_animator.SetBool("Open", true);
+
+            m_enterDistance = Vector3.Distance(m_mail.transform.position, m_snapPointStart.position);
         }
     }
 
@@ -141,6 +145,8 @@ public class VacuumMailBox : MonoBehaviour {
         }
         SetMaterial(m_targetMaterial);
         m_isTarget = true;
+        if (m_effect)
+            m_effect.Enable();
 
     }
 
