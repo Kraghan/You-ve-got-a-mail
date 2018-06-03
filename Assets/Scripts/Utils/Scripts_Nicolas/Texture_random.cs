@@ -34,7 +34,7 @@ public class Texture_random : MonoBehaviour {
                 for (int i = 0; i < mesmats.Length;i++)
                 {
 
-                    if ((mesmats[i].name != "Blanc") && (mesmats[i].name != "Fenetre"))
+					if ((mesmats[i].name != "Blanc") && (mesmats[i].name != "Fenetre") && (mesmats[i].name != "BrushedMetal"))
                     {
 
                         Debug.Log("ici");
@@ -103,6 +103,23 @@ public class Texture_random : MonoBehaviour {
 				//Debug.Log("Nouveau" + lebat.GetComponent<Renderer>().sharedMaterials[0]);
 
 			}		
+		}
+	}
+
+	//Fonction de couleurs aléatoires dans notre palette
+	public void Change_height () {
+
+		Transform[] Bat_all = All_buildings.GetComponentsInChildren<Transform> ();
+
+		foreach (Transform lebat in Bat_all) {
+
+			if (lebat.name == "Batiment") {
+
+				//Je lui donne une hauteur aléatoire entre 1 et 1.2
+
+				lebat.transform.localScale.Set (lebat.transform.localScale.x, 1 + (Random.value * 0.1f), lebat.transform.localScale.z);
+
+			}
 		}
 	}
 }

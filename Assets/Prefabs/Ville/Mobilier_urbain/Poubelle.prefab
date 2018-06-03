@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4437260588442444}
   - component: {fileID: 54401308051163940}
   - component: {fileID: 65188708674371042}
+  - component: {fileID: 114486754488397794}
   m_Layer: 2
   m_Name: Poubelle
   m_TagString: Untagged
@@ -140,3 +141,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.2, z: 1.0000001}
   m_Center: {x: 0, y: 0.1, z: 0}
+--- !u!114 &114486754488397794
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201454388988786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73140adfb32ab1d4aaed3413ced1992d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_weightFactor: 1
+  m_impactMultiplier: 1
+  m_timeBeforeDestroy:
+    m_timeToReach: 2000
+  m_particlesModel: {fileID: 0}
