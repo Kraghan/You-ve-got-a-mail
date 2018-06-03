@@ -6,6 +6,7 @@ public class Texture_random : MonoBehaviour {
 
 	public Material[] Couleurs;
 	public Transform All_buildings;
+	public Transform All_objects;
 
 	// Use this for initialization
 	void Start () {
@@ -120,6 +121,17 @@ public class Texture_random : MonoBehaviour {
 				lebat.transform.localScale.Set (lebat.transform.localScale.x, 1 + (Random.value * 0.1f), lebat.transform.localScale.z);
 
 			}
+		}
+	}
+
+	public void Rotate_them_all () {
+
+		Transform[] Obj_All = All_objects.GetComponentsInChildren<Transform> ();
+
+		foreach (Transform lobj in Obj_All) {
+
+			lobj.transform.rotation.eulerAngles.Set(lobj.transform.rotation.eulerAngles.x, Random.Range(0,360), lobj.transform.rotation.eulerAngles.z);
+
 		}
 	}
 }

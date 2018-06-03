@@ -25,6 +25,10 @@ public class Editeur_Textures : Editor {
 			myScript.Change_height ();
 		}
 
+		if (GUILayout.Button ("Random_Height")) {
+			myScript.Rotate_them_all ();
+		}
+
 	}
 }
 #endif
