@@ -97,14 +97,14 @@ public class NavigationFollower : MonoBehaviour {
             
             float angle = (int)Vector3.SignedAngle(transform.forward.normalized, (m_nextTarget.transform.position - m_target.transform.position).normalized, Vector3.up);
 
-            if (Mathf.Abs(angle) >= 160 || Mathf.Abs(angle) <= 20)
+            if (Mathf.Abs(angle) >= 170 || Mathf.Abs(angle) <= 10)
                 angle = 0;
             
             if(angle != 0)
             {
                 m_angleTarget = angle;
 
-                m_angleTarget = Mathf.Round(m_angleTarget / 5) * 5;
+                m_angleTarget = Mathf.Round(m_angleTarget);
 
                 m_angleRotated = 0;
             }

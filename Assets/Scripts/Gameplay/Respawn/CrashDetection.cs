@@ -60,7 +60,7 @@ public class CrashDetection : MonoBehaviour
             RagdollTriggerer triggerer = other.gameObject.GetComponentInParent<RagdollTriggerer>();
             if (triggerer != null)
             {
-                triggerer.Trigger(m_controller.Speed * transform.forward);
+                triggerer.Trigger(m_controller.GetMotorInput() * transform.forward, other.gameObject.GetInstanceID());
 
                 return;
             }
