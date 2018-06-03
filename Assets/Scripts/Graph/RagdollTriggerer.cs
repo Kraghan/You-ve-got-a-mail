@@ -30,10 +30,11 @@ public class RagdollTriggerer : MonoBehaviour {
     bool m_particleStarted = false;
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         m_aBodies = GetComponentsInChildren<Rigidbody>();
         foreach(Rigidbody body in m_aBodies)
         {
+            body.useGravity = false;
             body.isKinematic = true;
             body.mass /= m_weightFactor;
         }
@@ -48,7 +49,8 @@ public class RagdollTriggerer : MonoBehaviour {
         if (!m_triggered)
             return;
 
-        m_timeBeforeDestroy.UpdateTimer();
+        if(m_particlesModel)
+            m_timeBeforeDestroy.UpdateTimer();
 
         if(m_timeBeforeDestroy.IsTimedOut())
         {
@@ -72,17 +74,18 @@ public class RagdollTriggerer : MonoBehaviour {
     }
 
 
-    public void Trigger(Vector3 force)
+    public void Trigger(Vector3 force, int id)
     {
         if (m_triggered)
             return;
 
-        gameObject.layer = 9;
+        gameObject.layer = LayerMask.NameToLayer("Player");
         foreach (Rigidbody body in m_aBodies)
         {
-            body.gameObject.layer = 9;
+            body.gameObject.layer = LayerMask.NameToLayer("Player");
             body.isKinematic = false;
-            //body.AddForce(force * m_impactMultiplier,ForceMode.Impulse);
+            body.useGravity = true;
+            body.AddForce(force * m_impactMultiplier, ForceMode.Impulse);
         }
 
         if (m_animator != null)

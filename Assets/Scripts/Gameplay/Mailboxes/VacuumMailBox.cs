@@ -55,8 +55,10 @@ public class VacuumMailBox : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (m_infiniteMailbox && m_isDelivered)
+        if (m_infiniteMailbox && m_isDelivered && !m_mail)
+        {
             m_isDelivered = false;
+        }
 
         if (m_isTarget)
         {
@@ -96,10 +98,11 @@ public class VacuumMailBox : MonoBehaviour {
             m_isDelivered = true;
             m_animator.SetBool("Open", false);
 
-            SetMaterial(m_deliveredMaterial);
+            if(!m_infiniteMailbox)
+                SetMaterial(m_deliveredMaterial);
             m_isTarget = false;
             m_particles.Play();
-
+            print("toto");
             m_timeMailScale.Restart();
         }
         else

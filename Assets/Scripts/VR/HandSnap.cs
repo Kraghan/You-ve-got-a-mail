@@ -44,9 +44,9 @@ public class HandSnap : MonoBehaviour {
         Quaternion rotation = Quaternion.Euler(m_rotationSnap.x + 180, m_rotationSnap.y, m_rotationSnap.z);
 
         if (!m_leftAnimator.GetBool("Gun") && !m_leftAnimator.GetBool("Pointing")
-            && !m_VRControllerManager.left.activeSelf 
+            && (!m_VRControllerManager.left.activeSelf 
             || Vector3.Distance(m_VRControllerManager.left.transform.position, m_VRCamera.transform.position) > m_farDistance
-            || m_orderSnapLeftHand)
+            || m_orderSnapLeftHand))
         {
             if(!m_leftSnapped)
             {
@@ -93,9 +93,9 @@ public class HandSnap : MonoBehaviour {
         rotation = Quaternion.Euler(m_rotationSnap);
 
         if (!m_rightAnimator.GetBool("Gun") && !m_rightAnimator.GetBool("Pointing")
-            && !m_VRControllerManager.right.activeSelf 
+            && (!m_VRControllerManager.right.activeSelf 
             || Vector3.Distance(m_VRControllerManager.right.transform.position, m_VRCamera.transform.position) > m_farDistance
-            || m_orderSnapRightHand)
+            || m_orderSnapRightHand))
         {
             if(!m_rightSnapped)
             {

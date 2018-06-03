@@ -204,6 +204,7 @@ public class BicycleController : MonoBehaviour
                 //FrontWheelTransform.transform.position = ColliderCenterPointFL - (FrontWheelCollider.transform.up * FrontWheelCollider.suspensionDistance) * transform.localScale.y;
         }
         RotationValue1 += FrontWheelCollider.rpm * (6) * Time.deltaTime;
+
         if (FrontWheelCollider)
         {
             FrontWheelTransform.transform.rotation = FrontWheelCollider.transform.rotation * Quaternion.Euler(RotationValue1, FrontWheelCollider.steerAngle, FrontWheelCollider.transform.rotation.z);
@@ -240,7 +241,13 @@ public class BicycleController : MonoBehaviour
             //Debug.DrawLine(frontWheelPosition.position, SteeringHandlebar.position, Color.red,0.5f);
 
             Fender.Rotate(direction, -FrontWheelCollider.steerAngle,Space.World);
+
+            Vector3 pos;
+            Quaternion rot;
+            FrontWheelCollider.GetWorldPose(out pos, out rot);
+
             FrontWheelTransform.rotation = Fender.rotation;
+            FrontWheelTransform.Rotate(Vector3.left, rot.eulerAngles.x);
 
             if (SteeringHandlebar)
             {
