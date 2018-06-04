@@ -16,6 +16,7 @@
 			<ShortName>YGM_SoundBank</ShortName>
 			<Path>YGM_SoundBank.bnk</Path>
 			<IncludedEvents>
+				<Event Id="862647619" Name="YGM_Bike_Start" ObjectPath="\Events\Default Work Unit\YGM_Bike_Start"/>
 				<Event Id="3381172295" Name="YGM_BirdEnviro" ObjectPath="\Events\Default Work Unit\YGM_BirdEnviro" MaxAttenuation="100.000000"/>
 				<Event Id="818962592" Name="YGM_Car_Start" ObjectPath="\Events\Default Work Unit\YGM_Car_Start" MaxAttenuation="75.000000"/>
 				<Event Id="3339904716" Name="YGM_Car_Stop" ObjectPath="\Events\Default Work Unit\YGM_Car_Stop" MaxAttenuation="75.000000"/>
@@ -41,6 +42,7 @@
 				<Event Id="3259290912" Name="YGM_PoleLoading_Stop" ObjectPath="\Events\Default Work Unit\YGM_PoleLoading_Stop"/>
 				<Event Id="1055769398" Name="YGM_Propeller" ObjectPath="\Events\Default Work Unit\YGM_Propeller" MaxAttenuation="75.000000"/>
 				<Event Id="2059578557" Name="YGM_SeaEnviro" ObjectPath="\Events\Default Work Unit\YGM_SeaEnviro" MaxAttenuation="100.000000"/>
+				<Event Id="1001739416" Name="YGM_TrashHit" ObjectPath="\Events\Default Work Unit\YGM_TrashHit" MaxAttenuation="75.000000"/>
 				<Event Id="1318494082" Name="YGM_Tutorial_Start" ObjectPath="\Events\Music\YGM_Tutorial_Start"/>
 				<Event Id="4265059025" Name="YGM_UiClick" ObjectPath="\Events\Default Work Unit\YGM_UiClick" MaxAttenuation="75.000000"/>
 			</IncludedEvents>
@@ -53,6 +55,14 @@
 					<ShortName>YGM-MailboxInhale.wav</ShortName>
 					<Path>SFX\YGM-MailboxInhale_F17FB28C.wem</Path>
 				</File>
+				<File Id="100601922" Language="SFX">
+					<ShortName>wheelhighspeed.wav</ShortName>
+					<Path>SFX\wheelhighspeed_F17FB28C.wem</Path>
+				</File>
+				<File Id="117066047" Language="SFX">
+					<ShortName>slowwheelBC.wav</ShortName>
+					<Path>SFX\slowwheelBC_F17FB28C.wem</Path>
+				</File>
 				<File Id="218541813" Language="SFX">
 					<ShortName>YGM-BirdEnviro.wav</ShortName>
 					<Path>SFX\YGM-BirdEnviro_F17FB28C.wem</Path>
@@ -64,6 +74,10 @@
 				<File Id="279637094" Language="SFX">
 					<ShortName>YGM-ObjectSpawn.wav</ShortName>
 					<Path>SFX\YGM-ObjectSpawn_5EBDBB24.wem</Path>
+				</File>
+				<File Id="313867604" Language="SFX">
+					<ShortName>wheelmediumspeed.wav</ShortName>
+					<Path>SFX\wheelmediumspeed_F17FB28C.wem</Path>
 				</File>
 				<File Id="338056719" Language="SFX">
 					<ShortName>YGM-UiClick.wav</ShortName>
@@ -92,6 +106,10 @@
 				<File Id="583025512" Language="SFX">
 					<ShortName>pnj1hit.wav</ShortName>
 					<Path>SFX\pnj1hit_1C9C67B2.wem</Path>
+				</File>
+				<File Id="592798366" Language="SFX">
+					<ShortName>YGM-Wind.wav</ShortName>
+					<Path>SFX\YGM-Wind_F17FB28C.wem</Path>
 				</File>
 				<File Id="598416707" Language="SFX">
 					<ShortName>YGM-CarMoving.wav</ShortName>
@@ -156,6 +174,10 @@
 				<File Id="1058828079" Language="SFX">
 					<ShortName>finpoteau.wav</ShortName>
 					<Path>SFX\finpoteau_1C9C67B2.wem</Path>
+				</File>
+				<File Id="1070201356" Language="SFX">
+					<ShortName>pnj1death_hit4.wav</ShortName>
+					<Path>SFX\pnj1death_hit4_1C9C67B2.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
