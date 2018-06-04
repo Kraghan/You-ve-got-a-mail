@@ -7,6 +7,7 @@ public class Texture_random : MonoBehaviour {
 	public Material[] Couleurs;
 	public Transform All_buildings;
 	public Transform All_objects;
+	public float maxscale;
 
 	// Use this for initialization
 	void Start () {
@@ -117,8 +118,8 @@ public class Texture_random : MonoBehaviour {
 			if (lebat.name == "Batiment") {
 
 				//Je lui donne une hauteur aléatoire entre 1 et 1.2
-
-				lebat.transform.localScale.Set (lebat.transform.localScale.x, 1 + (Random.value * 0.1f), lebat.transform.localScale.z);
+				Vector3 newscale = new Vector3 (lebat.transform.localScale.x, 1 + (Random.value * (maxscale - 1)), lebat.transform.localScale.z);
+				lebat.transform.localScale = newscale;
 
 			}
 		}
@@ -130,8 +131,14 @@ public class Texture_random : MonoBehaviour {
 
 		foreach (Transform lobj in Obj_All) {
 
-			lobj.transform.rotation.eulerAngles.Set(lobj.transform.rotation.eulerAngles.x, Random.Range(0,360), lobj.transform.rotation.eulerAngles.z);
 
+			if (lobj.transform != All_objects) {
+				
+				Vector3 centre = lobj.transform.position;
+
+				lobj.transform.RotateAround (centre, Vector3.up, Random.Range (0, 360));
+
+			}
 		}
 	}
 }
