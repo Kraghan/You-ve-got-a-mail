@@ -147,4 +147,9 @@ public class ScoreManager : MonoBehaviour
             Debug.Log("WWW Error: " + www.error);
         }
     }
+
+    public float GetTime()
+    {
+        return m_timeElapsed;
+    }
 }

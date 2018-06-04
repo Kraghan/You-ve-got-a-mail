@@ -11,11 +11,16 @@ public class StopAfterTime : MonoBehaviour {
     GameObject m_uiToDisable;
     [SerializeField]
     GameObject m_uiToEnable;
-	
-	// Update is called once per frame
-	void Update ()
+
+    private void Start()
     {
-		if(m_manager.GetTimeScore() >= 600)
+        m_controller = GetComponent<PlayerController>();
+    }
+
+    // Update is called once per frame
+    void Update ()
+    {
+		if(m_manager.GetTime() >= 600)
         {
             m_controller.SetPanne();
             m_uiToDisable.SetActive(false);
