@@ -247,7 +247,7 @@ public class NavigationFollower : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Mover") || other.CompareTag("Player"))
+        if((other.CompareTag("Mover") || other.CompareTag("Player")) && !other.isTrigger)
         {
             m_objectInFrontOf.Add(other.transform);
         }
@@ -255,7 +255,7 @@ public class NavigationFollower : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Mover") || other.CompareTag("Player"))
+        if ((other.CompareTag("Mover") || other.CompareTag("Player")) && !other.isTrigger)
         {
             m_objectInFrontOf.Remove(other.transform);
         }

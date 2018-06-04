@@ -5,6 +5,7 @@ using UnityEngine;
 public class RagdollTriggerer : MonoBehaviour {
 
     Rigidbody[] m_aBodies;
+    Collider[] m_aCollider;
     Animator m_animator;
     NavigationFollower m_follower;
 
@@ -25,6 +26,9 @@ public class RagdollTriggerer : MonoBehaviour {
     ParticleSystem m_destroyParticles;
     Timer m_particleLifeTime = new Timer();
 
+    [SerializeField]
+    Collider m_mainCollider;
+
     Spawn_Random m_spawner;
 
     bool m_particleStarted = false;
@@ -37,6 +41,14 @@ public class RagdollTriggerer : MonoBehaviour {
             body.useGravity = false;
             body.isKinematic = true;
             body.mass /= m_weightFactor;
+            body.detectCollisions = true;
+        }
+
+        m_aCollider = GetComponentsInChildren<Collider>();
+        foreach(Collider col in m_aCollider)
+        {
+            if (col.GetInstanceID() != m_mainCollider.GetInstanceID())
+                col.enabled = false;
         }
 
         m_animator = GetComponent<Animator>();
@@ -85,8 +97,17 @@ public class RagdollTriggerer : MonoBehaviour {
             body.gameObject.layer = LayerMask.NameToLayer("Player");
             body.isKinematic = false;
             body.useGravity = true;
+            body.detectCollisions = true;
             body.AddForce(force * m_impactMultiplier, ForceMode.Impulse);
         }
+
+        foreach (Collider col in m_aCollider)
+        {
+            if (col.GetInstanceID() != m_mainCollider.GetInstanceID())
+                col.enabled = true;
+        }
+
+        m_mainCollider.enabled = false;
 
         if (m_animator != null)
         {

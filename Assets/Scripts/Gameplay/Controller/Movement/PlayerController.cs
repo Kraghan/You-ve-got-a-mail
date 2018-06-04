@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     GameObject m_cameraRig;
 
+    bool m_panne = false;
 
     void Start()
     {   
@@ -118,6 +119,13 @@ public class PlayerController : MonoBehaviour {
 
     void SpeedManagerArduino(int nbImpulse)
     {
+        if (m_panne)
+        {
+            m_bikeController.SetMotorInput(0);
+            return;
+        }
+
+
         float motorInput = m_bikeController.GetMotorInput();
 
         if (nbImpulse == 0)
@@ -223,4 +231,10 @@ public class PlayerController : MonoBehaviour {
             m_cameraRig.transform.parent = gameObject.transform;
         }
     }
+
+    public void SetPanne()
+    {
+        m_panne = true;
+    }
 }
+

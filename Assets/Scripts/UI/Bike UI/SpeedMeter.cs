@@ -17,7 +17,7 @@ public class SpeedMeter : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        //AkSoundEngine.PostEvent("YGM_", m_bikeController.gameObject);
+        AkSoundEngine.PostEvent("YGM_BikeStart", m_bikeController.gameObject);
         m_transform.localRotation = Quaternion.Euler(m_transform.localRotation.eulerAngles.x, m_transform.localRotation.y, m_minAngle);
     }
 	
