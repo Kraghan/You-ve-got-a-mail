@@ -23,8 +23,8 @@ public class LetterUI : MonoBehaviour
     {
         for (uint i = 0; i < m_icons.Length; ++i)
         {
-            m_icons[i].m_iconOff.SetActive(true);
-            m_icons[i].m_iconOn.SetActive(false);
+            m_icons[i].m_iconOff.SetActive(false);
+            m_icons[i].m_iconOn.SetActive(true);
         }
 
     }
@@ -36,8 +36,8 @@ public class LetterUI : MonoBehaviour
         {
             if (i < m_coordinator.GetMailboxActive())
             {
-                m_icons[i].m_iconOff.SetActive(false);
-                m_icons[i].m_iconOn.SetActive(true);
+                m_icons[i].m_iconOff.SetActive(true);
+                m_icons[i].m_iconOn.SetActive(false);
             }
         }
     }

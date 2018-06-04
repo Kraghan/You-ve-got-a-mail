@@ -9,8 +9,10 @@ public class Timer {
     [SerializeField]
     float m_timeToReach = 2;
 
-    public void Start()
+    public void Start(float time = 0)
     {
+        if (time != 0)
+            m_timeToReach = time;
         m_timeElapsed = 0;
     }
 

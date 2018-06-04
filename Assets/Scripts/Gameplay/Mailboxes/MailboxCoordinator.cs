@@ -1,28 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MailboxCoordinator : MonoBehaviour
 {
     [SerializeField]
     VacuumMailBox[] m_aVacuumMailboxes;
-    GameObject m_player;
 
     uint m_activeMailbox = 0;
 
     [Header("UI")]
     [SerializeField]
     Transform m_follower;
+    [SerializeField]
+    Text m_distanceText;
 
     TargetFollower m_targetFollower;
 
     // Use this for initialization
     void Start ()
     {
-        m_player = GameObject.FindGameObjectWithTag("Player");
         m_targetFollower = gameObject.AddComponent<TargetFollower>();
         m_targetFollower.SetTarget(m_aVacuumMailboxes[0].transform);
         m_targetFollower.SetObjectToRotate(m_follower);
+        m_targetFollower.SetText(m_distanceText);
+        m_aVacuumMailboxes[0].SetAsCurrentTarget();
 	}
 	
 	// Update is called once per frame

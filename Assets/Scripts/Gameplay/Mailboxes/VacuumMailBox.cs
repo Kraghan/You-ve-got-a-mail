@@ -19,28 +19,99 @@ public class VacuumMailBox : MonoBehaviour {
     [SerializeField]
     Animator m_animator;
 
+    [SerializeField]
+    NavigationFollower m_follower;
+
+    [SerializeField]
+    Material m_deliveredMaterial;
+    [SerializeField]
+    Material m_targetMaterial;
+    [SerializeField]
+    Material m_normalMaterial;
+
+    [SerializeField]
+    float m_blinkTimeRatio;
+    [SerializeField]
+    Color m_baseColorEmissive = new Color(0, 1, 1);
+    [SerializeField]
+    ParticleSystem m_particles;
+
+    bool m_isTarget = false;
+
+    [SerializeField]
+    bool m_infiniteMailbox = false;
+
+    [SerializeField]
+    Effet_energie m_effect = null;
+
+    float m_enterDistance;
+
 	// Use this for initialization
 	void Start ()
     {
         m_rotationSpeedAxis.x = Random.Range(0, m_maxRotationSpeedAxis.x);
         m_rotationSpeedAxis.y = Random.Range(0, m_maxRotationSpeedAxis.y);
         m_rotationSpeedAxis.z = Random.Range(0, m_maxRotationSpeedAxis.z);
+        m_particles.Stop();
+
+        if (m_effect)
+            m_effect.Disable();
+
+        if (m_follower)
+            AkSoundEngine.PostEvent("YGM_MailboxMovement_Start", gameObject);
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
+        if (m_infiniteMailbox && m_isDelivered && !m_mail)
+        {
+            m_isDelivered = false;
+        }
+
+        if (m_isTarget)
+        {
+            SetMaterialEmissive();
+        }
+
         if (m_mail == null)
             return;
         
+        if(m_follower)
+        {
+            m_follower.enabled = false;
+            AkSoundEngine.PostEvent("YGM_MailboxMovement_Stop", gameObject);
+
+
+            if (m_effect)
+                m_effect.Disable();
+        }
+
+        if(m_isDelivered && m_mail)
+        {
+            Destroy(m_mail);
+            m_mail = null;
+        }
+
+        if (m_isDelivered)
+            return;
+
         if(Vector3.Distance(m_snapPointStart.position,m_mail.transform.position) < 0.1)
         {
+            AkSoundEngine.PostEvent("YGM_MailboxInhale_Stop", gameObject);
+            AkSoundEngine.PostEvent("YGM_MailboxValidation", gameObject);
+            
             Rigidbody body = m_mail.GetComponent<Rigidbody>();
             body.velocity = Vector3.zero;
             body.angularVelocity = Vector3.zero;
             m_mail.transform.rotation = m_snapPointStart.rotation;
             m_isDelivered = true;
             m_animator.SetBool("Open", false);
+
+            if(!m_infiniteMailbox)
+                SetMaterial(m_deliveredMaterial);
+            m_isTarget = false;
+            m_particles.Play();
         }
         else
         {
@@ -51,8 +122,11 @@ public class VacuumMailBox : MonoBehaviour {
 
             m_mail.transform.position += mailDirection * m_vacuumSpeed * Time.deltaTime;
             m_mail.transform.Rotate(m_rotationSpeedAxis * Time.deltaTime);
+            
+            float scale = Mathf.Lerp(1, 0, m_enterDistance - Vector3.Distance(m_mail.transform.position, m_snapPointStart.position));
+            m_mail.transform.localScale = new Vector3(scale, scale, scale);
         }
-        
+
 	}
 
     private void OnTriggerEnter(Collider other)
@@ -65,6 +139,9 @@ public class VacuumMailBox : MonoBehaviour {
 			m_mail.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
             m_animator.SetBool("Open", true);
+
+            m_enterDistance = Vector3.Distance(m_mail.transform.position, m_snapPointStart.position);
+            AkSoundEngine.PostEvent("YGM_MailboxInhale_Start", gameObject);
         }
     }
 
@@ -72,7 +149,15 @@ public class VacuumMailBox : MonoBehaviour {
     {
         m_isDelivered = false;
         if (m_mail != null)
-            m_mail.SetActive(false);
+        {
+            Destroy(m_mail);
+            m_mail = null;
+        }
+        SetMaterial(m_targetMaterial);
+        m_isTarget = true;
+        if (m_effect)
+            m_effect.Enable();
+
     }
 
     public bool IsDelivered()
@@ -83,5 +168,29 @@ public class VacuumMailBox : MonoBehaviour {
     public void Reset()
     {
         m_isDelivered = false;
+        
+    }
+
+    void SetMaterial(Material mat)
+    {
+        MeshRenderer[] renderers = m_animator.GetComponentsInChildren<MeshRenderer>();
+        foreach (MeshRenderer renderer in renderers)
+        {
+            renderer.material = mat;
+            renderer.material.SetColor("_EmissionColor", m_baseColorEmissive);
+        }
+    }
+
+    void SetMaterialEmissive()
+    {
+        MeshRenderer[] renderers = m_animator.GetComponentsInChildren<MeshRenderer>();
+        float emission = Mathf.PingPong(Time.time * m_blinkTimeRatio, 1.0f);
+
+        Color finalColor = m_baseColorEmissive * Mathf.LinearToGammaSpace(emission);
+
+        foreach (MeshRenderer renderer in renderers)
+        {
+            renderer.material.SetColor("_EmissionColor", finalColor);
+        }
     }
 }

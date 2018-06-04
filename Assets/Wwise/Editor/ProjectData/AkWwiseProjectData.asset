@@ -13,23 +13,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AcousticTextureWwu:
   - Guid: '{5DB85AC6-E625-4AB4-93F3-F53EE92C0E3D}'
-    m_lastTimePart2: -1999258055
-    m_lastTimePsrt1: -1656180865
+    m_lastTimePart2: -1999256236
+    m_lastTimePsrt1: 735033238
     ParentPhysicalPath: 
     PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
     List: []
   autoPopulateEnabled: 1
   AuxBusWwu:
   - Guid: '{54014377-C27A-49E1-8654-0FA1640E450A}'
-    m_lastTimePart2: -1999256418
-    m_lastTimePsrt1: -1909547483
+    m_lastTimePart2: -1999256236
+    m_lastTimePsrt1: 731995180
     ParentPhysicalPath: 
     PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     List: []
   BankWwu:
   - Guid: '{F20B52D7-B5DC-4A4D-BCCE-252D078AF3FF}'
-    m_lastTimePart2: -1999256418
-    m_lastTimePsrt1: -1897199502
+    m_lastTimePart2: -1999255814
+    m_lastTimePsrt1: -1266719475
     ParentPhysicalPath: 
     PhysicalPath: SoundBanks\Default Work Unit.wwu
     List:
@@ -48,8 +48,8 @@ MonoBehaviour:
   defaultPoolSize: 4096
   EventWwu:
   - Guid: '{84AC6855-E88A-41C5-A423-FAB395E7C407}'
-    m_lastTimePart2: -1999256418
-    m_lastTimePsrt1: -1911113298
+    m_lastTimePart2: -1999255814
+    m_lastTimePsrt1: -1267666940
     ParentPhysicalPath: 
     PhysicalPath: Events\Default Work Unit.wwu
     List:
@@ -74,7 +74,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_Car_Start
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: 34853368b07d3f4398bd5a214e7c9f93
@@ -86,7 +86,19 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_Car_Stop
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 68b6af2ac56e5f4fb3de8d35e810a7d2
+      ID: -896328670
+      Name: YGM_Crash
+      Path: Default Work Unit\YGM_Crash
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_Crash
+        ObjectType: 3
+      maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
     - Guid: f321ae76b5f1154ab86e520aecb9d827
@@ -110,7 +122,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_LetterImpact
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: 937c1b2fd268ac43b07a97fdc0f3eb71
@@ -122,7 +134,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_MailboxInhale_Start
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: 951923a44bdd1a41a4747e619d0c69fb
@@ -146,7 +158,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_MailboxMovement_Start
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: 786f792040fe9049918e13c5851cd501
@@ -170,7 +182,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_MailboxOpeningClosing
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: ffc03092b6ee294495db26db790c800e
@@ -182,7 +194,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_MailboxValidation
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: e6b1b2a60555214fa7bd13196c2305d1
@@ -194,7 +206,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_NewspaperImpact
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: ce5f1a14d49b6340b2925613a35fb4fe
@@ -218,7 +230,19 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_PackageImpact
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 44d04139d4fb7140b47b637d8f72c284
+      ID: 1432214346
+      Name: YGM_Pnj1Death
+      Path: Default Work Unit\YGM_Pnj1Death
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_Pnj1Death
+        ObjectType: 3
+      maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
     - Guid: a1bd3080699aeb4fb51b43dc3cf18309
@@ -230,7 +254,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_Pnj1Hit
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: f3ea7a6ff2290b4aa98fe15f07bfe45f
@@ -242,7 +266,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_Pnj1Talking
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: da7d0c7eb2c5dc4cab51f0bc2da3fd5b
@@ -254,7 +278,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_Pnj1Walk
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: 4c608616e905c143aa3460576a858e25
@@ -266,7 +290,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_Pnj2Hit
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: df3cd97dac0e2443bc43d7d811da4aa6
@@ -278,19 +302,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_Pnj2Walk
         ObjectType: 3
-      maxAttenuation: 100
-      maxDuration: 0
-      minDuration: 0
-    - Guid: e29415494302d447850aff3aece1b299
-      ID: 566017294
-      Name: YGM_PoleEnd
-      Path: Default Work Unit\YGM_PoleEnd
-      PathAndIcons:
-      - ElementName: Default Work Unit
-        ObjectType: 12
-      - ElementName: YGM_PoleEnd
-        ObjectType: 3
-      maxAttenuation: 0
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: 9cfa01e987ed404d839948a064ed12a1
@@ -305,6 +317,18 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - Guid: e29415494302d447850aff3aece1b299
+      ID: -1035676384
+      Name: YGM_PoleLoading_Stop
+      Path: Default Work Unit\YGM_PoleLoading_Stop
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: YGM_PoleLoading_Stop
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - Guid: 8a5bbd32ad9d6a4a87cd0b6dd3dff9b8
       ID: 1055769398
       Name: YGM_Propeller
@@ -314,7 +338,7 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_Propeller
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
     - Guid: 504af7131f8b8f43aca0e9ea33381577
@@ -338,12 +362,12 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: YGM_UiClick
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 75
       maxDuration: 0
       minDuration: 0
   - Guid: '{7ECA01F5-2986-495A-A206-C7ABE677C363}'
-    m_lastTimePart2: -1999256418
-    m_lastTimePsrt1: -1911093351
+    m_lastTimePart2: -1999256236
+    m_lastTimePsrt1: 731789631
     ParentPhysicalPath: 
     PhysicalPath: Events\Music.wwu
     List:
@@ -375,9 +399,6 @@ MonoBehaviour:
   - /You-ve-got-a-mail_WwiseProject
   - /You-ve-got-a-mail_WwiseProject/Events
   - /You-ve-got-a-mail_WwiseProject/Events/Default Work Unit
-  - /You-ve-got-a-mail_WwiseProject/Events/Music
-  - /You-ve-got-a-mail_WwiseProject/SoundBanks
-  - /You-ve-got-a-mail_WwiseProject/SoundBanks/Default Work Unit
   language: English(US)
   lowerPoolSize: 2048
   m_lastPopulateTimePart2: 0
@@ -386,8 +407,8 @@ MonoBehaviour:
   preparePoolSize: 0
   RtpcWwu:
   - Guid: '{8E549F0F-2F94-41CC-AD9E-9735BB30166A}'
-    m_lastTimePart2: -1999256418
-    m_lastTimePsrt1: -1911063439
+    m_lastTimePart2: -1999256236
+    m_lastTimePsrt1: 731784620
     ParentPhysicalPath: 
     PhysicalPath: Game Parameters\Default Work Unit.wwu
     List:
@@ -420,14 +441,14 @@ MonoBehaviour:
         ObjectType: 13
   StateWwu:
   - Guid: '{EEEC9A5E-4F11-450F-9D2D-D7CB36DE18E5}'
-    m_lastTimePart2: -1999258055
-    m_lastTimePsrt1: -1656260656
+    m_lastTimePart2: -1999256236
+    m_lastTimePsrt1: 734963053
     ParentPhysicalPath: 
     PhysicalPath: States\Default Work Unit.wwu
     List: []
   - Guid: '{794F26D5-E4E2-4308-BBE8-5949BCB8F1BF}'
-    m_lastTimePart2: -1999256418
-    m_lastTimePsrt1: -1897149635
+    m_lastTimePart2: -1999256236
+    m_lastTimePsrt1: 734948010
     ParentPhysicalPath: 
     PhysicalPath: States\Music.wwu
     List:
@@ -459,15 +480,15 @@ MonoBehaviour:
   streamingPoolSize: 1024
   SwitchWwu:
   - Guid: '{2416498D-0CCC-48D7-AE80-7C86E45F170F}'
-    m_lastTimePart2: -1999258055
-    m_lastTimePsrt1: -1656230723
+    m_lastTimePart2: -1999256236
+    m_lastTimePsrt1: 734993129
     ParentPhysicalPath: 
     PhysicalPath: Switches\Default Work Unit.wwu
     List: []
   TriggerWwu:
   - Guid: '{84A0B706-3053-4D95-9F6D-93EB5F134AE4}'
-    m_lastTimePart2: -1999258055
-    m_lastTimePsrt1: -1656200812
+    m_lastTimePart2: -1999256236
+    m_lastTimePsrt1: 735018197
     ParentPhysicalPath: 
     PhysicalPath: Triggers\Default Work Unit.wwu
     List: []

@@ -33,6 +33,9 @@ public class Editeur_generation_procedurale : Editor {
 			myScript.RotateBuildings ();
 		}
 
+		if (GUILayout.Button ("Construire Gardes-Fous")) {
+			myScript.GardeFous ();
+		}
 	}
 }
 #endif

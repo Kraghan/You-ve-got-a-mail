@@ -9,6 +9,8 @@ public class VRLongButton : VRButton
     [SerializeField]
     RectTransform m_cursorTransform;
 
+    bool m_triggered = false;
+
     protected override void DoOnJustPressed()
     {
         m_timeToMaintain.Restart();
@@ -16,12 +18,15 @@ public class VRLongButton : VRButton
 
     protected override void DoOnPressed()
     {
+        if (m_triggered)
+            return;
+
         m_timeToMaintain.UpdateTimer();
         m_cursorTransform.rotation = Quaternion.Euler(m_cursorTransform.rotation.eulerAngles.x, m_cursorTransform.rotation.eulerAngles.y, Mathf.Lerp(0, 360, m_timeToMaintain.GetRatio()));
         if (m_timeToMaintain.IsTimedOut())
         {
             m_button.onClick.Invoke();
-            m_timeToMaintain.Restart();
+            m_triggered = true;
         }
     }
 
@@ -31,6 +36,8 @@ public class VRLongButton : VRButton
         m_timeToMaintain.Restart();
 
         m_cursorTransform.rotation = Quaternion.Euler(m_cursorTransform.rotation.eulerAngles.x, m_cursorTransform.rotation.eulerAngles.y, 0);
+
+        m_triggered = false;
     }
 
     protected override void DoOnJustHover()

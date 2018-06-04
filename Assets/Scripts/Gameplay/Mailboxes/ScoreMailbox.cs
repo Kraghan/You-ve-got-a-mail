@@ -7,7 +7,6 @@ public class ScoreMailbox : MonoBehaviour {
     public static float s_score = 0;
     [SerializeField]
     float m_secondsScore = 10;
-    [SerializeField]
     VacuumMailBox m_mailbox;
     bool m_alreadyAdded = false;
 

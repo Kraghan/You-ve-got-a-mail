@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7f6875d1e10ae974983f4f05484d2a8c
-timeCreated: 1527258108
+timeCreated: 1527777443
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -17,7 +17,9 @@ ModelImporter:
     400006: Batiment_04
     400008: Corniche_01
     400010: Corniche_02
-    2100000: Standardmaterial
+    2100000: Wall
+    2100002: Windows
+    2100004: Extrusion
     2300000: Balcon_B_04
     2300002: Bar_Deco_B_04
     2300004: Batiment_04
@@ -33,8 +35,22 @@ ModelImporter:
     4300004: Bar_Deco_B_04
     4300006: Corniche_02
     4300008: Corniche_01
-    9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Extrusion
+    second: {fileID: 2100000, guid: fea529ee54a6a624fbe8d4b39faa0db3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall
+    second: {fileID: 2100000, guid: 450a9f87b560bc44d8028c20bbe9a683, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Windows
+    second: {fileID: 2100000, guid: 4cf90c2330154e14e976851a9fd4d88b, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -89,7 +105,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
@@ -108,7 +124,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

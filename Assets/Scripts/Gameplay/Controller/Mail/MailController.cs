@@ -19,26 +19,36 @@ public class MailController : MonoBehaviour
     [SerializeField]
     private float m_forceMultiplier = 1.5f;
 
+    Animator m_model;
+
     void Awake()
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void Start()
+    {
+        SetAnimator();
+    }
+
+    // Update is called once per frame
+    void Update () {
         // Grab
-        if (Controller.GetPress(SteamVR_Controller.ButtonMask.Trigger)
+        if (!m_model.GetBool("Grab") && !m_model.GetBool("Pointing") 
+            && Controller.GetPress(SteamVR_Controller.ButtonMask.Trigger)
             && !m_newspaperInHand)
         {
             m_newspaperInHand = Instantiate(PickMail().gameObject);
             m_newspaperInHand.transform.position = transform.position;
             m_newspaperInHand.transform.rotation = transform.rotation;
+            m_newspaperInHand.tag = "Player";
             FixedJoint joint = gameObject.AddComponent<FixedJoint>();
             joint.breakForce = 20000;
             joint.breakTorque = 20000;
             joint.connectedBody = m_newspaperInHand.GetComponent<Rigidbody>();
-
-            transform.GetChild(0).gameObject.SetActive(false);
+            m_model.SetBool("Gun", true);
+            m_model.transform.parent.gameObject.SetActive(false);
+            AkSoundEngine.PostEvent("YGM_ObjectSpawn", gameObject);
         }
         // Release
         else if (!Controller.GetPress(SteamVR_Controller.ButtonMask.Trigger)
@@ -53,9 +63,12 @@ public class MailController : MonoBehaviour
                 m_newspaperInHand.GetComponent<Rigidbody>().velocity = transform.parent.rotation * Quaternion.LookRotation(Controller.velocity) * Vector3.forward * Controller.velocity.magnitude * m_forceMultiplier + m_bikeRigibody.velocity;
                 
                 m_newspaperInHand.GetComponent<Rigidbody>().angularVelocity = (Controller.angularVelocity * m_forceMultiplier) + m_bikeRigibody.angularVelocity;
+
+                m_newspaperInHand.tag = "Mail";
             }
             m_newspaperInHand = null;
-            transform.GetChild(0).gameObject.SetActive(true);
+            m_model.transform.parent.gameObject.SetActive(true);
+            m_model.SetBool("Gun", false);
         }
     }
 
@@ -93,5 +106,10 @@ public class MailController : MonoBehaviour
     public void SetObjectToSend(ProbabilityOfAppearenceOfItem[] items)
     {
         m_aMailsPrefabs = items;
+    }
+
+    public void SetAnimator()
+    {
+        m_model = GetComponentInChildren<Animator>();
     }
 }

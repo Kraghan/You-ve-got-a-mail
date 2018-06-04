@@ -1,20 +1,22 @@
 fileFormatVersion: 2
-guid: d62807c543b6e2a4b8ca723d3f90d794
-timeCreated: 1526683797
+guid: f762edefe6c24f746b9e0d2842b29cce
+timeCreated: 1528028475
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: B_05
-    100002: //RootNode
+    100000: //RootNode
+    100002: B_05
     100004: Bar_Deco_B_05
     100006: Bar_Deco_B_05_02
-    400000: B_05
-    400002: //RootNode
+    400000: //RootNode
+    400002: B_05
     400004: Bar_Deco_B_05
     400006: Bar_Deco_B_05_02
-    2100000: Standardmaterial
-    2100002: lambert1
+    2100000: Extrusion
+    2100002: Wall
+    2100004: Windows
+    2100006: Ventilateur
     2300000: B_05
     2300002: Bar_Deco_B_05
     2300004: Bar_Deco_B_05_02
@@ -24,6 +26,7 @@ ModelImporter:
     4300000: Bar_Deco_B_05
     4300002: Bar_Deco_B_05_02
     4300004: B_05
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -98,7 +101,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

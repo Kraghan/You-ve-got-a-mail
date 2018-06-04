@@ -21,7 +21,7 @@ public class UIVREnabler : MonoBehaviour {
         RaycastHit hit;
         if(Physics.Raycast(m_camera.transform.position, m_camera.transform.forward, out hit, m_enabledDistance, ~LayerMask.NameToLayer("UI")))
         {
-            VRActivateOnSight UIToEnable = hit.collider.GetComponentInChildren<VRActivateOnSight>();
+            VRActivateOnSight UIToEnable = hit.collider.GetComponentInParent<VRActivateOnSight>();
             if(UIToEnable)
             {
                 if (m_UIInSight)

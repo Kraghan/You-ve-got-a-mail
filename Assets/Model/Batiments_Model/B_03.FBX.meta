@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 0c9ab26a0a845d84f8ebb814931e81b6
-timeCreated: 1526569567
+timeCreated: 1527783021
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -15,7 +15,9 @@ ModelImporter:
     400004: Balcon_B_03_02
     400006: Batiment_03
     400008: Front_Porch_B_03
-    2100000: Standardmaterial
+    2100000: Wall
+    2100002: Extrusion
+    2100004: Windows
     2300000: Balcon_B_03
     2300002: Balcon_B_03_02
     2300004: Batiment_03

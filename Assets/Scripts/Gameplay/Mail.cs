@@ -53,5 +53,6 @@ public class Mail : MonoBehaviour
         AkSoundEngine.PostEvent(m_soundOnCollision, gameObject);
         m_timeBeforeDestroy.Start();
         m_hasCollide = true;
+
     }
 }

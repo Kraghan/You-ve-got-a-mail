@@ -22,8 +22,7 @@ public class CrashDetection : MonoBehaviour
 
     int m_oldLayerMask;
     Color m_oldColor;
-
-    uint m_collisionCount = 0;
+    
 
     void Start ()
     {
@@ -36,12 +35,7 @@ public class CrashDetection : MonoBehaviour
     {
         if (m_crashed)
         {
-            if(m_collisionCount == 0)
-            {
-                BackToNormal();
-                m_crashed = false;
-            }
-            else if(m_controller.GetMotorInput() < 0.1)
+            if(m_controller.GetMotorInput() < 0.1)
             {
                 Respawn();
             }
@@ -55,12 +49,12 @@ public class CrashDetection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Mover"))
+        if (other.gameObject.CompareTag("Mover") && m_controller.GetMotorInput() >= 0.1f)
         {
             RagdollTriggerer triggerer = other.gameObject.GetComponentInParent<RagdollTriggerer>();
             if (triggerer != null)
             {
-                triggerer.Trigger(m_controller.Speed * transform.forward);
+                triggerer.Trigger(m_controller.GetMotorInput() * transform.forward, other.gameObject.GetInstanceID());
 
                 return;
             }
@@ -69,7 +63,11 @@ public class CrashDetection : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        m_collisionCount++;
+        if (collision.gameObject.CompareTag("Props"))
+            return;
+
+        AkSoundEngine.PostEvent("YGM_Crash", gameObject);
+
         Vector3 normalWall = Vector3.zero;
 
         for(uint i = 0; i < collision.contacts.Length; ++i)
@@ -80,16 +78,12 @@ public class CrashDetection : MonoBehaviour
         
         float angle = Mathf.Abs(Vector3.SignedAngle(normalWall, Quaternion.AngleAxis(180,Vector3.up) * transform.forward, Vector3.up));
 
-        if (angle < 45)
+        if (angle < 45 && m_controller.GetMotorInput() >= 0.1f)
         {
             m_crashed = true;
             BlackScreen();
+            AkSoundEngine.PostEvent("YGM_PoleLoading_Start", gameObject);
         }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        m_collisionCount--;
     }
 
     public void SetRespawnPylone(SafePylone pylone)
@@ -121,5 +115,7 @@ public class CrashDetection : MonoBehaviour
         m_particles.Play();
         BackToNormal();
         m_crashed = false;
+        AkSoundEngine.PostEvent("YGM_PoleLoading_Stop", gameObject);
+        
     }
 }
