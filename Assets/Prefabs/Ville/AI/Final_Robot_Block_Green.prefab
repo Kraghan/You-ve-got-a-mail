@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4354997127363508}
   - component: {fileID: 137389471004593462}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Troncunwra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4354313351230810}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Right_Shoulder_P1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4948911853170028}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Left_Foot_P2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4230416996376848}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ikSpine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4633589965314850}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Chest_CTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4150507031714800}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Head_CTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4811434879971200}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Right_Foot_P1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4449326277577470}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Right_Shoulder_P2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4488698489192360}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Poignet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4963560528014126}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4890672746188924}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Spine_CTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4111225915899684}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pince_Gauche_P3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 65557735454273352}
   - component: {fileID: 65034550479072120}
   - component: {fileID: 114038014898864212}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Final_Robot_Block_Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4751742181874730}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Hip_CTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4906688749243342}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pince_Droite_P2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4784874050080104}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ik_L_Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4226449456235770}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_Arm_CTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4032073126535594}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Right_Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4545779234128370}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +312,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4873099322699118}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Right_Toe_Tip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +327,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4071519342731202}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ik_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4136179600023462}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Right__Toe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,7 +357,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4502993262895756}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pince_Droite_P1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,7 +372,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4613595204233712}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Head_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +387,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4697460969037288}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pince
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +402,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4301965641297156}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: L_Foot_CTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4912881817513550}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pince_Droite_P3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4338380863666046}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Left_Foot_P1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -447,7 +447,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4551377452493028}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Right_Foot_P2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -462,7 +462,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4495055085580938}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_Foot_CTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -477,7 +477,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4774541391903926}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ik_R_Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -492,7 +492,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4707828874490058}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pince_Gauche_P2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,7 +507,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4291290616391184}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ik_R_Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -522,7 +522,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4075258588427698}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Right_Forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -537,7 +537,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4016462255707600}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Left_Tibias
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -552,7 +552,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4727199770510540}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Left__Toe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -567,7 +567,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4846818942622528}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -582,7 +582,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4846675202444980}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Left_Toe_Tip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -597,7 +597,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4653479322653832}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pince_gauche_P1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -612,7 +612,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4852758197201472}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Right_Tibias
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -627,7 +627,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4879247933875890}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Left_Thight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4658659857073348}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -657,7 +657,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4743654313589248}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Right_Thight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
