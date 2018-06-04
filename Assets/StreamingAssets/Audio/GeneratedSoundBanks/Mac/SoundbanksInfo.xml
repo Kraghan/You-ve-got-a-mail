@@ -20,6 +20,7 @@
 				<Event Id="818962592" Name="YGM_Car_Start" ObjectPath="\Events\Default Work Unit\YGM_Car_Start" MaxAttenuation="75.000000"/>
 				<Event Id="3339904716" Name="YGM_Car_Stop" ObjectPath="\Events\Default Work Unit\YGM_Car_Stop" MaxAttenuation="75.000000"/>
 				<Event Id="2407544017" Name="YGM_City_Start" ObjectPath="\Events\Music\YGM_City_Start"/>
+				<Event Id="3398638626" Name="YGM_Crash" ObjectPath="\Events\Default Work Unit\YGM_Crash"/>
 				<Event Id="113418973" Name="YGM_Gunshot" ObjectPath="\Events\Default Work Unit\YGM_Gunshot" MaxAttenuation="100.000000"/>
 				<Event Id="3626333799" Name="YGM_LetterImpact" ObjectPath="\Events\Default Work Unit\YGM_LetterImpact" MaxAttenuation="75.000000"/>
 				<Event Id="2980684211" Name="YGM_MailboxInhale_Start" ObjectPath="\Events\Default Work Unit\YGM_MailboxInhale_Start" MaxAttenuation="75.000000"/>
@@ -36,8 +37,8 @@
 				<Event Id="2818181119" Name="YGM_Pnj1Walk" ObjectPath="\Events\Default Work Unit\YGM_Pnj1Walk" MaxAttenuation="75.000000"/>
 				<Event Id="2630144286" Name="YGM_Pnj2Hit" ObjectPath="\Events\Default Work Unit\YGM_Pnj2Hit" MaxAttenuation="75.000000"/>
 				<Event Id="1366380992" Name="YGM_Pnj2Walk" ObjectPath="\Events\Default Work Unit\YGM_Pnj2Walk" MaxAttenuation="75.000000"/>
-				<Event Id="566017294" Name="YGM_PoleEnd" ObjectPath="\Events\Default Work Unit\YGM_PoleEnd"/>
 				<Event Id="75378572" Name="YGM_PoleLoading_Start" ObjectPath="\Events\Default Work Unit\YGM_PoleLoading_Start"/>
+				<Event Id="3259290912" Name="YGM_PoleLoading_Stop" ObjectPath="\Events\Default Work Unit\YGM_PoleLoading_Stop"/>
 				<Event Id="1055769398" Name="YGM_Propeller" ObjectPath="\Events\Default Work Unit\YGM_Propeller" MaxAttenuation="75.000000"/>
 				<Event Id="2059578557" Name="YGM_SeaEnviro" ObjectPath="\Events\Default Work Unit\YGM_SeaEnviro" MaxAttenuation="100.000000"/>
 				<Event Id="1318494082" Name="YGM_Tutorial_Start" ObjectPath="\Events\Music\YGM_Tutorial_Start"/>
@@ -52,10 +53,6 @@
 					<ShortName>YGM-MailboxInhale.wav</ShortName>
 					<Path>SFX\YGM-MailboxInhale_F17FB28C.wem</Path>
 				</File>
-				<File Id="100640021" Language="SFX">
-					<ShortName>chargementpoteau.wav</ShortName>
-					<Path>SFX\chargementpoteau_A904F936.wem</Path>
-				</File>
 				<File Id="218541813" Language="SFX">
 					<ShortName>YGM-BirdEnviro.wav</ShortName>
 					<Path>SFX\YGM-BirdEnviro_F17FB28C.wem</Path>
@@ -66,27 +63,23 @@
 				</File>
 				<File Id="279637094" Language="SFX">
 					<ShortName>YGM-ObjectSpawn.wav</ShortName>
-					<Path>SFX\YGM-ObjectSpawn_ADBA239D.wem</Path>
-				</File>
-				<File Id="285842420" Language="SFX">
-					<ShortName>YGM-CarStart.wav</ShortName>
-					<Path>SFX\YGM-CarStart_1C9C67B2.wem</Path>
+					<Path>SFX\YGM-ObjectSpawn_5EBDBB24.wem</Path>
 				</File>
 				<File Id="338056719" Language="SFX">
 					<ShortName>YGM-UiClick.wav</ShortName>
-					<Path>SFX\YGM-UiClick_52C6D686.wem</Path>
-				</File>
-				<File Id="346682142" Language="SFX">
-					<ShortName>YGM-CarStop.wav</ShortName>
-					<Path>SFX\YGM-CarStop_1C9C67B2.wem</Path>
+					<Path>SFX\YGM-UiClick_FC9090F7.wem</Path>
 				</File>
 				<File Id="365022121" Language="SFX">
 					<ShortName>feedbacks\YGM-impactLettre.wav</ShortName>
-					<Path>SFX\feedbacks\YGM-impactLettre_B82EE967.wem</Path>
+					<Path>SFX\feedbacks\YGM-impactLettre_0F8B60FB.wem</Path>
+				</File>
+				<File Id="436782405" Language="SFX">
+					<ShortName>YGM-CarStop.wav</ShortName>
+					<Path>SFX\YGM-CarStop_1C9C67B2.wem</Path>
 				</File>
 				<File Id="474466795" Language="SFX">
 					<ShortName>YGM-MailboxOpen.wav</ShortName>
-					<Path>SFX\YGM-MailboxOpen_7BBCBA36.wem</Path>
+					<Path>SFX\YGM-MailboxOpen_7F0E6651.wem</Path>
 				</File>
 				<File Id="483413206" Language="SFX">
 					<ShortName>YGM-Sea.wav</ShortName>
@@ -94,11 +87,15 @@
 				</File>
 				<File Id="513139282" Language="SFX">
 					<ShortName>feedbacks\YGM-impactJournal.wav</ShortName>
-					<Path>SFX\feedbacks\YGM-impactJournal_0C8146AD.wem</Path>
+					<Path>SFX\feedbacks\YGM-impactJournal_27BA9C5C.wem</Path>
 				</File>
 				<File Id="583025512" Language="SFX">
 					<ShortName>pnj1hit.wav</ShortName>
 					<Path>SFX\pnj1hit_1C9C67B2.wem</Path>
+				</File>
+				<File Id="598416707" Language="SFX">
+					<ShortName>YGM-CarMoving.wav</ShortName>
+					<Path>SFX\YGM-CarMoving_F17FB28C.wem</Path>
 				</File>
 				<File Id="710709848" Language="SFX">
 					<ShortName>YGM-MailboxMovement.wav</ShortName>
@@ -106,23 +103,27 @@
 				</File>
 				<File Id="717951268" Language="SFX">
 					<ShortName>YGM-GunShot.wav</ShortName>
-					<Path>SFX\YGM-GunShot_9DBD6281.wem</Path>
+					<Path>SFX\YGM-GunShot_9D5E51FF.wem</Path>
 				</File>
 				<File Id="746658345" Language="SFX">
 					<ShortName>YGM-mailboxvalidation.wav</ShortName>
-					<Path>SFX\YGM-mailboxvalidation_F415032D.wem</Path>
+					<Path>SFX\YGM-mailboxvalidation_742AEF5F.wem</Path>
 				</File>
 				<File Id="763903553" Language="SFX">
 					<ShortName>pnj2hit.wav</ShortName>
 					<Path>SFX\pnj2hit_1C9C67B2.wem</Path>
 				</File>
-				<File Id="780678876" Language="SFX">
-					<ShortName>YGM-CarMoving.wav</ShortName>
-					<Path>SFX\YGM-CarMoving_F17FB28C.wem</Path>
-				</File>
 				<File Id="781785002" Language="SFX">
 					<ShortName>Bicycle Funk - Intro.wav</ShortName>
 					<Path>SFX\Bicycle Funk - Intro_F17FB28C.wem</Path>
+				</File>
+				<File Id="818139825" Language="SFX">
+					<ShortName>vélocrash.wav</ShortName>
+					<Path>SFX\vélocrash_1C9C67B2.wem</Path>
+				</File>
+				<File Id="855596250" Language="SFX">
+					<ShortName>chargementpoteau2.wav</ShortName>
+					<Path>SFX\chargementpoteau2_1C9C67B2.wem</Path>
 				</File>
 				<File Id="893225651" Language="SFX">
 					<ShortName>Environment\YGM-pnj2Walk.wav</ShortName>
@@ -130,15 +131,19 @@
 				</File>
 				<File Id="916069169" Language="SFX">
 					<ShortName>feedbacks\YGM-impactColis.wav</ShortName>
-					<Path>SFX\feedbacks\YGM-impactColis_61623726.wem</Path>
+					<Path>SFX\feedbacks\YGM-impactColis_AEF06D9E.wem</Path>
 				</File>
 				<File Id="939783941" Language="SFX">
 					<ShortName>Bicycle Funk - Techno Part.wav</ShortName>
 					<Path>SFX\Bicycle Funk - Techno Part_F17FB28C.wem</Path>
 				</File>
+				<File Id="959252598" Language="SFX">
+					<ShortName>YGM-CarStart.wav</ShortName>
+					<Path>SFX\YGM-CarStart_1C9C67B2.wem</Path>
+				</File>
 				<File Id="992466882" Language="SFX">
 					<ShortName>Environment\YGM-pnj1Walk.wav</ShortName>
-					<Path>SFX\Environment\YGM-pnj1Walk_8B84756D.wem</Path>
+					<Path>SFX\Environment\YGM-pnj1Walk_3311F016.wem</Path>
 				</File>
 				<File Id="992760054" Language="SFX">
 					<ShortName>Bicycle Funk - Softer techno + Chiptune.wav</ShortName>

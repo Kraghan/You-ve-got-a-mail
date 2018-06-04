@@ -53,6 +53,8 @@ public class NavigationFollower : MonoBehaviour {
         m_target = m_startPoint.GetRandomNeighbour();
         if (m_target == null)
         {
+            return;
+
             string str = m_startPoint.gameObject.name;
             Transform tr = m_startPoint.transform.parent;
             while (tr != null)
@@ -78,8 +80,9 @@ public class NavigationFollower : MonoBehaviour {
         if (ConditionToChooseNextTarget(distance))
         {
             m_nextTarget = m_target.GetRandomNeighbour();
-            if(m_target == null)
+            if(m_nextTarget == null)
             {
+                return;
                 string str = m_nextTarget.gameObject.name;
                 Transform tr = m_nextTarget.transform.parent;
                 while(tr != null)

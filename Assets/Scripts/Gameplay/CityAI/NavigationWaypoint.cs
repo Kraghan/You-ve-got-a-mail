@@ -44,6 +44,9 @@ public class NavigationWaypoint : MonoBehaviour
 
     public NavigationWaypoint GetRandomNeighbour()
     {
+        if (m_neighbours.Length == 0)
+            return null;
+
         int rnd = Random.Range(0, m_neighbours.Length);
         if(m_neighbours[rnd] == null)
         {
