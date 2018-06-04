@@ -13,6 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID YGM_BIKE_START = 862647619U;
         static const AkUniqueID YGM_BIRDENVIRO = 3381172295U;
         static const AkUniqueID YGM_CAR_START = 818962592U;
         static const AkUniqueID YGM_CAR_STOP = 3339904716U;
