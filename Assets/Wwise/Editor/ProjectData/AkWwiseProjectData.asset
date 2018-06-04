@@ -45,7 +45,7 @@ MonoBehaviour:
   basePath: Audio\GeneratedSoundBanks
   callbackManagerBufferSize: 4
   CurrentPluginConfig: 
-  defaultPoolSize: 4096
+  defaultPoolSize: 8192
   EventWwu:
   - Guid: '{84AC6855-E88A-41C5-A423-FAB395E7C407}'
     m_lastTimePart2: -1999255814
@@ -397,14 +397,12 @@ MonoBehaviour:
       minDuration: 0
   ExpandedItems:
   - /You-ve-got-a-mail_WwiseProject
-  - /You-ve-got-a-mail_WwiseProject/Events
-  - /You-ve-got-a-mail_WwiseProject/Events/Default Work Unit
   language: English(US)
-  lowerPoolSize: 2048
+  lowerPoolSize: 4096
   m_lastPopulateTimePart2: 0
   m_lastPopulateTimePsrt1: 0
   memoryCutoffThreshold: 0.95
-  preparePoolSize: 0
+  preparePoolSize: 64
   RtpcWwu:
   - Guid: '{8E549F0F-2F94-41CC-AD9E-9735BB30166A}'
     m_lastTimePart2: -1999256236
@@ -477,7 +475,7 @@ MonoBehaviour:
       - City
       - None
       - Tutorial
-  streamingPoolSize: 1024
+  streamingPoolSize: 2048
   SwitchWwu:
   - Guid: '{2416498D-0CCC-48D7-AE80-7C86E45F170F}'
     m_lastTimePart2: -1999256236
