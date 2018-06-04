@@ -123,7 +123,7 @@ public class VacuumMailBox : MonoBehaviour {
             m_mail.transform.position += mailDirection * m_vacuumSpeed * Time.deltaTime;
             m_mail.transform.Rotate(m_rotationSpeedAxis * Time.deltaTime);
             
-            float scale = Mathf.Lerp(1, 0, m_enterDistance - Vector3.Distance(m_mail.transform.position, m_snapPointStart.position));
+            float scale = Mathf.Lerp(1, 0.5f, m_enterDistance - Vector3.Distance(m_mail.transform.position, m_snapPointStart.position));
             m_mail.transform.localScale = new Vector3(scale, scale, scale);
         }
 
