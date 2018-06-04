@@ -39,6 +39,7 @@ namespace AK
         static const AkUniqueID YGM_POLELOADING_STOP = 3259290912U;
         static const AkUniqueID YGM_PROPELLER = 1055769398U;
         static const AkUniqueID YGM_SEAENVIRO = 2059578557U;
+        static const AkUniqueID YGM_TRASHHIT = 1001739416U;
         static const AkUniqueID YGM_TUTORIAL_START = 1318494082U;
         static const AkUniqueID YGM_UICLICK = 4265059025U;
     } // namespace EVENTS
