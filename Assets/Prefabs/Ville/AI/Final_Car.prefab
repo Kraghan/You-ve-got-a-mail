@@ -695,7 +695,7 @@ Transform:
   m_GameObject: {fileID: 1566993194729382}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 217.6048, y: 930, z: 8.659185}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 4489123889056000}
   - {fileID: 4568598497712094}
@@ -1604,7 +1604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_startPoint: {fileID: 0}
   m_triggerOffset: 0.5
-  m_triggerRotationOffset: 3
+  m_triggerRotationOffset: 0.5
   m_speed: 3
   m_distanceBetweenObjects: 3
   m_rotationSpeed: 135
