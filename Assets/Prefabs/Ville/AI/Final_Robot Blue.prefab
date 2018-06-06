@@ -5436,6 +5436,7 @@ MonoBehaviour:
     m_timeToReach: 10
   m_particlesModel: {fileID: 1620737873140702, guid: 96a7f9aa660bf2d4d946326e3c3605ca,
     type: 2}
+  m_mainCollider: {fileID: 0}
 --- !u!114 &114889620688076812
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 114867277053713608}
   m_Layer: 12
   m_Name: Final_Robot_Block_Grey
-  m_TagString: Untagged
+  m_TagString: Mover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
