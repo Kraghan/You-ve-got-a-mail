@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KeybordController : MonoBehaviour {
     [SerializeField]
@@ -10,6 +11,8 @@ public class KeybordController : MonoBehaviour {
     private float m_rotation = 0;
     private float m_nextTargetSpeed;
     private BicycleController m_bikeController;
+
+	public God_move god;
 
     void Start()
     {
@@ -59,4 +62,11 @@ public class KeybordController : MonoBehaviour {
             m_rotation = 0;
         m_rotation = Mathf.Clamp(m_rotation, -1, 1);
     }
+
+	public void SetMouseSensibility (Slider slider) {
+
+		god.XSensitivity = slider.value;
+		god.YSensitivity = slider.value;
+
+	}
 }
