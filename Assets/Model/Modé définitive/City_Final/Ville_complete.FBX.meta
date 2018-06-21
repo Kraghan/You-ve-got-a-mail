@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: a1739b8f2a276c9468d58251cc06a45f
-timeCreated: 1528124207
+guid: 03c4763da16d96e41806be852d818b57
+timeCreated: 1529338505
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -143,7 +143,7 @@ ModelImporter:
     400134: //RootNode
     2100000: Muraille
     2100002: Sol
-    2100004: Crepi
+    2100004: Autre
     2100006: Falaise
     2300000: Mesh035
     2300002: Mesh1
@@ -278,7 +278,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Crepi
+      name: Autre
     second: {fileID: 2100000, guid: fea529ee54a6a624fbe8d4b39faa0db3, type: 2}
   - first:
       type: UnityEngine:Material
@@ -368,7 +368,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
