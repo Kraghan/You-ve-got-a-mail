@@ -16,10 +16,13 @@ public class SafePylone : MonoBehaviour
     [SerializeField]
     Color m_emissionColor = new Color(0, 1, 1);
 
+	public bool firstpylone = false;
+
     public void Start()
     {
         m_aRenderer = GetComponentsInChildren<MeshRenderer>();
-        SetInactive();
+		if (!firstpylone)
+        	SetInactive();
     }
 
     public void Respawn()
@@ -29,10 +32,11 @@ public class SafePylone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+		if ((other.CompareTag("Player")) && (other.GetComponent<CrashDetection>().timer > other.GetComponent<CrashDetection>().pause))
         {
             other.GetComponent<CrashDetection>().SetRespawnPylone(this);
             m_spot.SetLockedRotation();
+			other.GetComponent<CrashDetection>().timer = 0;
         }
     }
 

@@ -22,7 +22,9 @@ public class VRLongButton : VRButton
             return;
 
         m_timeToMaintain.UpdateTimer();
-        m_cursorTransform.rotation = Quaternion.Euler(m_cursorTransform.rotation.eulerAngles.x, m_cursorTransform.rotation.eulerAngles.y, Mathf.Lerp(0, 360, m_timeToMaintain.GetRatio()));
+		if (!m_timeToMaintain.IsTimedOut())
+        	m_cursorTransform.rotation = Quaternion.Euler(m_cursorTransform.rotation.eulerAngles.x, m_cursorTransform.rotation.eulerAngles.y, Mathf.Lerp(0, 360, m_timeToMaintain.GetRatio()));
+		
         if (m_timeToMaintain.IsTimedOut())
         {
             m_button.onClick.Invoke();

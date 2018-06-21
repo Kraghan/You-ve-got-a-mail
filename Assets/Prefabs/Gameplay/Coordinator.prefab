@@ -35,8 +35,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1877309218274784}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.491344, y: -2.1417317, z: -3.7753332}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -54,6 +54,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_aVacuumMailboxes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -85,6 +93,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_coordinator: {fileID: 114032575151721634}
   m_icons:
+  - m_iconOff: {fileID: 0}
+    m_iconOn: {fileID: 0}
   - m_iconOff: {fileID: 0}
     m_iconOn: {fileID: 0}
   - m_iconOff: {fileID: 0}

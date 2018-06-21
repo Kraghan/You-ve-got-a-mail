@@ -29,6 +29,7 @@ public class Effet_energie : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+		
         if (!m_disabled)
         {
             //Je calcule le temps qui passe d'ici à la prochaine salve
@@ -51,14 +52,12 @@ public class Effet_energie : MonoBehaviour {
             }
         }
 			
-		for (int i = 0; i < m_lines.Count;)
+		foreach (NavigationFollower salve in m_parent.GetComponentsInChildren<NavigationFollower>())
         {
-            NavigationFollower salve = m_lines[i];
+			
             //Si cette salve est arrivée au bout du chemin, je la détruit
-            if (salve.GetNextTarget() == endpoint)
-                Destroy(salve);
-            else
-                i++;
+			if (salve.GetNextTarget () == endpoint)
+				salve.enabled = false;
 
 		}		
 	}

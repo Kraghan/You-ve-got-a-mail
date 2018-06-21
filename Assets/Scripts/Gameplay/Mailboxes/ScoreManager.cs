@@ -86,8 +86,23 @@ public class ScoreManager : MonoBehaviour
         int minutesBonus = (int)(ScoreMailbox.s_score / 60);
         int secondsBonus = (int)(ScoreMailbox.s_score - minutesBonus * 60);
 
-        m_timeText.text = "" + minutes + " : " + seconds;
-        m_timeBonusText.text = "" + minutesBonus + " : " + secondsBonus;
+		if ((minutes < 10) && (seconds < 10))
+        	m_timeText.text = "0" + minutes + " : 0" + seconds;
+		else if (minutes < 10)
+			m_timeText.text = "0" + minutes + " : " + seconds;
+		else if (seconds < 10)
+			m_timeText.text = "" + minutes + " : 0" + seconds;
+		else
+			m_timeText.text = "" + minutes + " : " + seconds;
+		
+		if ((minutesBonus < 10) && (secondsBonus < 10))
+			m_timeBonusText.text = "0" + minutesBonus + " : 0" + secondsBonus;
+		else if (minutesBonus < 10)
+			m_timeBonusText.text = "0" + minutesBonus + " : " + secondsBonus;
+		else if (secondsBonus < 10)
+			m_timeBonusText.text = "" + minutesBonus + " : 0" + secondsBonus;
+		else
+			m_timeBonusText.text = "" + minutesBonus + " : " + secondsBonus;
     }
 
     public void StartTimer()
