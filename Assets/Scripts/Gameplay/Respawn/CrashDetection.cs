@@ -22,10 +22,15 @@ public class CrashDetection : MonoBehaviour
 
     int m_oldLayerMask;
     Color m_oldColor;
-    
+	public GameObject WarnText;
+
+	public float pause = 2;
+	[HideInInspector]
+	public float timer;
 
     void Start ()
     {
+		m_camera = Camera.main;
         m_controller = GetComponent<BicycleController>();
         m_oldLayerMask = m_camera.cullingMask;
         m_oldColor = m_camera.backgroundColor;
@@ -40,6 +45,10 @@ public class CrashDetection : MonoBehaviour
                 Respawn();
             }
         }
+
+		if (timer < pause)
+			timer += Time.deltaTime;
+		
     }
 
     public bool IsCrashed()
@@ -97,13 +106,15 @@ public class CrashDetection : MonoBehaviour
 
     void BlackScreen()
     {
-        m_camera.cullingMask = (1 << LayerMask.NameToLayer("Nothing"));
+		WarnText.SetActive (true);
+        m_camera.cullingMask = (1 << LayerMask.NameToLayer("WarnText"));
         m_camera.clearFlags = CameraClearFlags.SolidColor;
         m_camera.backgroundColor = Color.black;
     }
 
     void BackToNormal()
     {
+		WarnText.SetActive (false);
         m_camera.cullingMask = m_oldLayerMask;
         m_camera.clearFlags = CameraClearFlags.Skybox;
         m_camera.backgroundColor = m_oldColor;

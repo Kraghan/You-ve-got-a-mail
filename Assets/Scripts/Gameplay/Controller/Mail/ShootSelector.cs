@@ -36,6 +36,9 @@ public class ShootSelector : MonoBehaviour {
 
     Rigidbody m_bikeRigidbody;
 
+	public float precision = 0.1f;
+	public int nbpoints = 50;
+
     // Use this for initialization
     void Start ()
     {
@@ -89,6 +92,9 @@ public class ShootSelector : MonoBehaviour {
             canon.SetBikeRigidbody(m_bikeRigidbody);
             canon.SetObjectToSend(m_sendableObjects);
             canon.SetLaserOrigin(m_controllerLeft.transform.Find("LaserStart"));
+
+			canon.SetPrecision (precision);
+			canon.SetPoints (nbpoints);
             canon.SetAnimator();
             canon.SetTimer(m_timeToReachMaxForce);
         }

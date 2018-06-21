@@ -26,6 +26,8 @@ public class MailCanon : MonoBehaviour
 
     [SerializeField]
     Transform m_startPointLaser;
+	private float precision = 0.1f;
+	private int nbpoints = 50;
 
     private bool m_throwNewspaper = false;
 
@@ -135,10 +137,10 @@ public class MailCanon : MonoBehaviour
 
         Vector3 origin = m_startPointLaser.position;
         Vector3 position = CalculatePositionAtTime(time, origin, direction, force);
-        while (position.y > 0 && curvePoints.Count < 50)
+		while (position.y > 0 && curvePoints.Count < nbpoints)
         {
             curvePoints.Add(position);
-            time += 0.5f;
+            time += precision;
             position = CalculatePositionAtTime(time, origin, direction, force);
         }
         curvePoints.Add(position);
@@ -163,4 +165,14 @@ public class MailCanon : MonoBehaviour
     {
         m_model = GetComponentInChildren<Animator>();
     }
+
+	public void SetPrecision(float prec)
+	{
+		precision = prec;
+	}
+
+	public void SetPoints (int points)
+	{
+		nbpoints = points;
+	}
 }
