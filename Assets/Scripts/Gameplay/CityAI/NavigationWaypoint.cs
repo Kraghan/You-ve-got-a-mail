@@ -14,6 +14,9 @@ public class NavigationWaypoint : MonoBehaviour
     private NavigationType m_type;
     [SerializeField]
     private NavigationWaypoint[] m_neighbours;
+	public bool IsStopPoint = false;
+	public bool IsFinalPoint = false;
+	public bool ReverseRotation = false;
 
     private void OnDrawGizmos()
     {

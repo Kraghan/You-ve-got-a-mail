@@ -13,11 +13,6 @@ public class NavigationFollowerFinalMailbox : NavigationFollower {
         m_mailbox = GetComponentInChildren<VacuumMailBox>();
     }
 
-    protected override bool ConditionToChooseNextTarget(float distance)
-    {
-        return base.ConditionToChooseNextTarget(distance) && m_mailbox.IsDelivered();
-    }
-
     protected override void DoWhenReachTarget()
     {
 		
@@ -25,4 +20,16 @@ public class NavigationFollowerFinalMailbox : NavigationFollower {
             m_mailbox.SetAsCurrentTarget();
 		
     }
+
+	protected override void Stop_Mailbox () {
+		
+		if ((m_target.IsStopPoint) && (!m_mailbox.IsTempDelivered ())) {
+			m_stoppoint = true;
+			if (m_target.IsFinalPoint)
+				m_mailbox.IsPursuit = false;
+		} else {
+			m_stoppoint = false;
+			m_mailbox.SetDelivered (false);
+		}
+	}
 }

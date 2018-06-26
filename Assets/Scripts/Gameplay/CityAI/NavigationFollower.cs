@@ -17,10 +17,11 @@ public class NavigationFollower : MonoBehaviour {
     [SerializeField]
     float m_distanceBetweenObjects = 1.5f; 
 
-    protected NavigationWaypoint m_target;
-    protected NavigationWaypoint m_nextTarget;
+    public NavigationWaypoint m_target;
+	public NavigationWaypoint m_nextTarget;
 
     bool m_rotationStarted = false;
+	public bool sensrotation = false;
 
     float m_angleTarget = 0;
     float m_angleRotated = 0;
@@ -30,6 +31,7 @@ public class NavigationFollower : MonoBehaviour {
     Transform m_front;
 
     bool m_stopped = false;
+	protected bool m_stoppoint = false;
     NavigationFollower m_isBlockedBy = null;
 
     uint m_id;
@@ -70,15 +72,18 @@ public class NavigationFollower : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update ()
+	protected void Update ()
     {
         if (m_target == null)
             return;
 
+		//La distance entre l'objet et sa destination
         float distance = Vector3.Distance(transform.position, m_target.transform.position);
 
         if (ConditionToChooseNextTarget(distance))
         {
+			Stop_Mailbox ();
+			
             m_nextTarget = m_target.GetRandomNeighbour();
             if(m_nextTarget == null)
             {
@@ -94,104 +99,118 @@ public class NavigationFollower : MonoBehaviour {
                 Debug.LogError("Error in navigation waypoint "+str+" : null reference !");
             }
             
-            float angle = (int)Vector3.SignedAngle(transform.forward.normalized, (m_nextTarget.transform.position - m_target.transform.position).normalized, Vector3.up);
+			//Si je suis pas à un point d'arrêt
+			if (!m_stoppoint) {
 
-            if (Mathf.Abs(angle) >= 170 || Mathf.Abs(angle) <= 10)
-                angle = 0;
+				//Pour la boite finale, quand le sens de rotation passe d'un sens des aiguilles d'une montre à l'autre
+				if (m_target.ReverseRotation)
+					sensrotation = !sensrotation;
+				
+				//Calcul de l'angle de rotation vers le prochain point
+				float angle = (int)Vector3.SignedAngle (transform.forward.normalized, (m_nextTarget.transform.position - m_target.transform.position).normalized, Vector3.up);
+				if (sensrotation) {
+					angle += 180;
+					if (angle >= 180)
+						angle -= 360;
+				}
+				
+				//Si l'angle fait moins de 10° je ne tourne pas l'objet, je supprime les angles improbables aussi
+				if (Mathf.Abs (angle) >= 178 || Mathf.Abs (angle) <= 2 || angle == 90 || angle == -90 || angle == 180) {
+					angle = 0;
+				}
             
-            if(angle != 0)
-            {
-                m_angleTarget = angle;
+				//Sinon, j'affecte mon angle en l'arrondissant et je dis que j'ai tourné de 0° pour l'instant
+				if (angle != 0) {
+					m_angleTarget = angle;
 
-                m_angleTarget = Mathf.Round(m_angleTarget);
+					m_angleTarget = Mathf.Round (m_angleTarget);
 
-                m_angleRotated = 0;
-            }
+					m_angleRotated = 0;
+				}
 
-            m_rotationStarted = true;
+				//Ma rotation a commencé
+				m_rotationStarted = true;
 
-            DoWhenReachTarget();
+				//Ce que je fait quand j'atteint mon objectif (rien?)
+				DoWhenReachTarget();
+			}
 
         }
 
-        if((m_angleRotated < m_angleTarget && m_angleTarget > 0) || (m_angleRotated > m_angleTarget && m_angleTarget < 0))
-        {
-            float angle = 0;
-            if (m_angleTarget > 0)
-                angle = m_rotationSpeed * Time.deltaTime;
-            else
-                angle = -m_rotationSpeed * Time.deltaTime;
+		//Si je suis pas à un point d'arrêt
+		if (!m_stoppoint) {
+			//Je check si j'ai assez tourné, si non, je tourne
+			if ((m_angleRotated < m_angleTarget && m_angleTarget > 0) || (m_angleRotated > m_angleTarget && m_angleTarget < 0)) {
+				float angle = 0;
+				if (m_angleTarget > 0)
+					angle = m_rotationSpeed * Time.deltaTime;
+				else
+					angle = -m_rotationSpeed * Time.deltaTime;
 
-            if (Mathf.Abs(m_angleRotated + angle) > Mathf.Abs(m_angleTarget))
-            {
-                angle -= (m_angleRotated + angle - m_angleTarget);
-            }
+				if (Mathf.Abs (m_angleRotated + angle) > Mathf.Abs (m_angleTarget)) {
+					angle -= (m_angleRotated + angle - m_angleTarget);
+				}
 
-            transform.Rotate(angle * Vector3.up);
-            m_angleRotated += angle;
-        }
+				transform.Rotate (angle * Vector3.up);
+				m_angleRotated += angle;
+			}
 
-        if (distance <= m_triggerOffset)
-        {
-            m_rotationStarted = false;
-            m_target = m_nextTarget;
-        }
 
-        if (m_target == null)
-            return;
+			if (distance <= m_triggerOffset) {
+				m_rotationStarted = false;
+				m_target = m_nextTarget;
+			}
+
+			if (m_target == null)
+				return;
         
-        Vector3 direction = (m_target.transform.position - transform.position).normalized;
-        if (m_objectInFrontOf.Count == 0)
-        {
-            transform.position += direction * m_speed * Time.deltaTime;
-            m_stopped = false;
-        }
-        else
-        {
-            NavigationFollower follower = m_objectInFrontOf[0].gameObject.GetComponent<NavigationFollower>();
-            if (follower == null)
-                follower = GetComponentInParent<NavigationFollower>();
+			//La direction du mouvement
+			Vector3 direction = (m_target.transform.position - transform.position).normalized;
 
-            if (follower != null)
-            {
-                // if blocked by myself, don't stop
-                if (follower.m_stopped && m_isBlockedBy != null && follower.m_isBlockedBy.m_id == m_id)
-                {
-                    m_stopped = false;
-                    m_isBlockedBy = null;
-                }
-                else
-                {
-                    m_stopped = true;
-                    m_isBlockedBy = follower;
-                }
-            }
-            else
-            {
-                m_stopped = false;
-                m_isBlockedBy = null;
-            }
+			//Si j'ai pas truc en face de moi je bouge
+			if (m_objectInFrontOf.Count == 0) {
+				transform.position += direction * m_speed * Time.deltaTime;
+				m_stopped = false;
+			}
+		//Sinon je m'arrête mais sans me bloquer
+        else {
+				NavigationFollower follower = m_objectInFrontOf [0].gameObject.GetComponent<NavigationFollower> ();
+				if (follower == null)
+					follower = GetComponentInParent<NavigationFollower> ();
+
+				if (follower != null) {
+					// if blocked by myself, don't stop
+					if (follower.m_stopped && m_isBlockedBy != null && follower.m_isBlockedBy.m_id == m_id) {
+						m_stopped = false;
+						m_isBlockedBy = null;
+					} else {
+						m_stopped = true;
+						m_isBlockedBy = follower;
+					}
+				} else {
+					m_stopped = false;
+					m_isBlockedBy = null;
+				}
  
-        }
+			}
 
-        if (!m_stopped)
-        {
-            transform.position += direction * m_speed * Time.deltaTime;
-            if (m_animator != null)
-            {
-                if (HasParameter("Moving",m_animator))
-                    m_animator.SetBool("Moving", true);
-                m_animator.speed = m_speed * m_animatorSpeedModifier;
-            }
-        }
-        else
-        {
-            if (m_animator != null)
-            {
-                if (HasParameter("Moving", m_animator))
-                    m_animator.SetBool("Moving", false);
-            }
-        }
+			//Si je suis pas bloqué, je bouge avec une animation (DU COUP CA BOUGE DEUX FOIS...A CORRIGER)
+			if (!m_stopped) {
+				transform.position += direction * m_speed * Time.deltaTime;
+				if (m_animator != null) {
+					if (HasParameter ("Moving", m_animator))
+						m_animator.SetBool ("Moving", true);
+					m_animator.speed = m_speed * m_animatorSpeedModifier;
+				}
+			}
+		//Sinon je reste immobile
+        else {
+				if (m_animator != null) {
+					if (HasParameter ("Moving", m_animator))
+						m_animator.SetBool ("Moving", false);
+				}
+			}
+		}
 
     }
 
@@ -233,6 +252,11 @@ public class NavigationFollower : MonoBehaviour {
     {
 
     }
+
+	protected virtual void Stop_Mailbox() {
+
+
+	}
 
     public bool HasParameter(string parameter, Animator animator)
     {

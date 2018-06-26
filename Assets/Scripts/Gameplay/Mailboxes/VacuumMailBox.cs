@@ -46,6 +46,9 @@ public class VacuumMailBox : MonoBehaviour {
 
     float m_enterDistance;
 
+	public bool IsPursuit;
+	private bool m_isTempDelivered;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -64,6 +67,7 @@ public class VacuumMailBox : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+		
         if (m_infiniteMailbox && m_isDelivered && !m_mail)
         {
             m_isDelivered = false;
@@ -87,13 +91,13 @@ public class VacuumMailBox : MonoBehaviour {
                 m_effect.Disable();
         }
 
-        if(m_isDelivered && m_mail)
+		if((m_isDelivered && m_mail) || (m_isTempDelivered && m_mail))
         {
             Destroy(m_mail);
             m_mail = null;
         }
 
-        if (m_isDelivered)
+		if ((m_isDelivered) || (m_isTempDelivered))
             return;
 
         if(Vector3.Distance(m_snapPointStart.position,m_mail.transform.position) < 0.1)
@@ -105,7 +109,7 @@ public class VacuumMailBox : MonoBehaviour {
             body.velocity = Vector3.zero;
             body.angularVelocity = Vector3.zero;
             m_mail.transform.rotation = m_snapPointStart.rotation;
-            m_isDelivered = true;
+			SetDelivered(true);
             m_animator.SetBool("Open", false);
 
             if(!m_infiniteMailbox)
@@ -131,7 +135,7 @@ public class VacuumMailBox : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Mail") && !m_mail && !m_isDelivered)
+		if(other.CompareTag("Mail") && !m_mail && !m_isDelivered && !m_isTempDelivered)
         {
             m_mail = other.gameObject;
             m_mail.GetComponent<Collider>().enabled = false;
@@ -147,6 +151,7 @@ public class VacuumMailBox : MonoBehaviour {
 
     public void SetAsCurrentTarget()
     {
+		
         m_isDelivered = false;
         if (m_mail != null)
         {
@@ -165,10 +170,23 @@ public class VacuumMailBox : MonoBehaviour {
         return m_isDelivered;
     }
 
+	public bool IsTempDelivered()
+	{
+		return m_isTempDelivered;
+	}
+
+	public void SetDelivered(bool status)
+	{
+		if (IsPursuit)
+			m_isTempDelivered = status;
+		else
+			m_isDelivered = status;
+	}
+
     public void Reset()
     {
         m_isDelivered = false;
-        
+		m_isTempDelivered = false;
     }
 
     void SetMaterial(Material mat)
