@@ -12,6 +12,9 @@ public class TargetFollower : MonoBehaviour
     [SerializeField]
     Text m_text;
 
+	Text m_text_Leisure;
+	Vector3 Closest_Mailbox;
+
     Transform m_objectToRotate;
 
 	// Update is called once per frame
@@ -22,6 +25,31 @@ public class TargetFollower : MonoBehaviour
 
         if(m_text)
             m_text.text = Mathf.Round(Vector3.Distance(m_target.position, m_objectToRotate.position)) + " m";
+
+		if (m_text_Leisure) {
+			Closest_Mailbox = Find_Closest ();
+
+			if (Mathf.Round (Vector3.Distance (Closest_Mailbox, m_objectToRotate.position)) <= 50) {
+				m_text_Leisure.text = "Close";
+			}
+			else
+				m_text_Leisure.text = Mathf.Round (Vector3.Distance (Closest_Mailbox, m_objectToRotate.position)) + " m";
+		}
+	}
+
+	Vector3 Find_Closest () {
+
+		float mindist = 10000f;
+		Vector3 theclosest = Vector3.zero;
+
+		foreach (VacuumMailBox mailbox in this.GetComponent<ScoreManager>().The_Mailboxes) {
+			if ((Mathf.Round (Vector3.Distance (mailbox.transform.position, m_objectToRotate.position)) < mindist) && (!mailbox.GetComponent<VacuumMailBox>().IsDelivered())) {
+				mindist = Mathf.Round (Vector3.Distance (mailbox.transform.position, m_objectToRotate.position));
+				theclosest = mailbox.transform.position;
+			}
+		}
+
+		return theclosest;
 	}
 
     public void SetTarget(Transform transf)
@@ -38,4 +66,9 @@ public class TargetFollower : MonoBehaviour
     {
         m_text = text;
     }
+
+	public void SetText_Leisure(Text text)
+	{
+		m_text_Leisure = text;
+	}
 }

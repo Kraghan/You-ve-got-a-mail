@@ -11,6 +11,7 @@ public class KeybordController : MonoBehaviour {
     private float m_rotation = 0;
     private float m_nextTargetSpeed;
     private BicycleController m_bikeController;
+	private bool m_panne = false;
 
 	public God_move god;
 
@@ -31,20 +32,19 @@ public class KeybordController : MonoBehaviour {
 
     void SpeedManagerVRController()
     {
-        float vertical = Input.GetAxis("Vertical");
+		if (!m_panne) {
+			float vertical = Input.GetAxis ("Vertical");
         
-        if (vertical > 0.7f)
-        {
-            m_speed += 0.5f * Time.deltaTime;
-        }
-
-        else if (vertical < -0.7f)
-        {
-            m_speed -= 1.0f * Time.deltaTime;
-        }
-        else
-            m_speed -= 0.5f * Time.deltaTime;
-        m_speed = Mathf.Clamp01(m_speed);
+			if (vertical > 0.7f) {
+				m_speed += 0.5f * Time.deltaTime;
+			} else if (vertical < -0.7f) {
+				m_speed -= 1.0f * Time.deltaTime;
+			} else
+				m_speed -= 0.5f * Time.deltaTime;
+			m_speed = Mathf.Clamp01 (m_speed);
+		} else {
+			m_speed = 0;
+		}
     }
 
     void OrientationManagerVRController()
@@ -67,6 +67,12 @@ public class KeybordController : MonoBehaviour {
 
 		god.XSensitivity = slider.value;
 		god.YSensitivity = slider.value;
+
+	}
+
+	public void SetPanne (bool panne) {
+
+		m_panne = panne;
 
 	}
 }

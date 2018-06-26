@@ -67,6 +67,7 @@ MonoBehaviour:
   - {fileID: 0}
   m_follower: {fileID: 0}
   m_distanceText: {fileID: 0}
+  Distance_Leisure: {fileID: 0}
 --- !u!114 &114095066906004482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -79,7 +80,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_timeText: {fileID: 0}
+  Time_Remaining: {fileID: 0}
+  Time_Leisure: {fileID: 0}
   m_timeBonusText: {fileID: 0}
+  m_PointsText: {fileID: 0}
+  m_TotalMailboxes: {fileID: 0}
+  Mode_selection: {fileID: 0}
+  All_Mailboxes: {fileID: 0}
+  The_Mailboxes: []
 --- !u!114 &114396231073330650
 MonoBehaviour:
   m_ObjectHideFlags: 1
