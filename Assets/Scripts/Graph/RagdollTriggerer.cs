@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RagdollTriggerer : MonoBehaviour {
-
     Rigidbody[] m_aBodies;
     Collider[] m_aCollider;
     Animator m_animator;
@@ -53,7 +52,6 @@ public class RagdollTriggerer : MonoBehaviour {
 
         m_animator = GetComponent<Animator>();
         m_follower = GetComponentInParent<NavigationFollower>();
-
     }
 
     public void Update()

@@ -232,9 +232,9 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    public void SetPanne()
+	public void SetPanne(bool panne)
     {
-        m_panne = true;
+        m_panne = panne;
     }
 }
 

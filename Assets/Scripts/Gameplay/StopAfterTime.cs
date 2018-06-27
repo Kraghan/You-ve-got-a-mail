@@ -20,9 +20,9 @@ public class StopAfterTime : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-		if(m_manager.GetTime() >= 600)
+		if((m_manager.GetTime() >= 600) && (m_manager.Mode_selection.m_defaultPlayMode == Mode_selector.MyPlayMode.POINTS))
         {
-            m_controller.SetPanne();
+            m_controller.SetPanne(true);
             m_uiToDisable.SetActive(false);
             m_uiToEnable.SetActive(true);
         }

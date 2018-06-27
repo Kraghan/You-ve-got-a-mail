@@ -49,7 +49,10 @@ public class Scoreboard
 public class ScoreManager : MonoBehaviour
 {
     float m_timeElapsed = 0;
+	float m_timeRemaining = 600;
     bool m_started = false;
+	int m_points = 0;
+	int s_total = 0;
 
     string m_playerName = "";
 
@@ -58,9 +61,16 @@ public class ScoreManager : MonoBehaviour
     Scoreboard m_scoreboard;
 
     [SerializeField]
-    Text m_timeText;
+    public Text m_timeText;
+	public Text Time_Remaining;
+	public Text Time_Leisure;
     [SerializeField]
     Text m_timeBonusText;
+	public Text m_PointsText;
+	public Text m_TotalMailboxes;
+	public Mode_selector Mode_selection;
+	public Transform All_Mailboxes;
+	public VacuumMailBox[] The_Mailboxes;
 
     // Load dynamicly the online scoreboard
     IEnumerator Start()
@@ -70,40 +80,72 @@ public class ScoreManager : MonoBehaviour
             yield return www;
             m_scoreboard = new Scoreboard(www.text);
         }
+
+		The_Mailboxes = All_Mailboxes.GetComponentsInChildren<VacuumMailBox> ();
+
+		foreach (VacuumMailBox laboite in The_Mailboxes) {
+			if (laboite.tag == "Trigger")
+				s_total ++;
+		} 
     }
+
+	int GetDigitInNumber (float digit, int number) {
+		
+		return ((number% (int)Mathf.Pow(10,digit)) / (int)(Mathf.Pow(10, digit-1)));
+
+	}
 
     // Update is called once per frame
     void Update ()
     {
+		//L'affichage des points pour le mode points
+		m_points = ScoreMailbox.s_scorepoints;
+
+		m_PointsText.text = "" + GetDigitInNumber (9, m_points) + GetDigitInNumber (8, m_points) + GetDigitInNumber (7, m_points) 
+			+  " " + GetDigitInNumber (6, m_points) + GetDigitInNumber (5, m_points) + GetDigitInNumber (4, m_points)
+			+ " " + GetDigitInNumber (3, m_points) + GetDigitInNumber (2, m_points) + GetDigitInNumber (1, m_points);
+
+		//L'affichage du nombre total de boîtes aux lettres pour le mode ballade moins les 3 du menu
+		m_TotalMailboxes.text = "" + ScoreMailbox.s_totalmailbox + " / " + (s_total);
+
+		//L'affichage du temps pour le mode histoire et les autres modes
         if(m_started)
         {
             m_timeElapsed += Time.deltaTime;
         }
 
-        int minutes = (int)(m_timeElapsed / 60);
-        int seconds = (int) m_timeElapsed - minutes * 60;
+		m_timeRemaining = 600 - m_timeElapsed;
+
+		int minutes = 0;
+		int seconds = 0;
+				
+		if (Mode_selection.m_defaultPlayMode != Mode_selector.MyPlayMode.POINTS) {
+			minutes = (int)(m_timeElapsed / 60);
+			seconds = (int)m_timeElapsed - minutes * 60;
+		} else {
+			minutes = (int)(m_timeRemaining / 60);
+			seconds = (int)m_timeRemaining - minutes * 60;
+		}
 
         int minutesBonus = (int)(ScoreMailbox.s_score / 60);
         int secondsBonus = (int)(ScoreMailbox.s_score - minutesBonus * 60);
 
-		if ((minutes < 10) && (seconds < 10))
-        	m_timeText.text = "0" + minutes + " : 0" + seconds;
-		else if (minutes < 10)
-			m_timeText.text = "0" + minutes + " : " + seconds;
-		else if (seconds < 10)
-			m_timeText.text = "" + minutes + " : 0" + seconds;
-		else
-			m_timeText.text = "" + minutes + " : " + seconds;
-		
-		if ((minutesBonus < 10) && (secondsBonus < 10))
-			m_timeBonusText.text = "0" + minutesBonus + " : 0" + secondsBonus;
-		else if (minutesBonus < 10)
-			m_timeBonusText.text = "0" + minutesBonus + " : " + secondsBonus;
-		else if (secondsBonus < 10)
-			m_timeBonusText.text = "" + minutesBonus + " : 0" + secondsBonus;
-		else
-			m_timeBonusText.text = "" + minutesBonus + " : " + secondsBonus;
+		m_timeText.text = "" + Time_Display(minutes, seconds);
+		m_timeBonusText.text = "- " + Time_Display(minutesBonus, secondsBonus);
+		Time_Remaining.text = "" + Time_Display(minutes, seconds);
+		Time_Leisure.text = "" + Time_Display(minutes, seconds);
     }
+
+	string Time_Display (float minutes, float seconds) {
+		if ((minutes < 10) && (seconds < 10))
+			return "0" + minutes + " : 0" + seconds;
+		else if (minutes < 10)
+			return "0" + minutes + " : " + seconds;
+		else if (seconds < 10)
+			return "" + minutes + " : 0" + seconds;
+		else
+			return "" + minutes + " : " + seconds;
+	}
 
     public void StartTimer()
     {

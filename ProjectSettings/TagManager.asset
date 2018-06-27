@@ -18,6 +18,7 @@ TagManager:
   - Hand
   - Bat_Deco
   - Props
+  - Trigger
   layers:
   - Default
   - TransparentFX

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpeedMeter : MonoBehaviour
 {
     [SerializeField]
-    RectTransform m_transform;
+    public RectTransform m_transform;
     [SerializeField]
     float m_minAngle = 110;
     [SerializeField]
