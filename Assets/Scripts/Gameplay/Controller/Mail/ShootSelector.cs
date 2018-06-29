@@ -105,6 +105,7 @@ public class ShootSelector : MonoBehaviour {
             natural.SetMultiplier(m_forceMultiplier);
             natural.SetBikeRigidbody(m_bikeRigidbody);
             natural.SetObjectToSend(m_sendableObjects);
+			natural.SetAnimator();
 
             natural = m_controllerLeft.AddComponent<MailController>();
             natural.SetMultiplier(m_forceMultiplier);

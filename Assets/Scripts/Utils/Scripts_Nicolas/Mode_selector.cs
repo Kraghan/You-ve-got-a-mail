@@ -24,6 +24,7 @@ public class Mode_selector : MonoBehaviour {
 	private MailboxCoordinator Mail_Coordinator;
 	private ScoreManager TheScoreManager;
 
+	private bool doonce;
 
 	// Use this for initialization
 	void Start () {
@@ -38,18 +39,27 @@ public class Mode_selector : MonoBehaviour {
 		if (m_defaultPlayMode == MyPlayMode.POINTS) {
 			TheScoreManager.m_timeText = Text_points;
 			LeCompteur.m_transform = Aiguille_Points;
-			m_Controller_VR.SetPanne (false);
-			m_Controller_Mouse.SetPanne (false);
+			if (!doonce) {
+				doonce = true;
+				m_Controller_VR.SetPanne (false);
+				m_Controller_Mouse.SetPanne (false);
+			}
 		} else if (m_defaultPlayMode == MyPlayMode.LEISURE) {
 			TheScoreManager.m_timeText = Text_leisure;
 			LeCompteur.m_transform = Aiguille_Leisure;
-			m_Controller_VR.SetPanne (false);
-			m_Controller_Mouse.SetPanne (false);
+			if (!doonce) {
+				doonce = true;
+				m_Controller_VR.SetPanne (false);
+				m_Controller_Mouse.SetPanne (false);
+			}
 		} else if (m_defaultPlayMode == MyPlayMode.STORY) {
 			TheScoreManager.m_timeText = Text_story;
 			LeCompteur.m_transform = Aiguille_Story;
-			m_Controller_VR.SetPanne (false);
-			m_Controller_Mouse.SetPanne (false);
+			if (!doonce) {
+				doonce = true;
+				m_Controller_VR.SetPanne (false);
+				m_Controller_Mouse.SetPanne (false);
+			}
 		} else if (m_defaultPlayMode == MyPlayMode.NULL) {
 			m_Controller_VR.SetPanne (true);
 			m_Controller_Mouse.SetPanne (true);

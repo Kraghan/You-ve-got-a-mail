@@ -21,6 +21,9 @@ public class MailboxCoordinator : MonoBehaviour
     TargetFollower m_targetFollower;
 
 	public Mode_selector The_mode;
+	public Endings the_ending;
+
+	private bool once_ending;
 
     // Use this for initialization
     void Start ()
@@ -43,7 +46,10 @@ public class MailboxCoordinator : MonoBehaviour
 					m_aVacuumMailboxes [m_activeMailbox].SetAsCurrentTarget ();
 					m_targetFollower.SetTarget (m_aVacuumMailboxes [m_activeMailbox].transform);
 				} else {
-					Debug.Log ("End game");
+					if (!once_ending) {
+						once_ending = true;
+						the_ending.StoryEnding ();
+					}
 				}
 			}
 		}

@@ -71,6 +71,7 @@ public class ScoreManager : MonoBehaviour
 	public Mode_selector Mode_selection;
 	public Transform All_Mailboxes;
 	public VacuumMailBox[] The_Mailboxes;
+	public Endings theendings;
 
     // Load dynamicly the online scoreboard
     IEnumerator Start()
@@ -108,6 +109,12 @@ public class ScoreManager : MonoBehaviour
 		//L'affichage du nombre total de boîtes aux lettres pour le mode ballade moins les 3 du menu
 		m_TotalMailboxes.text = "" + ScoreMailbox.s_totalmailbox + " / " + (s_total);
 
+		//Je check si le joueur a trouvé toutes les boîtes aux lettres
+		if (Mode_selection.m_defaultPlayMode == Mode_selector.MyPlayMode.LEISURE) {
+			if (s_total == ScoreMailbox.s_totalmailbox)
+				theendings.LeisureEnding ();
+		}
+
 		//L'affichage du temps pour le mode histoire et les autres modes
         if(m_started)
         {
@@ -137,6 +144,7 @@ public class ScoreManager : MonoBehaviour
     }
 
 	string Time_Display (float minutes, float seconds) {
+		
 		if ((minutes < 10) && (seconds < 10))
 			return "0" + minutes + " : 0" + seconds;
 		else if (minutes < 10)
@@ -145,6 +153,7 @@ public class ScoreManager : MonoBehaviour
 			return "" + minutes + " : 0" + seconds;
 		else
 			return "" + minutes + " : " + seconds;
+		
 	}
 
     public void StartTimer()
@@ -209,4 +218,43 @@ public class ScoreManager : MonoBehaviour
     {
         return m_timeElapsed;
     }
+
+	public string GetTimeText()
+	{
+		int minutes = (int)(m_timeElapsed / 60);
+		int seconds = (int)m_timeElapsed - minutes * 60;
+
+		return "" + Time_Display(minutes, seconds);
+	}
+
+	public string GetBonusText()
+	{
+		int minutesBonus = (int)(ScoreMailbox.s_score / 60);
+		int secondsBonus = (int)(ScoreMailbox.s_score - minutesBonus * 60);
+
+		return "- " + Time_Display(minutesBonus, secondsBonus);
+	}
+
+	public string GetBalancedText()
+	{
+		float Balanced_Time = m_timeElapsed - ScoreMailbox.s_score;
+
+		int minutesbalanced = (int)(Balanced_Time / 60);
+		int secondsbalanced = (int)(Balanced_Time - minutesbalanced * 60);
+
+		return "- " + Time_Display(minutesbalanced, secondsbalanced);
+	}
+
+	public string GetPointsText () {
+
+		//L'affichage des points pour le mode points
+		m_points = ScoreMailbox.s_scorepoints;
+
+		string The_Points = "" + GetDigitInNumber (9, m_points) + GetDigitInNumber (8, m_points) + GetDigitInNumber (7, m_points) 
+			+  " " + GetDigitInNumber (6, m_points) + GetDigitInNumber (5, m_points) + GetDigitInNumber (4, m_points)
+			+ " " + GetDigitInNumber (3, m_points) + GetDigitInNumber (2, m_points) + GetDigitInNumber (1, m_points);
+
+		return The_Points;
+		
+	}
 }

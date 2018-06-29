@@ -183,8 +183,10 @@ public class VacuumMailBox : MonoBehaviour {
 		if ((the_Coordinator != null) && (the_Mode != null)) {
 			if ((IsPursuit) && (the_Coordinator.m_activeMailbox == 10) && (the_Mode.m_defaultPlayMode == Mode_selector.MyPlayMode.STORY))
 				m_isTempDelivered = status;
-			else if (IsPursuit)
+			else if ((IsPursuit) && (the_Mode.m_defaultPlayMode != Mode_selector.MyPlayMode.STORY))
 				m_isTempDelivered = status;
+			else
+				m_isDelivered = status;
 		}
 		else
 			m_isDelivered = status;

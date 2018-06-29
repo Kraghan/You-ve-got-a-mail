@@ -15,9 +15,15 @@ public class StopAfterTime : MonoBehaviour {
 	MailCanon[] Mail_Canon;
 	MailController[] Mail_Controller;
 
+	private Endings theend;
+
+	private float letime;
+	private bool doonce, onceagainonce;
+
     private void Start()
     {
         m_controller = GetComponent<PlayerController>();
+		theend = GetComponent<Endings> ();
     }
 
     // Update is called once per frame
@@ -25,17 +31,29 @@ public class StopAfterTime : MonoBehaviour {
     {
 		if((m_manager.GetTime() >= 600) && (m_manager.Mode_selection.m_defaultPlayMode == Mode_selector.MyPlayMode.POINTS))
         {
-            m_controller.SetPanne(true);
-            m_uiToDisable.SetActive(false);
-            m_uiToEnable.SetActive(true);
+			if (!onceagainonce) {
+				onceagainonce = true;
 
-			Mail_Canon = m_controller.gameObject.GetComponentsInChildren<MailCanon> ();
-			Mail_Controller = m_controller.gameObject.GetComponentsInChildren<MailController> ();
+				m_controller.SetPanne (true);
+				m_uiToDisable.SetActive (false);
+				m_uiToEnable.SetActive (true);
 
-			foreach (MailCanon lecanon in Mail_Canon)
-				lecanon.enabled = false;
-			foreach (MailController lelancer in Mail_Controller)
-				lelancer.enabled = false;
+			}
+
+				Mail_Canon = m_controller.gameObject.GetComponentsInChildren<MailCanon> ();
+				Mail_Controller = m_controller.gameObject.GetComponentsInChildren<MailController> ();
+
+				foreach (MailCanon lecanon in Mail_Canon)
+					lecanon.enabled = false;
+				foreach (MailController lelancer in Mail_Controller)
+					lelancer.enabled = false;
+
+			letime += Time.deltaTime;
+
+			if ((letime >= 5f) && (!doonce)) {
+				theend.PointsEnding ();
+				doonce = true;
+			} 
         }
 	}
 }
