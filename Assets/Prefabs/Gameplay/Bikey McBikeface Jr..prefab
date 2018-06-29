@@ -5465,6 +5465,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4514683477990386}
   - component: {fileID: 114381400027669132}
+  - component: {fileID: 114987338805233884}
+  - component: {fileID: 65941817600092540}
   m_Layer: 0
   m_Name: Building_Eraser
   m_TagString: Untagged
@@ -6250,13 +6252,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1941010359366600}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.061658274, z: 0, w: 0.9980973}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4290279727354704}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -7.07, z: 0}
 --- !u!4 &4516447820374808
 Transform:
   m_ObjectHideFlags: 1
@@ -7855,6 +7857,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 500, y: 250, z: 2}
   m_Center: {x: -0.69885254, y: 0, z: 0}
+--- !u!65 &65941817600092540
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1941010359366600}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 500, y: 200, z: 500}
+  m_Center: {x: 0, y: 0, z: -500}
 --- !u!65 &65953632304019852
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -18087,6 +18101,17 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: '-'
+--- !u!114 &114987338805233884
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1941010359366600}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44654c622cd0aa740b2d4ad00d6b5815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114996945144709220
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54888,7 +54913,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -66.982834, y: -233.72562}
-  m_SizeDelta: {x: 400, y: 200}
+  m_SizeDelta: {x: 500, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224871022064793150
 RectTransform:

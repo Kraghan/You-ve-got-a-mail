@@ -242,7 +242,7 @@ public class ScoreManager : MonoBehaviour
 		int minutesbalanced = (int)(Balanced_Time / 60);
 		int secondsbalanced = (int)(Balanced_Time - minutesbalanced * 60);
 
-		return "- " + Time_Display(minutesbalanced, secondsbalanced);
+		return "" + Time_Display(minutesbalanced, secondsbalanced);
 	}
 
 	public string GetPointsText () {
