@@ -25,8 +25,9 @@ public class NavigationFollowerFinalMailbox : NavigationFollower {
 		
 		if ((m_target.IsStopPoint) && (!m_mailbox.IsTempDelivered ())) {
 			m_stoppoint = true;
-			if (m_target.IsFinalPoint)
+			if (m_target.IsFinalPoint) {
 				m_mailbox.IsPursuit = false;
+			}
 		} else {
 			m_stoppoint = false;
 			m_mailbox.SetDelivered (false);

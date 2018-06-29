@@ -1,0 +1,198 @@
+fileFormatVersion: 2
+guid: 75e9fa8594f8bfa46a96ff0cd0fd8ab6
+timeCreated: 1530122324
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Bone.Back
+    100004: Bone.Back_end
+    100006: Bone.Bas
+    100008: Bone.Bas_end
+    100010: Bone.Front
+    100012: Bone.Languette-L
+    100014: Bone.Languette-L_end
+    100016: Bone.Languette-R
+    100018: Bone.Languette-R_end
+    100020: Bone.Main
+    100022: Bone.Main.001
+    100024: Bone.Main.002
+    100026: Bone.Main.003
+    100028: Bone.Main.003_end
+    100030: Bone.Sourcil-L
+    100032: Bone.Sourcil-L_end
+    100034: Bone.Sourcil-R
+    100036: Bone.Sourcil-R_end
+    100038: Bone.Tail
+    100040: Bone.Tail_end
+    100042: Bone.Wing.L
+    100044: Bone.Wing.L_end
+    100046: Bone.Wing.R
+    100048: Bone.Wing.R_end
+    100050: corps
+    100052: L-languette-sup
+    100054: //RootNode
+    100056: R-languette-sup
+    100058: Yeux-L
+    100060: Yeux-L-1
+    100062: Yeux-L-2
+    100064: Yeux-L-2_end
+    100066: Yeux-L-Ctrl
+    100068: Yeux-L-Ctrl_end
+    100070: Yeux-R
+    100072: Yeux-R-1
+    100074: Yeux-R-2
+    100076: Yeux-R-2_end
+    100078: Yeux-R-Ctrl
+    100080: Yeux-R-Ctrl_end
+    400000: Armature
+    400002: Bone.Back
+    400004: Bone.Back_end
+    400006: Bone.Bas
+    400008: Bone.Bas_end
+    400010: Bone.Front
+    400012: Bone.Languette-L
+    400014: Bone.Languette-L_end
+    400016: Bone.Languette-R
+    400018: Bone.Languette-R_end
+    400020: Bone.Main
+    400022: Bone.Main.001
+    400024: Bone.Main.002
+    400026: Bone.Main.003
+    400028: Bone.Main.003_end
+    400030: Bone.Sourcil-L
+    400032: Bone.Sourcil-L_end
+    400034: Bone.Sourcil-R
+    400036: Bone.Sourcil-R_end
+    400038: Bone.Tail
+    400040: Bone.Tail_end
+    400042: Bone.Wing.L
+    400044: Bone.Wing.L_end
+    400046: Bone.Wing.R
+    400048: Bone.Wing.R_end
+    400050: corps
+    400052: L-languette-sup
+    400054: //RootNode
+    400056: R-languette-sup
+    400058: Yeux-L
+    400060: Yeux-L-1
+    400062: Yeux-L-2
+    400064: Yeux-L-2_end
+    400066: Yeux-L-Ctrl
+    400068: Yeux-L-Ctrl_end
+    400070: Yeux-R
+    400072: Yeux-R-1
+    400074: Yeux-R-2
+    400076: Yeux-R-2_end
+    400078: Yeux-R-Ctrl
+    400080: Yeux-R-Ctrl_end
+    2100000: Corps
+    2300000: corps
+    2300002: L-languette-sup
+    2300004: R-languette-sup
+    2300006: Yeux-L
+    2300008: Yeux-R
+    3300000: corps
+    3300002: L-languette-sup
+    3300004: R-languette-sup
+    3300006: Yeux-L
+    3300008: Yeux-R
+    4300000: R-languette-sup
+    4300002: L-languette-sup
+    4300004: corps
+    4300006: Yeux-R
+    4300008: Yeux-L
+    7400000: Squash
+    7400002: Blink
+    9500000: //RootNode
+    13700000: corps
+    13700002: L-languette-sup
+    13700004: R-languette-sup
+    13700006: Yeux-L
+    13700008: Yeux-R
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corps
+    second: {fileID: 2100000, guid: 5204ab4d615443b40a7c78d6ed8bbe9b, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

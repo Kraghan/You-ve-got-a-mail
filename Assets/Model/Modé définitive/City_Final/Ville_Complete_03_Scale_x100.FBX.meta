@@ -1,0 +1,249 @@
+fileFormatVersion: 2
+guid: 0e1cd3402c600c74d91f2c61df0d931f
+timeCreated: 1530206473
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Group1_Model_Pente
+    100002: Mesh1_Group1_Model
+    100004: Model_Group7_Mesh035
+    100006: Model_Mesh10_Group10
+    100008: Model_Mesh11_Group11
+    100010: Model_Mesh12_Group12
+    100012: Model_Mesh13_Group13
+    100014: Model_Mesh14_Group14
+    100016: Model_Mesh15_Group15
+    100018: Model_Mesh16_Group16
+    100020: Model_Mesh17_Group17
+    100022: Model_Mesh18_Group18
+    100024: Model_Mesh19_Group19
+    100026: Model_Mesh20_Group20
+    100028: Model_Mesh21_Group21
+    100030: Model_Mesh24_Group24
+    100032: Model_Mesh25_Group25
+    100034: Model_Mesh26_Group26
+    100036: Model_Mesh27_Group27
+    100038: Model_Mesh28_Group28
+    100040: Model_Mesh2_Group2
+    100042: Model_Mesh5_Group5
+    100044: Model_Mesh7_Group7
+    100046: Model_Mesh8_Group8
+    100048: Model_Mesh9_Group9
+    100050: Model_Muraille_Sud_Group33
+    100052: Object009
+    100054: //RootNode
+    400000: Group1_Model_Pente
+    400002: Mesh1_Group1_Model
+    400004: Model_Group7_Mesh035
+    400006: Model_Mesh10_Group10
+    400008: Model_Mesh11_Group11
+    400010: Model_Mesh12_Group12
+    400012: Model_Mesh13_Group13
+    400014: Model_Mesh14_Group14
+    400016: Model_Mesh15_Group15
+    400018: Model_Mesh16_Group16
+    400020: Model_Mesh17_Group17
+    400022: Model_Mesh18_Group18
+    400024: Model_Mesh19_Group19
+    400026: Model_Mesh20_Group20
+    400028: Model_Mesh21_Group21
+    400030: Model_Mesh24_Group24
+    400032: Model_Mesh25_Group25
+    400034: Model_Mesh26_Group26
+    400036: Model_Mesh27_Group27
+    400038: Model_Mesh28_Group28
+    400040: Model_Mesh2_Group2
+    400042: Model_Mesh5_Group5
+    400044: Model_Mesh7_Group7
+    400046: Model_Mesh8_Group8
+    400048: Model_Mesh9_Group9
+    400050: Model_Muraille_Sud_Group33
+    400052: Object009
+    400054: //RootNode
+    2100000: Muraille
+    2100002: Sol
+    2100004: Deco
+    2100006: Falaise
+    2300000: Group1_Model_Pente
+    2300002: Mesh1_Group1_Model
+    2300004: Model_Group7_Mesh035
+    2300006: Model_Mesh10_Group10
+    2300008: Model_Mesh11_Group11
+    2300010: Model_Mesh12_Group12
+    2300012: Model_Mesh13_Group13
+    2300014: Model_Mesh14_Group14
+    2300016: Model_Mesh15_Group15
+    2300018: Model_Mesh16_Group16
+    2300020: Model_Mesh17_Group17
+    2300022: Model_Mesh18_Group18
+    2300024: Model_Mesh19_Group19
+    2300026: Model_Mesh20_Group20
+    2300028: Model_Mesh21_Group21
+    2300030: Model_Mesh24_Group24
+    2300032: Model_Mesh25_Group25
+    2300034: Model_Mesh26_Group26
+    2300036: Model_Mesh27_Group27
+    2300038: Model_Mesh28_Group28
+    2300040: Model_Mesh2_Group2
+    2300042: Model_Mesh5_Group5
+    2300044: Model_Mesh7_Group7
+    2300046: Model_Mesh8_Group8
+    2300048: Model_Mesh9_Group9
+    2300050: Model_Muraille_Sud_Group33
+    2300052: Object009
+    3300000: Group1_Model_Pente
+    3300002: Mesh1_Group1_Model
+    3300004: Model_Group7_Mesh035
+    3300006: Model_Mesh10_Group10
+    3300008: Model_Mesh11_Group11
+    3300010: Model_Mesh12_Group12
+    3300012: Model_Mesh13_Group13
+    3300014: Model_Mesh14_Group14
+    3300016: Model_Mesh15_Group15
+    3300018: Model_Mesh16_Group16
+    3300020: Model_Mesh17_Group17
+    3300022: Model_Mesh18_Group18
+    3300024: Model_Mesh19_Group19
+    3300026: Model_Mesh20_Group20
+    3300028: Model_Mesh21_Group21
+    3300030: Model_Mesh24_Group24
+    3300032: Model_Mesh25_Group25
+    3300034: Model_Mesh26_Group26
+    3300036: Model_Mesh27_Group27
+    3300038: Model_Mesh28_Group28
+    3300040: Model_Mesh2_Group2
+    3300042: Model_Mesh5_Group5
+    3300044: Model_Mesh7_Group7
+    3300046: Model_Mesh8_Group8
+    3300048: Model_Mesh9_Group9
+    3300050: Model_Muraille_Sud_Group33
+    3300052: Object009
+    4300000: Mesh1_Group1_Model
+    4300002: Group1_Model_Pente
+    4300004: Model_Mesh2_Group2
+    4300006: Model_Mesh5_Group5
+    4300008: Model_Mesh7_Group7
+    4300010: Model_Group7_Mesh035
+    4300012: Model_Mesh8_Group8
+    4300014: Model_Mesh9_Group9
+    4300016: Model_Mesh10_Group10
+    4300018: Model_Mesh11_Group11
+    4300020: Model_Mesh12_Group12
+    4300022: Model_Mesh13_Group13
+    4300024: Model_Mesh14_Group14
+    4300026: Model_Mesh15_Group15
+    4300028: Model_Mesh16_Group16
+    4300030: Model_Mesh17_Group17
+    4300032: Model_Mesh18_Group18
+    4300034: Model_Mesh19_Group19
+    4300036: Model_Mesh20_Group20
+    4300038: Model_Mesh21_Group21
+    4300040: Model_Mesh24_Group24
+    4300042: Model_Mesh25_Group25
+    4300044: Model_Mesh26_Group26
+    4300046: Model_Mesh27_Group27
+    4300048: Model_Mesh28_Group28
+    4300050: Model_Muraille_Sud_Group33
+    4300052: Object009
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Deco
+    second: {fileID: 2100000, guid: fea529ee54a6a624fbe8d4b39faa0db3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Falaise
+    second: {fileID: 2100000, guid: 452464332adb40847a1760902b70d051, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muraille
+    second: {fileID: 2100000, guid: 134629a00bf547c4fad592604b6e1b49, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sol
+    second: {fileID: 2100000, guid: f5e7f29fa9ef9c74387fa23a1f9b5466, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

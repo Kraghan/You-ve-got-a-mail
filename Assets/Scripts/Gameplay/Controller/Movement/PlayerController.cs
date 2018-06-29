@@ -228,6 +228,9 @@ public class PlayerController : MonoBehaviour {
             Vector3 headPosition = headTransform.position;
             m_cameraRig.transform.parent = null;
             gameObject.transform.position = new Vector3(headPosition.x, gameObject.transform.position.y, headPosition.z);
+			Vector3 correc_pos = Vector3.zero;
+			correc_pos = 0.2f * m_cameraRig.transform.forward.normalized;
+			gameObject.transform.localPosition = gameObject.transform.localPosition - correc_pos;
             m_cameraRig.transform.parent = gameObject.transform;
         }
     }

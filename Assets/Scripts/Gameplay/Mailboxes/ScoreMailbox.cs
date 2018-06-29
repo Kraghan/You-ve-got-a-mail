@@ -13,6 +13,13 @@ public class ScoreMailbox : MonoBehaviour {
     VacuumMailBox m_mailbox;
     bool m_alreadyAdded = false;
 
+	//fonction pour le restart
+	private void Awake () {
+		s_score = 0;
+		s_scorepoints = 0;
+		s_totalmailbox = 0;
+	}
+
     private void Start()
     {
         m_mailbox = GetComponent<VacuumMailBox>();

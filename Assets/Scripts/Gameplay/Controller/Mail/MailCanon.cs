@@ -15,7 +15,7 @@ public class MailCanon : MonoBehaviour
     private ProbabilityOfAppearenceOfItem[] m_aMailsPrefabs;
     [SerializeField]
     private Rigidbody m_bikeBody;
-    Animator m_model;
+    public Animator m_model;
 
     [SerializeField]
     Timer m_timeToReachMaxForce = new Timer();

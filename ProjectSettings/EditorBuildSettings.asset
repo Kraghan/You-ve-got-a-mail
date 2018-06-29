@@ -8,6 +8,3 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nicolas/Scene_Mode_Histoire_V1.unity
     guid: 81f60749b8eeb3448995a7252c9c528d
-  - enabled: 0
-    path: Assets/Scenes/Playtest/Scene_Mode_Histoire_V2.unity
-    guid: 93a006f1f3f431a458c9491bfa200429

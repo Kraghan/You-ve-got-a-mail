@@ -86,16 +86,17 @@ public class ShootSelector : MonoBehaviour {
             canon.SetBikeRigidbody(m_bikeRigidbody);
             canon.SetObjectToSend(m_sendableObjects);
             canon.SetLaserOrigin(m_controllerRight.transform.Find("LaserStart"));
+			canon.SetAnimator();
 
             canon = m_controllerLeft.AddComponent<MailCanon>();
             canon.SetForce(m_minForce, m_maxForce);
             canon.SetBikeRigidbody(m_bikeRigidbody);
             canon.SetObjectToSend(m_sendableObjects);
             canon.SetLaserOrigin(m_controllerLeft.transform.Find("LaserStart"));
+			canon.SetAnimator();
 
 			canon.SetPrecision (precision);
 			canon.SetPoints (nbpoints);
-            canon.SetAnimator();
             canon.SetTimer(m_timeToReachMaxForce);
         }
         else if(mode == ShootMode.NATURAL)

@@ -12,6 +12,9 @@ public class StopAfterTime : MonoBehaviour {
     [SerializeField]
     GameObject m_uiToEnable;
 
+	MailCanon[] Mail_Canon;
+	MailController[] Mail_Controller;
+
     private void Start()
     {
         m_controller = GetComponent<PlayerController>();
@@ -25,6 +28,14 @@ public class StopAfterTime : MonoBehaviour {
             m_controller.SetPanne(true);
             m_uiToDisable.SetActive(false);
             m_uiToEnable.SetActive(true);
+
+			Mail_Canon = m_controller.gameObject.GetComponentsInChildren<MailCanon> ();
+			Mail_Controller = m_controller.gameObject.GetComponentsInChildren<MailController> ();
+
+			foreach (MailCanon lecanon in Mail_Canon)
+				lecanon.enabled = false;
+			foreach (MailController lelancer in Mail_Controller)
+				lelancer.enabled = false;
         }
 	}
 }

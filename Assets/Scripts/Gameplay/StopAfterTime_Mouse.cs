@@ -12,6 +12,8 @@ public class StopAfterTime_Mouse : MonoBehaviour {
     [SerializeField]
     GameObject m_uiToEnable;
 
+	MouseMailCanon Mouse_Mail_Canon;
+
     private void Start()
     {
         m_controller = GetComponent<KeybordController>();
@@ -25,6 +27,10 @@ public class StopAfterTime_Mouse : MonoBehaviour {
             m_controller.SetPanne(true);
             m_uiToDisable.SetActive(false);
             m_uiToEnable.SetActive(true);
+
+			Mouse_Mail_Canon = m_controller.gameObject.GetComponentInChildren<MouseMailCanon> ();
+			Mouse_Mail_Canon.enabled = false;
+
         }
 	}
 }

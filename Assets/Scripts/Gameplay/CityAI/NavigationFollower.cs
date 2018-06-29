@@ -43,6 +43,11 @@ public class NavigationFollower : MonoBehaviour {
 
     List<Transform> m_objectInFrontOf = new List<Transform>();
 
+	//Pour le restart
+	private void Awake () {
+		s_numberOfObjectCreated = 0;
+	}
+
     // Use this for initialization
     protected virtual void Start ()
     {
@@ -115,10 +120,15 @@ public class NavigationFollower : MonoBehaviour {
 				}
 				
 				//Si l'angle fait moins de 10° je ne tourne pas l'objet, je supprime les angles improbables aussi
-				if (Mathf.Abs (angle) >= 178 || Mathf.Abs (angle) <= 2 || angle == 90 || angle == -90 || angle == 180) {
+				if (Mathf.Abs (angle) >= 178 || Mathf.Abs (angle) <= 2) { //|| angle == 90 || angle == -90 || angle == 180) {
 					angle = 0;
 				}
-            
+
+				//Si je suis à un point où je veux pas que le joueur tourne, je tourne pas
+				if (m_target.NoRotation) {
+					angle = 0;
+				}
+
 				//Sinon, j'affecte mon angle en l'arrondissant et je dis que j'ai tourné de 0° pour l'instant
 				if (angle != 0) {
 					m_angleTarget = angle;

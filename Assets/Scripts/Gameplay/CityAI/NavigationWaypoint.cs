@@ -17,6 +17,7 @@ public class NavigationWaypoint : MonoBehaviour
 	public bool IsStopPoint = false;
 	public bool IsFinalPoint = false;
 	public bool ReverseRotation = false;
+	public bool NoRotation = false;
 
     private void OnDrawGizmos()
     {

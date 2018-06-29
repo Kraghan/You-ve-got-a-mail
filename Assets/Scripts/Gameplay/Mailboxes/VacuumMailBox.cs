@@ -49,6 +49,9 @@ public class VacuumMailBox : MonoBehaviour {
 	public bool IsPursuit;
 	private bool m_isTempDelivered;
 
+	public MailboxCoordinator the_Coordinator;
+	public Mode_selector the_Mode;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -177,8 +180,12 @@ public class VacuumMailBox : MonoBehaviour {
 
 	public void SetDelivered(bool status)
 	{
-		if (IsPursuit)
-			m_isTempDelivered = status;
+		if ((the_Coordinator != null) && (the_Mode != null)) {
+			if ((IsPursuit) && (the_Coordinator.m_activeMailbox == 10) && (the_Mode.m_defaultPlayMode == Mode_selector.MyPlayMode.STORY))
+				m_isTempDelivered = status;
+			else if (IsPursuit)
+				m_isTempDelivered = status;
+		}
 		else
 			m_isDelivered = status;
 	}

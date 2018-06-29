@@ -6,15 +6,17 @@ using UnityEngine.UI;
 
 public class Reset_Scene : MonoBehaviour {
 
-	public void ResetMeForChristSake () {
+	public GameObject FuckinWwise;
 
-		SceneManager.LoadScene (0);
+	private void Awake () {
+
+		AkSoundEngine.StopAll();
 
 	}
 
-	void OnTriggerEnter () {
+	public void ResetMeForChristSake () {
 
-		ResetMeForChristSake ();
+		SceneManager.LoadScene (0);
 
 	}
 }

@@ -16,6 +16,8 @@ public class VRInteractibleController : MonoBehaviour
     Animator m_model;
 
     VRInteractible m_uiElement;
+
+	public LayerMask thelayer;
     
 	// Use this for initialization
 	void Start ()
@@ -31,7 +33,7 @@ public class VRInteractibleController : MonoBehaviour
         RaycastHit hit;
         m_lineRenderer.SetPosition(0, m_startLaserPoint.position);
         if (!m_model.GetBool("Grab") && !m_model.GetBool("Gun") 
-            && Physics.Raycast(m_startLaserPoint.position, m_startLaserPoint.forward, out hit, m_enabledDistance, ~LayerMask.NameToLayer("UI")))
+            && Physics.Raycast(m_startLaserPoint.position, m_startLaserPoint.forward, out hit, m_enabledDistance, thelayer))
         {
 
             m_model.SetBool("Pointing", true);

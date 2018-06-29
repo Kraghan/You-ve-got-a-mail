@@ -8,7 +8,8 @@ public class MailboxCoordinator : MonoBehaviour
     [SerializeField]
     public VacuumMailBox[] m_aVacuumMailboxes;
 
-    uint m_activeMailbox = 0;
+	//[HideInInspector]
+    public uint m_activeMailbox = 0;
 
     [Header("UI")]
     [SerializeField]
