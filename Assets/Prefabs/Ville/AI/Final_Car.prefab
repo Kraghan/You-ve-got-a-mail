@@ -389,6 +389,7 @@ GameObject:
   - component: {fileID: 54503939110281804}
   - component: {fileID: 114451487344212036}
   - component: {fileID: 114498498766845116}
+  - component: {fileID: 114703054454692570}
   m_Layer: 12
   m_Name: Final_Car
   m_TagString: Mover
@@ -1607,9 +1608,13 @@ MonoBehaviour:
   m_triggerRotationOffset: 0.5
   m_speed: 3
   m_distanceBetweenObjects: 3
+  m_target: {fileID: 0}
+  m_nextTarget: {fileID: 0}
+  sensrotation: 0
   m_rotationSpeed: 135
   m_front: {fileID: 4938485034844682}
   m_animatorSpeedModifier: 1.25
+  dontrotateonstart: 0
 --- !u!114 &114162069559370294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1669,6 +1674,17 @@ MonoBehaviour:
     positionOffset: {x: 0, y: 0, z: 0}
   m_posOffsetData: {fileID: 0}
   listenerMask: 1
+--- !u!114 &114703054454692570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1566993194729382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e76cb440adfc14db1fcc65b1544169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198000873850583180
 ParticleSystem:
   m_ObjectHideFlags: 1

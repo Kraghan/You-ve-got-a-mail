@@ -67,6 +67,8 @@ public class ScoreManager : MonoBehaviour
     [SerializeField]
     Text m_timeBonusText;
 	public Text m_PointsText;
+	public Text m_multi_text;
+	public RectTransform m_multi_barre;
 	public Text m_TotalMailboxes;
 	public Mode_selector Mode_selection;
 	public Transform All_Mailboxes;
@@ -99,6 +101,27 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
+		//Je fait évoler correctement le multiplicateur de points
+		if (ScoreMailbox.m_scoremultiplier > 1)
+			ScoreMailbox.multi_timer += Time.deltaTime;
+
+		if (ScoreMailbox.multi_timer >= ScoreMailbox.multi_time) {
+			if (ScoreMailbox.m_scoremultiplier > 1) {
+				ScoreMailbox.m_scoremultiplier -= 0.5f;
+				ScoreMailbox.multi_time += 0.75f;
+			}
+			ScoreMailbox.multi_timer = 0;
+		}	
+
+		//L'affichage du multiplicateur de points
+		m_multi_text.text = "x " + ScoreMailbox.m_scoremultiplier;
+
+		//J'affiche la barre à la bonne taille pour le timer de temps
+		float scalex = (1f - (ScoreMailbox.multi_timer / ScoreMailbox.multi_time)) * 4f;
+		if (ScoreMailbox.m_scoremultiplier == 1)
+			scalex = 4;
+		m_multi_barre.localScale = new Vector3 (scalex, m_multi_barre.localScale.y, m_multi_barre.localScale.z);
+
 		//L'affichage des points pour le mode points
 		m_points = ScoreMailbox.s_scorepoints;
 

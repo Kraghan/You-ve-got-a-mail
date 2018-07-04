@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 65557735454273352}
   - component: {fileID: 65034550479072120}
   - component: {fileID: 114038014898864212}
+  - component: {fileID: 114108037726963792}
   m_Layer: 12
   m_Name: Final_Robot_Block_Green
   m_TagString: Mover
@@ -1334,6 +1335,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_collideOnlyWithTag: Mail
   m_wwiseEventName: YGM_Pnj2Hit
+--- !u!114 &114108037726963792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1289556182629050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e76cb440adfc14db1fcc65b1544169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114646993363915196
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1367,6 +1379,7 @@ MonoBehaviour:
   m_rotationSpeed: 135
   m_front: {fileID: 0}
   m_animatorSpeedModifier: 1.5
+  dontrotateonstart: 0
 --- !u!137 &137389471004593462
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

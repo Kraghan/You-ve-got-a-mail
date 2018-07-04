@@ -43,6 +43,8 @@ public class NavigationFollower : MonoBehaviour {
 
     List<Transform> m_objectInFrontOf = new List<Transform>();
 
+	public bool dontrotateonstart;
+
 	//Pour le restart
 	private void Awake () {
 		s_numberOfObjectCreated = 0;
@@ -58,10 +60,16 @@ public class NavigationFollower : MonoBehaviour {
         // Set the initial position
         transform.position = m_startPoint.transform.position;
         m_target = m_startPoint.GetRandomNeighbour();
+		if (!dontrotateonstart)
+			transform.rotation = Quaternion.LookRotation ((m_target.transform.position - m_startPoint.transform.position).normalized);
+		Vector3 rotcorr = new Vector3 (0,transform.rotation.eulerAngles.y,0);
+		transform.rotation = Quaternion.Euler (rotcorr);
+
         if (m_target == null)
         {
             return;
 
+            /*
             string str = m_startPoint.gameObject.name;
             Transform tr = m_startPoint.transform.parent;
             while (tr != null)
@@ -71,6 +79,7 @@ public class NavigationFollower : MonoBehaviour {
             }
 
             Debug.LogError("Error in navigation waypoint " + str + " : null reference !");
+            */
         }
 
         m_animator = GetComponentInChildren<Animator>();
@@ -93,6 +102,7 @@ public class NavigationFollower : MonoBehaviour {
             if(m_nextTarget == null)
             {
                 return;
+				/*
                 string str = m_nextTarget.gameObject.name;
                 Transform tr = m_nextTarget.transform.parent;
                 while(tr != null)
@@ -102,6 +112,7 @@ public class NavigationFollower : MonoBehaviour {
                 }
 
                 Debug.LogError("Error in navigation waypoint "+str+" : null reference !");
+                */
             }
             
 			//Si je suis pas à un point d'arrêt
@@ -183,10 +194,13 @@ public class NavigationFollower : MonoBehaviour {
 				m_stopped = false;
 			}
 		//Sinon je m'arrête mais sans me bloquer
-        else {
+			else {
+				
 				NavigationFollower follower = m_objectInFrontOf [0].gameObject.GetComponent<NavigationFollower> ();
-				if (follower == null)
-					follower = GetComponentInParent<NavigationFollower> ();
+
+				if (follower == null) {
+					follower = m_objectInFrontOf [0].gameObject.GetComponentInParent<NavigationFollower> ();
+				}
 
 				if (follower != null) {
 					// if blocked by myself, don't stop
@@ -197,11 +211,14 @@ public class NavigationFollower : MonoBehaviour {
 						m_stopped = true;
 						m_isBlockedBy = follower;
 					}
-				} else {
+
+				} else if (m_objectInFrontOf [0].tag == "Player") {
+					m_stopped = true;
+				}
+				else {
 					m_stopped = false;
 					m_isBlockedBy = null;
-				}
- 
+				} 
 			}
 
 			//Si je suis pas bloqué, je bouge avec une animation (DU COUP CA BOUGE DEUX FOIS...A CORRIGER)

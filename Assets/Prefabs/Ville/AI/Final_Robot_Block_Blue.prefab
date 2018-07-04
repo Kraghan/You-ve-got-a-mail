@@ -282,6 +282,7 @@ GameObject:
   - component: {fileID: 65818490035242530}
   - component: {fileID: 65110484046765212}
   - component: {fileID: 114736263282308590}
+  - component: {fileID: 114399789601051330}
   m_Layer: 12
   m_Name: Final_Robot_Block_Blue
   m_TagString: Mover
@@ -1343,6 +1344,18 @@ MonoBehaviour:
   m_rotationSpeed: 135
   m_front: {fileID: 0}
   m_animatorSpeedModifier: 1.5
+  dontrotateonstart: 0
+--- !u!114 &114399789601051330
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1517160842218852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e76cb440adfc14db1fcc65b1544169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114570085968734376
 MonoBehaviour:
   m_ObjectHideFlags: 1

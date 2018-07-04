@@ -1101,7 +1101,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Have a nice round !
+  m_Text: "Don't forget to brake in case of emergency ! \nAnd have a safe round !"
 --- !u!114 &114655568284678998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1114,7 +1114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Object: {fileID: 1448633107210702}
-  TheTime: 2
+  TheTime: 4
 --- !u!114 &114675831639859274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2063,8 +2063,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 960, y: 180}
+  m_AnchoredPosition: {x: 0, y: 12}
+  m_SizeDelta: {x: 700, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224834397721175252
 RectTransform:

@@ -5,11 +5,11 @@ using UnityEngine;
 public class Random_Anim : MonoBehaviour {
 
 	bool playAnim = true;
-	public Animation animation;
+	public Animation monanim;
 
 	void Update(){
 		if (playAnim) {
-			animation.Play("Yawning");  //Put your animation string
+			monanim.Play("Yawning");  //Put your animation string
 			StartCoroutine(WaitAnim()); //wait random seconds for animation
 		}
 	}
@@ -20,7 +20,7 @@ public class Random_Anim : MonoBehaviour {
 		int randomWait = Random.Range(0, 10);                
 		//print ("Time" + randomWait + " Play"); //debug                
 		yield return new WaitForSeconds(randomWait);                
-		animation.Play("Yawning");  //Put your animation string
+		monanim.Play("Yawning");  //Put your animation string
 		playAnim = true;
 	}
 }

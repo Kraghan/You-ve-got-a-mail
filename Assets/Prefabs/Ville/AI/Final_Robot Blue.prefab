@@ -1468,6 +1468,7 @@ GameObject:
   - component: {fileID: 4467587623339104}
   - component: {fileID: 114160827831731282}
   - component: {fileID: 65686633998844926}
+  - component: {fileID: 114460918187981046}
   m_Layer: 12
   m_Name: Final_Robot Blue
   m_TagString: Mover
@@ -5170,7 +5171,7 @@ Animator:
   m_GameObject: {fileID: 1677622795216438}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a02dbc6e1e7424841a776ae91a2f36b2, type: 3}
-  m_Controller: {fileID: 9100000, guid: 3e2a67770f6f22d4b906686d1ec95999, type: 2}
+  m_Controller: {fileID: 9100000, guid: d59719cdd01fbd641a6f42587a1a2ea9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5194,9 +5195,13 @@ MonoBehaviour:
   m_triggerRotationOffset: 0.75
   m_speed: 1
   m_distanceBetweenObjects: 1.5
+  m_target: {fileID: 0}
+  m_nextTarget: {fileID: 0}
+  sensrotation: 0
   m_rotationSpeed: 135
   m_front: {fileID: 4181874305843884}
   m_animatorSpeedModifier: 1.5
+  dontrotateonstart: 0
 --- !u!114 &114252726749245570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5210,6 +5215,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_collideOnlyWithTag: Mail
   m_wwiseEventName: YGM_Pnj1Hit
+--- !u!114 &114460918187981046
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1858141227180332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e76cb440adfc14db1fcc65b1544169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114889620688076812
 MonoBehaviour:
   m_ObjectHideFlags: 1

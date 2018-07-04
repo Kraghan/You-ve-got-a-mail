@@ -27,14 +27,21 @@ public class RespawnSpot : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Mover"))
-            m_objectsInSpawnArea.Add(other.gameObject);
+		if ((other.CompareTag ("Mover")) && (other.GetComponent<Can_deactivate>() != null)) {
+			m_objectsInSpawnArea.Add (other.gameObject);
+		}
+		else if ((other.CompareTag ("Mover")) && (other.GetComponentInParent<Can_deactivate> () != null)) {
+			m_objectsInSpawnArea.Add (other.transform.parent.gameObject);
+		}
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Mover"))
-            m_objectsInSpawnArea.Remove(other.gameObject);
+		if ((other.CompareTag ("Mover")) && (other.GetComponent<Can_deactivate> () != null)) {
+			m_objectsInSpawnArea.Remove (other.gameObject);
+		} else if ((other.CompareTag ("Mover")) && (other.GetComponentInParent<Can_deactivate> () != null)) {
+			m_objectsInSpawnArea.Remove (other.transform.parent.gameObject);
+		}
     }
 
     private void OnDrawGizmosSelected()

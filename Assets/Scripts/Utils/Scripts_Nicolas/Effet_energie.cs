@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Effet_energie : MonoBehaviour {
 
-    List<NavigationFollower> m_lines;
 	public Transform line_effect;
 	public float frequency;
 	public float speed;
@@ -21,7 +20,6 @@ public class Effet_energie : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        m_lines = new List<NavigationFollower>();
         m_parent = new GameObject("Line Parent " + name).transform;
         m_parent.parent = transform;
 	}

@@ -34,11 +34,11 @@ public class KeybordController : MonoBehaviour {
     {
 		if (!m_panne) {
 			float vertical = Input.GetAxis ("Vertical");
-        
+
 			if (vertical > 0.7f) {
-				m_speed += 0.5f * Time.deltaTime;
-			} else if (vertical < -0.7f) {
-				m_speed -= 1.0f * Time.deltaTime;
+				m_speed += vertical * Time.deltaTime;
+			} else if (vertical < 0f) {
+				m_speed += 4 * vertical * Time.deltaTime;
 			} else
 				m_speed -= 0.5f * Time.deltaTime;
 			m_speed = Mathf.Clamp01 (m_speed);
@@ -50,17 +50,10 @@ public class KeybordController : MonoBehaviour {
     void OrientationManagerVRController()
     {
         float horizontal = Input.GetAxis("Horizontal");
-        if (horizontal > 0.2f)
-        {
-            m_rotation = horizontal;
-        }
-        else if (horizontal < -0.2f)
-        {
-            m_rotation = horizontal;
-        }
-        else
-            m_rotation = 0;
+        
+		m_rotation = Mathf.Lerp(m_rotation, horizontal, 8f * Time.deltaTime);        
         m_rotation = Mathf.Clamp(m_rotation, -1, 1);
+
     }
 
 	public void SetMouseSensibility (Slider slider) {

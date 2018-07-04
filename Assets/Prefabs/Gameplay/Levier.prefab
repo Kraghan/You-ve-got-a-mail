@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 114310700529938522}
   m_Layer: 0
   m_Name: Levier
-  m_TagString: Untagged
+  m_TagString: Levier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 54958853798174124}
   m_Layer: 2
   m_Name: Trigger
-  m_TagString: Untagged
+  m_TagString: Levier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1023,6 +1023,9 @@ MonoBehaviour:
   m_particles: {fileID: 198383702019808990}
   m_infiniteMailbox: 0
   m_effect: {fileID: 0}
+  IsPursuit: 0
+  the_Coordinator: {fileID: 0}
+  the_Mode: {fileID: 0}
 --- !u!114 &114677562252374864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1034,7 +1037,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c8f3efc04105004699ca1d853bc05f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_secondsScore: 5
+  m_secondsScore: 0
+  m_Score: 1000
 --- !u!198 &198042813477231274
 ParticleSystem:
   m_ObjectHideFlags: 1

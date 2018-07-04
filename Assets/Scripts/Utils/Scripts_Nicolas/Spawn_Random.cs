@@ -22,6 +22,8 @@ public class Spawn_Random : MonoBehaviour {
     List<NavigationWaypoint> m_aPietonsSpot = new List<NavigationWaypoint>();
     List<NavigationWaypoint> m_aVoituressSpot = new List<NavigationWaypoint>();
 
+	public Mode_selector Le_mode;
+
     public List<NavigationWaypoint> Shuffle(List<NavigationWaypoint> list)
     {
         int n = list.Count;
@@ -46,6 +48,7 @@ public class Spawn_Random : MonoBehaviour {
         PedestrianPool.parent = EntityPool;
         CarPool.parent = EntityPool;
 
+		Le_mode.entities = EntityPool;
 
         //Je récupères tous les scripts des noeuds des graphes
         All_nodes_pietons = Graphe_pieton.GetComponentsInChildren<NavigationWaypoint>();
@@ -70,12 +73,12 @@ public class Spawn_Random : MonoBehaviour {
         // Je place les entités sur les points
         foreach (NavigationWaypoint waypoint in All_nodes_pietons)
         {
-            GameObject Pedestrian = CreateEntity(Pietons[Random.Range(0, Pietons.Length)], waypoint, 1, nbrob);
-
-            Pedestrian.transform.parent = PedestrianPool;
-
-            nbrob++;
-
+			if (Random.Range (0, 2) == 1) {
+				
+				GameObject Pedestrian = CreateEntity (Pietons [Random.Range (0, Pietons.Length)], waypoint, 1, nbrob);
+				Pedestrian.transform.parent = PedestrianPool;
+				nbrob++;
+			}
 
             if (nbrob >= Max_pieton)
                 break;
@@ -83,19 +86,21 @@ public class Spawn_Random : MonoBehaviour {
 
         foreach (NavigationWaypoint waypoint in All_nodes_voitures)
         {
-            GameObject Car = CreateEntity(Voitures[Random.Range(0, Voitures.Length)], waypoint, 4, nbcar);
+			if (Random.Range (0, 2) == 1) {
+				
+				GameObject Car = CreateEntity (Voitures [Random.Range (0, Voitures.Length)], waypoint, 4, nbcar);
+				Car.transform.parent = CarPool;
+				nbcar++;
 
-            Car.transform.parent = CarPool;
-
-            nbcar++;
+			}
 
             if (nbcar >= Max_voiture)
                 break;
         }
 
         //J'affiche le nombre de piétons et de voitures potentiellement spawnables
-        Debug.Log ("Robots " + nbrob);
-		Debug.Log ("Voitures " + nbcar);
+        //Debug.Log ("Robots " + nbrob);
+		//Debug.Log ("Voitures " + nbcar);
 
 	}
 

@@ -29,8 +29,8 @@ public class TargetFollower : MonoBehaviour
 		if (m_text_Leisure) {
 			Closest_Mailbox = Find_Closest ();
 
-			if (Mathf.Round (Vector3.Distance (Closest_Mailbox, m_objectToRotate.position)) <= 50) {
-				m_text_Leisure.text = "Less than 50 m";
+			if (Mathf.Round (Vector3.Distance (Closest_Mailbox, m_objectToRotate.position)) <= 25) {
+				m_text_Leisure.text = "Less than 25 m";
 			}
 			else
 				m_text_Leisure.text = Mathf.Round (Vector3.Distance (Closest_Mailbox, m_objectToRotate.position)) + " m";

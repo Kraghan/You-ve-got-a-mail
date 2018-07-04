@@ -17,7 +17,7 @@ public class StopAfterTime_Mouse : MonoBehaviour {
 	private Endings theend;
 
 	private float letime;
-	private bool doonce;
+	private bool doonce, onceagainonce;
 
     private void Start()
     {
@@ -29,10 +29,15 @@ public class StopAfterTime_Mouse : MonoBehaviour {
     void Update ()
     {
 		if((m_manager.GetTime() >= 600) && (m_manager.Mode_selection.m_defaultPlayMode == Mode_selector.MyPlayMode.POINTS))
-        {
-            m_controller.SetPanne(true);
-            m_uiToDisable.SetActive(false);
-            m_uiToEnable.SetActive(true);
+		{
+			if (!onceagainonce) {
+				onceagainonce = true;
+
+				m_controller.SetPanne (true);
+				m_uiToDisable.SetActive (false);
+				m_uiToEnable.SetActive (true);
+
+			}
 
 			Mouse_Mail_Canon = m_controller.gameObject.GetComponentInChildren<MouseMailCanon> ();
 			Mouse_Mail_Canon.enabled = false;

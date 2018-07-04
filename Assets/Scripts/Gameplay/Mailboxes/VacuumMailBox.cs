@@ -120,6 +120,7 @@ public class VacuumMailBox : MonoBehaviour {
             m_isTarget = false;
             m_particles.Play();
         }
+
         else
         {
             Vector3 mailDirection = m_snapPointStart.position - m_mail.transform.position;

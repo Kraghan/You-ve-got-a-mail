@@ -10,12 +10,16 @@ public class Reset_Scene : MonoBehaviour {
 
 	private void Awake () {
 
+		//Je m'assure que j'ai pas deux Wwwise qui marchent en même temps
 		AkSoundEngine.StopAll();
 
 	}
 
 	public void ResetMeForChristSake () {
 
+		//Je reset l'Arduino
+		GetComponent<PlayerController> ().OnRestart ();
+		//Je recharge la scène
 		SceneManager.LoadScene (0);
 
 	}

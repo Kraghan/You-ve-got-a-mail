@@ -80,10 +80,40 @@ public class PlayerController : MonoBehaviour {
         m_arduino.connect();
     }
 
+	public void Recalibrate_rotation () {
+		
+		//Je reset techniquement tout l'arduino pour faire ça ATTENTION DANGER JE SAIS PAS CE QUE CA FAIT
+		m_arduino.close();
+
+		m_bikeController = GetComponent<BicycleController>();
+		string path = Application.dataPath + "/../Arduino.conf";
+		if (!File.Exists(path))
+		{
+			StreamWriter sw = new StreamWriter(path,false);
+			sw.WriteLine(m_portName);
+			sw.Close();
+		}
+		else
+		{
+			StreamReader sr = new StreamReader(path);
+			m_portName = sr.ReadLine();
+			sr.Close();
+		}
+
+		m_arduino.set(m_portName, m_baudRate, m_readTimeout, m_queueLenght);
+		m_arduino.connect();
+
+	}
+
     void OnApplicationQuit()
     {
         m_arduino.close();
     }
+
+	public void OnRestart()
+	{
+		m_arduino.close();
+	}
 
     // Update is called once per frame
     void FixedUpdate ()

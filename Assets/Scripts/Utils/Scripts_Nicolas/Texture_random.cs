@@ -39,7 +39,7 @@ public class Texture_random : MonoBehaviour {
 					if ((mesmats[i].name != "Blanc") && (mesmats[i].name != "Fenetre") && (mesmats[i].name != "BrushedMetal"))
                     {
 
-                        Debug.Log("ici");
+                        //Debug.Log("ici");
 
                         mesmats[i] = lacouleur;
 

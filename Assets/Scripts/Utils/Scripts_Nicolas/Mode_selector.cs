@@ -26,6 +26,9 @@ public class Mode_selector : MonoBehaviour {
 
 	private bool doonce;
 
+	[HideInInspector]
+	public Transform entities;
+
 	// Use this for initialization
 	void Start () {
 		LeCompteur = this.GetComponent<SpeedMeter> ();
@@ -45,12 +48,28 @@ public class Mode_selector : MonoBehaviour {
 				m_Controller_Mouse.SetPanne (false);
 			}
 		} else if (m_defaultPlayMode == MyPlayMode.LEISURE) {
+			
 			TheScoreManager.m_timeText = Text_leisure;
 			LeCompteur.m_transform = Aiguille_Leisure;
+
 			if (!doonce) {
+				//Je désactive une partie des piétons et voitures
+				Transform[] all_movers = entities.GetComponentsInChildren<Transform>();
+				foreach (Transform mover in all_movers) {
+					
+					//Si c'est bien un robot et pas une partie d'un robot
+					if (mover.gameObject.GetComponent<Can_deactivate> () != null) {
+						if (Random.Range (0, 5) < 4)
+							//Je destroy pas parce que sinon ça bug avec les listes déjà crées avec les robots dedans
+							mover.gameObject.SetActive (false);
+					}
+						
+				}
+
 				doonce = true;
 				m_Controller_VR.SetPanne (false);
 				m_Controller_Mouse.SetPanne (false);
+
 			}
 		} else if (m_defaultPlayMode == MyPlayMode.STORY) {
 			TheScoreManager.m_timeText = Text_story;

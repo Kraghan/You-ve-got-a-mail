@@ -19,6 +19,7 @@ TagManager:
   - Bat_Deco
   - Props
   - Trigger
+  - Levier
   layers:
   - Default
   - TransparentFX

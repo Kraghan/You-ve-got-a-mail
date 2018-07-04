@@ -28,6 +28,9 @@ public class CrashDetection : MonoBehaviour
 	[HideInInspector]
 	public float timer;
 
+	public LineRenderer Line_effect;
+	private float timerline;
+
     void Start ()
     {
 		m_camera = Camera.main;
@@ -38,10 +41,29 @@ public class CrashDetection : MonoBehaviour
 	
 	void Update ()
     {
+		//Je place correctement les points du line renderer
+		Line_effect.SetPosition(0,Line_effect.transform.position);
+		Vector3 Line_end = Line_effect.transform.position;
+
+		if (m_lastRespawnPylone.transform.Find ("Line_End") != null)
+			Line_end = m_lastRespawnPylone.transform.Find ("Line_End").position;
+		
+		Line_effect.SetPosition(1,Line_end);
+
+		//De manière assez crado, je désactive la ligne si elle est activée depuis plus de 2 secondes
+		if (Line_effect.enabled == true)
+			timerline += Time.deltaTime;
+
+		if (timerline >= 2) {
+			Line_effect.enabled = false;
+			timerline = 0;
+		}
+
         if (m_crashed)
         {
             if(m_controller.GetMotorInput() < 0.1)
             {
+				ScoreMailbox.m_scoremultiplier = 1;
                 Respawn();
             }
         }
@@ -122,6 +144,9 @@ public class CrashDetection : MonoBehaviour
 
     public void Respawn()
     {
+		//J'active l'effet de line renderer
+		Line_effect.enabled = true;
+
         m_lastRespawnPylone.Respawn();
         m_particles.Play();
         BackToNormal();

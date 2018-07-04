@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class CameraShooter : MonoBehaviour {
 
-    [SerializeField]
-    private SteamVR_TrackedObject m_trackController;
-
-    private SteamVR_TrackedObject trackedObj;
+    [SerializeField] 
+    private SteamVR_TrackedObject m_trackController = null;
 
     [SerializeField]
-    private GameObject m_newspaperPrefab;
+    private GameObject m_newspaperPrefab = null;
     
     [SerializeField]
     private float m_force = 20;
@@ -18,15 +16,10 @@ public class CameraShooter : MonoBehaviour {
     private bool m_throwNewspaper = false;
 
     [SerializeField]
-    private Rigidbody m_bikeBody;
+	private Rigidbody m_bikeBody = null;
 
     [SerializeField]
-    private GameObject m_pool;
-
-    void Awake()
-    {
-        trackedObj = GetComponent<SteamVR_TrackedObject>();
-    }
+	private GameObject m_pool = null;
 
     // Use this for initialization
     void Start()
