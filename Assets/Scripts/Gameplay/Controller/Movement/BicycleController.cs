@@ -193,8 +193,10 @@ public class BicycleController : MonoBehaviour
             {
                 //if(FrontWheelCollider)
                     //FrontWheelTransform.transform.position = hit.point + (FrontWheelCollider.transform.up * FrontWheelCollider.radius) * transform.localScale.y;
-                if (Fender)
+                /*
+				if (Fender)
                     Fender.transform.position = hit.point + (FrontWheelCollider.transform.up * (FrontWheelCollider.radius)) * transform.localScale.y;
+                */
                 extension_F = (-FrontWheelCollider.transform.InverseTransformPoint(CorrespondingGroundHit.point).y - FrontWheelCollider.radius) / FrontWheelCollider.suspensionDistance;
                 Debug.DrawLine(CorrespondingGroundHit.point, CorrespondingGroundHit.point + FrontWheelCollider.transform.up * (CorrespondingGroundHit.force / 8000), extension_F <= 0.0f ? Color.magenta : Color.white);
                 Debug.DrawLine(CorrespondingGroundHit.point, CorrespondingGroundHit.point - FrontWheelCollider.transform.forward * CorrespondingGroundHit.forwardSlip, Color.green);

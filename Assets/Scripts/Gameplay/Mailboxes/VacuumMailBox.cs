@@ -23,11 +23,11 @@ public class VacuumMailBox : MonoBehaviour {
     NavigationFollower m_follower;
 
     [SerializeField]
-    Material m_deliveredMaterial;
+    public Material m_deliveredMaterial;
     [SerializeField]
     Material m_targetMaterial;
     [SerializeField]
-    Material m_normalMaterial;
+    public Material m_normalMaterial;
 
     [SerializeField]
     float m_blinkTimeRatio;
@@ -51,6 +51,8 @@ public class VacuumMailBox : MonoBehaviour {
 
 	public MailboxCoordinator the_Coordinator;
 	public Mode_selector the_Mode;
+
+	public int id;
 
 	// Use this for initialization
 	void Start ()
@@ -181,16 +183,23 @@ public class VacuumMailBox : MonoBehaviour {
 
 	public void SetDelivered(bool status)
 	{
+		//Je gère la livraison de la boite finale poursuite
 		if ((the_Coordinator != null) && (the_Mode != null)) {
-			if ((IsPursuit) && (the_Coordinator.m_activeMailbox == 10) && (the_Mode.m_defaultPlayMode == Mode_selector.MyPlayMode.STORY))
+			if ((IsPursuit) && (the_Coordinator.m_activeMailbox == 10) && (Mode_selector.m_defaultPlayMode == Mode_selector.MyPlayMode.STORY))
 				m_isTempDelivered = status;
-			else if ((IsPursuit) && (the_Mode.m_defaultPlayMode != Mode_selector.MyPlayMode.STORY))
+			else if ((IsPursuit) && (Mode_selector.m_defaultPlayMode != Mode_selector.MyPlayMode.STORY))
 				m_isTempDelivered = status;
 			else
 				m_isDelivered = status;
-		}
-		else
+		//Si c'est une autre boîte que la boite poursuite alors elle est juste livrée
+		} else {
 			m_isDelivered = status;
+			//Je sauvegarde la livraison en mode ballade
+			if ((status == true) && (Mode_selector.m_defaultPlayMode == Mode_selector.MyPlayMode.LEISURE)) {
+				string saveid = "Mailbox_" + id;
+				PlayerPrefs.SetFloat (saveid, 1f);
+			}
+		}
 	}
 
     public void Reset()
@@ -199,7 +208,7 @@ public class VacuumMailBox : MonoBehaviour {
 		m_isTempDelivered = false;
     }
 
-    void SetMaterial(Material mat)
+    public void SetMaterial(Material mat)
     {
         MeshRenderer[] renderers = m_animator.GetComponentsInChildren<MeshRenderer>();
         foreach (MeshRenderer renderer in renderers)

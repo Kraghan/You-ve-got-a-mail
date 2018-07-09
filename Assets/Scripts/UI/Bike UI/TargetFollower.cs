@@ -42,7 +42,7 @@ public class TargetFollower : MonoBehaviour
 		float mindist = 10000f;
 		Vector3 theclosest = Vector3.zero;
 
-		foreach (VacuumMailBox mailbox in this.GetComponent<ScoreManager>().The_Mailboxes) {
+		foreach (VacuumMailBox mailbox in ScoreManager.The_Mailboxes) {
 			if ((Mathf.Round (Vector3.Distance (mailbox.transform.position, m_objectToRotate.position)) < mindist) && (!mailbox.GetComponent<VacuumMailBox>().IsDelivered())) {
 				mindist = Mathf.Round (Vector3.Distance (mailbox.transform.position, m_objectToRotate.position));
 				theclosest = mailbox.transform.position;

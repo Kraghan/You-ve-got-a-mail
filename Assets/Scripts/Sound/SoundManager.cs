@@ -8,10 +8,14 @@ public class SoundManager : MonoBehaviour
 	public void SetVolumeMusic(Slider slider)
     {
         AkSoundEngine.SetRTPCValue("YGM_MUSICVOLUME", slider.value);
+		//Je crée le fichier de sauvegarde
+		PlayerPrefs.SetFloat("Music", slider.value);
     }
 
     public void SetVolumeSFX(Slider slider)
     {
         AkSoundEngine.SetRTPCValue("YGM_VFXVOLUME", slider.value);
+		//Je crée le fichier de sauvegarde
+		PlayerPrefs.SetFloat("FX", slider.value);
     }
 }

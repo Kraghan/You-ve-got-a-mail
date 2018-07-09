@@ -52,7 +52,7 @@ public class ScoreManager : MonoBehaviour
 	float m_timeRemaining = 600;
     bool m_started = false;
 	int m_points = 0;
-	int s_total = 0;
+	public int s_total = 0;
 
     string m_playerName = "";
 
@@ -72,25 +72,34 @@ public class ScoreManager : MonoBehaviour
 	public Text m_TotalMailboxes;
 	public Mode_selector Mode_selection;
 	public Transform All_Mailboxes;
-	public VacuumMailBox[] The_Mailboxes;
+	public static VacuumMailBox[] The_Mailboxes;
 	public Endings theendings;
+
+	[HideInInspector]
+	public static bool onceleisure;
 
     // Load dynamicly the online scoreboard
     IEnumerator Start()
-    {
-        using (WWW www = new WWW("http://jordan-bas.com/admin/scores/" + m_key))
-        {
-            yield return www;
-            m_scoreboard = new Scoreboard(www.text);
-        }
+	{
+		onceleisure = false;
 
 		The_Mailboxes = All_Mailboxes.GetComponentsInChildren<VacuumMailBox> ();
+		int theid = 0;
 
 		foreach (VacuumMailBox laboite in The_Mailboxes) {
 			if (laboite.tag == "Trigger")
-				s_total ++;
+				s_total++;
+
+			//Je donne les identifiants des boites
+			laboite.id = theid;
+			theid++;
 		} 
-    }
+
+		using (WWW www = new WWW ("http://jordan-bas.com/admin/scores/" + m_key)) {
+			yield return www;
+			m_scoreboard = new Scoreboard (www.text);
+		}
+	}
 
 	int GetDigitInNumber (float digit, int number) {
 		
@@ -133,9 +142,11 @@ public class ScoreManager : MonoBehaviour
 		m_TotalMailboxes.text = "" + ScoreMailbox.s_totalmailbox + " / " + (s_total);
 
 		//Je check si le joueur a trouvé toutes les boîtes aux lettres
-		if (Mode_selection.m_defaultPlayMode == Mode_selector.MyPlayMode.LEISURE) {
-			if (s_total == ScoreMailbox.s_totalmailbox)
+		if (Mode_selector.m_defaultPlayMode == Mode_selector.MyPlayMode.LEISURE) {
+			if ((s_total == ScoreMailbox.s_totalmailbox) && (!onceleisure)) {
 				theendings.LeisureEnding ();
+				onceleisure = true;
+			}
 		}
 
 		//L'affichage du temps pour le mode histoire et les autres modes
@@ -149,7 +160,7 @@ public class ScoreManager : MonoBehaviour
 		int minutes = 0;
 		int seconds = 0;
 				
-		if (Mode_selection.m_defaultPlayMode != Mode_selector.MyPlayMode.POINTS) {
+		if (Mode_selector.m_defaultPlayMode != Mode_selector.MyPlayMode.POINTS) {
 			minutes = (int)(m_timeElapsed / 60);
 			seconds = (int)m_timeElapsed - minutes * 60;
 		} else {

@@ -1611,7 +1611,7 @@ MonoBehaviour:
   m_target: {fileID: 0}
   m_nextTarget: {fileID: 0}
   sensrotation: 0
-  m_rotationSpeed: 135
+  m_rotationSpeed: 120
   m_front: {fileID: 4938485034844682}
   m_animatorSpeedModifier: 1.25
   dontrotateonstart: 0

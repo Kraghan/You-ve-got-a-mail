@@ -13,7 +13,7 @@ public class Mode_selector : MonoBehaviour {
 		STORY
 	}
 
-	public MyPlayMode m_defaultPlayMode = MyPlayMode.POINTS;
+	public static MyPlayMode m_defaultPlayMode = MyPlayMode.NULL;
 	public Text Text_points, Text_story, Text_leisure;
 	public RectTransform Aiguille_Points, Aiguille_Leisure, Aiguille_Story;
 	public KeybordController m_Controller_Mouse;
@@ -31,6 +31,8 @@ public class Mode_selector : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		m_defaultPlayMode = MyPlayMode.NULL;
 		LeCompteur = this.GetComponent<SpeedMeter> ();
 		Mail_Coordinator = Coordinator.GetComponent<MailboxCoordinator> ();
 		TheScoreManager = Coordinator.GetComponent<ScoreManager> ();
@@ -53,6 +55,7 @@ public class Mode_selector : MonoBehaviour {
 			LeCompteur.m_transform = Aiguille_Leisure;
 
 			if (!doonce) {
+				
 				//Je désactive une partie des piétons et voitures
 				Transform[] all_movers = entities.GetComponentsInChildren<Transform>();
 				foreach (Transform mover in all_movers) {
@@ -62,9 +65,11 @@ public class Mode_selector : MonoBehaviour {
 						if (Random.Range (0, 5) < 4)
 							//Je destroy pas parce que sinon ça bug avec les listes déjà crées avec les robots dedans
 							mover.gameObject.SetActive (false);
-					}
-						
+					}						
 				}
+
+				//Je charge les boites aux lettres déjà livrées dans la sauvegarde
+				GetComponent<Load>().Load_Leisure_Mailboxes();
 
 				doonce = true;
 				m_Controller_VR.SetPanne (false);

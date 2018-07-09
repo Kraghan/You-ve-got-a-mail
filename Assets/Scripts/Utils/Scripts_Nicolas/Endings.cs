@@ -24,6 +24,9 @@ public class Endings : MonoBehaviour {
 
 	public void LeisureEnding() {
 
+		//Je débloque le vélo doré pour le joueur
+		PlayerPrefs.SetFloat ("Velodor", 1f);
+
 		MeshRenderer[] levelo = GetComponentsInChildren<MeshRenderer> ();
 
 		foreach (MeshRenderer boutdvelo in levelo) {

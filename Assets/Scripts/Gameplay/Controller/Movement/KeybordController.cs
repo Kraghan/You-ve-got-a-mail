@@ -61,6 +61,9 @@ public class KeybordController : MonoBehaviour {
 		god.XSensitivity = slider.value;
 		god.YSensitivity = slider.value;
 
+		//Je crée le fichier de sauvegarde
+		PlayerPrefs.SetFloat("MouseSensibility", slider.value);
+
 	}
 
 	public void SetPanne (bool panne) {

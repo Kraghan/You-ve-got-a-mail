@@ -247,6 +247,8 @@ public class PlayerController : MonoBehaviour {
     public void SetSensibility(Slider slider)
     {
         m_sensibility = slider.maxValue - slider.value + slider.minValue;
+		//Je crée le fichier de sauvegarde
+		PlayerPrefs.SetFloat("Sensibility", slider.value);
     }
 
     public void Recalibrate()

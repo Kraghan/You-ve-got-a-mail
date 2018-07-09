@@ -14,7 +14,7 @@ public class ScoreMailbox : MonoBehaviour {
     float m_secondsScore = 5;
 	public int m_Score = 1000;
     VacuumMailBox m_mailbox;
-    bool m_alreadyAdded = false;
+    public bool m_alreadyAdded = false;
 
 	//fonction pour le restart
 	private void Awake () {

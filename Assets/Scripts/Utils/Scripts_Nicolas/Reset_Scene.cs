@@ -18,7 +18,8 @@ public class Reset_Scene : MonoBehaviour {
 	public void ResetMeForChristSake () {
 
 		//Je reset l'Arduino
-		GetComponent<PlayerController> ().OnRestart ();
+		if (GetComponent<PlayerController> () != null)
+			GetComponent<PlayerController> ().OnRestart ();
 		//Je recharge la scène
 		SceneManager.LoadScene (0);
 

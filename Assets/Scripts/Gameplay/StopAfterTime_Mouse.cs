@@ -28,7 +28,7 @@ public class StopAfterTime_Mouse : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-		if((m_manager.GetTime() >= 600) && (m_manager.Mode_selection.m_defaultPlayMode == Mode_selector.MyPlayMode.POINTS))
+		if((m_manager.GetTime() >= 600) && (Mode_selector.m_defaultPlayMode == Mode_selector.MyPlayMode.POINTS))
 		{
 			if (!onceagainonce) {
 				onceagainonce = true;

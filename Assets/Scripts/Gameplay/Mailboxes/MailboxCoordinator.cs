@@ -39,7 +39,7 @@ public class MailboxCoordinator : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		if (The_mode.m_defaultPlayMode == Mode_selector.MyPlayMode.STORY) {
+		if (Mode_selector.m_defaultPlayMode == Mode_selector.MyPlayMode.STORY) {
 			if (m_aVacuumMailboxes [m_activeMailbox].IsDelivered ()) {
 				if (m_activeMailbox < m_aVacuumMailboxes.Length - 1) {
 					m_activeMailbox++;
