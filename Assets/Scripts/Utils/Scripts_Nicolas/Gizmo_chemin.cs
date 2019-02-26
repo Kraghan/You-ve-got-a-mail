@@ -26,7 +26,7 @@ public class Gizmo_chemin : MonoBehaviour {
 			Gizmos.DrawLine (noeuds [i - 1].position, noeuds [i].position);
 		}
 
-		if (!GetComponent<Generation_procedurale>().Pasderniertrait)
+		if (!GetComponent<Generation_procedurale>().Générer_sur_le_dernier_trait)
 		//Je trace le dernier trait (entre le dernier point et le premier)
 		Gizmos.DrawLine (noeuds [chemin.childCount - 1].position, noeuds [0].position);
 	}

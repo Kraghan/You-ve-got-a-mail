@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Texture_random : MonoBehaviour {
 
-	public Material[] Couleurs;
-	public Transform All_buildings;
-	public Transform All_objects;
-	public float maxscale;
+    //public Transform All_objects;
+
+    public Material[] Couleurs_aléatoires;
+	public Transform Tous_les_bâtiments;
+	public float Facteur_hauteur_maximum;
 
 	// Use this for initialization
 	void Start () {
@@ -17,7 +18,7 @@ public class Texture_random : MonoBehaviour {
 	//Fonction de couleurs aléatoires dans notre palette
 	public void Color_them_all () {
 		
-		Transform[] Bat_all = All_buildings.GetComponentsInChildren<Transform> ();
+		Transform[] Bat_all = Tous_les_bâtiments.GetComponentsInChildren<Transform> ();
 
         foreach (Transform lebat in Bat_all) {
 
@@ -27,7 +28,7 @@ public class Texture_random : MonoBehaviour {
                 //Debug.Log("Ancien" + lebat.GetComponent<Renderer>().sharedMaterials[0]);
 
                 //Je choisis une couleur aléatoire
-                Material lacouleur = Couleurs[Random.Range(0, Couleurs.Length)];
+                Material lacouleur = Couleurs_aléatoires[Random.Range(0, Couleurs_aléatoires.Length)];
 
                 //Je récupère ses matériaux
                 Material[] mesmats = lebat.GetComponent<Renderer>().sharedMaterials;
@@ -85,10 +86,11 @@ public class Texture_random : MonoBehaviour {
 		}
 	}
 
+    /*
 	//Fonction saruman du fun
 	public void Saruman_the_multicolored () {
 
-		Transform[] Bat_all = All_buildings.GetComponentsInChildren<Transform> ();
+		Transform[] Bat_all = Tous_les_bâtiments.GetComponentsInChildren<Transform> ();
 
 		foreach (Transform lebat in Bat_all) {
 
@@ -107,24 +109,26 @@ public class Texture_random : MonoBehaviour {
 			}		
 		}
 	}
+    */
 
 	//Fonction de couleurs aléatoires dans notre palette
 	public void Change_height () {
 
-		Transform[] Bat_all = All_buildings.GetComponentsInChildren<Transform> ();
+		Transform[] Bat_all = Tous_les_bâtiments.GetComponentsInChildren<Transform> ();
 
 		foreach (Transform lebat in Bat_all) {
 
 			if (lebat.name == "Batiment") {
 
 				//Je lui donne une hauteur aléatoire entre 1 et 1.2
-				Vector3 newscale = new Vector3 (lebat.transform.localScale.x, 1 + (Random.value * (maxscale - 1)), lebat.transform.localScale.z);
+				Vector3 newscale = new Vector3 (lebat.transform.localScale.x, 1 + (Random.value * (Facteur_hauteur_maximum - 1)), lebat.transform.localScale.z);
 				lebat.transform.localScale = newscale;
 
 			}
 		}
 	}
 
+    /*
 	public void Rotate_them_all () {
 
 		Transform[] Obj_All = All_objects.GetComponentsInChildren<Transform> ();
@@ -141,4 +145,5 @@ public class Texture_random : MonoBehaviour {
 			}
 		}
 	}
+    */
 }

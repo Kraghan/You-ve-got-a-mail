@@ -6,29 +6,37 @@ using UnityEditor;
 
 public class Generation_procedurale : MonoBehaviour {
 
-	public Object[] Mobilier;
-	public GameObject Parent_Poteaux;
-	public GameObject Chemin;
-	//La distance entre chaque poteau
+    //public GameObject Parent_Poteaux;
+    //public GameObject Chemin;
+    //La distance entre chaque poteau
+    //public GameObject Parent_Buildings;
+
+    [Header("Correction du chemin")]
+    public bool Noeud_final_concave;
+
+    [Header("Création de chemin internes/externes")]
+    public float Distance = 3;
+    public bool Chemin_interne;
+
+    [Header("Génération mobilier urbain")]
+    public Object[] Mobilier_urbain;
 	public float Distance_séparation = 3;
 	public float Décalage_initial = 0;
-	public Vector3 Décalage_rotation;
-	public bool straight = true;
-	public bool Pasderniertrait = false;
+	public Vector3 Rotation_mobilier;
+	public bool Aligner_mobilier_avec_pentes = true;
+	public bool Générer_sur_le_dernier_trait = false;
 
-	public float Agrandissement_chemin = 3;
-	public bool Rétrécissement;
-	public bool Construction_Extérieur;
+    [Header("Construction bâtiments")]
+    public bool Extérieur_du_Chemin;
 
-	public bool invfin;
+    [Header("Rotation des bâtiments")]
+    public GameObject Tous_les_bâtiments;
+    public string Taille_batiment_à_tourner;
 
-	public GameObject Parent_Buildings;
+    [Header("Création des gardes-fous")]
+    public GameObject Garde_fou;
 
-	public GameObject Tous_Buildings;
-
-    public string Building_to_Rotate;
-
-	private Transform chemin;
+    private Transform chemin;
 	private Transform[] noeuds;
 	private float length;
 	private Vector3 spawnPoint;
@@ -47,8 +55,9 @@ public class Generation_procedurale : MonoBehaviour {
 	private int randrot;
 	private bool tryagain = true;
 	private Vector3 centrebat;
+    private Vector3 toground;
 
-	private int sens;
+    private int sens;
 
 	private bool jelaveuxencore = true;
 	private int securite, securite2, securite3;
@@ -67,6 +76,17 @@ public class Generation_procedurale : MonoBehaviour {
 		}
 		
 	}
+
+    public void Rename_Nodes (GameObject path)
+    {
+        Transform[] lesnoeuds = path.GetComponentsInChildren<Transform>();
+
+        for (int i = 0; i <lesnoeuds.Length; i++)
+        {
+            if (lesnoeuds[i].tag != "Chemin")
+            lesnoeuds[i].name = "Noeud (" + i + ")";
+        }
+    }
 
 	public void Correc_Path () {
 
@@ -117,7 +137,7 @@ public class Generation_procedurale : MonoBehaviour {
 				arctemp = Vector3.Normalize (vecafter) * 4;
 				//Je rajoute le point
 				GameObject newnode = new GameObject ();
-				newnode.name = "Noeud " + (chemin.childCount + 1);
+				newnode.name = "Noeud (temp)";
 				newnode.transform.parent = chemin;
 				newnode.transform.SetSiblingIndex (i + 1);
 				newnode.transform.position = noeuds [i].position + arctemp;
@@ -188,7 +208,7 @@ public class Generation_procedurale : MonoBehaviour {
 		//Le vecteur normalisé perpendiculaire au précédent qui va vers la position désirée du noeud cherché
 		Vector3 zvec = Vector3.zero;
 			
-		if (invfin)
+		if (Noeud_final_concave)
 			zvec = Vector3.Normalize(Vector3.Cross(Vector3.up, xvec));
 		else
 			zvec = Vector3.Normalize(Vector3.Cross(Vector3.down, xvec));
@@ -199,6 +219,8 @@ public class Generation_procedurale : MonoBehaviour {
 		//Je dis que j'ai pas a recommencer la fonction
 		jelaveuxencore = false;
 
+        //Je renomme les noeuds correctement
+        Rename_Nodes(chemin.gameObject);
 	}
 
 	public void GrowPath () {
@@ -215,14 +237,22 @@ public class Generation_procedurale : MonoBehaviour {
 		}
 
 		//Si je veux faire le rétrécissement, j'inverse le sens de ma génération de chemin
-		if (Rétrécissement)
+		if (Chemin_interne)
 			sens = -1;
 		else
 			sens = 1;
-		
-		//J'instancie le parent vide au niveau du premier point en tant que prefab
-		leparent = Instantiate(Chemin, noeuds [0].position, Quaternion.identity);
-		if (Rétrécissement)
+
+        //J'instancie le parent vide au niveau du premier point en tant que prefab
+        Generation_procedurale lageneration = this.GetComponent<Generation_procedurale>();
+        leparent = new GameObject();
+        leparent.transform.position = noeuds[0].position;
+        leparent.transform.rotation = Quaternion.identity;
+        UnityEditorInternal.ComponentUtility.CopyComponent(lageneration);
+        UnityEditorInternal.ComponentUtility.PasteComponentAsNew(leparent);
+        leparent.AddComponent<Gizmo_chemin>();
+        leparent.tag = "Chemin";
+
+		if (Chemin_interne)
 			leparent.name = chemin.name + " rétréci";
 		else
 			leparent.name = chemin.name + " agrandi";
@@ -262,13 +292,13 @@ public class Generation_procedurale : MonoBehaviour {
 		growpath = Vector3.Normalize (growpath);
 
 		//Je fais le calcul permettant de trouver sa longueur
-		float y = Agrandissement_chemin / Mathf.Abs(Mathf.Sin(Mathf.Deg2Rad * Vector3.Angle(nextpath,previouspath)));
+		float y = Distance / Mathf.Abs(Mathf.Sin(Mathf.Deg2Rad * Vector3.Angle(nextpath,previouspath)));
 		growpath = 2 * growpath * y * Mathf.Abs(Mathf.Cos(Mathf.Deg2Rad * Vector3.Angle(nextpath,growpath)));
 
 		//Je génère le nouveau noeud du chemin à son emplacement
 		GameObject newnode = new GameObject();
 		newnode.transform.parent = leparent.transform;
-		newnode.name = "Noeud " + i;
+		newnode.name = "Noeud (" + (i + 1) + ")";
 		newnode.transform.position = noeuds [i].position + growpath;
 
 	}
@@ -292,24 +322,27 @@ public class Generation_procedurale : MonoBehaviour {
 				//Le point où je vais faire poper mon poteau
 				spawnPoint = noeuds [i].position + (j * arctemp * Distance_séparation) - (restedist * arctemp);
 
-				if (!straight) {
+				if (Aligner_mobilier_avec_pentes) {
 					//Je fais un raycast pour que ce soit propre
 					RaycastHit monray;
 					Physics.Raycast((spawnPoint + Vector3.up), Vector3.down, out monray);
-					//L'angle que je veux pour le poteau
-					anglequat = Quaternion.LookRotation (arctemp,monray.normal);
+                    //L'angle que je veux pour le poteau
+                    Vector3 perpente = Vector3.Cross(monray.normal, arctemp);
+                    Vector3 pente = Vector3.Cross(monray.normal, perpente);
+                    anglequat = Quaternion.LookRotation (pente,monray.normal);
+                    toground = (Vector3.down * monray.distance) + Vector3.up;
 				}
 
 				else {
 					//L'angle que je veux pour le poteau
 					angle = Vector3.Cross (Vector3.down, arctemp);
 					angle = new Vector3 (0, Vector3.SignedAngle (Vector3.right, angle, Vector3.up), 0);
-					angle = angle + Décalage_rotation;
+					angle = angle + Rotation_mobilier;
 				}
 
 				//J'instancie le poteau en tant que prefab
-				int variete = nb_variations % Mobilier.Length;
-				poteauclone = PrefabUtility.InstantiatePrefab (Mobilier [variete]) as GameObject;
+				int variete = nb_variations % Mobilier_urbain.Length;
+				poteauclone = PrefabUtility.InstantiatePrefab (Mobilier_urbain [variete]) as GameObject;
 
 				//Je lui dit de passer au gameobject suivant dans la liste des gameobjects
 				nb_variations++;
@@ -318,10 +351,15 @@ public class Generation_procedurale : MonoBehaviour {
 				poteauclone.name = "Poteau_" + (lespoteaux.Length + 1) + "_" + (leparent.transform.childCount + 1);
 				poteauclone.transform.parent = leparent.transform;
 				poteauclone.transform.position = spawnPoint;
-				if (!straight)
-					poteauclone.transform.rotation = Quaternion.Euler (Décalage_rotation) * anglequat;
-				else
-					poteauclone.transform.rotation = Quaternion.Euler (angle);
+                if (Aligner_mobilier_avec_pentes)
+                {
+                    poteauclone.transform.rotation = anglequat;
+                    poteauclone.transform.position += toground;
+                }
+                else
+                {
+                    poteauclone.transform.rotation = Quaternion.Euler(angle);
+                }
 
 			}
 		}
@@ -350,8 +388,9 @@ public class Generation_procedurale : MonoBehaviour {
 			noeuds [i] = chemin.GetChild (i);
 		}
 
-		//J'instancie le parent vide au niveau du premier point
-		leparent = Instantiate (Parent_Poteaux, noeuds[0].position, Quaternion.identity);
+        //J'instancie le parent vide au niveau du premier point
+        leparent = new GameObject();
+        leparent.transform.position = noeuds[0].position;
 		leparent.name = "Parent_Poteaux " + (lespoteaux.Length + 1);
 
 		//Je précise qu'il y a eu aucune variation pour le moment
@@ -363,7 +402,7 @@ public class Generation_procedurale : MonoBehaviour {
 
 		}
 
-		if (!Pasderniertrait)
+		if (!Générer_sur_le_dernier_trait)
 		//J'instancie le dernier poteau
 		Instantiate_pylones (chemin.childCount - 1, 0);
 
@@ -414,9 +453,9 @@ public class Generation_procedurale : MonoBehaviour {
 			spawnPoint = noeuds [i].position + (sommebat * 2 * arctemp);
 			
 			//L'angle que je veux pour le bâtiment
-			if (!Construction_Extérieur)
+			if (!Extérieur_du_Chemin)
 			angle = new Vector3 (0, Vector3.SignedAngle (arctemp, Vector3.right, Vector3.down), 0);
-			if (Construction_Extérieur)
+			if (Extérieur_du_Chemin)
 				angle = new Vector3 (0, Vector3.SignedAngle (arctemp, Vector3.right, Vector3.down) + 90, 0);
 
 			//J'instancie le bâtiment en tant que prefab
@@ -485,8 +524,10 @@ public class Generation_procedurale : MonoBehaviour {
 			noeuds [i] = chemin.GetChild (i);
 		}
 
-		//J'instancie le parent vide au niveau du premier point
-		leparent = Instantiate (Parent_Buildings, noeuds[0].position, Quaternion.identity);
+        //J'instancie le parent vide au niveau du premier point
+        leparent = new GameObject(); 
+        leparent.transform.parent = Tous_les_bâtiments.transform;
+        leparent.transform.position = noeuds[0].position;
 		leparent.name = "Parent_Buildings " + (lesbuildings.Length + 1);
 
 		for (int i = 0; i < chemin.childCount-1; i++) {
@@ -504,11 +545,11 @@ public class Generation_procedurale : MonoBehaviour {
 	{
 		Vector3 centre = new Vector3 (10, 10, 10);
 
-		Transform[] Bat_all = Tous_Buildings.GetComponentsInChildren<Transform> ();
+		Transform[] Bat_all = Tous_les_bâtiments.GetComponentsInChildren<Transform> ();
 
 		foreach (Transform lebat in Bat_all) {
 
-			if ((lebat.name == "Batiment") && (lebat.tag == Building_to_Rotate)){
+			if ((lebat.name == "Batiment") && (lebat.tag == Taille_batiment_à_tourner)){
 
 				//Je trouve les coordonnées locales du centre de rotation
 				Transform[] Bat_int = lebat.GetComponentsInChildren<Transform>();
@@ -548,8 +589,9 @@ public class Generation_procedurale : MonoBehaviour {
 			noeuds [i] = chemin.GetChild (i);
 		}
 
-		//J'instancie le parent vide au niveau du premier point
-		leparent = Instantiate (Parent_Poteaux, noeuds[0].position, Quaternion.identity);
+        //J'instancie le parent vide au niveau du premier point
+        leparent = new GameObject();
+        leparent.transform.position = noeuds[0].position;
 		leparent.name = "Parent_Garde-Fous " + (lespoteaux.Length + 1);
 
 		for (int i = 0; i < chemin.childCount-1; i++) {
@@ -572,8 +614,8 @@ public class Generation_procedurale : MonoBehaviour {
 		Quaternion anglequat = Quaternion.LookRotation (arctemp);
 
 		//J'instancie le poteau en tant que prefab
-		int variete = nb_variations % Mobilier.Length;
-		poteauclone = PrefabUtility.InstantiatePrefab (Mobilier [variete]) as GameObject;
+		//int variete = nb_variations % Mobilier_urbain.Length;
+		poteauclone = PrefabUtility.InstantiatePrefab (Garde_fou) as GameObject;
 
 		//Je lui dit de passer au gameobject suivant dans la liste des gameobjects
 		nb_variations++;
@@ -582,7 +624,7 @@ public class Generation_procedurale : MonoBehaviour {
 		poteauclone.name = "Garde_Fou_" + (lespoteaux.Length + 1) + "_" + (leparent.transform.childCount + 1);
 		poteauclone.transform.parent = leparent.transform;
 		poteauclone.transform.position = spawnPoint;
-		poteauclone.transform.rotation = Quaternion.Euler (Décalage_rotation) * anglequat;
+		poteauclone.transform.rotation = Quaternion.Euler (Rotation_mobilier) * anglequat;
 
 		//Je rescale le prefab à la bonne longeur
 		float scalez = arctempfull.magnitude;

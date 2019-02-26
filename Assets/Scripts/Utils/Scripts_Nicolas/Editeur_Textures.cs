@@ -13,21 +13,25 @@ public class Editeur_Textures : Editor {
 
 		Texture_random myScript = (Texture_random)target;
 
-		if (GUILayout.Button ("Changer_Textures")) {
+		if (GUILayout.Button ("Couleurs aléatoires")) {
 			myScript.Color_them_all ();
 		}
 
+        /*
 		if (GUILayout.Button ("Trollolo_Saruman")) {
 			myScript.Saruman_the_multicolored ();
 		}
+        */
 
-		if (GUILayout.Button ("Random_Height")) {
+		if (GUILayout.Button ("Hauteurs aléatoires")) {
 			myScript.Change_height ();
 		}
 
+        /*
 		if (GUILayout.Button ("Random_Rotation")) {
 			myScript.Rotate_them_all ();
 		}
+        */
 
 	}
 }
